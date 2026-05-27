@@ -1,0 +1,115 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e4]:
+      - link "NTT DATA" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "NTT DATA" [ref=e6]
+      - generic [ref=e7]:
+        - navigation "Main navigation" [ref=e8]:
+          - generic [ref=e9]:
+            - link "PROGRAM OVERVIEW" [ref=e11] [cursor=pointer]:
+              - /url: "#program-overview"
+            - link "BENEFITS" [ref=e14] [cursor=pointer]:
+              - /url: "#benefits"
+            - link "TIMELINE" [ref=e17] [cursor=pointer]:
+              - /url: "#timeline"
+            - link "CONTACT" [ref=e20] [cursor=pointer]:
+              - /url: "#contact"
+        - generic [ref=e21]:
+          - link "VIEW PROBLEM STATEMENTS" [ref=e22] [cursor=pointer]:
+            - /url: "#problem-statements"
+          - link "REGISTER" [ref=e23] [cursor=pointer]:
+            - /url: "#register"
+    - generic [ref=e24]:
+      - img "Tokyo cityscape at night" [ref=e25]
+      - generic:
+        - img
+      - generic [ref=e28]:
+        - heading "NTT OPEN INNOVATION WEEK" [level=1] [ref=e29]:
+          - generic [ref=e30]: NTT OPEN
+          - generic [ref=e31]: INNOVATION WEEK
+        - paragraph [ref=e32]: We are looking at innovative Startup solutions that address business challenges and solve societal issues.
+        - link "REGISTER" [ref=e33] [cursor=pointer]:
+          - /url: "#register"
+    - generic [ref=e35]:
+      - img "NTT DATA headquarters cityscape" [ref=e36]
+      - generic [ref=e38]:
+        - heading "ABOUT NTT DATA" [level=2] [ref=e39]
+        - paragraph [ref=e40]: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    - generic [ref=e42]:
+      - heading "BENEFIT FROM NTT OPEN INNOVATION WEEK" [level=2] [ref=e43]
+      - paragraph [ref=e44]: Offers startups access to industry expertise, funding of pilots, global visibility and commercial collaboration opportunities
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - img "POC Funding" [ref=e48]
+            - generic [ref=e50]: BENEFIT 1
+            - heading "POC FUNDING" [level=3] [ref=e52]
+          - paragraph [ref=e53]:
+            - text: Proof of Concept (POC) funding of up to
+            - strong [ref=e54]: USD 30,000
+            - text: to help turn ideas into reality.
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - img "Expert Mentorship" [ref=e57]
+            - generic [ref=e59]: BENEFIT 2
+            - heading "EXPERT MENTORSHIP" [level=3] [ref=e61]
+          - paragraph [ref=e62]:
+            - text: Guidance from
+            - strong [ref=e63]: NTT DATA innovation leaders
+            - text: ", offering strategic advice and insights to help accelerate scaling."
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - img "Commercial Collaboration" [ref=e66]
+            - generic [ref=e68]: BENEFIT 3
+            - heading "COMMERCIAL COLLABORATION" [level=3] [ref=e70]
+          - paragraph [ref=e71]:
+            - text: The opportunity to build
+            - strong [ref=e72]: integrated offerings
+            - text: and bring solutions to market together.
+    - generic [ref=e73]:
+      - heading "PROGRAM OVERVIEW" [level=2] [ref=e75]
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - img "Workshops" [ref=e79]
+          - generic [ref=e81]:
+            - heading "WORKSHOPS" [level=3] [ref=e82]
+            - paragraph [ref=e83]: Co-creation sessions between customers and startups with support from SMEs and a moderator.
+        - generic [ref=e84]:
+          - img "Cultural Activity" [ref=e85]
+          - generic [ref=e87]:
+            - heading "CULTURAL ACTIVITY" [level=3] [ref=e88]
+            - paragraph [ref=e89]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        - generic [ref=e90]:
+          - img "Matching Sessions" [ref=e91]
+          - generic [ref=e93]:
+            - heading "MATCHING SESSIONS" [level=3] [ref=e94]
+            - paragraph [ref=e95]: Matching sessions between prepared startups and NTT opcos for new business development.
+        - generic [ref=e96]:
+          - img "Pitch Battle" [ref=e97]
+          - generic [ref=e99]:
+            - heading "PITCH BATTLE" [level=3] [ref=e100]
+            - paragraph [ref=e101]: Customer/startup teams present their solutions.
+        - generic [ref=e102]:
+          - img "Workshops" [ref=e103]
+          - generic [ref=e105]:
+            - heading "WORKSHOPS" [level=3] [ref=e106]
+            - paragraph [ref=e107]: Co-creation sessions between customers and startups with support from SMEs and a moderator.
+        - generic [ref=e108]:
+          - img "Cultural Activity" [ref=e109]
+          - generic [ref=e111]:
+            - heading "CULTURAL ACTIVITY" [level=3] [ref=e112]
+            - paragraph [ref=e113]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        - generic [ref=e114]:
+          - img "Matching Sessions" [ref=e115]
+          - generic [ref=e117]:
+            - heading "MATCHING SESSIONS" [level=3] [ref=e118]
+            - paragraph [ref=e119]: Matching sessions between prepared startups and NTT opcos for new business development.
+        - generic [ref=e120]:
+          - img "Pitch Battle" [ref=e121]
+          - generic [ref=e123]:
+            - heading "PITCH BATTLE" [level=3] [ref=e124]
+            - paragraph [ref=e125]: Customer/startup teams present their solutions.
+  - button "Open Next.js Dev Tools" [ref=e131] [cursor=pointer]:
+    - img [ref=e132]
+  - alert [ref=e135]

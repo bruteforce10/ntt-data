@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-05-27T03:19:26.171Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/hero.tsx",
+      "root_cause": "Had \"@/components/ui/button\"",
+      "fix": "Changed to \"@/lib/utils\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T03:19:26.171Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-05-27T03:19:31.453Z",
+      "error_message": "CSS fix: hover",
+      "file": "components/hero.tsx",
+      "root_cause": "hover: bg-[#2560c8] text-white\" → bg-[#2560c8] text-white border-0\"",
+      "fix": "Changed hover: bg-[#2560c8] text-white\" → bg-[#2560c8] text-white border-0\"",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-27T03:23:12.026Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-05-27T03:51:05.073Z",
+      "error_message": "CSS fix: variant, hover",
+      "file": "components/navbar.tsx",
+      "root_cause": "variant: \"outline\" → \"outline\", size: \"icon-lg\"; hover: bg-white hover:text-[#0e1421]\" → bg-white/10\"",
+      "fix": "Changed variant: \"outline\" → \"outline\", size: \"icon-lg\"; hover: bg-white hover:text-[#0e1421]\" → bg-white/10\"",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T03:51:05.073Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-05-27T03:51:33.210Z",
+      "error_message": "CSS fix: fontSize, md, hover",
+      "file": "components/hero.tsx",
+      "root_cause": "fontSize: \"clamp(2.8rem, 5.5vw, 5.5rem)\", → \"clamp(2.45rem, 9vw, 5.5rem)\",; md: text-lg leading-relaxed mb-10 max-w-[560px]\"> → text-lg\">; hover: bg-[#2560c8] text-white border-0\" → bg-[#2560c8]\"",
+      "fix": "Changed fontSize: \"clamp(2.8rem, 5.5vw, 5.5rem)\", → \"clamp(2.45rem, 9vw, 5.5rem)\",; md: text-lg leading-relaxed mb-10 max-w-[560px]\"> → text-lg\">; hover: bg-[#2560c8] text-white border-0\" → bg-[#2560c8]\"",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T03:51:33.210Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-05-27T04:18:39.930Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/hero.tsx",
+      "root_cause": "Had \"object-contain object-bottom lg:object-center\"",
+      "fix": "Changed to \"object-contain object-bottom\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T04:18:39.930Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-05-27T04:25:32.340Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/hero.tsx",
+      "root_cause": "Had \"pointer-events-none absolute inset-y-0 right-[-35",
+      "fix": "Changed to \"pointer-events-none absolute inset-y-0 right-[-35",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T04:25:32.340Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-05-27T04:50:57.583Z",
+      "error_message": "Type error",
+      "file": "lib/site-content.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T04:50:57.583Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-05-27T07:24:39.849Z",
+      "error_message": "Significant refactor of ",
+      "file": "lib/site-content.ts",
+      "root_cause": "9 lines replaced/restructured",
+      "fix": "Rewrote 30→6 lines (9 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T07:24:39.849Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-05-27T07:49:04.874Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/countdown.tsx",
+      "root_cause": "Had \"rounded-2xl border border-white/20 bg-white/10 px",
+      "fix": "Changed to \"rounded-2xl border border-white/10 bg-[#0a1a3a]/6",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T07:49:04.874Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-27T08:02:50.697Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Had \"flex flex-col justify-between gap-4 rounded-2xl b",
+      "fix": "Changed to \"flex flex-col justify-between gap-4 rounded-2xl b",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T08:02:50.697Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-05-27T08:09:02.384Z",
+      "error_message": "Significant refactor of ",
+      "file": "lib/site-content.ts",
+      "root_cause": "18 lines replaced/restructured",
+      "fix": "Rewrote 68→74 lines (18 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T08:09:02.384Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-05-27T08:10:21.579Z",
+      "error_message": "Null/undefined access in ",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T08:10:21.579Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-05-27T08:16:13.232Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Had \"gap-0 overflow-hidden p-0 sm:rounded-2xl\"",
+      "fix": "Changed to \"w-full max-w-5xl gap-0 overflow-hidden p-0 sm:rou",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T08:16:13.232Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-27T08:25:12.328Z",
+      "error_message": "CSS fix: sm, hover",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "sm: max-h-[560px] sm:px-10 sm:pt-14\"> → max-h-[560px] sm:px-10 sm:pt-12\">; hover: opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2\" /> → bg-[#0d2d6b]\">",
+      "fix": "Changed sm: max-h-[560px] sm:px-10 sm:pt-14\"> → max-h-[560px] sm:px-10 sm:pt-12\">; hover: opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2\" /> → bg-[#0d2d6b]\">",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T08:25:12.328Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-27T08:53:46.765Z",
+      "error_message": "Significant refactor of ",
+      "file": "app/startup-registration/page.tsx",
+      "root_cause": "15 lines replaced/restructured",
+      "fix": "Rewrote 27→15 lines (15 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T08:53:46.765Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-05-27T09:06:08.605Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Had \"@/components/ui/input\"",
+      "fix": "Changed to \"next/image\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T09:06:08.605Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-05-27T09:06:40.062Z",
+      "error_message": "Type error",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-27T09:06:40.062Z"
+    }
+  ]
+}

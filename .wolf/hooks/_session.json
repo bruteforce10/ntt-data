@@ -1,0 +1,69 @@
+{
+  "session_id": "session-2026-05-27-1556",
+  "started": "2026-05-27T08:56:23.461Z",
+  "files_read": {
+    "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx": {
+      "count": 3,
+      "tokens": 1276,
+      "first_read": "2026-05-27T08:58:01.510Z"
+    }
+  },
+  "files_written": [
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 0,
+      "at": "2026-05-27T08:58:46.268Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 82,
+      "at": "2026-05-27T08:58:53.056Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "create",
+      "tokens": 1266,
+      "at": "2026-05-27T09:05:03.255Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 32,
+      "at": "2026-05-27T09:06:08.601Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 43,
+      "at": "2026-05-27T09:06:22.330Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 95,
+      "at": "2026-05-27T09:06:27.494Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 597,
+      "at": "2026-05-27T09:06:40.052Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 118,
+      "at": "2026-05-27T15:41:16.786Z"
+    }
+  ],
+  "edit_counts": {
+    "components/startup-registration-form.tsx": 8
+  },
+  "anatomy_hits": 1,
+  "anatomy_misses": 0,
+  "repeated_reads_warned": 2,
+  "cerebrum_warnings": 0,
+  "stop_count": 4
+}
