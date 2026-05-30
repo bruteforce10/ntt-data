@@ -147,3 +147,28 @@
 | 16:06 | Session end: 7 writes across 1 files (startup-registration-form.tsx) | 1 reads | ~3391 tok |
 | 22:41 | Edited components/startup-registration-form.tsx | modified slice() | ~118 |
 | 22:41 | Session end: 8 writes across 1 files (startup-registration-form.tsx) | 1 reads | ~3509 tok |
+
+## Session: 2026-05-30 07:21
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:36 | Edited app/api/ntt-data/route.ts | added 2 condition(s) | ~506 |
+| 10:36 | Edited components/startup-registration-form.tsx | reduced (-15 lines) | ~154 |
+| 10:37 | Session end: 2 writes across 2 files (route.ts, startup-registration-form.tsx) | 2 reads | ~2662 tok |
+| 10:38 | Edited components/startup-registration-form.tsx | added 10 condition(s) | ~365 |
+| 10:38 | Session end: 3 writes across 2 files (route.ts, startup-registration-form.tsx) | 2 reads | ~3027 tok |
+| 10:40 | Session end: 3 writes across 2 files (route.ts, startup-registration-form.tsx) | 2 reads | ~3027 tok |
+| 10:44 | Edited components/startup-registration-form.tsx | CSS: https | ~122 |
+| 10:44 | Session end: 4 writes across 2 files (route.ts, startup-registration-form.tsx) | 2 reads | ~3149 tok |
+| 10:47 | Edited components/startup-registration-form.tsx | modified handleSubmit() | ~55 |
+| 10:47 | Edited components/startup-registration-form.tsx | inline fix | ~6 |
+| 10:47 | Session end: 6 writes across 2 files (route.ts, startup-registration-form.tsx) | 2 reads | ~3210 tok |
+| 10:47 | Session end: 6 writes across 2 files (route.ts, startup-registration-form.tsx) | 2 reads | ~3210 tok |
+
+## Session: 2026-05-30 11:21
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:22 | Edited components/startup-registration-form.tsx | min() → setSuccessOpen() | ~462 |
+| 04:22 | Fix success dialog: proper max-w, icon SVG, readable text size, Done button | components/startup-registration-form.tsx | done | ~200 |
+| 11:22 | Session end: 1 writes across 1 files (startup-registration-form.tsx) | 1 reads | ~5733 tok |

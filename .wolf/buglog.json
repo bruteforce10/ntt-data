@@ -272,6 +272,54 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-27T09:06:40.062Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-05-30T03:36:57.658Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "14 lines replaced/restructured",
+      "fix": "Rewrote 29→14 lines (14 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-30T03:36:57.658Z"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-05-30T03:44:54.665Z",
+      "error_message": "CSS fix: website",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "website: website || undefined, → normalizedWebsite,",
+      "fix": "Changed website: website || undefined, → normalizedWebsite,",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-30T03:44:54.665Z"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-05-30T04:22:13.209Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "8 lines replaced/restructured",
+      "fix": "Rewrote 17→33 lines (8 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-30T04:22:13.209Z"
     }
   ]
 }

@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 107737,
-    "total_reads": 67,
-    "total_writes": 138,
-    "total_sessions": 11,
-    "anatomy_hits": 39,
-    "anatomy_misses": 19,
+    "total_tokens_estimated": 133757,
+    "total_reads": 82,
+    "total_writes": 163,
+    "total_sessions": 13,
+    "anatomy_hits": 47,
+    "anatomy_misses": 26,
     "repeated_reads_blocked": 9,
-    "estimated_savings_vs_bare_cli": 16153
+    "estimated_savings_vs_bare_cli": 17753
   },
   "sessions": [
     {
@@ -1526,6 +1526,356 @@
         "reads_count": 1,
         "writes_count": 8,
         "repeated_reads_blocked": 2,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-30-0721",
+      "started": "2026-05-30T00:21:50.700Z",
+      "ended": "2026-05-30T03:27:20.475Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 2002,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 2002,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-30-0721",
+      "started": "2026-05-30T00:21:50.700Z",
+      "ended": "2026-05-30T03:37:04.200Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 2002,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 506,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 154,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2002,
+        "output_tokens_estimated": 660,
+        "reads_count": 2,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-30-0721",
+      "started": "2026-05-30T00:21:50.700Z",
+      "ended": "2026-05-30T03:38:55.955Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 2002,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 506,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 154,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 365,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2002,
+        "output_tokens_estimated": 1025,
+        "reads_count": 2,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-30-0721",
+      "started": "2026-05-30T00:21:50.700Z",
+      "ended": "2026-05-30T03:40:40.588Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 2002,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 506,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 154,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 365,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2002,
+        "output_tokens_estimated": 1025,
+        "reads_count": 2,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-30-0721",
+      "started": "2026-05-30T00:21:50.700Z",
+      "ended": "2026-05-30T03:44:58.564Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 2002,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 506,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 154,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 365,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 122,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2002,
+        "output_tokens_estimated": 1147,
+        "reads_count": 2,
+        "writes_count": 4,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-30-0721",
+      "started": "2026-05-30T00:21:50.700Z",
+      "ended": "2026-05-30T03:47:34.881Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 2002,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 506,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 154,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 365,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 122,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 55,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 6,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2002,
+        "output_tokens_estimated": 1208,
+        "reads_count": 2,
+        "writes_count": 6,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-30-0721",
+      "started": "2026-05-30T00:21:50.700Z",
+      "ended": "2026-05-30T03:47:47.774Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 2002,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 506,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 154,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 365,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 122,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 55,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 6,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2002,
+        "output_tokens_estimated": 1208,
+        "reads_count": 2,
+        "writes_count": 6,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-30-1121",
+      "started": "2026-05-30T04:21:01.414Z",
+      "ended": "2026-05-30T04:22:33.728Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 5271,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 462,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 5271,
+        "output_tokens_estimated": 462,
+        "reads_count": 1,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
       }
     }

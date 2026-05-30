@@ -32,32 +32,40 @@ export default function ProblemOverview() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
           {problemOverview.items.map((item, i) => (
-            <div
+            <article
               key={i}
-              className="flex flex-col justify-between gap-4 rounded-2xl bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 backdrop-blur-sm p-6 border border-white/5"
+              role="button"
+              tabIndex={0}
+              onClick={() => setSelected(item)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setSelected(item);
+                }
+              }}
+              className="group cursor-pointer rounded-2xl border border-white/5 bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 p-6 backdrop-blur-sm transition duration-200 ease-out hover:border-white/20 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3176e4]"
             >
-              <div className="flex items-center gap-5">
-                <div className="relative h-14 w-50 flex-shrink-0">
-                  <Image
-                    src={item.logo.src}
-                    alt={item.logo.alt}
-                    fill
-                    className="object-contain object-left"
-                  />
+              <div className="flex flex-col justify-between gap-4">
+                <div className="flex items-center gap-5">
+                  <div className="relative h-14 w-50 flex-shrink-0">
+                    <Image
+                      src={item.logo.src}
+                      alt={item.logo.alt}
+                      fill
+                      className="object-contain object-left"
+                    />
+                  </div>
+                  <p className="text-sm leading-relaxed max-w-[250px] text-white">
+                    {item.description}
+                  </p>
                 </div>
-                <p className="text-sm leading-relaxed max-w-[250px] text-white">
-                  {item.description}
-                </p>
+                <div className="flex justify-end">
+                  <span className="text-xs font-semibold text-white transition-colors duration-200 group-hover:underline">
+                    View detail...
+                  </span>
+                </div>
               </div>
-              <div className="flex justify-end">
-                <button
-                  onClick={() => setSelected(item)}
-                  className="text-xs font-semibold text-white hover:underline"
-                >
-                  View detail...
-                </button>
-              </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

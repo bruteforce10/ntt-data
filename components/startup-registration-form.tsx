@@ -2,10 +2,17 @@
 
 import * as React from "react";
 import Image from "next/image";
+import { Info } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -18,17 +25,64 @@ import { SITE_CONTENT } from "@/lib/site-content";
 const { problemOverview } = SITE_CONTENT;
 
 const BUSINESS_MODES = ["Startup", "Partner"] as const;
-const HEAR_ABOUT_US = ["Instagram", "Email", "TikTok", "LinkedIn"] as const;
+type BusinessMode = (typeof BUSINESS_MODES)[number];
+const HEAR_ABOUT_US = [
+  "Instagram",
+  "Email",
+  "TikTok",
+  "LinkedIn",
+  "Others",
+] as const;
+type HearAboutUs = (typeof HEAR_ABOUT_US)[number];
+type ErrorKey =
+  | "firstName"
+  | "lastName"
+  | "email"
+  | "phoneNumber"
+  | "jobTitle"
+  | "startupName"
+  | "website"
+  | "businessMode"
+  | "country"
+  | "city"
+  | "problemStatement"
+  | "hearAboutUs"
+  | "hearAboutUsOther";
+type FormErrors = Partial<Record<ErrorKey, string>>;
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function isValidUrl(value: string) {
+  try {
+    if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(value)) {
+      const url = new URL(value);
+      return url.protocol === "http:" || url.protocol === "https:";
+    }
+
+    if (/^www\./i.test(value)) {
+      new URL(`https://${value}`);
+      return true;
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
+}
 
 function Field({
   label,
   id,
   full,
+  error,
   children,
 }: {
   label: string;
   id?: string;
   full?: boolean;
+  error?: string;
   children: React.ReactNode;
 }) {
   const hasAsterisk = label.endsWith(" *");
@@ -41,105 +95,399 @@ function Field({
         {hasAsterisk && <span className="text-red-500"> *</span>}
       </Label>
       <div className="mt-1.5">{children}</div>
+      {error && (
+        <p className="mt-1.5 text-xs font-medium text-red-500">{error}</p>
+      )}
     </div>
   );
 }
 
 export default function StartupRegistrationForm() {
   const [selectedProblems, setSelectedProblems] = React.useState<number[]>([]);
+  const [problemStatement, setProblemStatement] = React.useState("");
+  const [businessMode, setBusinessMode] = React.useState<BusinessMode | null>(
+    null,
+  );
+  const [hearAboutUs, setHearAboutUs] = React.useState<HearAboutUs | null>(
+    null,
+  );
+  const [hearAboutUsOther, setHearAboutUsOther] = React.useState("");
+  const [errors, setErrors] = React.useState<FormErrors>({});
+  const [formError, setFormError] = React.useState("");
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [successOpen, setSuccessOpen] = React.useState(false);
 
   function toggleProblem(i: number) {
-    setSelectedProblems((prev) =>
-      prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]
+    const nextSelectedProblems = selectedProblems.includes(i)
+      ? selectedProblems.filter((x) => x !== i)
+      : [...selectedProblems, i];
+
+    setSelectedProblems(nextSelectedProblems);
+    setProblemStatement(
+      nextSelectedProblems
+        .map((problemIndex) => problemOverview.items[problemIndex].title)
+        .join(", "),
     );
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setFormError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const getValue = (name: string) => String(formData.get(name) ?? "").trim();
+    const firstName = getValue("firstName");
+    const lastName = getValue("lastName");
+    const email = getValue("email");
+    const phoneNumber = getValue("phoneNumber");
+    const jobTitle = getValue("jobTitle");
+    const startupName = getValue("startupName");
+    const website = getValue("website");
+    const country = getValue("country");
+    const city = getValue("city");
+    const companyAddress = getValue("companyAddress");
+    const nextErrors: FormErrors = {};
+
+    if (!firstName) nextErrors.firstName = "First name is required.";
+    if (!lastName) nextErrors.lastName = "Last name is required.";
+    if (!email) {
+      nextErrors.email = "Email is required.";
+    } else if (!isValidEmail(email)) {
+      nextErrors.email = "Use a valid email address.";
+    }
+    if (phoneNumber && !/^\+?[\d\s()-]+$/.test(phoneNumber)) {
+      nextErrors.phoneNumber = "Use a valid phone number.";
+    }
+    if (!jobTitle) nextErrors.jobTitle = "Job title is required.";
+    if (!startupName) nextErrors.startupName = "Startup name is required.";
+    if (website && !isValidUrl(website)) {
+      nextErrors.website = "Use a valid URL, including https://.";
+    }
+    if (!businessMode) nextErrors.businessMode = "Business mode is required.";
+    if (!country) nextErrors.country = "Country is required.";
+    if (!city) nextErrors.city = "City is required.";
+    if (!problemStatement) {
+      nextErrors.problemStatement = "Select at least one problem statement.";
+    }
+    if (!hearAboutUs) {
+      nextErrors.hearAboutUs = "Please select an option.";
+    }
+    if (hearAboutUs === "Others" && !hearAboutUsOther.trim()) {
+      nextErrors.hearAboutUsOther = "Please specify where you heard about us.";
+    }
+
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const normalizedWebsite = website
+      ? /^www\./i.test(website)
+        ? `https://${website}`
+        : website
+      : undefined;
+
+    const payload = {
+      full_name: `${firstName} ${lastName}`.trim(),
+      email,
+      phone_number: phoneNumber
+        ? Number(phoneNumber.replace(/[^\d]/g, ""))
+        : undefined,
+      job_title: jobTitle,
+      startup_name: startupName,
+      website: normalizedWebsite,
+      business_mode: businessMode?.toLowerCase(),
+      country,
+      city,
+      company_address: companyAddress || undefined,
+      problem_statement: problemStatement,
+      did_you_hear_about_us:
+        hearAboutUs === "Others" ? hearAboutUsOther.trim() : hearAboutUs,
+    };
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/ntt-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null);
+        throw new Error(
+          result?.message || "Registration failed. Please try again.",
+        );
+      }
+
+      form.reset();
+      setSelectedProblems([]);
+      setProblemStatement("");
+      setBusinessMode(null);
+      setHearAboutUs(null);
+      setHearAboutUsOther("");
+      setSuccessOpen(true);
+    } catch (error) {
+      setFormError(
+        error instanceof Error
+          ? error.message
+          : "Registration failed. Please try again.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
-        <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="First Name *" id="firstName">
-            <Input id="firstName" placeholder="First name" required />
-          </Field>
+    <>
+      <form onSubmit={handleSubmit} noValidate>
+        <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <Field label="First Name *" id="firstName" error={errors.firstName}>
+              <Input
+                id="firstName"
+                name="firstName"
+                placeholder="First name"
+                required
+                aria-invalid={Boolean(errors.firstName)}
+              />
+            </Field>
 
-          <Field label="Last Name *" id="lastName">
-            <Input id="lastName" placeholder="Last name" required />
-          </Field>
+            <Field label="Last Name *" id="lastName" error={errors.lastName}>
+              <Input
+                id="lastName"
+                name="lastName"
+                placeholder="Last name"
+                required
+                aria-invalid={Boolean(errors.lastName)}
+              />
+            </Field>
 
-          <Field label="Email *" id="email">
-            <Input
-              id="email"
-              type="email"
-              placeholder="email@example.com"
-              required
-            />
-          </Field>
+            <Field label="Email *" id="email" error={errors.email}>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="email@example.com"
+                required
+                aria-invalid={Boolean(errors.email)}
+              />
+            </Field>
 
-          <Field label="Phone Number" id="phone">
-            <Input id="phone" type="tel" placeholder="+62 xxx xxxx xxxx" />
-          </Field>
+            <Field label="Phone Number" id="phone" error={errors.phoneNumber}>
+              <Input
+                id="phone"
+                name="phoneNumber"
+                type="tel"
+                placeholder="+62 xxx xxxx xxxx"
+                aria-invalid={Boolean(errors.phoneNumber)}
+              />
+            </Field>
 
-          <Field label="Job Title *" id="jobTitle">
-            <Input id="jobTitle" placeholder="e.g. CEO, CTO" required />
-          </Field>
+            <Field label="Job Title *" id="jobTitle" error={errors.jobTitle}>
+              <Input
+                id="jobTitle"
+                name="jobTitle"
+                placeholder="e.g. CEO, CTO"
+                required
+                aria-invalid={Boolean(errors.jobTitle)}
+              />
+            </Field>
 
-          <Field label="Startup Name *" id="startupName">
-            <Input id="startupName" placeholder="Your startup name" required />
-          </Field>
+            <Field
+              label="Startup Name *"
+              id="startupName"
+              error={errors.startupName}
+            >
+              <Input
+                id="startupName"
+                name="startupName"
+                placeholder="Your startup name"
+                required
+                aria-invalid={Boolean(errors.startupName)}
+              />
+            </Field>
 
-          <Field label="Website" id="website">
-            <Input id="website" type="url" placeholder="https://" />
-          </Field>
+            <Field label="Website" id="website" error={errors.website}>
+              <Input
+                id="website"
+                name="website"
+                type="text"
+                placeholder="https:// or www.example.com"
+                aria-invalid={Boolean(errors.website)}
+              />
+            </Field>
 
-          <Field label="Business Mode *">
-            <Select>
-              <SelectTrigger>
-                <SelectValue placeholder="Select business mode" />
-              </SelectTrigger>
-              <SelectContent>
-                {BUSINESS_MODES.map((m) => (
-                  <SelectItem key={m} value={m}>
-                    {m}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </Field>
+            <Field
+              label="Business Mode *"
+              id="businessMode"
+              error={errors.businessMode}
+            >
+              <Select
+                id="businessMode"
+                name="businessMode"
+                required
+                value={businessMode}
+                onValueChange={(value) =>
+                  setBusinessMode(value as BusinessMode | null)
+                }
+              >
+                <SelectTrigger
+                  className="w-full"
+                  aria-invalid={Boolean(errors.businessMode)}
+                >
+                  <SelectValue placeholder="Select business mode" />
+                </SelectTrigger>
+                <SelectContent>
+                  {BUSINESS_MODES.map((m) => (
+                    <SelectItem key={m} value={m}>
+                      {m}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Field>
 
-          <Field label="Country *" id="country">
-            <Input id="country" placeholder="Country" required />
-          </Field>
+            <Field label="Country *" id="country" error={errors.country}>
+              <Input
+                id="country"
+                name="country"
+                placeholder="Country"
+                required
+                aria-invalid={Boolean(errors.country)}
+              />
+            </Field>
 
-          <Field label="City *" id="city">
-            <Input id="city" placeholder="City" required />
-          </Field>
+            <Field label="City *" id="city" error={errors.city}>
+              <Input
+                id="city"
+                name="city"
+                placeholder="City"
+                required
+                aria-invalid={Boolean(errors.city)}
+              />
+            </Field>
 
-          <Field label="Company Address" id="companyAddress" full>
-            <Textarea
-              id="companyAddress"
-              placeholder="Enter your company address..."
-              rows={3}
-              className="resize-none"
-            />
-          </Field>
+            <Field label="Company Address" id="companyAddress" full>
+              <Textarea
+                id="companyAddress"
+                name="companyAddress"
+                placeholder="Enter your company address..."
+                rows={3}
+                className="resize-none"
+              />
+            </Field>
+          </div>
+        </div>
 
-          <Field label="Problem Statement *" id="problemStatement" full>
-            <Textarea
+        {/* Problem statement multi-select cards */}
+        <div className="mt-8">
+          <div className="mb-4">
+            <h2 className="text-lg font-bold uppercase tracking-wide text-[#154284]">
+              Problem Statement
+            </h2>
+            <p className="mt-1 text-sm text-gray-500">
+              You may select more than one problem statement.
+            </p>
+          </div>
+          <div className="mb-5 rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+            <Field
+              label="Problem Statement *"
               id="problemStatement"
-              placeholder="Describe the problem your startup is addressing..."
-              required
-              rows={4}
-              className="resize-none"
-            />
-          </Field>
+              error={errors.problemStatement}
+              full
+            >
+              <Textarea
+                id="problemStatement"
+                name="problemStatement"
+                value={problemStatement}
+                placeholder="Select one or more problem statement cards..."
+                required
+                readOnly
+                rows={4}
+                className="resize-none bg-gray-50"
+                aria-invalid={Boolean(errors.problemStatement)}
+              />
+            </Field>
+          </div>
+          {selectedProblems.length > 0 && (
+            <div
+              role="status"
+              className="mb-4 flex gap-3 rounded-xl border border-[#3176E4]/25 bg-[#3176E4]/10 p-4 text-sm text-[#154284]"
+            >
+              <Info className="mt-0.5 size-5 flex-shrink-0" aria-hidden />
+              <p className="font-medium leading-relaxed">
+                Please note that every selected problem statement must be
+                accompanied by a pitch deck
+              </p>
+            </div>
+          )}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {problemOverview.items.map((item, i) => {
+              const isSelected = selectedProblems.includes(i);
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => toggleProblem(i)}
+                  className={[
+                    "relative flex flex-col gap-3 rounded-2xl border-2 bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 p-6 text-left backdrop-blur-sm transition-all",
+                    isSelected
+                      ? "border-[#3176E4] ring-2 ring-[#3176E4]/30"
+                      : "border-transparent hover:border-white/20",
+                  ].join(" ")}
+                >
+                  {isSelected && (
+                    <span className="absolute right-4 top-4 flex h-6 w-6 items-center justify-center rounded-full bg-[#3176E4] text-xs font-bold text-white">
+                      {selectedProblems.indexOf(i) + 1}
+                    </span>
+                  )}
+                  <div className="relative h-8 w-32 flex-shrink-0">
+                    <Image
+                      src={item.logo.src}
+                      alt={item.logo.alt}
+                      fill
+                      className="object-contain object-left"
+                    />
+                  </div>
+                  <p className="text-sm font-semibold leading-snug text-white">
+                    {item.title}
+                  </p>
+                  <p className="text-xs leading-relaxed text-white/70">
+                    {item.description}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
-          <Field label="How Did You Hear About Us? *" full>
-            <Select>
-              <SelectTrigger>
+        <div className="mt-8 rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+          <Field
+            label="How Did You Hear About Us? *"
+            id="hearAboutUs"
+            error={errors.hearAboutUs}
+            full
+          >
+            <Select
+              id="hearAboutUs"
+              name="hearAboutUs"
+              required
+              value={hearAboutUs}
+              onValueChange={(value) => {
+                const nextValue = value as HearAboutUs | null;
+                setHearAboutUs(nextValue);
+                if (nextValue !== "Others") setHearAboutUsOther("");
+              }}
+            >
+              <SelectTrigger
+                className="w-full"
+                aria-invalid={Boolean(errors.hearAboutUs)}
+              >
                 <SelectValue placeholder="Select an option" />
               </SelectTrigger>
               <SelectContent>
@@ -151,67 +499,78 @@ export default function StartupRegistrationForm() {
               </SelectContent>
             </Select>
           </Field>
-        </div>
-      </div>
 
-      {/* Problem statement multi-select cards */}
-      <div className="mt-8">
-        <div className="mb-4">
-          <h2 className="text-lg font-bold uppercase tracking-wide text-[#154284]">
-            Problem Statement
-          </h2>
-          <p className="mt-1 text-sm text-gray-500">
-            You may select more than one problem statement.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {problemOverview.items.map((item, i) => {
-            const isSelected = selectedProblems.includes(i);
-            return (
-              <button
-                key={i}
-                type="button"
-                onClick={() => toggleProblem(i)}
-                className={[
-                  "relative flex flex-col gap-3 rounded-2xl border-2 bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 p-6 text-left backdrop-blur-sm transition-all",
-                  isSelected
-                    ? "border-[#3176E4] ring-2 ring-[#3176E4]/30"
-                    : "border-transparent hover:border-white/20",
-                ].join(" ")}
+          {hearAboutUs === "Others" && (
+            <div className="mt-5">
+              <Field
+                label="Please Specify *"
+                id="hearAboutUsOther"
+                error={errors.hearAboutUsOther}
+                full
               >
-                {isSelected && (
-                  <span className="absolute right-4 top-4 flex h-6 w-6 items-center justify-center rounded-full bg-[#3176E4] text-xs font-bold text-white">
-                    {selectedProblems.indexOf(i) + 1}
-                  </span>
-                )}
-                <div className="relative h-8 w-32 flex-shrink-0">
-                  <Image
-                    src={item.logo.src}
-                    alt={item.logo.alt}
-                    fill
-                    className="object-contain object-left"
-                  />
-                </div>
-                <p className="text-sm font-semibold leading-snug text-white">
-                  {item.title}
-                </p>
-                <p className="text-xs leading-relaxed text-white/70">
-                  {item.description}
-                </p>
-              </button>
-            );
-          })}
+                <Input
+                  id="hearAboutUsOther"
+                  name="hearAboutUsOther"
+                  value={hearAboutUsOther}
+                  onChange={(event) => setHearAboutUsOther(event.target.value)}
+                  placeholder="Tell us where you heard about this program"
+                  required
+                  aria-invalid={Boolean(errors.hearAboutUsOther)}
+                />
+              </Field>
+            </div>
+          )}
         </div>
-      </div>
 
-      <div className="mt-8 flex justify-end pb-4">
-        <Button
-          type="submit"
-          className="rounded-xl bg-[#154284] px-10 py-6 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#0d2d6b]"
-        >
-          Submit Registration
-        </Button>
-      </div>
-    </form>
+        {formError && (
+          <div className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-700">
+            {formError}
+          </div>
+        )}
+
+        <div className="mt-8 flex justify-end pb-4">
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="rounded-xl bg-[#154284] px-10 py-6 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#0d2d6b]"
+          >
+            {isSubmitting ? "Submitting..." : "Submit Registration"}
+          </Button>
+        </div>
+      </form>
+      <Dialog open={successOpen} onOpenChange={setSuccessOpen}>
+        <DialogContent className="max-w-md rounded-2xl bg-white px-8 py-10 text-center shadow-2xl">
+          <div className="mx-auto flex size-20 items-center justify-center rounded-2xl bg-[#3176E4]/10">
+            <svg
+              className="size-10 text-[#3176E4]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.75}
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+              />
+            </svg>
+          </div>
+          <DialogTitle className="mt-6 text-center text-xl font-bold text-gray-900">
+            Thank you for registering!
+          </DialogTitle>
+          <DialogDescription className="mt-2 text-center text-sm leading-relaxed text-gray-500">
+            Please check your email for further details and important
+            information regarding the next steps.
+          </DialogDescription>
+          <Button
+            className="mt-8 w-full rounded-xl bg-[#154284] py-5 text-sm font-bold uppercase tracking-widest text-white hover:bg-[#0d2d6b]"
+            onClick={() => setSuccessOpen(false)}
+          >
+            Done
+          </Button>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

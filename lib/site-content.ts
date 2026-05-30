@@ -92,10 +92,11 @@ export const SITE_CONTENT = {
       alt: "NTT DATA",
     },
     links: [
+      { label: "HOME", href: "/" },
       { label: "PROGRAM OVERVIEW", href: "#program-overview" },
       { label: "BENEFITS", href: "#benefits" },
-      { label: "TIMELINE", href: "#timeline" },
-      { label: "CONTACT", href: "#contact" },
+      { label: "COUNTDOWN", href: "#countdown" },
+      // { label: "CONTACT", href: "#contact" },
     ],
     actions: [
       {
