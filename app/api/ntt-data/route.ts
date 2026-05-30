@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { transporter, buildRegistrationEmail } from "@/lib/mailer";
 
 const POCKETBASE_URL =
   process.env.POCKETBASE_URL || "https://pb.ntt-startupchallenge.com";
@@ -120,6 +121,31 @@ export async function POST(request: Request) {
         },
         { status: recordResponse.status }
       );
+    }
+
+    if (email && fullName && startupName && problemStatement) {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_BASE_URL || "https://ntt-startupchallenge.com";
+      const { html, text } = buildRegistrationEmail({
+        name: fullName,
+        startupName,
+        problemStatement,
+        email,
+        baseUrl,
+      });
+      await transporter.sendMail({
+        from: `"NTT Open Innovation Week" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+        replyTo: process.env.SMTP_FROM || process.env.SMTP_USER,
+        to: email,
+        subject: "Registration Confirmation - Open Innovation Week",
+        text,
+        html,
+        headers: {
+          "X-Mailer": "NTT-OpenInnovation-Mailer",
+          Precedence: "bulk",
+          "List-Unsubscribe": `<mailto:${process.env.SMTP_FROM || process.env.SMTP_USER}?subject=unsubscribe>`,
+        },
+      });
     }
 
     return NextResponse.json({ record: result }, { status: 201 });

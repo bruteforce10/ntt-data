@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-30T04:22:12.896Z
-> Files: 20 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-30T05:03:52.890Z
+> Files: 21 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -24,7 +24,7 @@
 
 ## app/api/ntt-data/
 
-- `route.ts` — Next.js API route: POST (~1119 tok)
+- `route.ts` — Next.js API route: POST (~1391 tok)
 
 ## app/startup-registration/
 
@@ -40,10 +40,11 @@
 - `navbar.tsx` — getActionClassName (~1294 tok)
 - `problem-overview.tsx` — ProblemOverview — renders modal (~1226 tok)
 - `program-overview.tsx` — ITEM_COUNT (~975 tok)
-- `startup-registration-form.tsx` — BUSINESS_MODES — renders form (~5474 tok)
+- `startup-registration-form.tsx` — BUSINESS_MODES — renders form (~5592 tok)
 
 ## lib/
 
+- `mailer.ts` — Exports transporter, buildRegistrationEmail (~2058 tok)
 - `site-content.ts` — Exports SITE_CONTENT (~3812 tok)
 
 ## public/

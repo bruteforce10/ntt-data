@@ -6,6 +6,31 @@
       "count": 1,
       "tokens": 5271,
       "first_read": "2026-05-30T04:21:38.318Z"
+    },
+    "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts": {
+      "count": 2,
+      "tokens": 1308,
+      "first_read": "2026-05-30T04:51:44.288Z"
+    },
+    "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-30T04:51:48.526Z"
+    },
+    "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-30T04:51:53.773Z"
+    },
+    "/Users/mm/Documents/ntt-data/.env.local": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-30T04:55:01.612Z"
+    },
+    "/Users/mm/Documents/ntt-data/lib/mailer.ts": {
+      "count": 1,
+      "tokens": 2045,
+      "first_read": "2026-05-30T05:03:18.599Z"
     }
   },
   "files_written": [
@@ -14,14 +39,64 @@
       "action": "edit",
       "tokens": 462,
       "at": "2026-05-30T04:22:13.205Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/lib/mailer.ts",
+      "action": "create",
+      "tokens": 2045,
+      "at": "2026-05-30T04:53:53.442Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+      "action": "edit",
+      "tokens": 32,
+      "at": "2026-05-30T04:54:12.675Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+      "action": "edit",
+      "tokens": 192,
+      "at": "2026-05-30T04:54:20.280Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 38,
+      "at": "2026-05-30T04:54:33.517Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 66,
+      "at": "2026-05-30T04:54:41.748Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 163,
+      "at": "2026-05-30T04:54:50.847Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/lib/mailer.ts",
+      "action": "edit",
+      "tokens": 99,
+      "at": "2026-05-30T05:03:40.729Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+      "action": "edit",
+      "tokens": 156,
+      "at": "2026-05-30T05:03:52.992Z"
     }
   ],
   "edit_counts": {
-    "components/startup-registration-form.tsx": 1
+    "components/startup-registration-form.tsx": 4,
+    "lib/mailer.ts": 2,
+    "app/api/ntt-data/route.ts": 3
   },
-  "anatomy_hits": 1,
-  "anatomy_misses": 0,
-  "repeated_reads_warned": 0,
+  "anatomy_hits": 3,
+  "anatomy_misses": 3,
+  "repeated_reads_warned": 1,
   "cerebrum_warnings": 0,
-  "stop_count": 1
+  "stop_count": 5
 }

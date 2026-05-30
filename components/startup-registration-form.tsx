@@ -116,6 +116,7 @@ export default function StartupRegistrationForm() {
   const [formError, setFormError] = React.useState("");
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [successOpen, setSuccessOpen] = React.useState(false);
+  const [registeredEmail, setRegisteredEmail] = React.useState("");
 
   function toggleProblem(i: number) {
     const nextSelectedProblems = selectedProblems.includes(i)
@@ -230,6 +231,7 @@ export default function StartupRegistrationForm() {
       setBusinessMode(null);
       setHearAboutUs(null);
       setHearAboutUsOther("");
+      setRegisteredEmail(email);
       setSuccessOpen(true);
     } catch (error) {
       setFormError(
@@ -564,10 +566,10 @@ export default function StartupRegistrationForm() {
             information regarding the next steps.
           </DialogDescription>
           <Button
-            className="mt-8 w-full rounded-xl bg-[#154284] py-5 text-sm font-bold uppercase tracking-widest text-white hover:bg-[#0d2d6b]"
+            className="mt-2 w-full text-sm bg-blue-600"
             onClick={() => setSuccessOpen(false)}
           >
-            Done
+            Close
           </Button>
         </DialogContent>
       </Dialog>

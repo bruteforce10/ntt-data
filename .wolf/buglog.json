@@ -320,6 +320,38 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-30T04:22:13.209Z"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-05-30T04:54:20.285Z",
+      "error_message": "Missing await",
+      "file": "app/api/ntt-data/route.ts",
+      "root_cause": "Async call without await — returned Promise instead of value",
+      "fix": "Added await to async call",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-30T04:54:20.285Z"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-05-30T04:54:50.852Z",
+      "error_message": "CSS fix: hover",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "hover: bg-[#0d2d6b]\" → text-gray-700\"",
+      "fix": "Changed hover: bg-[#0d2d6b]\" → text-gray-700\"",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-30T04:54:50.852Z"
     }
   ]
 }
