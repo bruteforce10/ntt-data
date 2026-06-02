@@ -118,6 +118,29 @@ export default function StartupRegistrationForm() {
   const [successOpen, setSuccessOpen] = React.useState(false);
   const [registeredEmail, setRegisteredEmail] = React.useState("");
 
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = new URLSearchParams(window.location.search).get("problem");
+    if (!raw) return;
+    const indices = raw
+      .split(",")
+      .map((s) => Number.parseInt(s, 10))
+      .filter(
+        (n) =>
+          Number.isInteger(n) && n >= 0 && n < problemOverview.items.length,
+      );
+    if (indices.length === 0) return;
+    setSelectedProblems(indices);
+    setProblemStatement(
+      indices.map((i) => problemOverview.items[i].title).join(", "),
+    );
+    setTimeout(() => {
+      document
+        .getElementById("problemStatement")
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 150);
+  }, []);
+
   function toggleProblem(i: number) {
     const nextSelectedProblems = selectedProblems.includes(i)
       ? selectedProblems.filter((x) => x !== i)
@@ -448,14 +471,13 @@ export default function StartupRegistrationForm() {
                       {selectedProblems.indexOf(i) + 1}
                     </span>
                   )}
-                  <div className="relative h-8 w-32 flex-shrink-0">
-                    <Image
-                      src={item.logo.src}
-                      alt={item.logo.alt}
-                      fill
-                      className="object-contain object-left"
-                    />
-                  </div>
+                  <Image
+                    src={item.logo.src}
+                    alt={item.logo.alt}
+                    width={item.logo.width}
+                    height={item.logo.height}
+                    className="h-8 w-auto object-contain object-left flex-shrink-0"
+                  />
                   <p className="text-sm font-semibold leading-snug text-white">
                     {item.title}
                   </p>

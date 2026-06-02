@@ -1,15 +1,23 @@
 "use client";
 import * as React from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { SITE_CONTENT } from "@/lib/site-content";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 
 const { problemOverview } = SITE_CONTENT;
 
-type ProblemItem = (typeof problemOverview.items)[number];
-
 export default function ProblemOverview() {
-  const [selected, setSelected] = React.useState<ProblemItem | null>(null);
+  const router = useRouter();
+  const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
+  const selected =
+    selectedIndex !== null ? problemOverview.items[selectedIndex] : null;
+
+  function handleSelectProblem() {
+    if (selectedIndex === null) return;
+    router.push(`/startup-registration?problem=${selectedIndex}`);
+    setSelectedIndex(null);
+  }
 
   return (
     <section
@@ -36,25 +44,24 @@ export default function ProblemOverview() {
               key={i}
               role="button"
               tabIndex={0}
-              onClick={() => setSelected(item)}
+              onClick={() => setSelectedIndex(i)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
-                  setSelected(item);
+                  setSelectedIndex(i);
                 }
               }}
               className="group cursor-pointer rounded-2xl border border-white/5 bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 p-6 backdrop-blur-sm transition duration-200 ease-out hover:border-white/20 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3176e4]"
             >
               <div className="flex flex-col justify-between gap-4">
                 <div className="flex items-center gap-5">
-                  <div className="relative h-14 w-50 flex-shrink-0">
-                    <Image
-                      src={item.logo.src}
-                      alt={item.logo.alt}
-                      fill
-                      className="object-contain object-left"
-                    />
-                  </div>
+                  <Image
+                    src={item.logo.src}
+                    alt={item.logo.alt}
+                    width={item.logo.width}
+                    height={item.logo.height}
+                    className="object-contain object-left flex-shrink-0"
+                  />
                   <p className="text-sm leading-relaxed max-w-[250px] text-white">
                     {item.description}
                   </p>
@@ -72,7 +79,7 @@ export default function ProblemOverview() {
 
       <Dialog
         open={!!selected}
-        onOpenChange={(open) => !open && setSelected(null)}
+        onOpenChange={(open) => !open && setSelectedIndex(null)}
       >
         <DialogContent className="sm:max-w-5xl gap-0 overflow-hidden p-0 sm:rounded-2xl">
           <div className="flex flex-col sm:flex-row">
@@ -81,14 +88,13 @@ export default function ProblemOverview() {
               <div>
                 {selected && (
                   <div className="mb-8 inline-flex items-center justify-center rounded-xl bg-[#154284] px-5 py-3">
-                    <div className="relative h-10 w-36">
-                      <Image
-                        src={selected.logo.src}
-                        alt={selected.logo.alt}
-                        fill
-                        className="object-contain object-left"
-                      />
-                    </div>
+                    <Image
+                      src={selected.logo.src}
+                      alt={selected.logo.alt}
+                      width={selected.logo.width}
+                      height={selected.logo.height}
+                      className="object-contain object-left h-10 w-auto"
+                    />
                   </div>
                 )}
                 <h3 className="text-2xl font-black leading-tight text-gray-900 sm:text-3xl">
@@ -96,7 +102,11 @@ export default function ProblemOverview() {
                 </h3>
               </div>
               <div className="mt-10">
-                <button className="w-full rounded-xl bg-[#154284] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#0d2d6b]">
+                <button
+                  type="button"
+                  onClick={handleSelectProblem}
+                  className="w-full rounded-xl bg-[#154284] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#0d2d6b]"
+                >
                   Select the
                   <br />
                   Problem Statement

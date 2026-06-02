@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-30T05:03:52.890Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-02T13:56:12.321Z
 > Files: 21 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -38,14 +38,14 @@
 - `footer.tsx` — Footer (~394 tok)
 - `hero.tsx` — Hero (~648 tok)
 - `navbar.tsx` — getActionClassName (~1294 tok)
-- `problem-overview.tsx` — ProblemOverview — renders modal (~1226 tok)
+- `problem-overview.tsx` — ProblemOverview — renders modal (~1494 tok)
 - `program-overview.tsx` — ITEM_COUNT (~975 tok)
-- `startup-registration-form.tsx` — BUSINESS_MODES — renders form (~5592 tok)
+- `startup-registration-form.tsx` — BUSINESS_MODES — renders form (~5680 tok)
 
 ## lib/
 
 - `mailer.ts` — Exports transporter, buildRegistrationEmail (~2058 tok)
-- `site-content.ts` — Exports SITE_CONTENT (~3812 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~3986 tok)
 
 ## public/
 

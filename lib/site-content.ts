@@ -4,14 +4,14 @@ export const SITE_CONTENT = {
       src: "/Assets Picture/About NTT.png",
       alt: "NTT DATA headquarters cityscape",
     },
-    title: "ABOUT NTT DATA",
+    title: "ABOUT NTT OPEN INNOVATION PROGRAM",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "Are you a startup ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Programme offers you the chance to collaborate directly with NTT DATA and its clients during a 3-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning team will receive a USD $30,000 reward in Time & Material services to bring their PoC to life. Apply now!",
   },
   benefit: {
-    title: "BENEFIT FROM NTT OPEN INNOVATION WEEK",
+    title: "BENEFIT FROM NTT OPEN INNOVATION PROGRAM",
     subtitle:
-      "Offers startups access to industry expertise, funding of pilots, global visibility and commercial collaboration opportunities",
+      "This program offers startups access to industry expertise, funding of pilots, market access and commercial collaboration opportunities",
     items: [
       {
         number: "BENEFIT 1",
@@ -51,24 +51,24 @@ export const SITE_CONTENT = {
       {
         title: "WORKSHOPS",
         description:
-          "Co-creation sessions between customers and startups with support from SMEs and a moderator.",
+          "Co-creation sessions between customers and startups with support from NTT DATA's",
         image: {
           src: "/Assets Picture/Program overview.png",
           alt: "Workshops",
         },
       },
-      {
-        title: "CULTURAL ACTIVITY",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        image: {
-          src: "/Assets Picture/Program overview (2).png",
-          alt: "Cultural Activity",
-        },
-      },
+      // {
+      //   title: "CULTURAL ACTIVITY",
+      //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      //   image: {
+      //     src: "/Assets Picture/Program overview (2).png",
+      //     alt: "Cultural Activity",
+      //   },
+      // },
       {
         title: "MATCHING SESSIONS",
         description:
-          "Matching sessions between prepared startups and NTT opcos for new business development.",
+          "Matching sessions between shortlisted startups and NTT DATA customers",
         image: {
           src: "/Assets Picture/Program overview (3).png",
           alt: "Matching Sessions",
@@ -116,9 +116,9 @@ export const SITE_CONTENT = {
       src: "/Ornament/Ornament.png",
       alt: "",
     },
-    title: ["NTT OPEN", "INNOVATION WEEK"],
+    title: ["NTT DATA OPEN", "INNOVATION PROGRAM"],
     description:
-      "We are looking at innovative Startup solutions that address business challenges and solve societal issues.",
+      "We are looking at innovative technology solutions that address business challenges and solve societal issues.",
     action: { label: "REGISTER", href: "#register" },
   },
   countdown: {
@@ -137,7 +137,12 @@ export const SITE_CONTENT = {
     },
     items: [
       {
-        logo: { src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png", alt: "Client" },
+        logo: {
+          src: "/Logo/oiw-logo.png",
+          alt: "Client",
+          width: 150,
+          height: 48,
+        },
         title: "AI-Driven Supply Chain Resilience",
         description:
           "How can we leverage AI-driven analytics to optimize supply chain resilience and reduce operational costs in volatile markets?",
@@ -146,7 +151,12 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
-        logo: { src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png", alt: "Client" },
+        logo: {
+          src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
+          alt: "Client",
+          width: 200,
+          height: 56,
+        },
         title: "Seamless Digital Customer Experience",
         description:
           "How might we create seamless digital customer experiences that reduce friction and increase engagement across all touchpoints?",
@@ -156,8 +166,10 @@ export const SITE_CONTENT = {
       },
       {
         logo: {
-          src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
+          src: "/Logo/NTT Holding white.png",
           alt: "NTT DATA",
+          width: 160,
+          height: 80,
         },
         title: "Edge Computing & Real-Time Intelligence",
         description:
@@ -166,66 +178,66 @@ export const SITE_CONTENT = {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Nullam imperdiet tempus iaculis. Fusce quam nisl, pretium eget volutpat ut, imperdiet non ipsum. Vestibulum quis mi elementum, ornare ante sit amet, euismod leo.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar.\n\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget mi quis massa venenatis gravida sed a massa. Aliquam malesuada nunc eget ante laoreet, ullamcorper ornare ipsum lacinia.",
         href: "#problem-statements",
       },
-      {
-        logo: {
-          src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
-          alt: "NTT DATA",
-        },
-        title: "Sustainable Digital Infrastructure",
-        description:
-          "How can we build sustainable digital infrastructure that aligns with net-zero goals while maintaining business continuity?",
-        fullDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Quisque nisi urna, lobortis sit amet efficitur at, faucibus non augue.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar. Ut fermentum purus ut felis sodales, vitae tincidunt est tempor. In hac habitasse platea dictumst.\n\nPraesent a velit in est consequat porta. Nulla pellentesque imperdiet aliquet. Maecenas pretium, enim non bibendum tincidunt, lacus sem ornare enim.",
-        href: "#problem-statements",
-      },
-      {
-        logo: {
-          src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
-          alt: "NTT Holding",
-        },
-        title: "Bridging the Digital Divide",
-        description:
-          "How might we develop innovative solutions that bridge the digital divide and enable inclusive access to technology across communities?",
-        fullDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Nullam imperdiet tempus iaculis. Fusce quam nisl, pretium eget volutpat ut, imperdiet non ipsum.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum.\n\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget mi quis massa venenatis gravida sed a massa.",
-        href: "#problem-statements",
-      },
-      {
-        logo: {
-          src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
-          alt: "NTT Holding",
-        },
-        title: "Enterprise Workflow Automation",
-        description:
-          "How can we use data and automation to transform legacy enterprise workflows into agile, insight-driven operations?",
-        fullDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Quisque nisi urna, lobortis sit amet efficitur at, faucibus non augue. Nullam imperdiet tempus iaculis.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar. Ut fermentum purus ut felis sodales.\n\nPraesent a velit in est consequat porta. Nulla pellentesque imperdiet aliquet. Maecenas pretium, enim non bibendum tincidunt.",
-        href: "#problem-statements",
-      },
-      {
-        logo: {
-          src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
-          alt: "Open Innovation Week",
-        },
-        title: "Next-Gen Cybersecurity Solutions",
-        description:
-          "How can startups co-create scalable solutions with NTT partners to address emerging cybersecurity threats in a hyper-connected world?",
-        fullDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Nullam imperdiet tempus iaculis. Fusce quam nisl, pretium eget volutpat ut.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar.\n\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget mi quis massa venenatis gravida sed a massa. Aliquam malesuada nunc eget ante laoreet.",
-        href: "#problem-statements",
-      },
-      {
-        logo: {
-          src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
-          alt: "NTT DATA",
-        },
-        title: "Digital Health Platform Innovation",
-        description:
-          "How might we reimagine healthcare delivery through digital health platforms that improve patient outcomes and reduce system costs?",
-        fullDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Quisque nisi urna, lobortis sit amet efficitur at, faucibus non augue.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar. Ut fermentum purus ut felis sodales, vitae tincidunt est tempor.\n\nPraesent a velit in est consequat porta. Nulla pellentesque imperdiet aliquet. Maecenas pretium, enim non bibendum tincidunt, lacus sem ornare enim, a sagittis nisl ipsum vel enim.",
-        href: "#problem-statements",
-      },
+      // {
+      //   logo: {
+      //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
+      //     alt: "NTT DATA",
+      //   },
+      //   title: "Sustainable Digital Infrastructure",
+      //   description:
+      //     "How can we build sustainable digital infrastructure that aligns with net-zero goals while maintaining business continuity?",
+      //   fullDescription:
+      //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Quisque nisi urna, lobortis sit amet efficitur at, faucibus non augue.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar. Ut fermentum purus ut felis sodales, vitae tincidunt est tempor. In hac habitasse platea dictumst.\n\nPraesent a velit in est consequat porta. Nulla pellentesque imperdiet aliquet. Maecenas pretium, enim non bibendum tincidunt, lacus sem ornare enim.",
+      //   href: "#problem-statements",
+      // },
+      // {
+      //   logo: {
+      //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
+      //     alt: "NTT Holding",
+      //   },
+      //   title: "Bridging the Digital Divide",
+      //   description:
+      //     "How might we develop innovative solutions that bridge the digital divide and enable inclusive access to technology across communities?",
+      //   fullDescription:
+      //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Nullam imperdiet tempus iaculis. Fusce quam nisl, pretium eget volutpat ut, imperdiet non ipsum.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum.\n\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget mi quis massa venenatis gravida sed a massa.",
+      //   href: "#problem-statements",
+      // },
+      // {
+      //   logo: {
+      //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
+      //     alt: "NTT Holding",
+      //   },
+      //   title: "Enterprise Workflow Automation",
+      //   description:
+      //     "How can we use data and automation to transform legacy enterprise workflows into agile, insight-driven operations?",
+      //   fullDescription:
+      //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Quisque nisi urna, lobortis sit amet efficitur at, faucibus non augue. Nullam imperdiet tempus iaculis.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar. Ut fermentum purus ut felis sodales.\n\nPraesent a velit in est consequat porta. Nulla pellentesque imperdiet aliquet. Maecenas pretium, enim non bibendum tincidunt.",
+      //   href: "#problem-statements",
+      // },
+      // {
+      //   logo: {
+      //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
+      //     alt: "Open Innovation Week",
+      //   },
+      //   title: "Next-Gen Cybersecurity Solutions",
+      //   description:
+      //     "How can startups co-create scalable solutions with NTT partners to address emerging cybersecurity threats in a hyper-connected world?",
+      //   fullDescription:
+      //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Nullam imperdiet tempus iaculis. Fusce quam nisl, pretium eget volutpat ut.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar.\n\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget mi quis massa venenatis gravida sed a massa. Aliquam malesuada nunc eget ante laoreet.",
+      //   href: "#problem-statements",
+      // },
+      // {
+      //   logo: {
+      //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
+      //     alt: "NTT DATA",
+      //   },
+      //   title: "Digital Health Platform Innovation",
+      //   description:
+      //     "How might we reimagine healthcare delivery through digital health platforms that improve patient outcomes and reduce system costs?",
+      //   fullDescription:
+      //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Quisque nisi urna, lobortis sit amet efficitur at, faucibus non augue.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar. Ut fermentum purus ut felis sodales, vitae tincidunt est tempor.\n\nPraesent a velit in est consequat porta. Nulla pellentesque imperdiet aliquet. Maecenas pretium, enim non bibendum tincidunt, lacus sem ornare enim, a sagittis nisl ipsum vel enim.",
+      //   href: "#problem-statements",
+      // },
     ],
   },
 } as const;

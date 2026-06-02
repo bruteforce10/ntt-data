@@ -185,3 +185,37 @@
 | 12:03 | Edited lib/mailer.ts | 11→14 lines | ~99 |
 | 12:03 | Edited app/api/ntt-data/route.ts | expanded (+6 lines) | ~156 |
 | 12:04 | Session end: 9 writes across 3 files (startup-registration-form.tsx, mailer.ts, route.ts) | 6 reads | ~11877 tok |
+
+## Session: 2026-05-31 11:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-02 20:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:27 | Edited lib/site-content.ts | 2→2 lines | ~28 |
+| 20:27 | Edited lib/site-content.ts | inline fix | ~31 |
+| 20:27 | Edited lib/site-content.ts | 4→5 lines | ~40 |
+| 20:27 | Edited components/problem-overview.tsx | "relative h-14 w-50 flex-s" → "relative flex-shrink-0 ${" | ~26 |
+| 20:27 | Session end: 4 writes across 2 files (site-content.ts, problem-overview.tsx) | 2 reads | ~5163 tok |
+| 20:32 | Edited lib/site-content.ts | 5→6 lines | ~43 |
+| 20:32 | Edited lib/site-content.ts | 5→6 lines | ~50 |
+| 20:32 | Edited lib/site-content.ts | 5→6 lines | ~46 |
+| 20:32 | Edited components/problem-overview.tsx | CSS: width, height | ~54 |
+| 20:32 | Session end: 8 writes across 2 files (site-content.ts, problem-overview.tsx) | 2 reads | ~5356 tok |
+| 20:44 | Edited lib/site-content.ts | 6→6 lines | ~38 |
+| 20:44 | Edited lib/site-content.ts | 6→6 lines | ~44 |
+| 20:44 | Edited lib/site-content.ts | 6→6 lines | ~41 |
+| 20:44 | Edited components/problem-overview.tsx | reduced (-7 lines) | ~147 |
+| 20:45 | Edited components/problem-overview.tsx | 12→11 lines | ~145 |
+| 20:46 | Session end: 13 writes across 2 files (site-content.ts, problem-overview.tsx) | 2 reads | ~5959 tok |
+| 20:51 | Edited components/problem-overview.tsx | added 1 condition(s) | ~205 |
+| 20:51 | Edited components/problem-overview.tsx | setSelected() → setSelectedIndex() | ~77 |
+| 20:51 | Edited components/problem-overview.tsx | setSelected() → setSelectedIndex() | ~32 |
+| 20:51 | Edited components/problem-overview.tsx | 7→11 lines | ~132 |
+| 20:52 | Edited components/startup-registration-form.tsx | added optional chaining | ~254 |
+| 20:52 | Session end: 18 writes across 3 files (site-content.ts, problem-overview.tsx, startup-registration-form.tsx) | 3 reads | ~12251 tok |
+| 20:56 | Edited components/startup-registration-form.tsx | 8→7 lines | ~86 |
+| 20:56 | Session end: 19 writes across 3 files (site-content.ts, problem-overview.tsx, startup-registration-form.tsx) | 3 reads | ~12337 tok |

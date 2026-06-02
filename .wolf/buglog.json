@@ -352,6 +352,86 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-30T04:54:50.852Z"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-06-02T13:27:36.437Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Had \"relative h-14 w-50 flex-shrink-0\"",
+      "fix": "Changed to `relative flex-shrink-0 ${item.logo.containerClass",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02T13:27:36.437Z"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-06-02T13:32:44.810Z",
+      "error_message": "Type error",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02T13:32:44.810Z"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-06-02T13:51:18.551Z",
+      "error_message": "Null/undefined access in ",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02T13:51:18.551Z"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-06-02T13:51:36.724Z",
+      "error_message": "CSS fix: hover",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "hover: bg-[#0d2d6b]\"> → bg-[#0d2d6b]\"",
+      "fix": "Changed hover: bg-[#0d2d6b]\"> → bg-[#0d2d6b]\"",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02T13:51:36.724Z"
+    },
+    {
+      "id": "bug-027",
+      "timestamp": "2026-06-02T13:52:32.835Z",
+      "error_message": "Null/undefined access in ",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-02T13:52:32.835Z"
     }
   ]
 }

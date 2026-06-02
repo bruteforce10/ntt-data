@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 173798,
-    "total_reads": 103,
-    "total_writes": 193,
-    "total_sessions": 13,
-    "anatomy_hits": 56,
+    "total_tokens_estimated": 214864,
+    "total_reads": 115,
+    "total_writes": 255,
+    "total_sessions": 15,
+    "anatomy_hits": 63,
     "anatomy_misses": 38,
-    "repeated_reads_blocked": 10,
-    "estimated_savings_vs_bare_cli": 20861
+    "repeated_reads_blocked": 13,
+    "estimated_savings_vs_bare_cli": 34261
   },
   "sessions": [
     {
@@ -2221,6 +2221,473 @@
         "writes_count": 9,
         "repeated_reads_blocked": 1,
         "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-06-02-2009",
+      "started": "2026-06-02T13:09:41.367Z",
+      "ended": "2026-06-02T13:27:40.941Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 1226,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 3812,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 28,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 40,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 5038,
+        "output_tokens_estimated": 125,
+        "reads_count": 2,
+        "writes_count": 4,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-06-02-2009",
+      "started": "2026-06-02T13:09:41.367Z",
+      "ended": "2026-06-02T13:32:50.003Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 1226,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 3812,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 28,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 40,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 54,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 5038,
+        "output_tokens_estimated": 318,
+        "reads_count": 2,
+        "writes_count": 8,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-06-02-2009",
+      "started": "2026-06-02T13:09:41.367Z",
+      "ended": "2026-06-02T13:46:31.265Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 1226,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 4000,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 28,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 40,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 38,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 44,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 41,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 147,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 5226,
+        "output_tokens_estimated": 733,
+        "reads_count": 2,
+        "writes_count": 13,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-06-02-2009",
+      "started": "2026-06-02T13:09:41.367Z",
+      "ended": "2026-06-02T13:52:37.762Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 1226,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 4000,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 5592,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 28,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 40,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 38,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 44,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 41,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 147,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 205,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 77,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 32,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 254,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 10818,
+        "output_tokens_estimated": 1433,
+        "reads_count": 3,
+        "writes_count": 18,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-06-02-2009",
+      "started": "2026-06-02T13:09:41.367Z",
+      "ended": "2026-06-02T13:56:19.594Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 1226,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 4000,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 5592,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 28,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 40,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 38,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 44,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 41,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 147,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 205,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 77,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 32,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 254,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 86,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 10818,
+        "output_tokens_estimated": 1519,
+        "reads_count": 3,
+        "writes_count": 19,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 2
       }
     }
   ],
