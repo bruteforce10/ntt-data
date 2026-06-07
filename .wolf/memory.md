@@ -254,3 +254,6 @@
 
 | 01:30 | Fixed Vercel TS build error: Accordion prop openMultiple→multiple | components/navbar.tsx, .wolf/cerebrum.md | build should pass | ~800 |
 | 01:26 | Session end: 1 writes across 1 files (navbar.tsx) | 2 reads | ~3917 tok |
+| 01:28 | Edited components/navbar.tsx | inline fix | ~20 |
+| 01:35 | Fixed TS error: removed title from getActionProps call (only accepts href+external) | components/navbar.tsx | build should pass | ~300 |
+| 01:29 | Session end: 2 writes across 1 files (navbar.tsx) | 2 reads | ~3915 tok |

@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 228690,
-    "total_reads": 145,
-    "total_writes": 269,
+    "total_tokens_estimated": 232605,
+    "total_reads": 147,
+    "total_writes": 271,
     "total_sessions": 18,
-    "anatomy_hits": 64,
-    "anatomy_misses": 67,
-    "repeated_reads_blocked": 13,
-    "estimated_savings_vs_bare_cli": 34461
+    "anatomy_hits": 65,
+    "anatomy_misses": 68,
+    "repeated_reads_blocked": 14,
+    "estimated_savings_vs_bare_cli": 38539
   },
   "sessions": [
     {
@@ -2988,6 +2988,45 @@
         "reads_count": 2,
         "writes_count": 1,
         "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-06-07-0125",
+      "started": "2026-06-07T18:25:12.189Z",
+      "ended": "2026-06-07T18:29:00.989Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 3878,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/ui/accordion.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 17,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 20,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 3878,
+        "output_tokens_estimated": 37,
+        "reads_count": 2,
+        "writes_count": 2,
+        "repeated_reads_blocked": 1,
         "anatomy_lookups": 1
       }
     }

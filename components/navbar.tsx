@@ -361,7 +361,7 @@ function NavbarActionButton({
         disabled ? (
           <span aria-disabled="true" className="cursor-default" />
         ) : (
-          <a href={href} {...getActionProps({ title, href, external })} />
+          <a href={href} {...getActionProps({ href, external })} />
         )
       }
       className={cn(

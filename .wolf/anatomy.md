@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-07T18:26:08.475Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-07T18:28:50.137Z
 > Files: 3 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -24,7 +24,7 @@
 ## components/
 
 - `floating-dock.tsx` — Fixed bottom floating nav dock (dark, separate from top Navbar); driven by SITE_CONTENT.navbar (~900 tok)
-- `navbar.tsx` — NAVBAR_ACTIONS (~3878 tok)
+- `navbar.tsx` — NAVBAR_ACTIONS (~3876 tok)
 
 ## components/ui/ (shadcn — Base UI registry, import from @base-ui/react/*)
 
