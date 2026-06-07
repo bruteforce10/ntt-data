@@ -29,7 +29,7 @@ export default function Hero() {
         />
       </div> */}
 
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[1280px] flex-col justify-center px-5 pt-[72px] sm:px-8 lg:px-10">
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[1280px] flex-col justify-center px-5 pb-24 sm:px-8 lg:px-10">
         <div className="max-w-[min(800px,100%)]">
           <div className="mb-5 sm:mb-6">
             <Image
