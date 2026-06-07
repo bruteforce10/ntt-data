@@ -2,10 +2,10 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 232605,
+    "total_tokens_estimated": 236240,
     "total_reads": 147,
-    "total_writes": 271,
-    "total_sessions": 18,
+    "total_writes": 274,
+    "total_sessions": 20,
     "anatomy_hits": 65,
     "anatomy_misses": 68,
     "repeated_reads_blocked": 14,
@@ -3028,6 +3028,37 @@
         "writes_count": 2,
         "repeated_reads_blocked": 1,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-06-07-0537",
+      "started": "2026-06-07T22:37:11.623Z",
+      "ended": "2026-06-07T22:39:25.545Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 269,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/mailer.ts",
+          "tokens_estimated": 1909,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 1457,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 3635,
+        "reads_count": 0,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
       }
     }
   ],

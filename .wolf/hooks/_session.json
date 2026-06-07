@@ -1,38 +1,35 @@
 {
-  "session_id": "session-2026-06-07-0125",
-  "started": "2026-06-07T18:25:12.189Z",
-  "files_read": {
-    "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx": {
-      "count": 2,
-      "tokens": 3878,
-      "first_read": "2026-06-07T18:25:55.972Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/ui/accordion.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T18:25:59.938Z"
-    }
-  },
+  "session_id": "session-2026-06-07-0537",
+  "started": "2026-06-07T22:37:11.623Z",
+  "files_read": {},
   "files_written": [
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+      "file": "C:/Users/jayac/Documents/ntt-data/app/deck-submission/page.tsx",
       "action": "edit",
-      "tokens": 17,
-      "at": "2026-06-07T18:26:08.488Z"
+      "tokens": 269,
+      "at": "2026-06-07T22:37:42.239Z"
     },
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+      "file": "C:/Users/jayac/Documents/ntt-data/lib/mailer.ts",
       "action": "edit",
-      "tokens": 20,
-      "at": "2026-06-07T18:28:50.151Z"
+      "tokens": 1909,
+      "at": "2026-06-07T22:38:09.247Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+      "action": "create",
+      "tokens": 1457,
+      "at": "2026-06-07T22:38:35.787Z"
     }
   ],
   "edit_counts": {
-    "components/navbar.tsx": 2
+    "app/deck-submission/page.tsx": 1,
+    "lib/mailer.ts": 1,
+    "app/api/deck-submission/route.ts": 1
   },
-  "anatomy_hits": 1,
-  "anatomy_misses": 1,
-  "repeated_reads_warned": 1,
+  "anatomy_hits": 0,
+  "anatomy_misses": 0,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 2
+  "stop_count": 1
 }

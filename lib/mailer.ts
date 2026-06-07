@@ -148,3 +148,124 @@ Open Innovation Team`;
 
   return { html, text };
 }
+
+const DECK_TIMELINE = {
+  reviewPeriod: "July 1 - July 15, 2026",
+  notificationDate: "July 22, 2026",
+  eventDate: "August 2026",
+  contactEmail: "oiw@ntt-startupchallenge.com",
+};
+
+export function buildDeckSubmissionEmail(opts: {
+  name: string;
+  submittedAt?: Date;
+}) {
+  const { name, submittedAt = new Date() } = opts;
+  const submissionDate = submittedAt.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f3f4f6;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6;padding:32px 0;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;max-width:600px;width:100%;">
+        <!-- Header -->
+        <tr>
+          <td style="background:#154284;padding:32px 40px;">
+            <p style="margin:0;color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:0.5px;">
+              Open Innovation Week
+            </p>
+            <p style="margin:6px 0 0;color:#93c5fd;font-size:13px;">Pitch Deck Submission Received</p>
+          </td>
+        </tr>
+        <!-- Body -->
+        <tr>
+          <td style="padding:40px;">
+            <p style="margin:0 0 16px;color:#111827;font-size:15px;">Dear <strong>${name}</strong>,</p>
+            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+              Thank you for successfully submitting your pitch deck for Open Innovation Week.
+            </p>
+            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+              We appreciate the time and effort you have put into preparing your submission. Our team will carefully review all applications according to the evaluation criteria.
+            </p>
+            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+              To help you stay informed about the next steps and key milestones of the Open Innovation Week selection process, we have included the timeline below for your reference.
+            </p>
+            <!-- Timeline -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f7ff;border-radius:8px;margin:24px 0;">
+              <tr><td style="padding:24px;">
+                <p style="margin:0 0 12px;color:#154284;font-size:14px;font-weight:bold;">Timeline</p>
+                <table width="100%" cellpadding="0" cellspacing="0" style="font-size:13px;color:#374151;">
+                  <tr>
+                    <td style="padding:6px 0;color:#6b7280;">Submission Received</td>
+                    <td style="padding:6px 0;text-align:right;font-weight:bold;color:#111827;">${submissionDate}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:6px 0;color:#6b7280;">Review Period</td>
+                    <td style="padding:6px 0;text-align:right;font-weight:bold;color:#111827;">${DECK_TIMELINE.reviewPeriod}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:6px 0;color:#6b7280;">Notification of Results</td>
+                    <td style="padding:6px 0;text-align:right;font-weight:bold;color:#111827;">${DECK_TIMELINE.notificationDate}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:6px 0;color:#6b7280;">Open Innovation Week Event</td>
+                    <td style="padding:6px 0;text-align:right;font-weight:bold;color:#111827;">${DECK_TIMELINE.eventDate}</td>
+                  </tr>
+                </table>
+              </td></tr>
+            </table>
+            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+              Should any additional information be required, our team will contact you directly.
+            </p>
+            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+              If you have any questions, please feel free to contact us at
+              <a href="mailto:${DECK_TIMELINE.contactEmail}" style="color:#0070C0;text-decoration:underline;">${DECK_TIMELINE.contactEmail}</a>.
+            </p>
+            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+              Thank you once again for your participation. We look forward to reviewing your proposal.
+            </p>
+          </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+          <td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb;">
+            <p style="margin:0;color:#6b7280;font-size:12px;">Best regards,<br><strong style="color:#154284;">Open Innovation Week Team</strong></p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+
+  const text = `Dear ${name},
+
+Thank you for successfully submitting your pitch deck for Open Innovation Week.
+
+We appreciate the time and effort you have put into preparing your submission. Our team will carefully review all applications according to the evaluation criteria.
+
+To help you stay informed about the next steps and key milestones of the Open Innovation Week selection process, we have included the timeline below for your reference.
+
+Timeline
+- Submission Received: ${submissionDate}
+- Review Period: ${DECK_TIMELINE.reviewPeriod}
+- Notification of Results: ${DECK_TIMELINE.notificationDate}
+- Open Innovation Week Event: ${DECK_TIMELINE.eventDate}
+
+Should any additional information be required, our team will contact you directly.
+
+If you have any questions, please feel free to contact us at ${DECK_TIMELINE.contactEmail}.
+
+Thank you once again for your participation. We look forward to reviewing your proposal.
+
+Best regards,
+Open Innovation Week Team`;
+
+  return { html, text };
+}

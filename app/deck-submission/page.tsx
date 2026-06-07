@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Navbar } from "@/components/navbar";
 import FloatingDock from "@/components/floating-dock";
 import Footer from "@/components/footer";
@@ -18,7 +19,9 @@ export default function DeckSubmissionPage() {
           <h1 className="mb-8 text-center font-bold text-2xl uppercase tracking-wide text-[#154284] sm:text-3xl">
             NTT Open Innovation Week Deck Submission
           </h1>
-          <DeckSubmissionForm />
+          <Suspense fallback={null}>
+            <DeckSubmissionForm />
+          </Suspense>
         </section>
       </main>
       <Footer />

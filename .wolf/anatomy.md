@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-07T18:28:50.137Z
-> Files: 3 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-07T22:38:35.772Z
+> Files: 7 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -15,14 +15,23 @@
 ## app/
 
 
+## app/api/deck-submission/
+
+- `route.ts` — POST: validates email+file (image/pdf/ppt, ≤8MB), looks up ntt_data record by email, PATCHes pick_deck (multipart), sends buildDeckSubmissionEmail confirmation (~1457 tok)
+
 ## app/api/ntt-data/
 
+
+## app/deck-submission/
+
+- `page.tsx` — Deck submission page: Navbar + FloatingDock + Footer, renders DeckSubmissionForm inside <Suspense> (needed for useSearchParams) (~278 tok)
 
 ## app/startup-registration/
 
 
 ## components/
 
+- `deck-submission-form.tsx` — Client form: email prefilled+disabled from ?email query, file picker (image/pdf/ppt) with format+8MB info labels, loading state, posts FormData to /api/deck-submission, success popup modal (~1985 tok)
 - `floating-dock.tsx` — Fixed bottom floating nav dock (dark, separate from top Navbar); driven by SITE_CONTENT.navbar (~900 tok)
 - `navbar.tsx` — NAVBAR_ACTIONS (~3876 tok)
 
@@ -35,6 +44,7 @@
 
 ## lib/
 
+- `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~3834 tok)
 
 ## public/
 

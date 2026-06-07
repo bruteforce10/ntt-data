@@ -257,3 +257,22 @@
 | 01:28 | Edited components/navbar.tsx | inline fix | ~20 |
 | 01:35 | Fixed TS error: removed title from getActionProps call (only accepts href+external) | components/navbar.tsx | build should pass | ~300 |
 | 01:29 | Session end: 2 writes across 1 files (navbar.tsx) | 2 reads | ~3915 tok |
+| 02:08 | Created components/deck-submission-form.tsx | — | ~1985 |
+
+## Session: 2026-06-07 05:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-07 05:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 05:37 | Edited app/deck-submission/page.tsx | modified DeckSubmissionPage() | ~269 |
+| 05:38 | Edited lib/mailer.ts | modified buildDeckSubmissionEmail() | ~1909 |
+| 05:38 | Created app/api/deck-submission/route.ts | — | ~1457 |
+| 02:10 | Deck submission: email from query (disabled), file accept image/pdf/ppt + 8MB info labels, loading state, success popup | components/deck-submission-form.tsx | done | ~2500 |
+| 02:12 | Wrapped DeckSubmissionForm in Suspense (useSearchParams) | app/deck-submission/page.tsx | done | ~200 |
+| 02:14 | Added buildDeckSubmissionEmail (thank-you + timeline) | lib/mailer.ts | done | ~1200 |
+| 02:16 | New API route: lookup by email, PATCH pick_deck multipart, send nodemailer confirmation | app/api/deck-submission/route.ts | done | ~1500 |
+| 05:39 | Session end: 3 writes across 3 files (page.tsx, mailer.ts, route.ts) | 0 reads | ~3635 tok |
