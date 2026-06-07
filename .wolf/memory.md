@@ -276,3 +276,7 @@
 | 02:14 | Added buildDeckSubmissionEmail (thank-you + timeline) | lib/mailer.ts | done | ~1200 |
 | 02:16 | New API route: lookup by email, PATCH pick_deck multipart, send nodemailer confirmation | app/api/deck-submission/route.ts | done | ~1500 |
 | 05:39 | Session end: 3 writes across 3 files (page.tsx, mailer.ts, route.ts) | 0 reads | ~3635 tok |
+| 05:46 | Edited components/deck-submission-form.tsx | inline fix | ~16 |
+| 05:46 | Edited components/deck-submission-form.tsx | expanded (+16 lines) | ~292 |
+| 05:46 | Edited components/deck-submission-form.tsx | CSS: e | ~115 |
+| 05:47 | Session end: 6 writes across 4 files (page.tsx, mailer.ts, route.ts, deck-submission-form.tsx) | 0 reads | ~4058 tok |

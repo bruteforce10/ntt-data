@@ -510,6 +510,38 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-07T18:26:08.491Z"
+    },
+    {
+      "id": "bug-032",
+      "timestamp": "2026-06-07T22:46:46.165Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 6→22 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-07T22:46:46.165Z"
+    },
+    {
+      "id": "bug-033",
+      "timestamp": "2026-06-07T22:46:52.834Z",
+      "error_message": "Missing guard clause",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "No early return/throw for edge case: !submitted",
+      "fix": "Added guard clause: if (!submitted)",
+      "tags": [
+        "auto-detected",
+        "guard-clause",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-07T22:46:52.834Z"
     }
   ]
 }

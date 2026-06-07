@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-07T22:38:35.772Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-07T22:46:52.813Z
 > Files: 7 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -31,7 +31,7 @@
 
 ## components/
 
-- `deck-submission-form.tsx` — Client form: email prefilled+disabled from ?email query, file picker (image/pdf/ppt) with format+8MB info labels, loading state, posts FormData to /api/deck-submission, success popup modal (~1985 tok)
+- `deck-submission-form.tsx` — MAX_SIZE_BYTES — renders form (~2257 tok)
 - `floating-dock.tsx` — Fixed bottom floating nav dock (dark, separate from top Navbar); driven by SITE_CONTENT.navbar (~900 tok)
 - `navbar.tsx` — NAVBAR_ACTIONS (~3876 tok)
 

@@ -2,9 +2,9 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 236240,
+    "total_tokens_estimated": 240298,
     "total_reads": 147,
-    "total_writes": 274,
+    "total_writes": 280,
     "total_sessions": 20,
     "anatomy_hits": 65,
     "anatomy_misses": 68,
@@ -3057,6 +3057,52 @@
         "output_tokens_estimated": 3635,
         "reads_count": 0,
         "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-06-07-0537",
+      "started": "2026-06-07T22:37:11.623Z",
+      "ended": "2026-06-07T22:47:05.647Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 269,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/mailer.ts",
+          "tokens_estimated": 1909,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 1457,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 16,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 292,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 115,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 4058,
+        "reads_count": 0,
+        "writes_count": 6,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 0
       }

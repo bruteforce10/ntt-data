@@ -20,16 +20,35 @@
       "action": "create",
       "tokens": 1457,
       "at": "2026-06-07T22:38:35.787Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 16,
+      "at": "2026-06-07T22:46:34.372Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 292,
+      "at": "2026-06-07T22:46:46.161Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 115,
+      "at": "2026-06-07T22:46:52.830Z"
     }
   ],
   "edit_counts": {
     "app/deck-submission/page.tsx": 1,
     "lib/mailer.ts": 1,
-    "app/api/deck-submission/route.ts": 1
+    "app/api/deck-submission/route.ts": 1,
+    "components/deck-submission-form.tsx": 3
   },
   "anatomy_hits": 0,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 1
+  "stop_count": 2
 }

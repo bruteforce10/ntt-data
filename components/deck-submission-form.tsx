@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AlertCircle, Loader2 } from "lucide-react";
+import { AlertCircle, Loader2, X } from "lucide-react";
 
 const MAX_SIZE_BYTES = 8 * 1024 * 1024;
 const ACCEPTED = "image/*,.pdf,.ppt,.pptx";
@@ -20,6 +20,15 @@ export default function DeckSubmissionForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitted, setSubmitted] = React.useState(false);
   const [submitError, setSubmitError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (!submitted) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setSubmitted(false);
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [submitted]);
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const picked = e.target.files?.[0] ?? null;
@@ -59,8 +68,24 @@ export default function DeckSubmissionForm() {
   return (
     <>
       {submitted && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-          <div className="w-full max-w-md rounded-2xl bg-white px-10 py-12 text-center shadow-2xl">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setSubmitted(false)}
+        >
+          <div
+            className="relative w-full max-w-md rounded-2xl bg-white px-10 py-12 text-center shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSubmitted(false)}
+              aria-label="Close"
+              className="absolute right-4 top-4 flex size-8 items-center justify-center rounded-full text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3176E4]"
+            >
+              <X className="size-5" />
+            </button>
             <h2 className="mb-5 text-base font-bold uppercase tracking-widest text-gray-900">
               Thank You for Submitting
             </h2>
