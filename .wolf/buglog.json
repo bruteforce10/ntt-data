@@ -432,6 +432,42 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-02T13:52:32.835Z"
+    },
+    {
+      "id": "bug-028",
+      "timestamp": "2026-06-07T00:00:00.000Z",
+      "error_message": "Navbar copied from parent (Radix shadcn) rendered 'like shadcn isn't installed' — broken layout/styling",
+      "file": "components/navbar.tsx",
+      "root_cause": "This project uses shadcn with the Base UI registry (@base-ui/react), NOT Radix. The parent navbar used Radix-only APIs: `asChild` (Button/Trigger/Link), Accordion `type=\"single\" collapsible`, and NavigationMenu `viewport={false}` — none supported by Base UI components, so composition/styling broke.",
+      "fix": "Migrated navbar.tsx to Base UI idioms: replaced every `asChild` with the `render={<a/>}` / `render={<Button/>}` prop, changed Accordion to `openMultiple={false}`, and removed `viewport={false}` from NavigationMenu.",
+      "tags": ["base-ui", "shadcn", "radix", "asChild", "render", "navbar"],
+      "related_bugs": ["bug-029", "bug-030"],
+      "occurrences": 1,
+      "last_seen": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "bug-029",
+      "timestamp": "2026-06-07T00:05:00.000Z",
+      "error_message": "Base UI: A component that acts as a button expected a native <button> because the `nativeButton` prop is true. Rendering a non-<button> removes native button semantics... set `nativeButton` to `false`.",
+      "file": "components/navbar.tsx",
+      "root_cause": "Base UI Button defaults `nativeButton` to true. NavbarActionButton renders the Button as an <a>/<span> via the render prop, which conflicts with the expected native <button>.",
+      "fix": "Added `nativeButton={false}` to the <Button> in NavbarActionButton when rendering as <a>/<span>.",
+      "tags": ["base-ui", "button", "nativeButton", "render", "a11y"],
+      "related_bugs": ["bug-028"],
+      "occurrences": 1,
+      "last_seen": "2026-06-07T00:05:00.000Z"
+    },
+    {
+      "id": "bug-030",
+      "timestamp": "2026-06-07T00:10:00.000Z",
+      "error_message": "Base UI Menu: GroupLabel must be placed within a <Menu.Group> or <Menu.RadioGroup> (thrown when the 'More' dropdown opened)",
+      "file": "components/navbar.tsx",
+      "root_cause": "DropdownMenuLabel wraps Base UI Menu.GroupLabel, which requires a Menu.Group parent. In Radix shadcn DropdownMenuLabel can stand alone; in Base UI it cannot. Error only fires on menu mount (open), so it was missed by a load-time console check and only caught by interactive testing.",
+      "fix": "Wrapped the DropdownMenuLabel + items in <DropdownMenuGroup> inside DropdownMenuContent.",
+      "tags": ["base-ui", "dropdown-menu", "GroupLabel", "Group", "navbar"],
+      "related_bugs": ["bug-028"],
+      "occurrences": 1,
+      "last_seen": "2026-06-07T00:10:00.000Z"
     }
   ]
 }

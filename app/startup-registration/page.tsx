@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ChevronRight } from "lucide-react";
-import Navbar from "@/components/navbar";
+import { Navbar } from "@/components/navbar";
+import FloatingDock from "@/components/floating-dock";
 import Footer from "@/components/footer";
 import StartupRegistrationForm from "@/components/startup-registration-form";
 import Link from "next/link";
@@ -13,6 +14,7 @@ export default function StartupRegistrationPage() {
   return (
     <>
       <Navbar />
+      <FloatingDock />
       <main className="min-h-screen bg-gray-50">
         {/* Form */}
         <div className="mx-auto max-w-4xl px-6 py-32">

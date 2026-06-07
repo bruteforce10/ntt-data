@@ -49,6 +49,15 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+@theme {
+  --color-blue-ntt: #256fb8;
+  --color-blue-ntt-200: #A2C9FF;
+  --color-blue-ntt-400: #003087;
+  --color-blue-ntt-700: #082947;
+  --color-blue-ntt-800: #050e28;
+  --color-blue-ntt-900: #000104;
+}
+
 :root {
   --font-sans: var(--font-noto-sans);
   --brand-button-blue: #3176e4;

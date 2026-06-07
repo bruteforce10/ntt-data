@@ -1,4 +1,5 @@
-import Navbar from "@/components/navbar";
+import { Navbar } from "@/components/navbar";
+import FloatingDock from "@/components/floating-dock";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import Benefit from "@/components/benefit";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <Navbar />
+      <FloatingDock />
       <Hero />
       <About />
       <Benefit />

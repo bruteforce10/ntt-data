@@ -9,7 +9,7 @@ export const SITE_CONTENT = {
       "Are you a startup ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Programme offers you the chance to collaborate directly with NTT DATA and its clients during a 3-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning team will receive a USD $30,000 reward in Time & Material services to bring their PoC to life. Apply now!",
   },
   benefit: {
-    title: "BENEFIT FROM NTT OPEN INNOVATION PROGRAM",
+    title: "Why participating",
     subtitle:
       "This program offers startups access to industry expertise, funding of pilots, market access and commercial collaboration opportunities",
     items: [
@@ -88,7 +88,7 @@ export const SITE_CONTENT = {
   navbar: {
     logo: {
       href: "/",
-      src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
+      src: "/Logo/logo-navbar.png",
       alt: "NTT DATA",
     },
     links: [
@@ -109,7 +109,7 @@ export const SITE_CONTENT = {
   },
   hero: {
     background: {
-      src: "/Assets Picture/Hero page.png",
+      src: "/Assets Picture/Hero page 2.png",
       alt: "Tokyo cityscape at night",
     },
     ornament: {

@@ -1,147 +1,129 @@
 {
-  "session_id": "session-2026-06-02-2009",
-  "started": "2026-06-02T13:09:41.367Z",
+  "session_id": "session-2026-06-07-1407",
+  "started": "2026-06-07T07:07:24.714Z",
   "files_read": {
-    "/Users/mm/Documents/ntt-data/components/problem-overview.tsx": {
+    "C:/Users/jayac/Documents/ntt-data/package.json": {
       "count": 1,
-      "tokens": 1226,
-      "first_read": "2026-06-02T13:26:17.519Z"
+      "tokens": 0,
+      "first_read": "2026-06-07T07:09:27.315Z"
     },
-    "/Users/mm/Documents/ntt-data/lib/site-content.ts": {
-      "count": 2,
-      "tokens": 4000,
-      "first_read": "2026-06-02T13:26:17.980Z"
-    },
-    "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx": {
+    "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx": {
       "count": 1,
-      "tokens": 5592,
-      "first_read": "2026-06-02T13:50:33.729Z"
+      "tokens": 0,
+      "first_read": "2026-06-07T07:09:49.866Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/components/ui/navigation-menu.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:09:50.196Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/components/ui/sheet.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:09:50.305Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/components/ui/accordion.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:10:18.032Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/components/ui/dropdown-menu.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:10:18.474Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/components/ui/button.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:10:18.931Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/lib/utils.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:10:19.166Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/app/layout.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:11:02.986Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/app/globals.css": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:11:03.425Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/components/floating-dock.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:11:03.513Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:11:15.224Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/utils/eachUtils.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:11:15.379Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/app/page.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-06-07T07:11:15.821Z"
     }
   },
   "files_written": [
     {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
-      "action": "edit",
-      "tokens": 28,
-      "at": "2026-06-02T13:27:13.208Z"
+      "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
+      "action": "create",
+      "tokens": 378,
+      "at": "2026-06-07T07:16:39.126Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
-      "action": "edit",
-      "tokens": 31,
-      "at": "2026-06-02T13:27:17.769Z"
+      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+      "action": "create",
+      "tokens": 3839,
+      "at": "2026-06-07T07:17:24.157Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
       "action": "edit",
-      "tokens": 40,
-      "at": "2026-06-02T13:27:22.594Z"
+      "tokens": 68,
+      "at": "2026-06-07T07:21:01.120Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
       "action": "edit",
-      "tokens": 26,
-      "at": "2026-06-02T13:27:36.434Z"
+      "tokens": 74,
+      "at": "2026-06-07T07:24:09.003Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
       "action": "edit",
-      "tokens": 43,
-      "at": "2026-06-02T13:32:26.261Z"
+      "tokens": 57,
+      "at": "2026-06-07T07:25:40.901Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
       "action": "edit",
-      "tokens": 50,
-      "at": "2026-06-02T13:32:31.463Z"
+      "tokens": 320,
+      "at": "2026-06-07T07:25:51.955Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
-      "action": "edit",
-      "tokens": 46,
-      "at": "2026-06-02T13:32:36.974Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
-      "action": "edit",
-      "tokens": 54,
-      "at": "2026-06-02T13:32:44.796Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
-      "action": "edit",
-      "tokens": 38,
-      "at": "2026-06-02T13:44:35.177Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
-      "action": "edit",
-      "tokens": 44,
-      "at": "2026-06-02T13:44:40.538Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
-      "action": "edit",
-      "tokens": 41,
-      "at": "2026-06-02T13:44:46.541Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
-      "action": "edit",
-      "tokens": 147,
-      "at": "2026-06-02T13:44:58.534Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
-      "action": "edit",
-      "tokens": 145,
-      "at": "2026-06-02T13:45:05.749Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
-      "action": "edit",
-      "tokens": 205,
-      "at": "2026-06-02T13:51:18.544Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
-      "action": "edit",
-      "tokens": 77,
-      "at": "2026-06-02T13:51:24.567Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
-      "action": "edit",
-      "tokens": 32,
-      "at": "2026-06-02T13:51:30.000Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
-      "action": "edit",
-      "tokens": 132,
-      "at": "2026-06-02T13:51:36.720Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
-      "action": "edit",
-      "tokens": 254,
-      "at": "2026-06-02T13:52:32.832Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
-      "action": "edit",
-      "tokens": 86,
-      "at": "2026-06-02T13:56:12.530Z"
+      "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
+      "action": "create",
+      "tokens": 437,
+      "at": "2026-06-07T07:31:56.249Z"
     }
   ],
   "edit_counts": {
-    "lib/site-content.ts": 9,
-    "components/problem-overview.tsx": 8,
-    "components/startup-registration-form.tsx": 2
+    "constant/listNavbar.ts": 2,
+    "components/navbar.tsx": 5
   },
-  "anatomy_hits": 2,
-  "anatomy_misses": 0,
-  "repeated_reads_warned": 1,
+  "anatomy_hits": 0,
+  "anatomy_misses": 14,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 5
+  "stop_count": 2
 }

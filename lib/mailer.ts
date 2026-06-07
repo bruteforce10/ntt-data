@@ -94,7 +94,7 @@ export function buildRegistrationEmail(opts: {
             <p style="margin:0 0 8px;color:#111827;font-size:14px;font-weight:bold;">Submission Details:</p>
             <ul style="margin:0 0 16px;padding-left:20px;color:#374151;font-size:14px;line-height:1.8;">
               <li>File format: <strong>PDF</strong></li>
-              <li>Maximum size: <strong>150 MB</strong></li>
+              <li>Maximum size: <strong>8 MB</strong></li>
               <li>Language: <strong>English</strong></li>
               <li>File name format: <strong>StartupName_ChallengeName.pdf</strong></li>
             </ul>

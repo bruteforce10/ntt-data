@@ -584,8 +584,19 @@ export default function StartupRegistrationForm() {
             Thank you for registering!
           </DialogTitle>
           <DialogDescription className="mt-2 text-center text-sm leading-relaxed text-gray-500">
-            Please check your email for further details and important
-            information regarding the next steps.
+            Please check your email inbox, including your spam folder, for
+            further details and important information regarding the next steps.
+            <br />
+            <br />
+            If you have any questions or experience any issues, please feel free
+            to contact us at{" "}
+            <a
+              href="mailto:oiw@ntt-startupchallenge.com"
+              className="text-[#3176E4] underline"
+            >
+              oiw@ntt-startupchallenge.com
+            </a>
+            .
           </DialogDescription>
           <Button
             className="mt-2 w-full text-sm bg-blue-600"
