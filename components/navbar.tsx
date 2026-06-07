@@ -206,7 +206,7 @@ export function Navbar() {
             </SheetHeader>
 
             <div className="px-4 pb-6">
-              <Accordion openMultiple={false} className="mt-2">
+              <Accordion multiple={false} className="mt-2">
                 <EachUtils
                   of={LIST_NAVBAR as NavItem[]}
                   render={(item: NavItem) => {

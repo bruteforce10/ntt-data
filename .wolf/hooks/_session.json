@@ -1,129 +1,32 @@
 {
-  "session_id": "session-2026-06-07-1407",
-  "started": "2026-06-07T07:07:24.714Z",
+  "session_id": "session-2026-06-07-0125",
+  "started": "2026-06-07T18:25:12.189Z",
   "files_read": {
-    "C:/Users/jayac/Documents/ntt-data/package.json": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:09:27.315Z"
-    },
     "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx": {
       "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:09:49.866Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/ui/navigation-menu.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:09:50.196Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/ui/sheet.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:09:50.305Z"
+      "tokens": 3900,
+      "first_read": "2026-06-07T18:25:55.972Z"
     },
     "C:/Users/jayac/Documents/ntt-data/components/ui/accordion.tsx": {
       "count": 1,
       "tokens": 0,
-      "first_read": "2026-06-07T07:10:18.032Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/ui/dropdown-menu.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:10:18.474Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/ui/button.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:10:18.931Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/lib/utils.ts": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:10:19.166Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/app/layout.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:11:02.986Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/app/globals.css": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:11:03.425Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/floating-dock.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:11:03.513Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:11:15.224Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/utils/eachUtils.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:11:15.379Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/app/page.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-06-07T07:11:15.821Z"
+      "first_read": "2026-06-07T18:25:59.938Z"
     }
   },
   "files_written": [
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
-      "action": "create",
-      "tokens": 378,
-      "at": "2026-06-07T07:16:39.126Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
-      "action": "create",
-      "tokens": 3839,
-      "at": "2026-06-07T07:17:24.157Z"
-    },
-    {
       "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
       "action": "edit",
-      "tokens": 68,
-      "at": "2026-06-07T07:21:01.120Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
-      "action": "edit",
-      "tokens": 74,
-      "at": "2026-06-07T07:24:09.003Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
-      "action": "edit",
-      "tokens": 57,
-      "at": "2026-06-07T07:25:40.901Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
-      "action": "edit",
-      "tokens": 320,
-      "at": "2026-06-07T07:25:51.955Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
-      "action": "create",
-      "tokens": 437,
-      "at": "2026-06-07T07:31:56.249Z"
+      "tokens": 17,
+      "at": "2026-06-07T18:26:08.488Z"
     }
   ],
   "edit_counts": {
-    "constant/listNavbar.ts": 2,
-    "components/navbar.tsx": 5
+    "components/navbar.tsx": 1
   },
-  "anatomy_hits": 0,
-  "anatomy_misses": 14,
+  "anatomy_hits": 1,
+  "anatomy_misses": 1,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 2
+  "stop_count": 1
 }

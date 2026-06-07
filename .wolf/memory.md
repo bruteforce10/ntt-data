@@ -245,3 +245,12 @@
 | 14:31 | Created constant/listNavbar.ts | — | ~437 |
 | 07:35 | Arahkan semua link nav ke domain induk (BASE=https://ntt-startupchallenge.com) | constant/listNavbar.ts | verified SSR href absolute, 200 OK | ~2k |
 | 14:32 | Session end: 7 writes across 2 files (listNavbar.ts, navbar.tsx) | 14 reads | ~5173 tok |
+
+## Session: 2026-06-07 01:25
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 01:26 | Edited components/navbar.tsx | inline fix | ~17 |
+
+| 01:30 | Fixed Vercel TS build error: Accordion prop openMultiple→multiple | components/navbar.tsx, .wolf/cerebrum.md | build should pass | ~800 |
+| 01:26 | Session end: 1 writes across 1 files (navbar.tsx) | 2 reads | ~3917 tok |

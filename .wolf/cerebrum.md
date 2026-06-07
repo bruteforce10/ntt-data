@@ -21,7 +21,7 @@
   - `asChild` → `render={<El/>}` prop (Base UI composition). Children go on the Base UI component or inside the render element (one place only).
   - Base UI `Button` defaults `nativeButton: true`; when `render`-ing as `<a>`/`<span>`, pass `nativeButton={false}`.
   - DropdownMenu `Label` = Base UI `Menu.GroupLabel` → MUST be inside `<DropdownMenuGroup>`.
-  - `<Accordion type="single" collapsible>` → `<Accordion openMultiple={false}>`.
+  - `<Accordion type="single" collapsible>` → `<Accordion multiple={false}>`. (NOT `openMultiple` — that prop doesn't exist in Base UI; TypeScript will error.)
   - `<NavigationMenu viewport={false}>` → no `viewport` prop (remove it); Base UI always renders a shared Positioner/Viewport.
 - Some Base UI errors only throw on component **mount/open** (e.g. opening a menu), so a page-load console check misses them — verify interactively (open every dropdown/menu).
 - designqc desktop viewport ≈ `--max-width` (default 1200px). The navbar's desktop layout uses the `xl` (1280px) breakpoint, so capture with `--max-width 1440` to see the full desktop nav instead of the mobile hamburger.
@@ -34,6 +34,7 @@
 - [2026-06-07] Don't paste Radix-based shadcn code (`asChild`, Accordion `type/collapsible`, NavigationMenu `viewport`) into this project — it uses the **Base UI** shadcn registry (`@base-ui/react`). It compiles but renders broken ("like shadcn isn't installed"). Use Base UI APIs instead (see Key Learnings).
 - [2026-06-07] When `render`-ing a Base UI `Button` as a non-button (`<a>`/`<span>`), always set `nativeButton={false}` or it logs a console error (Next dev shows "1 Issue").
 - [2026-06-07] Base UI `DropdownMenuLabel` (Menu.GroupLabel) throws unless wrapped in `<DropdownMenuGroup>`; error only appears when the menu is opened, so verify dropdowns by actually opening them.
+- [2026-06-08] Base UI Accordion root prop for single-open behavior is `multiple={false}`, NOT `openMultiple={false}`. Using `openMultiple` causes a TS build error on Vercel.
 
 ## Decision Log
 
