@@ -29,9 +29,9 @@ export const LIST_NAVBAR = [
       { title: "Group", url: `${BASE}/about#group` },
       { title: "Numbers", url: `${BASE}/about#number` },
       { title: "Open Innovation", url: `${BASE}/about#innovation` },
+      { title: "NTTSC Team", url: `${BASE}/team` },
     ],
   },
-  { title: "Team", url: `${BASE}/team` },
   {
     title: "Previous Program",
     url: `${BASE}/`,
@@ -39,15 +39,7 @@ export const LIST_NAVBAR = [
     opt: [
       { title: "NTTSC 2024", url: `${BASE}/nsc-2024` },
       { title: "NTTSC 2025", url: `${BASE}/nsc-2025` },
-    ],
-  },
-  {
-    title: "Infographics",
-    url: `${BASE}/infographics`,
-    positionSideLeft: true,
-    opt: [
-      { title: "2024", url: `${BASE}/infographics?year=2024` },
-      { title: "2025", url: `${BASE}/infographics?year=2025` },
+      { title: "Infographics", url: `${BASE}/infographics` },
     ],
   },
 ];

@@ -31,6 +31,16 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[1280px] flex-col justify-center px-5 pb-24 sm:px-8 lg:px-10">
         <div className="max-w-[min(800px,100%)]">
+          <div className="mb-4 sm:mb-5">
+            <Image
+              src="/Logo/GlobalLogo_NTTDATA_White_RGB.png"
+              alt="NTT DATA Logo"
+              width={600}
+              height={132}
+              className="w-full max-w-[160px] sm:max-w-[200px] md:max-w-[240px] h-auto object-contain object-left"
+              priority
+            />
+          </div>
           <div className="mb-5 sm:mb-6">
             <Image
               src="/Logo/oi-logo.png"

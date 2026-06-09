@@ -118,7 +118,7 @@ export const SITE_CONTENT = {
     },
     title: ["NTT DATA OPEN", "INNOVATION PROGRAM"],
     description:
-      "We are looking at innovative technology solutions that address business challenges and solve societal issues.",
+      "Initiative brought by NTT Data. We are looking at innovative Startup solutions that address business challenges and solve societal issues",
     action: { label: "REGISTER", href: "#register" },
   },
   countdown: {

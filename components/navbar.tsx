@@ -121,12 +121,12 @@ export function Navbar() {
             width={1920}
             height={674}
             priority
-            className="h-12 w-auto object-contain"
+            className="h-24 w-auto shrink-0 object-contain"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden flex-1 xl:flex xl:items-center">
+        <div className="hidden flex-1 justify-end xl:flex xl:items-center">
           <NavigationMenu>
             <NavigationMenuList className="justify-start gap-1">
               <EachUtils
@@ -305,6 +305,19 @@ function DesktopNavbarActions() {
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
+      <Link
+        href="/"
+        aria-label="Open Innovation"
+        className="flex min-h-11 items-center rounded-2xl bg-[#154284] px-4 py-2 shadow-[0_12px_30px_rgba(21,66,132,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0f3263] motion-reduce:hover:translate-y-0"
+      >
+        <Image
+          src="/Logo/oi-logo.png"
+          alt="Open Innovation"
+          width={200}
+          height={50}
+          className="h-6 w-auto object-contain"
+        />
+      </Link>
     </div>
   );
 }
@@ -322,14 +335,16 @@ function MobileNavbarActions() {
         mobile
         className="min-h-12 w-full rounded-2xl border border-blue-ntt/25 bg-blue-ntt/5 px-5 py-3 text-base font-semibold text-blue-ntt transition-colors duration-200 hover:bg-blue-ntt/10"
       />
-      <a
-        href={SECONDARY_ACTIONS[3].href}
-        target="_blank"
-        rel="noreferrer"
-        className="rounded-xl px-1 py-2 text-sm font-medium text-slate-600 underline-offset-4 transition-colors hover:text-blue-ntt hover:underline"
-      >
-        {SECONDARY_ACTIONS[3].title}
-      </a>
+      {SECONDARY_ACTIONS.slice(1).map((action) => (
+        <a
+          key={action.title}
+          href={action.href}
+          {...getActionProps(action)}
+          className="rounded-xl px-1 py-2 text-sm font-medium text-slate-600 underline-offset-4 transition-colors hover:text-blue-ntt hover:underline"
+        >
+          {action.title}
+        </a>
+      ))}
     </div>
   );
 }

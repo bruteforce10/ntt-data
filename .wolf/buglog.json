@@ -542,6 +542,57 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-07T22:46:52.834Z"
+    },
+    {
+      "id": "bug-034",
+      "timestamp": "2026-06-09T09:17:05.415Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/footer.tsx",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 23→36 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-09T09:17:05.415Z"
+    },
+    {
+      "id": "bug-035",
+      "timestamp": "2026-06-09T09:26:35.844Z",
+      "error_message": "Significant refactor of ",
+      "file": "constant/listNavbar.ts",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 15→7 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-09T09:26:35.844Z"
+    },
+    {
+      "id": "bug-036",
+      "timestamp": "2026-06-09T00:00:00.000Z",
+      "error_message": "Runtime TypeError: Cannot read properties of undefined (reading 'href') at MobileNavbarActions (components/navbar.tsx) — thrown when resizing to mobile / opening the mobile menu",
+      "file": "components/navbar.tsx",
+      "root_cause": "MobileNavbarActions hardcoded SECONDARY_ACTIONS[3], but SECONDARY_ACTIONS has only 3 items (indices 0-2) because the 4th entry ('NTT Open Innovation Week') is commented out. Index 3 is undefined, so reading .href throws when the mobile Sheet content mounts.",
+      "fix": "Replaced the hardcoded SECONDARY_ACTIONS[3] anchor with SECONDARY_ACTIONS.slice(1).map(...), rendering the remaining secondary actions as links via getActionProps (handles external/mailto). Robust to array length changes.",
+      "tags": [
+        "runtime-error",
+        "null-safety",
+        "out-of-bounds",
+        "navbar",
+        "mobile",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-09T00:00:00.000Z"
     }
   ]
 }

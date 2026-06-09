@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 240298,
-    "total_reads": 147,
-    "total_writes": 280,
-    "total_sessions": 20,
-    "anatomy_hits": 65,
+    "total_tokens_estimated": 253287,
+    "total_reads": 151,
+    "total_writes": 299,
+    "total_sessions": 21,
+    "anatomy_hits": 69,
     "anatomy_misses": 68,
-    "repeated_reads_blocked": 14,
-    "estimated_savings_vs_bare_cli": 38539
+    "repeated_reads_blocked": 15,
+    "estimated_savings_vs_bare_cli": 43361
   },
   "sessions": [
     {
@@ -3105,6 +3105,207 @@
         "writes_count": 6,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-06-09-1612",
+      "started": "2026-06-09T09:12:52.626Z",
+      "ended": "2026-06-09T09:15:00.912Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/hero.tsx",
+          "tokens_estimated": 162,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 162,
+        "reads_count": 0,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-06-09-1612",
+      "started": "2026-06-09T09:12:52.626Z",
+      "ended": "2026-06-09T09:17:29.810Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/hero.tsx",
+          "tokens_estimated": 162,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 376,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 538,
+        "reads_count": 0,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-06-09-1612",
+      "started": "2026-06-09T09:12:52.626Z",
+      "ended": "2026-06-09T09:20:53.425Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/hero.tsx",
+          "tokens_estimated": 162,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 376,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 400,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 938,
+        "reads_count": 0,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-06-09-1612",
+      "started": "2026-06-09T09:12:52.626Z",
+      "ended": "2026-06-09T09:28:23.652Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 3876,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
+          "tokens_estimated": 437,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/hero.tsx",
+          "tokens_estimated": 162,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 376,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 400,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
+          "tokens_estimated": 57,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 172,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 4313,
+        "output_tokens_estimated": 1237,
+        "reads_count": 2,
+        "writes_count": 6,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-06-09-1612",
+      "started": "2026-06-09T09:12:52.626Z",
+      "ended": "2026-06-09T09:35:18.605Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 4022,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
+          "tokens_estimated": 437,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/hero.tsx",
+          "tokens_estimated": 162,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 376,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 400,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/constant/listNavbar.ts",
+          "tokens_estimated": 57,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 172,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 105,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 4459,
+        "output_tokens_estimated": 1342,
+        "reads_count": 2,
+        "writes_count": 7,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 2
       }
     }
   ],

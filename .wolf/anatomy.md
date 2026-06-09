@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-07T22:46:52.813Z
-> Files: 7 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-09T09:33:57.246Z
+> Files: 9 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -33,14 +33,16 @@
 
 - `deck-submission-form.tsx` — MAX_SIZE_BYTES — renders form (~2257 tok)
 - `floating-dock.tsx` — Fixed bottom floating nav dock (dark, separate from top Navbar); driven by SITE_CONTENT.navbar (~900 tok)
-- `navbar.tsx` — NAVBAR_ACTIONS (~3876 tok)
+- `footer.tsx` — Footer (~568 tok)
+- `hero.tsx` — Hero (~759 tok)
+- `navbar.tsx` — NAVBAR_ACTIONS (~4046 tok)
 
 ## components/ui/ (shadcn — Base UI registry, import from @base-ui/react/*)
 
 
 ## constant/
 
-- `listNavbar.ts` — Exports LIST_NAVBAR (~437 tok)
+- `listNavbar.ts` — Exports LIST_NAVBAR (~388 tok)
 
 ## lib/
 

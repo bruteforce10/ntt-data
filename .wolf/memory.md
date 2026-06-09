@@ -280,3 +280,25 @@
 | 05:46 | Edited components/deck-submission-form.tsx | expanded (+16 lines) | ~292 |
 | 05:46 | Edited components/deck-submission-form.tsx | CSS: e | ~115 |
 | 05:47 | Session end: 6 writes across 4 files (page.tsx, mailer.ts, route.ts, deck-submission-form.tsx) | 0 reads | ~4058 tok |
+
+## Session: 2026-06-09 16:12
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 16:14 | Edited components/hero.tsx | CSS: md | ~162 |
+| 16:14 | Add NTT DATA white logo above OI logo in hero (medium size) | components/hero.tsx | done | ~1k |
+| 16:15 | Session end: 1 writes across 1 files (hero.tsx) | 0 reads | ~162 tok |
+| 16:17 | Edited components/footer.tsx | expanded (+13 lines) | ~376 |
+| 16:17 | Footer 3-col: logo left, menu center, Program Partner + EXEO logo right | components/footer.tsx | done | ~1k |
+| 16:17 | Session end: 2 writes across 2 files (hero.tsx, footer.tsx) | 0 reads | ~538 tok |
+| 16:19 | Edited components/footer.tsx | 36→36 lines | ~400 |
+| 16:20 | Footer: EXEO logo ~1.2x (h-8->h-10), center nav w-full no-wrap on desktop via grid 1fr | components/footer.tsx | done | ~1k |
+| 16:20 | Session end: 3 writes across 2 files (hero.tsx, footer.tsx) | 0 reads | ~938 tok |
+| 16:26 | Edited constant/listNavbar.ts | 6→6 lines | ~70 |
+| 16:26 | Edited constant/listNavbar.ts | reduced (-8 lines) | ~57 |
+| 16:26 | Edited components/navbar.tsx | expanded (+13 lines) | ~172 |
+| 16:28 | Navbar menu restructure: Team->About NTT(NTTSC Team), Infographics->Previous Program; add OI-logo blue button next to More | constant/listNavbar.ts, components/navbar.tsx | done | ~2k |
+| 16:28 | Session end: 6 writes across 4 files (hero.tsx, footer.tsx, listNavbar.ts, navbar.tsx) | 2 reads | ~5550 tok |
+| 16:33 | Edited components/navbar.tsx | 8→10 lines | ~105 |
+| 16:35 | Fix mobile crash: SECONDARY_ACTIONS[3] undefined -> slice(1).map (bug-036) | components/navbar.tsx | done | ~1k |
+| 16:35 | Session end: 7 writes across 4 files (hero.tsx, footer.tsx, listNavbar.ts, navbar.tsx) | 2 reads | ~5801 tok |
