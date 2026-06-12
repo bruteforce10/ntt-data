@@ -593,6 +593,150 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-09T00:00:00.000Z"
+    },
+    {
+      "id": "bug-037",
+      "timestamp": "2026-06-12T00:13:01.952Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Had \"@/lib/site-content\"",
+      "fix": "Changed to \"lucide-react\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T00:13:01.952Z"
+    },
+    {
+      "id": "bug-038",
+      "timestamp": "2026-06-12T00:13:16.140Z",
+      "error_message": "CSS fix: sm, group-hover",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "sm: grid-cols-2 sm:gap-6\"> → grid-cols-2 sm:gap-6 lg:grid-cols-3\">; group-hover: underline\"> → translate-x-1\">",
+      "fix": "Changed sm: grid-cols-2 sm:gap-6\"> → grid-cols-2 sm:gap-6 lg:grid-cols-3\">; group-hover: underline\"> → translate-x-1\">",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T00:13:16.140Z"
+    },
+    {
+      "id": "bug-039",
+      "timestamp": "2026-06-12T00:14:28.845Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/faq.tsx",
+      "root_cause": "Had \"mx-auto max-w-[800px] px-6\"",
+      "fix": "Changed to \"mx-auto max-w-200 px-6\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T00:14:28.845Z"
+    },
+    {
+      "id": "bug-040",
+      "timestamp": "2026-06-12T00:20:41.009Z",
+      "error_message": "Null/undefined access in ",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T00:20:41.009Z"
+    },
+    {
+      "id": "bug-041",
+      "timestamp": "2026-06-12T00:21:03.134Z",
+      "error_message": "Type error",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation | Also: <Field label=\"Company Description\" id=\"companyDescription\" f; id=\"companyDescription\"",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-06-12T00:21:18.588Z"
+    },
+    {
+      "id": "bug-042",
+      "timestamp": "2026-06-12T00:30:18.582Z",
+      "error_message": "Null/undefined access in ",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T00:30:18.582Z"
+    },
+    {
+      "id": "bug-043",
+      "timestamp": "2026-06-12T00:30:26.608Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 13→24 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T00:30:26.608Z"
+    },
+    {
+      "id": "bug-044",
+      "timestamp": "2026-06-12T00:30:33.610Z",
+      "error_message": "CSS fix: hover",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "hover: border-[#3176E4] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50\" → border-[#3176E4] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50\",",
+      "fix": "Changed hover: border-[#3176E4] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50\" → border-[#3176E4] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50\",",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T00:30:33.610Z"
+    },
+    {
+      "id": "bug-045",
+      "timestamp": "2026-06-12T00:50:44.703Z",
+      "error_message": "Null/undefined access in ",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-12T00:50:44.703Z"
     }
   ]
 }

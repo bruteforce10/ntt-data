@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { Info } from "lucide-react";
+import { AlertCircle, FileText, Info, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,8 +24,21 @@ import { SITE_CONTENT } from "@/lib/site-content";
 
 const { problemOverview } = SITE_CONTENT;
 
+const MAX_DESCRIPTION_FILE_BYTES = 8 * 1024 * 1024;
+const DESCRIPTION_FILE_ACCEPT = ".pdf,application/pdf";
+
 const BUSINESS_MODES = ["Startup", "Partner"] as const;
 type BusinessMode = (typeof BUSINESS_MODES)[number];
+const FUNDING_STAGES = [
+  "Pre-Seed",
+  "Seed",
+  "Series A",
+  "Series B",
+  "Series C",
+  "Series D & Beyond",
+  "Other",
+] as const;
+type FundingStage = (typeof FUNDING_STAGES)[number];
 const HEAR_ABOUT_US = [
   "Instagram",
   "Email",
@@ -47,7 +60,9 @@ type ErrorKey =
   | "city"
   | "problemStatement"
   | "hearAboutUs"
-  | "hearAboutUsOther";
+  | "hearAboutUsOther"
+  | "fundingStageOther"
+  | "companyDescriptionFile";
 type FormErrors = Partial<Record<ErrorKey, string>>;
 
 function isValidEmail(value: string) {
@@ -112,6 +127,16 @@ export default function StartupRegistrationForm() {
     null,
   );
   const [hearAboutUsOther, setHearAboutUsOther] = React.useState("");
+  const [fundingStage, setFundingStage] = React.useState<FundingStage | null>(
+    null,
+  );
+  const [fundingStageOther, setFundingStageOther] = React.useState("");
+  const [descriptionFile, setDescriptionFile] = React.useState<File | null>(
+    null,
+  );
+  const [descriptionSizeError, setDescriptionSizeError] = React.useState(false);
+  const [companyDescription, setCompanyDescription] = React.useState("");
+  const descriptionFileInputRef = React.useRef<HTMLInputElement>(null);
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [formError, setFormError] = React.useState("");
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -152,6 +177,24 @@ export default function StartupRegistrationForm() {
         .map((problemIndex) => problemOverview.items[problemIndex].title)
         .join(", "),
     );
+  }
+
+  function handleDescriptionFileChange(
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) {
+    const picked = e.target.files?.[0] ?? null;
+    setDescriptionFile(picked);
+    setDescriptionSizeError(
+      picked ? picked.size > MAX_DESCRIPTION_FILE_BYTES : false,
+    );
+  }
+
+  function clearDescriptionFile() {
+    setDescriptionFile(null);
+    setDescriptionSizeError(false);
+    if (descriptionFileInputRef.current) {
+      descriptionFileInputRef.current.value = "";
+    }
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -200,6 +243,13 @@ export default function StartupRegistrationForm() {
     if (hearAboutUs === "Others" && !hearAboutUsOther.trim()) {
       nextErrors.hearAboutUsOther = "Please specify where you heard about us.";
     }
+    if (fundingStage === "Other" && !fundingStageOther.trim()) {
+      nextErrors.fundingStageOther = "Please specify your funding stage.";
+    }
+    if (descriptionSizeError) {
+      nextErrors.companyDescriptionFile =
+        "File exceeds 8 MB. Please choose a smaller file.";
+    }
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
@@ -213,32 +263,49 @@ export default function StartupRegistrationForm() {
         : website
       : undefined;
 
-    const payload = {
-      full_name: `${firstName} ${lastName}`.trim(),
-      email,
-      phone_number: phoneNumber
-        ? Number(phoneNumber.replace(/[^\d]/g, ""))
-        : undefined,
-      job_title: jobTitle,
-      startup_name: startupName,
-      website: normalizedWebsite,
-      business_mode: businessMode?.toLowerCase(),
-      country,
-      city,
-      company_address: companyAddress || undefined,
-      problem_statement: problemStatement,
-      did_you_hear_about_us:
-        hearAboutUs === "Others" ? hearAboutUsOther.trim() : hearAboutUs,
-    };
+    const fundingStageValue =
+      fundingStage === "Other" ? fundingStageOther.trim() : (fundingStage ?? "");
+
+    // Sent as multipart/form-data so the company-description PDF can be
+    // uploaded; PocketBase only accepts files via multipart.
+    const submitData = new FormData();
+    submitData.append("full_name", `${firstName} ${lastName}`.trim());
+    submitData.append("email", email);
+    if (phoneNumber) {
+      submitData.append("phone_number", phoneNumber.replace(/[^\d]/g, ""));
+    }
+    submitData.append("job_title", jobTitle);
+    submitData.append("startup_name", startupName);
+    if (normalizedWebsite) submitData.append("website", normalizedWebsite);
+    if (businessMode) {
+      submitData.append("business_mode", businessMode.toLowerCase());
+    }
+    submitData.append("country", country);
+    submitData.append("city", city);
+    if (companyAddress) submitData.append("company_address", companyAddress);
+    submitData.append("problem_statement", problemStatement);
+    submitData.append(
+      "did_you_hear_about_us",
+      hearAboutUs === "Others" ? hearAboutUsOther.trim() : (hearAboutUs ?? ""),
+    );
+    if (fundingStageValue) {
+      submitData.append("funding_stage", fundingStageValue);
+    }
+    if (descriptionFile) {
+      submitData.append(
+        "company_description_pdf",
+        descriptionFile,
+        descriptionFile.name,
+      );
+    } else if (companyDescription.trim()) {
+      submitData.append("company_description", companyDescription.trim());
+    }
 
     setIsSubmitting(true);
     try {
       const response = await fetch("/api/ntt-data", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        body: submitData,
       });
 
       if (!response.ok) {
@@ -254,6 +321,10 @@ export default function StartupRegistrationForm() {
       setBusinessMode(null);
       setHearAboutUs(null);
       setHearAboutUsOther("");
+      setFundingStage(null);
+      setFundingStageOther("");
+      setCompanyDescription("");
+      clearDescriptionFile();
       setRegisteredEmail(email);
       setSuccessOpen(true);
     } catch (error) {
@@ -266,6 +337,9 @@ export default function StartupRegistrationForm() {
       setIsSubmitting(false);
     }
   }
+
+  const hasDescriptionText = companyDescription.trim().length > 0;
+  const hasDescriptionFile = descriptionFile !== null;
 
   return (
     <>
@@ -397,6 +471,49 @@ export default function StartupRegistrationForm() {
               />
             </Field>
 
+            <Field label="Funding Stage" id="fundingStage">
+              <Select
+                id="fundingStage"
+                name="fundingStage"
+                value={fundingStage}
+                onValueChange={(value) => {
+                  const nextValue = value as FundingStage | null;
+                  setFundingStage(nextValue);
+                  if (nextValue !== "Other") setFundingStageOther("");
+                }}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select funding stage" />
+                </SelectTrigger>
+                <SelectContent>
+                  {FUNDING_STAGES.map((stage) => (
+                    <SelectItem key={stage} value={stage}>
+                      {stage}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Field>
+
+            {fundingStage === "Other" && (
+              <Field
+                label="Specify Funding Stage *"
+                id="fundingStageOther"
+                error={errors.fundingStageOther}
+              >
+                <Input
+                  id="fundingStageOther"
+                  name="fundingStageOther"
+                  value={fundingStageOther}
+                  onChange={(event) =>
+                    setFundingStageOther(event.target.value)
+                  }
+                  placeholder="e.g. Bridge round, Grant, Bootstrapped"
+                  aria-invalid={Boolean(errors.fundingStageOther)}
+                />
+              </Field>
+            )}
+
             <Field label="Company Address" id="companyAddress" full>
               <Textarea
                 id="companyAddress"
@@ -405,6 +522,97 @@ export default function StartupRegistrationForm() {
                 rows={3}
                 className="resize-none"
               />
+            </Field>
+
+            <Field label="Company Description" id="companyDescription" full>
+              <Textarea
+                id="companyDescription"
+                name="companyDescription"
+                value={companyDescription}
+                onChange={(event) => setCompanyDescription(event.target.value)}
+                disabled={hasDescriptionFile}
+                placeholder={
+                  hasDescriptionFile
+                    ? "PDF uploaded — remove it to type a description instead"
+                    : "Tell us about your company..."
+                }
+                rows={4}
+                className="resize-none disabled:cursor-not-allowed disabled:bg-gray-50 disabled:opacity-60"
+              />
+
+              <div className="mt-3">
+                <p
+                  className={`mb-1.5 text-xs font-medium ${
+                    hasDescriptionText ? "text-gray-300" : "text-gray-500"
+                  }`}
+                >
+                  Or upload your company description as a PDF
+                </p>
+
+                {descriptionFile ? (
+                  <div className="flex items-center justify-between gap-3 rounded-lg border border-input bg-gray-50 px-3 py-2">
+                    <span className="flex min-w-0 items-center gap-2 text-sm">
+                      <FileText
+                        className="size-4 shrink-0 text-[#3176E4]"
+                        aria-hidden
+                      />
+                      <span className="truncate text-gray-900">
+                        {descriptionFile.name}
+                      </span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={clearDescriptionFile}
+                      aria-label="Remove file"
+                      className="flex size-6 shrink-0 items-center justify-center rounded-full text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3176E4]"
+                    >
+                      <X className="size-4" />
+                    </button>
+                  </div>
+                ) : (
+                  <label
+                    htmlFor="companyDescriptionFile"
+                    aria-disabled={hasDescriptionText}
+                    className={[
+                      "flex h-9 items-center rounded-lg border border-input bg-transparent px-3 text-sm transition-colors",
+                      hasDescriptionText
+                        ? "cursor-not-allowed opacity-60"
+                        : "cursor-pointer hover:border-[#3176E4] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50",
+                    ].join(" ")}
+                  >
+                    <span className="mr-2 font-medium text-gray-900">
+                      Choose PDF
+                    </span>
+                    <span className="text-muted-foreground">
+                      No file chosen
+                    </span>
+                  </label>
+                )}
+
+                <input
+                  ref={descriptionFileInputRef}
+                  id="companyDescriptionFile"
+                  name="companyDescriptionFile"
+                  type="file"
+                  accept={DESCRIPTION_FILE_ACCEPT}
+                  className="sr-only"
+                  disabled={hasDescriptionText}
+                  onChange={handleDescriptionFileChange}
+                  aria-invalid={Boolean(errors.companyDescriptionFile)}
+                />
+
+                <p className="mt-2 flex items-center gap-1.5 text-xs text-amber-600">
+                  <AlertCircle className="size-3.5 shrink-0" aria-hidden />
+                  PDF only · Maximum file size{" "}
+                  <strong className="font-semibold">8 MB</strong>
+                </p>
+
+                {errors.companyDescriptionFile && (
+                  <p className="mt-1.5 text-xs font-medium text-red-600">
+                    {errors.companyDescriptionFile}
+                  </p>
+                )}
+              </div>
             </Field>
           </div>
         </div>

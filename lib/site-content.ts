@@ -4,12 +4,12 @@ export const SITE_CONTENT = {
       src: "/Assets Picture/About NTT.png",
       alt: "NTT DATA headquarters cityscape",
     },
-    title: "ABOUT NTT OPEN INNOVATION PROGRAM",
+    title: "About the NTT Open Innovation Program",
     description:
       "Are you a startup ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Programme offers you the chance to collaborate directly with NTT DATA and its clients during a 3-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning team will receive a USD $30,000 reward in Time & Material services to bring their PoC to life. Apply now!",
   },
   benefit: {
-    title: "Why participating",
+    title: "Why Participating",
     subtitle:
       "This program offers startups access to industry expertise, funding of pilots, market access and commercial collaboration opportunities",
     items: [
@@ -46,7 +46,7 @@ export const SITE_CONTENT = {
     ],
   },
   programOverview: {
-    title: "PROGRAM OVERVIEW",
+    title: "Program Overview",
     items: [
       {
         title: "WORKSHOPS",
@@ -95,7 +95,7 @@ export const SITE_CONTENT = {
       { label: "HOME", href: "/" },
       { label: "PROGRAM OVERVIEW", href: "#program-overview" },
       { label: "BENEFITS", href: "#benefits" },
-      { label: "COUNTDOWN", href: "#countdown" },
+      // { label: "COUNTDOWN", href: "#countdown" },
       // { label: "CONTACT", href: "#contact" },
     ],
     actions: [
@@ -130,7 +130,7 @@ export const SITE_CONTENT = {
     },
   },
   problemOverview: {
-    title: "PROBLEM OVERVIEW",
+    title: "Explore the Challenges",
     ornament: {
       src: "/Ornament/Ornament (2).png",
       alt: "",
@@ -238,6 +238,43 @@ export const SITE_CONTENT = {
       //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla consequat, vestibulum magna nec, ultrices lacus. Quisque pellentesque at elit vitae ullamcorper. Quisque nisi urna, lobortis sit amet efficitur at, faucibus non augue.\n\nAenean at metus ex. Mauris eu lacus elementum, sagittis orci ac, iaculis neque. Curabitur tincidunt facilisis dictum. Nam consequat felis nec posuere pulvinar. Ut fermentum purus ut felis sodales, vitae tincidunt est tempor.\n\nPraesent a velit in est consequat porta. Nulla pellentesque imperdiet aliquet. Maecenas pretium, enim non bibendum tincidunt, lacus sem ornare enim, a sagittis nisl ipsum vel enim.",
       //   href: "#problem-statements",
       // },
+    ],
+  },
+  faq: {
+    title: "Frequently Asked Questions",
+    subtitle:
+      "Find quick answers to the most common questions about eligibility, the program timeline, and what to expect during the innovation sprint.",
+    items: [
+      {
+        question: "Who is eligible to apply for this program?",
+        answer:
+          "The program is open to startups at any stage that have a working product, prototype, or proven technology relevant to one of the published challenge statements. Both local and international startups are welcome to apply.",
+      },
+      {
+        question: "What does the selection process look like?",
+        answer:
+          "Applications are reviewed by NTT DATA and client teams. Shortlisted startups will be invited to a matching session with potential client partners before progressing to the final pitch battle in Singapore.",
+      },
+      {
+        question: "Is there a cost to participate?",
+        answer:
+          "Participation in the program is free. Selected startups are responsible for their own travel and accommodation to Singapore unless stated otherwise.",
+      },
+      {
+        question: "What do winning teams receive?",
+        answer:
+          "The winning team will receive a reward of up to USD 30,000 in Time & Material services from NTT DATA to help bring their Proof of Concept (PoC) to life.",
+      },
+      {
+        question: "When and where will the event take place?",
+        answer:
+          "The innovation sprint will be held over 3 days in Singapore, from August 31 to September 2, 2026.",
+      },
+      {
+        question: "How do I submit my pitch deck?",
+        answer:
+          "Shortlisted startups will receive a link to upload their pitch deck through the official submission form ahead of the matching session.",
+      },
     ],
   },
 } as const;

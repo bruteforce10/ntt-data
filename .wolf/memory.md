@@ -2,6 +2,8 @@
 
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
+| 14:05 | Added FAQ section (dummy data) to homepage, styled per design system, using existing Base UI Accordion | lib/site-content.ts, components/faq.tsx, app/page.tsx | success | ~3500 |
+| 14:30 | Restructured "Explore the Challenges" cards to 3-col grid, vertical layout, added circular ArrowRight icon under "View detail..."; fixed Tailwind v4 canonical class max-w-[800px] -> max-w-200 | components/problem-overview.tsx, components/faq.tsx | success, verified via designqc | ~2800 |
 
 | 11:00 | Created About, Benefit, ProgramOverview sections matching reference design | components/about.tsx, components/benefit.tsx, components/program-overview.tsx, lib/site-content.ts, app/page.tsx, app/globals.css | All 3 sections render correctly with images; CSS marquee infinite scroll working | ~2200 tok |
 
@@ -302,3 +304,60 @@
 | 16:33 | Edited components/navbar.tsx | 8→10 lines | ~105 |
 | 16:35 | Fix mobile crash: SECONDARY_ACTIONS[3] undefined -> slice(1).map (bug-036) | components/navbar.tsx | done | ~1k |
 | 16:35 | Session end: 7 writes across 4 files (hero.tsx, footer.tsx, listNavbar.ts, navbar.tsx) | 2 reads | ~5801 tok |
+
+## Session: 2026-06-11 06:30
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-11 06:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-11 06:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 06:42 | Edited lib/site-content.ts | expanded (+37 lines) | ~542 |
+| 06:42 | Created components/faq.tsx | — | ~374 |
+| 06:42 | Edited app/page.tsx | added 1 import(s) | ~116 |
+| 06:45 | designqc: captured 6 screenshots (437KB, ~15000 tok) | / | ready for eval | ~0 |
+| 06:47 | Session end: 3 writes across 3 files (site-content.ts, faq.tsx, page.tsx) | 11 reads | ~5646 tok |
+
+## Session: 2026-06-12 07:11
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 07:13 | Edited components/problem-overview.tsx | added 1 import(s) | ~36 |
+| 07:13 | Edited components/problem-overview.tsx | CSS: lg | ~532 |
+| 07:13 | designqc: captured 6 screenshots (421KB, ~15000 tok) | / | ready for eval | ~0 |
+| 07:14 | Edited components/faq.tsx | "mx-auto max-w-[800px] px-" → "mx-auto max-w-200 px-6" | ~14 |
+| 07:14 | Session end: 3 writes across 2 files (problem-overview.tsx, faq.tsx) | 2 reads | ~956 tok |
+
+## Session: 2026-06-12 07:16
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 07:20 | Edited components/startup-registration-form.tsx | inline fix | ~18 |
+| 07:20 | Edited components/startup-registration-form.tsx | expanded (+13 lines) | ~129 |
+| 07:20 | Edited components/startup-registration-form.tsx | 3→5 lines | ~34 |
+| 07:20 | Edited components/startup-registration-form.tsx | expanded (+9 lines) | ~155 |
+| 07:20 | Edited components/startup-registration-form.tsx | added optional chaining | ~171 |
+| 07:20 | Edited components/startup-registration-form.tsx | added 2 condition(s) | ~133 |
+| 07:20 | Edited components/startup-registration-form.tsx | 5→8 lines | ~69 |
+| 07:21 | Edited components/startup-registration-form.tsx | added 1 condition(s) | ~558 |
+| 07:21 | Edited components/startup-registration-form.tsx | expanded (+73 lines) | ~1042 |
+| 07:22 | Added Funding Stage select (+Other custom input) and Company Description textarea with PDF upload (≤8MB) to startup form; frontend-only, not in /api/ntt-data payload | components/startup-registration-form.tsx | tsc clean, 0 console errors, verified in browser | ~1200 |
+| 07:23 | Session end: 9 writes across 1 files (startup-registration-form.tsx) | 3 reads | ~4566 tok |
+| 07:30 | Edited components/startup-registration-form.tsx | 2→3 lines | ~65 |
+| 07:30 | Edited components/startup-registration-form.tsx | 2→5 lines | ~40 |
+| 07:30 | Edited components/startup-registration-form.tsx | CSS: disabled, disabled, disabled | ~296 |
+| 07:30 | Edited components/startup-registration-form.tsx | expanded (+6 lines) | ~203 |
+| 07:30 | Edited components/startup-registration-form.tsx | 6→7 lines | ~90 |
+| 07:30 | Edited components/startup-registration-form.tsx | 3→4 lines | ~36 |
+| 07:33 | Session end: 15 writes across 1 files (startup-registration-form.tsx) | 3 reads | ~12955 tok |
+| 07:50 | Created app/api/ntt-data/route.ts | — | ~1650 |
+| 07:50 | Edited components/startup-registration-form.tsx | added nullish coalescing | ~475 |
+| 07:51 | Session end: 17 writes across 2 files (startup-registration-form.tsx, route.ts) | 5 reads | ~16537 tok |
+| 07:58 | Session end: 17 writes across 2 files (startup-registration-form.tsx, route.ts) | 6 reads | ~16537 tok |

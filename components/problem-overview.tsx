@@ -2,6 +2,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { SITE_CONTENT } from "@/lib/site-content";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 
@@ -22,7 +23,7 @@ export default function ProblemOverview() {
   return (
     <section
       id="problem-statements"
-      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-16"
     >
       <div className="pointer-events-none absolute -right-0 -top-2 h-[340px] w-[340px] sm:h-[420px] sm:w-[420px]">
         <Image
@@ -34,11 +35,11 @@ export default function ProblemOverview() {
       </div>
 
       <div className="relative mx-auto max-w-[1200px] px-6">
-        <h2 className="mb-10 text-center text-2xl font-black uppercase tracking-wide text-[#0070C0] sm:text-3xl">
+        <h2 className="mb-10 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
           {problemOverview.title}
         </h2>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {problemOverview.items.map((item, i) => (
             <article
               key={i}
@@ -51,26 +52,25 @@ export default function ProblemOverview() {
                   setSelectedIndex(i);
                 }
               }}
-              className="group cursor-pointer rounded-2xl border border-white/5 bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 p-6 backdrop-blur-sm transition duration-200 ease-out hover:border-white/20 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3176e4]"
+              className="group flex h-full cursor-pointer flex-col rounded-2xl border border-white/5 bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 p-6 backdrop-blur-sm transition duration-200 ease-out hover:border-white/20 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3176e4]"
             >
-              <div className="flex flex-col justify-between gap-4">
-                <div className="flex items-center gap-5">
-                  <Image
-                    src={item.logo.src}
-                    alt={item.logo.alt}
-                    width={item.logo.width}
-                    height={item.logo.height}
-                    className="object-contain object-left flex-shrink-0"
-                  />
-                  <p className="text-sm leading-relaxed max-w-[250px] text-white">
-                    {item.description}
-                  </p>
-                </div>
-                <div className="flex justify-end">
-                  <span className="text-xs font-semibold text-white transition-colors duration-200 group-hover:underline">
-                    View detail...
-                  </span>
-                </div>
+              <Image
+                src={item.logo.src}
+                alt={item.logo.alt}
+                width={item.logo.width}
+                height={item.logo.height}
+                className="object-contain object-left flex-shrink-0"
+              />
+              <p className="mt-5 flex-1 text-sm leading-relaxed text-white">
+                {item.description}
+              </p>
+              <div className="mt-6 flex flex-col items-center gap-3">
+                <span className="text-xs font-semibold text-white transition-colors duration-200 group-hover:underline">
+                  View detail...
+                </span>
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3176e4] text-white transition-transform duration-200 group-hover:translate-x-1">
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </span>
               </div>
             </article>
           ))}

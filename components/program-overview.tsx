@@ -38,9 +38,9 @@ export default function ProgramOverview() {
   }, [api]);
 
   return (
-    <section id="program-overview" className="bg-white py-16 sm:py-20 lg:py-24">
+    <section id="program-overview" className="bg-white py-16 sm:py-20 lg:py-18">
       <div className="mb-10 px-6 text-center">
-        <h2 className="text-2xl font-black uppercase tracking-wide text-[#0070C0] sm:text-3xl">
+        <h2 className="text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
           {programOverview.title}
         </h2>
       </div>

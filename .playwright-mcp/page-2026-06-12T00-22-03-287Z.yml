@@ -1,0 +1,215 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NTT Startup Challenge" [ref=e4] [cursor=pointer]:
+        - /url: https://ntt-startupchallenge.com
+        - img "NTT Startup Challenge" [ref=e5]
+      - navigation [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: https://ntt-startupchallenge.com/
+          - listitem [ref=e11]:
+            - button "Why Attend" [ref=e12]:
+              - text: Why Attend
+              - img [ref=e13]
+          - listitem [ref=e15]:
+            - button "Agenda" [ref=e16]:
+              - text: Agenda
+              - img [ref=e17]
+          - listitem [ref=e19]:
+            - button "About NTT" [ref=e20]:
+              - text: About NTT
+              - img [ref=e21]
+          - listitem [ref=e23]:
+            - button "Previous Program" [ref=e24]:
+              - text: Previous Program
+              - img [ref=e25]
+      - generic [ref=e28]:
+        - button "Register" [ref=e29] [cursor=pointer]:
+          - generic [ref=e30]: Register
+        - button "More" [ref=e31]:
+          - text: More
+          - img
+        - link "Open Innovation" [ref=e32] [cursor=pointer]:
+          - /url: /
+          - img "Open Innovation" [ref=e33]
+  - generic [ref=e35]:
+    - link "NTT DATA" [ref=e36] [cursor=pointer]:
+      - /url: /
+      - img "NTT DATA" [ref=e37]
+    - generic [ref=e38]:
+      - navigation "Main navigation" [ref=e39]:
+        - link "HOME" [ref=e40] [cursor=pointer]:
+          - /url: /
+        - link "PROGRAM OVERVIEW" [ref=e41] [cursor=pointer]:
+          - /url: "#program-overview"
+        - link "BENEFITS" [ref=e42] [cursor=pointer]:
+          - /url: "#benefits"
+      - generic [ref=e44]:
+        - link "VIEW PROBLEM STATEMENTS" [ref=e45] [cursor=pointer]:
+          - /url: "#problem-statements"
+        - link "REGISTER" [ref=e46] [cursor=pointer]:
+          - /url: /startup-registration
+  - main [ref=e47]:
+    - generic [ref=e48]:
+      - navigation "Breadcrumb" [ref=e49]:
+        - link "Home" [ref=e50] [cursor=pointer]:
+          - /url: /
+        - img [ref=e51]
+        - generic [ref=e53]: Startup Registration
+      - generic [ref=e54]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - text: First Name
+              - generic [ref=e59]: "*"
+            - textbox "First Name *" [ref=e61]:
+              - /placeholder: First name
+          - generic [ref=e62]:
+            - generic [ref=e63]:
+              - text: Last Name
+              - generic [ref=e64]: "*"
+            - textbox "Last Name *" [ref=e66]:
+              - /placeholder: Last name
+          - generic [ref=e67]:
+            - generic [ref=e68]:
+              - text: Email
+              - generic [ref=e69]: "*"
+            - textbox "Email *" [ref=e71]:
+              - /placeholder: email@example.com
+          - generic [ref=e72]:
+            - generic [ref=e73]: Phone Number
+            - textbox "Phone Number" [ref=e75]:
+              - /placeholder: +62 xxx xxxx xxxx
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - text: Job Title
+              - generic [ref=e78]: "*"
+            - textbox "Job Title *" [ref=e80]:
+              - /placeholder: e.g. CEO, CTO
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - text: Startup Name
+              - generic [ref=e83]: "*"
+            - textbox "Startup Name *" [ref=e85]:
+              - /placeholder: Your startup name
+          - generic [ref=e86]:
+            - generic [ref=e87]: Website
+            - textbox "Website" [ref=e89]:
+              - /placeholder: https:// or www.example.com
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - text: Business Mode
+              - generic [ref=e92]: "*"
+            - generic [ref=e93]:
+              - combobox "Business Mode *" [ref=e94]:
+                - generic [ref=e95]: Select business mode
+                - img: ▼
+              - textbox [ref=e96]
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - text: Country
+              - generic [ref=e99]: "*"
+            - textbox "Country *" [ref=e101]:
+              - /placeholder: Country
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - text: City
+              - generic [ref=e104]: "*"
+            - textbox "City *" [ref=e106]:
+              - /placeholder: City
+          - generic [ref=e107]:
+            - generic [ref=e108]: Funding Stage
+            - generic [ref=e109]:
+              - combobox "Funding Stage" [expanded] [ref=e110]:
+                - generic [ref=e111]: Select funding stage
+                - img: ▼
+              - listbox [ref=e191]:
+                - option "Pre-Seed" [active] [ref=e192]:
+                  - generic [ref=e193]: Pre-Seed
+                - option "Seed" [ref=e194]:
+                  - generic [ref=e195]: Seed
+                - option "Series A" [ref=e196]:
+                  - generic [ref=e197]: Series A
+                - option "Series B" [ref=e198]:
+                  - generic [ref=e199]: Series B
+                - option "Series C" [ref=e200]:
+                  - generic [ref=e201]: Series C
+                - option "Series D & Beyond" [ref=e202]:
+                  - generic [ref=e203]: Series D & Beyond
+                - option "Other" [ref=e204]:
+                  - generic [ref=e205]: Other
+              - textbox [ref=e112]
+          - generic [ref=e113]:
+            - generic [ref=e114]: Company Address
+            - textbox "Company Address" [ref=e116]:
+              - /placeholder: Enter your company address...
+          - generic [ref=e117]:
+            - generic [ref=e118]: Company Description
+            - generic [ref=e119]:
+              - textbox "Company Description" [ref=e120]:
+                - /placeholder: Tell us about your company...
+              - generic [ref=e121]:
+                - paragraph [ref=e122]: Or upload your company description as a PDF
+                - generic [ref=e123] [cursor=pointer]:
+                  - generic [ref=e124]: Choose PDF
+                  - generic [ref=e125]: No file chosen
+                - button "Choose PDF No file chosen" [ref=e126]
+                - paragraph [ref=e127]:
+                  - img [ref=e128]
+                  - text: PDF only · Maximum file size
+                  - strong [ref=e130]: 8 MB
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - heading "Problem Statement" [level=2] [ref=e133]
+            - paragraph [ref=e134]: You may select more than one problem statement.
+          - generic [ref=e136]:
+            - generic [ref=e137]:
+              - text: Problem Statement
+              - generic [ref=e138]: "*"
+            - textbox "Problem Statement *" [ref=e140]:
+              - /placeholder: Select one or more problem statement cards...
+          - generic [ref=e141]:
+            - button "Client AI-Driven Supply Chain Resilience How can we leverage AI-driven analytics to optimize supply chain resilience and reduce operational costs in volatile markets?" [ref=e142]:
+              - img "Client" [ref=e143]
+              - paragraph [ref=e144]: AI-Driven Supply Chain Resilience
+              - paragraph [ref=e145]: How can we leverage AI-driven analytics to optimize supply chain resilience and reduce operational costs in volatile markets?
+            - button "Client Seamless Digital Customer Experience How might we create seamless digital customer experiences that reduce friction and increase engagement across all touchpoints?" [ref=e146]:
+              - img "Client" [ref=e147]
+              - paragraph [ref=e148]: Seamless Digital Customer Experience
+              - paragraph [ref=e149]: How might we create seamless digital customer experiences that reduce friction and increase engagement across all touchpoints?
+            - button "NTT DATA Edge Computing & Real-Time Intelligence How can we harness next-generation connectivity and edge computing to enable real-time intelligence at scale?" [ref=e150]:
+              - img "NTT DATA" [ref=e151]
+              - paragraph [ref=e152]: Edge Computing & Real-Time Intelligence
+              - paragraph [ref=e153]: How can we harness next-generation connectivity and edge computing to enable real-time intelligence at scale?
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - text: How Did You Hear About Us?
+            - generic [ref=e157]: "*"
+          - generic [ref=e158]:
+            - combobox "How Did You Hear About Us? *" [ref=e159]:
+              - generic [ref=e160]: Select an option
+              - img: ▼
+            - textbox [ref=e161]
+        - button "Submit Registration" [ref=e163]
+  - contentinfo [ref=e164]:
+    - generic [ref=e165]:
+      - generic [ref=e166]:
+        - link "NTT DATA" [ref=e167] [cursor=pointer]:
+          - /url: /
+          - img "NTT DATA" [ref=e168]
+        - navigation [ref=e169]:
+          - link "HOME" [ref=e170] [cursor=pointer]:
+            - /url: /
+          - link "PROGRAM OVERVIEW" [ref=e171] [cursor=pointer]:
+            - /url: "#program-overview"
+          - link "BENEFITS" [ref=e172] [cursor=pointer]:
+            - /url: "#benefits"
+        - generic [ref=e173]:
+          - generic [ref=e174]: Program Partner
+          - img "EXEO Global Logo" [ref=e175]
+      - paragraph [ref=e177]: © 2026 NTT DATA. All rights reserved.
+  - button "Open Next.js Dev Tools" [ref=e183] [cursor=pointer]:
+    - img [ref=e184]
+  - alert [ref=e187]

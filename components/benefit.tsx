@@ -5,9 +5,9 @@ const { benefit } = SITE_CONTENT;
 
 export default function Benefit() {
   return (
-    <section id="benefits" className="bg-white py-16 sm:py-20 lg:py-24">
+    <section id="benefits" className="bg-white py-16 sm:py-20 lg:py-18">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <h2 className="mb-3 text-center text-2xl font-black uppercase tracking-wide text-[#0070C0] sm:text-3xl">
+        <h2 className="mb-3 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
           {benefit.title}
         </h2>
         <p className="mb-12 text-center text-sm text-gray-500 sm:text-base">
@@ -24,13 +24,13 @@ export default function Benefit() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute left-6 sm:left-3 top-3">
+                {/* <div className="absolute left-6 sm:left-3 top-3">
                   <span className="text-xs font-semibold uppercase tracking-wider text-[#3176e4]">
                     {item.number}
                   </span>
-                </div>
-                <div className="absolute top-10 sm:left-3 right-3 left-6">
-                  <h3 className="text-lg font-black uppercase leading-tight text-white lg:text-xl">
+                </div> */}
+                <div className="absolute top-3 sm:left-3 right-3 left-6">
+                  <h3 className="text-lg font-black text-shadow-2xs uppercase leading-tight text-white lg:text-xl">
                     {item.title}
                   </h3>
                 </div>

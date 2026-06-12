@@ -1,5 +1,7 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { SITE_CONTENT } from "@/lib/site-content";
 
 const { countdown } = SITE_CONTENT;
@@ -33,17 +35,16 @@ const UNITS = [
 ];
 
 export default function Countdown() {
-  const [timeLeft, setTimeLeft] = React.useState<TimeLeft | null>(null);
+  const [timeLeft, setTimeLeft] = React.useState<TimeLeft>(() => getTimeLeft());
 
   React.useEffect(() => {
-    setTimeLeft(getTimeLeft());
     const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <section id="countdown" className="relative overflow-hidden">
-      <div className="relative flex min-h-[480px] items-center justify-center sm:min-h-[560px] lg:min-h-[640px]">
+    <section id="countdown" className="relative overflow-hidden py-16">
+      <div className="relative flex min-h-70 items-center justify-center sm:min-h-115 lg:min-h-110">
         <video
           autoPlay
           loop
@@ -54,13 +55,13 @@ export default function Countdown() {
           <source src={countdown.video.src} type={countdown.video.type} />
         </video>
 
-        <div className="relative z-10 px-6 py-20 text-center">
+        <div className="relative z-10 px-6  text-center">
           <div className="rounded-2xl border border-white/10 bg-[#0a1a3a]/50 px-8 py-10 backdrop-blur-md sm:px-14 sm:py-12 lg:px-36 lg:py-14">
             <p className="mb-8 text-md font-bold uppercase tracking-[0.25em] text-white/70 sm:text-xl">
               {countdown.title}
             </p>
 
-            <div className="flex items-center gap-2 sm:gap-4 lg:gap-6">
+            <div className="flex items-center gap-2 sm:gap-4 lg:gap-6 max-sm:px-12">
               {UNITS.map(({ key, label, digits }, i) => (
                 <React.Fragment key={key}>
                   <div className="flex flex-col items-center">
@@ -78,6 +79,16 @@ export default function Countdown() {
                   )}
                 </React.Fragment>
               ))}
+            </div>
+
+            <div className="mt-8 flex justify-center">
+              <Button
+                nativeButton={false}
+                render={<Link href="/startup-registration" />}
+                className="min-h-12 rounded-2xl bg-[#3176e4] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_40px_rgba(49,118,228,0.26)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#2560c8] focus-visible:ring-2 focus-visible:ring-white/80"
+              >
+                Register Now
+              </Button>
             </div>
           </div>
         </div>
