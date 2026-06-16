@@ -34,11 +34,21 @@ export default function ProblemOverview() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-[1200px] px-6">
+      <div className="relative mx-auto w-full px-6">
         <h2 className="mb-10 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
           {problemOverview.title}
         </h2>
 
+        <div className="mx-auto w-full text-center">
+          <p
+            className="mx-auto text-[4.5rem] font-black uppercase leading-none text-[#154284] sm:text-[6.75rem] lg:text-[8rem]"
+            style={{ fontFamily: "var(--font-nulshock)" }}
+          >
+            Coming Soon
+          </p>
+        </div>
+
+        {/*
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {problemOverview.items.map((item, i) => (
             <article
@@ -75,6 +85,8 @@ export default function ProblemOverview() {
             </article>
           ))}
         </div>
+      </div>
+        */}
       </div>
 
       <Dialog
