@@ -9,15 +9,15 @@ export const SITE_CONTENT = {
       "Are you a startup ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Programme offers you the chance to collaborate directly with NTT DATA and its clients during a 3-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning team will receive a USD $30,000 reward in Time & Material services to bring their PoC to life. Apply now!",
   },
   benefit: {
-    title: "Why Participating",
+    title: "Why Participating?",
     subtitle:
-      "This program offers startups access to industry expertise, funding of pilots, market access and commercial collaboration opportunities",
+      "This program offers startups access to industry expertise, funding of pilots, market access and commercial collaboration opportunities.",
     items: [
       {
         number: "BENEFIT 1",
         title: "POC FUNDING",
         descriptionHtml:
-          "Proof of Concept (POC) funding of up to <strong>USD 30,000</strong> to help turn ideas into reality.",
+          "Proof of Concept (POC) funding of up to USD $30,000 to help turn ideas into reality",
         image: {
           src: "/Assets Picture/Benefit from NTT Open innovation Week.png",
           alt: "POC Funding",
@@ -51,7 +51,7 @@ export const SITE_CONTENT = {
       {
         title: "WORKSHOPS",
         description:
-          "Co-creation sessions between customers and startups with support from NTT DATA's",
+          "Co-creation sessions between customers and startups with support from NTT DATA's.",
         image: {
           src: "/Assets Picture/Program overview.png",
           alt: "Workshops",
@@ -68,7 +68,7 @@ export const SITE_CONTENT = {
       {
         title: "MATCHING SESSIONS",
         description:
-          "Matching sessions between shortlisted startups and NTT DATA customers",
+          "Matching sessions between shortlisted startups and NTT DATA customers.",
         image: {
           src: "/Assets Picture/Program overview (3).png",
           alt: "Matching Sessions",
@@ -109,7 +109,7 @@ export const SITE_CONTENT = {
   },
   hero: {
     background: {
-      src: "/Assets Picture/Hero page 2.png",
+      src: "/Assets Picture/Hero page 2.webp",
       alt: "Tokyo cityscape at night",
     },
     ornament: {
@@ -118,7 +118,7 @@ export const SITE_CONTENT = {
     },
     title: ["NTT DATA OPEN", "INNOVATION PROGRAM"],
     description:
-      "Initiative brought by NTT Data. We are looking at innovative Startup solutions that address business challenges and solve societal issues",
+      "An initiative brought by NTT Data. We are looking at innovative startup solutions that address business challenges and solve societal issues.",
     action: { label: "REGISTER", href: "#register" },
   },
   countdown: {

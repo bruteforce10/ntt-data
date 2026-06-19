@@ -16,8 +16,48 @@ import { cn } from "@/lib/utils";
 
 const { programOverview } = SITE_CONTENT;
 const ITEM_COUNT = programOverview.items.length;
+// More than 5 items → keep the carousel. 5 or fewer → centered grid.
+const USE_CAROUSEL = ITEM_COUNT > 5;
 
-export default function ProgramOverview() {
+type ProgramItem = (typeof programOverview.items)[number];
+
+function ProgramCard({ item }: { item: ProgramItem }) {
+  return (
+    <div className="relative h-[300px] overflow-hidden rounded-2xl sm:h-[340px] lg:h-[380px]">
+      <Image
+        src={item.image.src}
+        alt={item.image.alt}
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 p-5">
+        <h3 className="text-sm font-black uppercase tracking-wide text-white">
+          {item.title}
+        </h3>
+        <p className="mt-1 text-xs leading-relaxed text-white/80">
+          {item.description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ProgramGrid() {
+  return (
+    <div className="mx-auto max-w-[1200px] px-6">
+      <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+        {programOverview.items.map((item, i) => (
+          <div key={i} className="w-full sm:w-[320px] lg:w-[340px]">
+            <ProgramCard item={item} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProgramCarousel() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
 
@@ -38,13 +78,7 @@ export default function ProgramOverview() {
   }, [api]);
 
   return (
-    <section id="program-overview" className="bg-white py-16 sm:py-20 lg:py-18">
-      <div className="mb-10 px-6 text-center">
-        <h2 className="text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
-          {programOverview.title}
-        </h2>
-      </div>
-
+    <>
       <div className="relative mx-auto max-w-[1200px] px-12 lg:px-14">
         <Carousel
           setApi={setApi}
@@ -58,23 +92,7 @@ export default function ProgramOverview() {
                 key={i}
                 className="pl-4 basis-[80%] sm:basis-[48%] lg:basis-[27%]"
               >
-                <div className="relative h-[300px] overflow-hidden rounded-2xl sm:h-[340px] lg:h-[380px]">
-                  <Image
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-sm font-black uppercase tracking-wide text-white">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-xs leading-relaxed text-white/80">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
+                <ProgramCard item={item} />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -97,6 +115,20 @@ export default function ProgramOverview() {
           />
         ))}
       </div>
+    </>
+  );
+}
+
+export default function ProgramOverview() {
+  return (
+    <section id="program-overview" className="bg-white py-16 sm:py-20 lg:py-18">
+      <div className="mb-10 px-6 text-center">
+        <h2 className="text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
+          {programOverview.title}
+        </h2>
+      </div>
+
+      {USE_CAROUSEL ? <ProgramCarousel /> : <ProgramGrid />}
     </section>
   );
 }

@@ -2,12 +2,12 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 310484,
-    "total_reads": 181,
-    "total_writes": 363,
-    "total_sessions": 26,
+    "total_tokens_estimated": 311625,
+    "total_reads": 183,
+    "total_writes": 364,
+    "total_sessions": 27,
     "anatomy_hits": 78,
-    "anatomy_misses": 85,
+    "anatomy_misses": 87,
     "repeated_reads_blocked": 24,
     "estimated_savings_vs_bare_cli": 114092
   },
@@ -3908,6 +3908,40 @@
         "writes_count": 17,
         "repeated_reads_blocked": 3,
         "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-06-19-1136",
+      "started": "2026-06-19T04:36:04.643Z",
+      "ended": "2026-06-19T04:39:40.131Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 1141,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 1141,
+        "reads_count": 2,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
       }
     }
   ],

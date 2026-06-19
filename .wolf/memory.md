@@ -361,3 +361,11 @@
 | 07:50 | Edited components/startup-registration-form.tsx | added nullish coalescing | ~475 |
 | 07:51 | Session end: 17 writes across 2 files (startup-registration-form.tsx, route.ts) | 5 reads | ~16537 tok |
 | 07:58 | Session end: 17 writes across 2 files (startup-registration-form.tsx, route.ts) | 6 reads | ~16537 tok |
+
+## Session: 2026-06-19 11:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:38 | Created components/program-overview.tsx | — | ~1141 |
+| 11:39 | program-overview: add layout logic — carousel when >5 items, centered grid when <=5 | components/program-overview.tsx | done | ~1.2k |
+| 11:39 | Session end: 1 writes across 1 files (program-overview.tsx) | 2 reads | ~1141 tok |

@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#060c1a]/95 via-[#060c1a]/65 to-[#060c1a]/15" />
 
       {/* Ornament — inset-y-0 ensures height so fill works at all breakpoints */}
-      {/* <div className="pointer-events-none absolute inset-y-0 right-[-35%] w-[120%] translate-y-[10%] opacity-30 sm:right-[-20%] sm:w-[95%] sm:opacity-45 lg:right-0 lg:w-[55%] lg:opacity-70">
+      {/* <div className="pointer-events-none absolute inset-y-0 right-[-35%] w-[120%] translate-y-[5%] opacity-30 sm:right-[-20%] sm:w-[95%] sm:opacity-45 lg:right-0 lg:w-[55%] lg:opacity-70">
         <Image
           src={hero.ornament.src}
           alt={hero.ornament.alt}
