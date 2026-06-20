@@ -849,6 +849,18 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-19T17:14:50.363Z"
+    },
+    {
+      "id": "bug-053",
+      "timestamp": "2026-06-20T00:00:00.000Z",
+      "error_message": "POST /api/ntt-data returns generic 500 on form submit; nodemailer verify() fails with 535-5.7.8 Username and Password not accepted (BadCredentials)",
+      "file": "lib/mailer.ts",
+      "root_cause": "SMTP_PASS was set to the raw Google Workspace account LOGIN password instead of a Gmail App Password. Google has blocked SMTP auth with the plain account password since May 2022; only a 16-char App Password (requires 2FA) or OAuth2 is accepted. transporter.sendMail() throws EAUTH, and the empty catch{} in app/api/ntt-data/route.ts:172 swallows it into a generic 500 with no detail. Secondary latent bug: SMTP_FROM=\"NTT Data\" is a display name, not an email, so route.ts:157 builds an invalid from-address <NTT Data> that will fail sendMail even after the password is fixed.",
+      "fix": "Generate a Gmail App Password at myaccount.google.com/apppasswords (2FA must be ON) and set SMTP_PASS to the 16-char code (spaces removed). Set SMTP_FROM to a valid email (openinnovation@ntt-startupchallenge.com) or remove it so it falls back to SMTP_USER. Restart the server so env reloads. Confirm with scripts/smtp-verify.mjs (transporter.verify()) -> expect VERIFY RESULT: OK.",
+      "tags": ["nodemailer", "smtp", "gmail", "app-password", "EAUTH", "535", "BadCredentials", "env", "500", "silent-failure"],
+      "related_bugs": ["bug-021"],
+      "occurrences": 1,
+      "last_seen": "2026-06-20T00:00:00.000Z"
     }
   ]
 }

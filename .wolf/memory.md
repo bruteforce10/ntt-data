@@ -393,3 +393,23 @@
 | 00:14 | Edited components/hero.tsx | 9→14 lines | ~166 |
 | 00:15 | Register disabled (coming soon): added comingSoon flag to navbar.actions; ActionButton in floating-dock renders non-link stacked REGISTER + thin uppercase "Coming Soon"; hero Register changed to disabled span with same subtext | lib/site-content.ts, components/floating-dock.tsx, components/hero.tsx | done, tsc clean | ~5k |
 | 00:15 | Session end: 13 writes across 6 files (navbar.tsx, page.tsx, footer.tsx, site-content.ts, floating-dock.tsx) | 9 reads | ~1257 tok |
+| 18:07 | Session end: 13 writes across 6 files (navbar.tsx, page.tsx, footer.tsx, site-content.ts, floating-dock.tsx) | 10 reads | ~1257 tok |
+
+## Session: 2026-06-20 18:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 18:11 | Created scripts/smtp-verify.mjs | — | ~317 |
+| 18:16 | diagnosed ntt-data form 500: SMTP 535 BadCredentials — raw Google account password used instead of Gmail App Password | lib/mailer.ts, app/api/ntt-data/route.ts, scripts/smtp-verify.mjs | root cause confirmed via transporter.verify(); fix = App Password + valid SMTP_FROM | ~7k |
+| 18:16 | Session end: 1 writes across 1 files (smtp-verify.mjs) | 2 reads | ~339 tok |
+
+## Session: 2026-06-20 18:27
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 18:32 | Created app/startup-registration/page.tsx | — | ~844 |
+| 18:34 | Replaced Startup Registration form with temporary COMING SOON placeholder + Home button; form/navbar/dock/footer commented out for restore | app/startup-registration/page.tsx | tsc --noEmit clean (exit 0) | ~760 |
+| 18:34 | Session end: 1 writes across 1 files (page.tsx) | 3 reads | ~4671 tok |
+| 18:38 | Edited app/startup-registration/page.tsx | 2→2 lines | ~32 |
+| 18:38 | Edited app/startup-registration/page.tsx | 2→2 lines | ~20 |
+| 18:38 | Session end: 3 writes across 1 files (page.tsx) | 3 reads | ~4723 tok |

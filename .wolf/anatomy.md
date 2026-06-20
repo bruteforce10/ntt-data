@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-19T17:14:50.235Z
-> Files: 8 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-20T11:38:22.908Z
+> Files: 10 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -31,6 +31,7 @@
 
 ## app/startup-registration/
 
+- `page.tsx` — --- Temporarily disabled while Startup Registration is under construction --- (~842 tok)
 
 ## components/
 
@@ -52,6 +53,10 @@
 
 ## public/
 
+
+## scripts/
+
+- `smtp-verify.mjs` — Temporary diagnostic: verify SMTP auth/connection without sending mail. (~317 tok)
 
 ## utils/
 
