@@ -54,15 +54,20 @@ export default function Hero() {
           <p className="mb-8 max-w-[520px] text-sm leading-relaxed text-white/88 sm:mb-10 sm:text-base md:text-lg">
             {hero.description}
           </p>
-          <a
-            href={hero.action.href}
+          <span
+            aria-disabled="true"
             className={cn(
               buttonVariants({ variant: "default" }),
-              "h-12 w-48 rounded-md border-0 bg-[#3176e4] text-xs font-bold uppercase tracking-widest text-white hover:bg-[#2560c8] sm:h-14 sm:w-56",
+              "pointer-events-none h-12 w-48 flex-col gap-0.5 rounded-md border-0 bg-[#3176e4] text-white sm:h-14 sm:w-56",
             )}
           >
-            {hero.action.label}
-          </a>
+            <span className="text-xs font-bold uppercase tracking-widest sm:text-sm">
+              {hero.action.label}
+            </span>
+            <span className="text-[0.6rem] font-light uppercase tracking-[0.2em] text-white/80">
+              Coming Soon
+            </span>
+          </span>
         </div>
       </div>
     </section>

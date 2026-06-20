@@ -6,7 +6,6 @@ import Benefit from "@/components/benefit";
 import ProgramOverview from "@/components/program-overview";
 import Countdown from "@/components/countdown";
 import ProblemOverview from "@/components/problem-overview";
-import Faq from "@/components/faq";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
       <ProgramOverview />
       <Countdown />
       <ProblemOverview />
-      <Faq />
       <Footer />
     </main>
   );

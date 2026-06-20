@@ -5,12 +5,12 @@ const { benefit } = SITE_CONTENT;
 
 export default function Benefit() {
   return (
-    <section id="benefits" className="bg-white py-16 sm:py-20 lg:py-18">
+    <section id="benefits" className="bg-white py-4 sm:py-8 lg:py-4">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <h2 className="mb-3 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
+        <h2 className="mb-3 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
           {benefit.title}
         </h2>
-        <p className="mb-12 text-center text-sm text-gray-500 sm:text-base">
+        <p className="mb-12 text-center text-sm lg:text-lg text-gray-500 sm:text-base">
           {benefit.subtitle}
         </p>
 

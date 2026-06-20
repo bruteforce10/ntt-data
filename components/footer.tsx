@@ -3,6 +3,8 @@ import { SITE_CONTENT } from "@/lib/site-content";
 
 const { navbar } = SITE_CONTENT;
 
+const footerLinks = [...navbar.links, { label: "FAQ's", href: "/faq" }];
+
 export default function Footer() {
   return (
     <footer className="bg-[#154284] py-12 sm:py-16">
@@ -22,7 +24,7 @@ export default function Footer() {
           </a>
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-3 lg:w-full lg:flex-nowrap  lg:gap-x-4">
-            {navbar.links.map((link) => (
+            {footerLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}

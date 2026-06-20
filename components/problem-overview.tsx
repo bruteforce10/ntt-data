@@ -25,7 +25,7 @@ export default function ProblemOverview() {
       id="problem-statements"
       className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-16"
     >
-      <div className="pointer-events-none absolute -right-0 -top-2 h-[340px] w-[340px] sm:h-[420px] sm:w-[420px]">
+      <div className="pointer-events-none absolute -right-0 -top-0 h-[340px] w-[340px] sm:h-[320px] sm:w-[320px]">
         <Image
           src={problemOverview.ornament.src}
           alt={problemOverview.ornament.alt}
@@ -35,7 +35,7 @@ export default function ProblemOverview() {
       </div>
 
       <div className="relative mx-auto w-full px-6">
-        <h2 className="mb-10 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
+        <h2 className="mb-10 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
           {problemOverview.title}
         </h2>
 

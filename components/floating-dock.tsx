@@ -20,6 +20,39 @@ function getActionClassName(
   );
 }
 
+function ActionButton({
+  action,
+  fullWidth = false,
+}: {
+  action: (typeof navbar.actions)[number];
+  fullWidth?: boolean;
+}) {
+  const className = cn(
+    getActionClassName(action.variant),
+    fullWidth && "flex w-full justify-center",
+  );
+
+  if (action.comingSoon) {
+    return (
+      <span
+        aria-disabled="true"
+        className={cn(className, "pointer-events-none flex-col gap-0 leading-tight")}
+      >
+        <span>{action.label}</span>
+        <span className="text-[0.5rem] font-light tracking-[0.15em] opacity-80">
+          Coming Soon
+        </span>
+      </span>
+    );
+  }
+
+  return (
+    <a href={action.href} className={className}>
+      {action.label}
+    </a>
+  );
+}
+
 export default function FloatingDock() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -48,6 +81,7 @@ export default function FloatingDock() {
             height={32}
             className="h-8 w-auto object-contain"
             priority
+            quality={100}
           />
         </a>
 
@@ -68,13 +102,7 @@ export default function FloatingDock() {
 
           <div className="flex items-center gap-3">
             {navbar.actions.map((action) => (
-              <a
-                key={action.href}
-                href={action.href}
-                className={getActionClassName(action.variant)}
-              >
-                {action.label}
-              </a>
+              <ActionButton key={action.href} action={action} />
             ))}
           </div>
         </div>
@@ -103,16 +131,7 @@ export default function FloatingDock() {
             </nav>
             <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-4">
               {navbar.actions.map((action) => (
-                <a
-                  key={action.href}
-                  href={action.href}
-                  className={cn(
-                    getActionClassName(action.variant),
-                    "w-full flex justify-center",
-                  )}
-                >
-                  {action.label}
-                </a>
+                <ActionButton key={action.href} action={action} fullWidth />
               ))}
             </div>
           </div>

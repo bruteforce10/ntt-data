@@ -65,15 +65,8 @@ const NAVBAR_ACTIONS: NavbarAction[] = [
     title: "Subscribe to Our Newsletter",
     href: "mailto:info@ntt-startupchallenge.com?subject=Newsletter%20Subscription",
   },
-  {
-    title: "Register",
-    href: "/register?type=startup",
-    external: false,
-    disabled: false,
-  },
 ];
 
-const PRIMARY_ACTION = NAVBAR_ACTIONS[3];
 const SECONDARY_ACTIONS: NavbarAction[] = [
   NAVBAR_ACTIONS[0],
   NAVBAR_ACTIONS[1],
@@ -266,10 +259,6 @@ export function Navbar() {
 function DesktopNavbarActions() {
   return (
     <div className="flex items-center gap-3">
-      <NavbarActionButton
-        {...PRIMARY_ACTION}
-        className="min-h-11 min-w-[10rem] rounded-2xl bg-[#3176e4] px-5 py-3 text-[0.95rem] font-semibold text-white shadow-[0_18px_40px_rgba(49,118,228,0.26)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#2560c8] motion-reduce:hover:translate-y-0"
-      />
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
@@ -325,11 +314,6 @@ function DesktopNavbarActions() {
 function MobileNavbarActions() {
   return (
     <div className="flex flex-col gap-3">
-      <NavbarActionButton
-        {...PRIMARY_ACTION}
-        mobile
-        className="min-h-12 w-full rounded-2xl bg-[#3176e4] px-5 py-3 text-base font-semibold text-white shadow-[0_18px_40px_rgba(49,118,228,0.22)] transition-colors duration-200 hover:bg-[#2560c8]"
-      />
       <NavbarActionButton
         {...SECONDARY_ACTIONS[0]}
         mobile

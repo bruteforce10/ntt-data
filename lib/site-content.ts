@@ -103,8 +103,14 @@ export const SITE_CONTENT = {
         label: "VIEW PROBLEM STATEMENTS",
         href: "#problem-statements",
         variant: "primary",
+        comingSoon: false,
       },
-      { label: "REGISTER", href: "/startup-registration", variant: "outline" },
+      {
+        label: "REGISTER",
+        href: "/startup-registration",
+        variant: "outline",
+        comingSoon: true,
+      },
     ],
   },
   hero: {

@@ -369,3 +369,27 @@
 | 11:38 | Created components/program-overview.tsx | — | ~1141 |
 | 11:39 | program-overview: add layout logic — carousel when >5 items, centered grid when <=5 | components/program-overview.tsx | done | ~1.2k |
 | 11:39 | Session end: 1 writes across 1 files (program-overview.tsx) | 2 reads | ~1141 tok |
+
+## Session: 2026-06-19 23:48
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:50 | Edited components/navbar.tsx | reduced (-7 lines) | ~52 |
+| 23:50 | Edited components/navbar.tsx | removed 6 lines | ~19 |
+| 23:50 | Edited components/navbar.tsx | 8→3 lines | ~29 |
+| 23:51 | Removed Register CTA from navbar (NAVBAR_ACTIONS entry + PRIMARY_ACTION button in desktop & mobile actions) | components/navbar.tsx | done, tsc clean | ~2k |
+| 23:51 | Session end: 3 writes across 1 files (navbar.tsx) | 1 reads | ~100 tok |
+| 00:07 | Created app/faq/page.tsx | — | ~375 |
+| 00:07 | Edited app/page.tsx | 3→2 lines | ~30 |
+| 00:07 | Edited app/page.tsx | 3→2 lines | ~12 |
+| 00:07 | Edited components/footer.tsx | CSS: label, href | ~40 |
+| 00:07 | Edited components/footer.tsx | inline fix | ~12 |
+| 00:08 | Created /faq page; removed Faq section from homepage; added footer-scoped FAQ link (footerLinks, not shared navbar.links to avoid floating-dock) | app/faq/page.tsx, app/page.tsx, components/footer.tsx | done, tsc clean | ~6k |
+| 00:09 | Session end: 8 writes across 3 files (navbar.tsx, page.tsx, footer.tsx) | 7 reads | ~569 tok |
+| 00:14 | Edited lib/site-content.ts | expanded (+6 lines) | ~89 |
+| 00:14 | Edited components/floating-dock.tsx | CSS: action | ~336 |
+| 00:14 | Edited components/floating-dock.tsx | reduced (-6 lines) | ~56 |
+| 00:14 | Edited components/floating-dock.tsx | reduced (-9 lines) | ~41 |
+| 00:14 | Edited components/hero.tsx | 9→14 lines | ~166 |
+| 00:15 | Register disabled (coming soon): added comingSoon flag to navbar.actions; ActionButton in floating-dock renders non-link stacked REGISTER + thin uppercase "Coming Soon"; hero Register changed to disabled span with same subtext | lib/site-content.ts, components/floating-dock.tsx, components/hero.tsx | done, tsc clean | ~5k |
+| 00:15 | Session end: 13 writes across 6 files (navbar.tsx, page.tsx, footer.tsx, site-content.ts, floating-dock.tsx) | 9 reads | ~1257 tok |
