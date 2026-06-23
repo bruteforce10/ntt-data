@@ -39,28 +39,28 @@ export async function POST(request: Request) {
     if (!email || !isValidEmail(email)) {
       return NextResponse.json(
         { message: "A valid email is required." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!(file instanceof File) || file.size === 0) {
       return NextResponse.json(
         { message: "Please attach your pitch deck file." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (file.size > MAX_SIZE_BYTES) {
       return NextResponse.json(
         { message: "File exceeds the 8 MB limit." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!isAcceptedFile(file)) {
       return NextResponse.json(
         { message: "Unsupported file format. Use an image, PDF, or PPT/PPTX." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -73,7 +73,7 @@ export async function POST(request: Request) {
           message:
             "PocketBase token is missing. Set POCKETBASE_SUPERUSER_TOKEN in the environment.",
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -84,7 +84,7 @@ export async function POST(request: Request) {
       {
         headers: { Authorization: token },
         cache: "no-store",
-      }
+      },
     );
 
     const lookup = await lookupResponse.json().catch(() => null);
@@ -95,7 +95,7 @@ export async function POST(request: Request) {
           message: lookup?.message || "Unable to look up your registration.",
           details: lookup,
         },
-        { status: lookupResponse.status }
+        { status: lookupResponse.status },
       );
     }
 
@@ -107,7 +107,7 @@ export async function POST(request: Request) {
           message:
             "No registration was found for this email. Please use the link from your registration confirmation.",
         },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -122,7 +122,7 @@ export async function POST(request: Request) {
         headers: { Authorization: token },
         body: updateForm,
         cache: "no-store",
-      }
+      },
     );
 
     const updated = await updateResponse.json().catch(() => null);
@@ -133,7 +133,7 @@ export async function POST(request: Request) {
           message: updated?.message || "Unable to upload your pitch deck.",
           details: updated,
         },
-        { status: updateResponse.status }
+        { status: updateResponse.status },
       );
     }
 
@@ -145,11 +145,11 @@ export async function POST(request: Request) {
     try {
       const { html, text } = buildDeckSubmissionEmail({ name });
       await transporter.sendMail({
-        from: `"Open Innovation Week" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+        from: `"Open Innovation Program" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
         replyTo: process.env.SMTP_FROM || process.env.SMTP_USER,
         to: email,
         subject:
-          "Thank You for Submitting Your Pitch Deck - Open Innovation Week",
+          "Thank You for Submitting Your Pitch Deck - Open Innovation Program",
         text,
         html,
         headers: {
@@ -166,7 +166,7 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json(
       { message: "Unable to submit your pitch deck. Please try again." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

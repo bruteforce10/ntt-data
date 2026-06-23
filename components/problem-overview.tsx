@@ -41,7 +41,7 @@ export default function ProblemOverview() {
 
         <div className="mx-auto w-full max-w-5xl">
           <Image
-            src="/Assets Picture/coming-soon.png"
+            src="/Assets Picture/coming-soon.svg"
             alt="Coming Soon"
             width={1423}
             height={430}

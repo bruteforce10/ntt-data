@@ -52,7 +52,7 @@ export function buildRegistrationEmail(opts: {
         <tr>
           <td style="background:#154284;padding:32px 40px;">
             <p style="margin:0;color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:0.5px;">
-              Open Innovation Week
+              Open Innovation Program
             </p>
             <p style="margin:6px 0 0;color:#93c5fd;font-size:13px;">Registration Confirmation</p>
           </td>
@@ -62,7 +62,7 @@ export function buildRegistrationEmail(opts: {
           <td style="padding:40px;">
             <p style="margin:0 0 16px;color:#111827;font-size:15px;">Dear <strong>${name}</strong>, Representative of <strong>${startupName}</strong>,</p>
             <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
-              Thank you for successfully registering for the selected Problem Statement at Open Innovation Week. We are excited to have you join this initiative and look forward to reviewing your innovative solution.
+              Thank you for successfully registering for the selected Problem Statement at Open Innovation Program. We are excited to have you join this initiative and look forward to reviewing your innovative solution.
             </p>
             <p style="margin:0 0 8px;color:#111827;font-size:14px;font-weight:bold;">You have registered for the following problem statement(s):</p>
             <ul style="margin:0 0 16px;padding-left:20px;color:#374151;font-size:14px;line-height:1.7;">
@@ -72,7 +72,7 @@ export function buildRegistrationEmail(opts: {
               This challenge focuses on addressing key business and societal issues through innovative, technology-driven solutions. We are looking for scalable ideas with clear value propositions and strong potential for collaboration.
             </p>
             <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
-              Open Innovation Week is designed to connect startups with industry leaders through curated engagement sessions, business matching opportunities, and cultural exchange activities. Selected startups will have the opportunity to present their solutions directly to corporate partners and explore potential pilot projects or long-term partnerships.
+              Open Innovation Program is designed to connect startups with industry leaders through curated engagement sessions, business matching opportunities, and cultural exchange activities. Selected startups will have the opportunity to present their solutions directly to corporate partners and explore potential pilot projects or long-term partnerships.
             </p>
             <!-- Pitch Deck Section -->
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f7ff;border-radius:8px;margin:24px 0;">
@@ -127,7 +127,7 @@ export function buildRegistrationEmail(opts: {
 
   const text = `Dear ${name}, Representative of ${startupName},
 
-Thank you for successfully registering for the selected Problem Statement at Open Innovation Week.
+Thank you for successfully registering for the selected Problem Statement at Open Innovation Program.
 
 Problem Statement(s):
 ${statements.map((s) => `- ${s}`).join("\n")}
@@ -144,7 +144,7 @@ Submission Details:
 Submit your pitch deck here: ${submitUrl}
 
 Best regards,
-Open Innovation Team`;
+Open Innovation Program Team`;
 
   return { html, text };
 }
@@ -153,7 +153,7 @@ const DECK_TIMELINE = {
   reviewPeriod: "July 1 - July 15, 2026",
   notificationDate: "July 22, 2026",
   eventDate: "August 2026",
-  contactEmail: "oiw@ntt-startupchallenge.com",
+  contactEmail: "openinnovation@ntt-startupchallenge.com",
 };
 
 export function buildDeckSubmissionEmail(opts: {
@@ -178,7 +178,7 @@ export function buildDeckSubmissionEmail(opts: {
         <tr>
           <td style="background:#154284;padding:32px 40px;">
             <p style="margin:0;color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:0.5px;">
-              Open Innovation Week
+              Open Innovation Program
             </p>
             <p style="margin:6px 0 0;color:#93c5fd;font-size:13px;">Pitch Deck Submission Received</p>
           </td>
@@ -188,13 +188,13 @@ export function buildDeckSubmissionEmail(opts: {
           <td style="padding:40px;">
             <p style="margin:0 0 16px;color:#111827;font-size:15px;">Dear <strong>${name}</strong>,</p>
             <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
-              Thank you for successfully submitting your pitch deck for Open Innovation Week.
+              Thank you for successfully submitting your pitch deck for Open Innovation Program.
             </p>
             <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
               We appreciate the time and effort you have put into preparing your submission. Our team will carefully review all applications according to the evaluation criteria.
             </p>
             <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
-              To help you stay informed about the next steps and key milestones of the Open Innovation Week selection process, we have included the timeline below for your reference.
+              To help you stay informed about the next steps and key milestones of the Open Innovation Program selection process, we have included the timeline below for your reference.
             </p>
             <!-- Timeline -->
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f7ff;border-radius:8px;margin:24px 0;">
@@ -214,7 +214,7 @@ export function buildDeckSubmissionEmail(opts: {
                     <td style="padding:6px 0;text-align:right;font-weight:bold;color:#111827;">${DECK_TIMELINE.notificationDate}</td>
                   </tr>
                   <tr>
-                    <td style="padding:6px 0;color:#6b7280;">Open Innovation Week Event</td>
+                    <td style="padding:6px 0;color:#6b7280;">Open Innovation Program Event</td>
                     <td style="padding:6px 0;text-align:right;font-weight:bold;color:#111827;">${DECK_TIMELINE.eventDate}</td>
                   </tr>
                 </table>
@@ -235,7 +235,7 @@ export function buildDeckSubmissionEmail(opts: {
         <!-- Footer -->
         <tr>
           <td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb;">
-            <p style="margin:0;color:#6b7280;font-size:12px;">Best regards,<br><strong style="color:#154284;">Open Innovation Week Team</strong></p>
+            <p style="margin:0;color:#6b7280;font-size:12px;">Best regards,<br><strong style="color:#154284;">Open Innovation Program Team</strong></p>
           </td>
         </tr>
       </table>
@@ -246,17 +246,17 @@ export function buildDeckSubmissionEmail(opts: {
 
   const text = `Dear ${name},
 
-Thank you for successfully submitting your pitch deck for Open Innovation Week.
+Thank you for successfully submitting your pitch deck for Open Innovation Program.
 
 We appreciate the time and effort you have put into preparing your submission. Our team will carefully review all applications according to the evaluation criteria.
 
-To help you stay informed about the next steps and key milestones of the Open Innovation Week selection process, we have included the timeline below for your reference.
+To help you stay informed about the next steps and key milestones of the Open Innovation Program selection process, we have included the timeline below for your reference.
 
 Timeline
 - Submission Received: ${submissionDate}
 - Review Period: ${DECK_TIMELINE.reviewPeriod}
 - Notification of Results: ${DECK_TIMELINE.notificationDate}
-- Open Innovation Week Event: ${DECK_TIMELINE.eventDate}
+- Open Innovation Program Event: ${DECK_TIMELINE.eventDate}
 
 Should any additional information be required, our team will contact you directly.
 
@@ -265,7 +265,7 @@ If you have any questions, please feel free to contact us at ${DECK_TIMELINE.con
 Thank you once again for your participation. We look forward to reviewing your proposal.
 
 Best regards,
-Open Innovation Week Team`;
+Open Innovation Program Team`;
 
   return { html, text };
 }

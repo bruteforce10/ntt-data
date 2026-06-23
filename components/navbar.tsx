@@ -72,7 +72,7 @@ const SECONDARY_ACTIONS: NavbarAction[] = [
   NAVBAR_ACTIONS[1],
   NAVBAR_ACTIONS[2],
   // {
-  //   title: "NTT Open Innovation Week",
+  //   title: "NTT Open Innovation Program",
   //   href: "https://oiw.ntt-startupchallenge.com",
   // },
 ];

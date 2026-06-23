@@ -71,7 +71,7 @@ export async function POST(request: Request) {
     if (Object.keys(errors).length > 0) {
       return NextResponse.json(
         { message: "Please check the highlighted fields.", errors },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -84,7 +84,7 @@ export async function POST(request: Request) {
           message:
             "PocketBase token is missing. Set POCKETBASE_SUPERUSER_TOKEN in the environment.",
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -127,7 +127,7 @@ export async function POST(request: Request) {
         headers: { Authorization: token },
         body: pbForm,
         cache: "no-store",
-      }
+      },
     );
 
     const result = await recordResponse.json().catch(() => null);
@@ -139,7 +139,7 @@ export async function POST(request: Request) {
             result?.message || "PocketBase rejected the registration request.",
           details: result,
         },
-        { status: recordResponse.status }
+        { status: recordResponse.status },
       );
     }
 
@@ -154,10 +154,10 @@ export async function POST(request: Request) {
         baseUrl,
       });
       await transporter.sendMail({
-        from: `"NTT Open Innovation Week" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+        from: `"NTT Open Innovation Program" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
         replyTo: process.env.SMTP_FROM || process.env.SMTP_USER,
         to: email,
-        subject: "Registration Confirmation - Open Innovation Week",
+        subject: "Registration Confirmation - Open Innovation Program",
         text,
         html,
         headers: {
@@ -172,7 +172,7 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json(
       { message: "Unable to submit registration. Please try again." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

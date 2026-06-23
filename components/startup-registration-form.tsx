@@ -179,9 +179,7 @@ export default function StartupRegistrationForm() {
     );
   }
 
-  function handleDescriptionFileChange(
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) {
+  function handleDescriptionFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const picked = e.target.files?.[0] ?? null;
     setDescriptionFile(picked);
     setDescriptionSizeError(
@@ -264,7 +262,9 @@ export default function StartupRegistrationForm() {
       : undefined;
 
     const fundingStageValue =
-      fundingStage === "Other" ? fundingStageOther.trim() : (fundingStage ?? "");
+      fundingStage === "Other"
+        ? fundingStageOther.trim()
+        : (fundingStage ?? "");
 
     // Sent as multipart/form-data so the company-description PDF can be
     // uploaded; PocketBase only accepts files via multipart.
@@ -505,9 +505,7 @@ export default function StartupRegistrationForm() {
                   id="fundingStageOther"
                   name="fundingStageOther"
                   value={fundingStageOther}
-                  onChange={(event) =>
-                    setFundingStageOther(event.target.value)
-                  }
+                  onChange={(event) => setFundingStageOther(event.target.value)}
                   placeholder="e.g. Bridge round, Grant, Bootstrapped"
                   aria-invalid={Boolean(errors.fundingStageOther)}
                 />
@@ -799,10 +797,10 @@ export default function StartupRegistrationForm() {
             If you have any questions or experience any issues, please feel free
             to contact us at{" "}
             <a
-              href="mailto:oiw@ntt-startupchallenge.com"
+              href="mailto:openinnovation@ntt-startupchallenge.com"
               className="text-[#3176E4] underline"
             >
-              oiw@ntt-startupchallenge.com
+              openinnovation@ntt-startupchallenge.com
             </a>
             .
           </DialogDescription>

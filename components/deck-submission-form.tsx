@@ -50,15 +50,22 @@ export default function DeckSubmissionForm() {
       fd.append("email", emailFromQuery);
       fd.append("pick_deck", file);
 
-      const res = await fetch("/api/deck-submission", { method: "POST", body: fd });
+      const res = await fetch("/api/deck-submission", {
+        method: "POST",
+        body: fd,
+      });
       if (!res.ok) {
         const data = await res.json().catch(() => null);
-        throw new Error(data?.message ?? "Submission failed. Please try again.");
+        throw new Error(
+          data?.message ?? "Submission failed. Please try again.",
+        );
       }
       setSubmitted(true);
     } catch (err) {
       setSubmitError(
-        err instanceof Error ? err.message : "Submission failed. Please try again."
+        err instanceof Error
+          ? err.message
+          : "Submission failed. Please try again.",
       );
     } finally {
       setIsSubmitting(false);
@@ -97,10 +104,10 @@ export default function DeckSubmissionForm() {
             <p className="text-sm text-gray-700">
               For further assistance, please reach out to us at{" "}
               <a
-                href="mailto:oiw@ntt-startupchallenge.com"
+                href="mailto:openinnovation@ntt-startupchallenge.com"
                 className="font-medium text-[#0070C0] underline underline-offset-2"
               >
-                oiw@ntt-startupchallenge.com
+                openinnovation@ntt-startupchallenge.com
               </a>
             </p>
           </div>

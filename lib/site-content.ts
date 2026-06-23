@@ -6,19 +6,19 @@ export const SITE_CONTENT = {
     },
     title: "About the NTT DATA Open Innovation Program",
     description:
-      "Are you a startup ready to scale your solution with real enterprise impact? The NTT DATA, Open Innovation Programme offers you the chance to collaborate directly with NTT DATA and its clients during a 3-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning team will receive a USD $30,000 reward in Time & Material services to bring their PoC to life.",
+      "Are you a startup ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Program offers you the chance to collaborate directly with NTT DATA and its clients during a 3-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning team will receive a USD $30,000 reward in Time & Material services to bring their PoC to life.",
     cta: { label: "Apply Now!", href: "/startup-registration" },
   },
   benefit: {
     title: "Why Participate?",
     subtitle:
-      "This program offers startups access to industry expertise, funding of pilots, market access and commercial collaboration opportunities.",
+      "This program offers startups access to industry expertise, funding of pilots, market access, and commercial collaboration opportunities.",
     items: [
       {
         number: "BENEFIT 1",
         title: "POC FUNDING",
         descriptionHtml:
-          "Proof of Concept (POC) funding of up to USD $30,000 to help turn ideas into reality.",
+          "Proof of Concept (POC) funding of up to USD <strong>$30,000</strong> to help turn ideas into reality.",
         image: {
           src: "/Assets Picture/benefit/1.png",
           alt: "POC Funding",
@@ -28,7 +28,7 @@ export const SITE_CONTENT = {
         number: "BENEFIT 2",
         title: "EXPERT MENTORSHIP",
         descriptionHtml:
-          "Guidance from <strong>NTT DATA innovation leaders</strong>, offering strategic advice and insights to help accelerate scaling.",
+          "Guidance from <strong>NTT DATA innovation leaders</strong>, offering strategic advice, and insights to help accelerate scaling.",
         image: {
           src: "/Assets Picture/benefit/2.png",
           alt: "Expert Mentorship",
@@ -125,7 +125,7 @@ export const SITE_CONTENT = {
     },
     title: ["NTT DATA OPEN", "INNOVATION PROGRAM"],
     description:
-      "An initiative brought by NTT Data. We are looking at innovative startup solutions that address business challenges and solve societal issues.",
+      "An initiative brought by NTT DATA. We are looking at innovative startup solutions that address business challenges and solve societal issues.",
     action: { label: "REGISTER", href: "/startup-registration" },
   },
   countdown: {
@@ -224,7 +224,7 @@ export const SITE_CONTENT = {
       // {
       //   logo: {
       //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
-      //     alt: "Open Innovation Week",
+      //     alt: "Open Innovation Program",
       //   },
       //   title: "Next-Gen Cybersecurity Solutions",
       //   description:

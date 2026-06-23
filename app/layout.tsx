@@ -15,7 +15,7 @@ const nulshockBd = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "NTT Open Innovation Week",
+  title: "NTT Open Innovation Program",
   description:
     "We are looking at innovative Startup solutions that address business challenges and solve societal issues.",
 };

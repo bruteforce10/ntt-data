@@ -1,132 +1,132 @@
 - generic [active] [ref=e1]:
-  - main [ref=e2]:
-    - generic [ref=e4]:
-      - link "NTT DATA" [ref=e5] [cursor=pointer]:
-        - /url: /
-        - img "NTT DATA" [ref=e6]
-      - generic [ref=e7]:
-        - navigation "Main navigation" [ref=e8]:
-          - generic [ref=e9]:
-            - link "PROGRAM OVERVIEW" [ref=e11] [cursor=pointer]:
-              - /url: "#program-overview"
-            - link "BENEFITS" [ref=e14] [cursor=pointer]:
-              - /url: "#benefits"
-            - link "TIMELINE" [ref=e17] [cursor=pointer]:
-              - /url: "#timeline"
-            - link "CONTACT" [ref=e20] [cursor=pointer]:
-              - /url: "#contact"
-        - generic [ref=e21]:
-          - link "VIEW PROBLEM STATEMENTS" [ref=e22] [cursor=pointer]:
-            - /url: "#problem-statements"
-          - link "REGISTER" [ref=e23] [cursor=pointer]:
-            - /url: "#register"
-    - generic [ref=e24]:
-      - img "Tokyo cityscape at night" [ref=e25]
-      - generic:
-        - img
-      - generic [ref=e28]:
-        - heading "NTT OPEN INNOVATION WEEK" [level=1] [ref=e29]:
-          - generic [ref=e30]: NTT OPEN
-          - generic [ref=e31]: INNOVATION WEEK
-        - paragraph [ref=e32]: We are looking at innovative Startup solutions that address business challenges and solve societal issues.
-        - link "REGISTER" [ref=e33] [cursor=pointer]:
-          - /url: "#register"
-    - generic [ref=e35]:
-      - img "NTT DATA headquarters cityscape" [ref=e36]
-      - generic [ref=e38]:
-        - heading "ABOUT NTT DATA" [level=2] [ref=e39]
-        - paragraph [ref=e40]: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    - generic [ref=e42]:
-      - heading "BENEFIT FROM NTT OPEN INNOVATION WEEK" [level=2] [ref=e43]
-      - paragraph [ref=e44]: Offers startups access to industry expertise, funding of pilots, global visibility and commercial collaboration opportunities
-      - generic [ref=e45]:
-        - generic [ref=e46]:
-          - generic [ref=e47]:
-            - img "POC Funding" [ref=e48]
-            - generic [ref=e49]: BENEFIT 1
-            - heading "POC FUNDING" [level=3] [ref=e51]
-          - paragraph [ref=e52]:
-            - text: Proof of Concept (POC) funding of up to
-            - strong [ref=e53]: USD 30,000
-            - text: to help turn ideas into reality.
-        - generic [ref=e54]:
-          - generic [ref=e55]:
-            - img "Expert Mentorship" [ref=e56]
-            - generic [ref=e57]: BENEFIT 2
-            - heading "EXPERT MENTORSHIP" [level=3] [ref=e59]
-          - paragraph [ref=e60]:
-            - text: Guidance from
-            - strong [ref=e61]: NTT DATA innovation leaders
-            - text: ", offering strategic advice and insights to help accelerate scaling."
-        - generic [ref=e62]:
-          - generic [ref=e63]:
-            - img "Commercial Collaboration" [ref=e64]
-            - generic [ref=e65]: BENEFIT 3
-            - heading "COMMERCIAL COLLABORATION" [level=3] [ref=e67]
-          - paragraph [ref=e68]:
-            - text: The opportunity to build
-            - strong [ref=e69]: integrated offerings
-            - text: and bring solutions to market together.
-    - generic [ref=e70]:
-      - heading "PROGRAM OVERVIEW" [level=2] [ref=e72]
-      - region [ref=e74]:
-        - generic [ref=e76]:
-          - group [ref=e77]:
-            - generic [ref=e78]:
-              - img "Workshops" [ref=e79]
-              - generic [ref=e81]:
-                - heading "WORKSHOPS" [level=3] [ref=e82]
-                - paragraph [ref=e83]: Co-creation sessions between customers and startups with support from SMEs and a moderator.
-          - group [ref=e84]:
-            - generic [ref=e85]:
-              - img "Cultural Activity" [ref=e86]
-              - generic [ref=e88]:
-                - heading "CULTURAL ACTIVITY" [level=3] [ref=e89]
-                - paragraph [ref=e90]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          - group [ref=e91]:
-            - generic [ref=e92]:
-              - img "Matching Sessions" [ref=e93]
-              - generic [ref=e95]:
-                - heading "MATCHING SESSIONS" [level=3] [ref=e96]
-                - paragraph [ref=e97]: Matching sessions between prepared startups and NTT opcos for new business development.
-          - group [ref=e98]:
-            - generic [ref=e99]:
-              - img "Pitch Battle" [ref=e100]
-              - generic [ref=e102]:
-                - heading "PITCH BATTLE" [level=3] [ref=e103]
-                - paragraph [ref=e104]: Customer/startup teams present their solutions.
-          - group [ref=e105]:
-            - generic [ref=e106]:
-              - img "Pitch Battle" [ref=e107]
-              - generic [ref=e109]:
-                - heading "PITCH BATTLE" [level=3] [ref=e110]
-                - paragraph [ref=e111]: Customer/startup teams present their solutions.
-          - group [ref=e112]:
-            - generic [ref=e113]:
-              - img "Pitch Battle" [ref=e114]
-              - generic [ref=e116]:
-                - heading "PITCH BATTLE" [level=3] [ref=e117]
-                - paragraph [ref=e118]: Customer/startup teams present their solutions.
-          - group [ref=e119]:
-            - generic [ref=e120]:
-              - img "Pitch Battle" [ref=e121]
-              - generic [ref=e123]:
-                - heading "PITCH BATTLE" [level=3] [ref=e124]
-                - paragraph [ref=e125]: Customer/startup teams present their solutions.
-        - button "Previous slide" [ref=e126]:
-          - img
-          - generic [ref=e127]: Previous slide
-        - button "Next slide" [ref=e128]:
-          - img
-          - generic [ref=e129]: Next slide
-      - generic [ref=e130]:
-        - button "Go to slide 1" [ref=e131]
-        - button "Go to slide 2" [ref=e132]
-        - button "Go to slide 3" [ref=e133]
-        - button "Go to slide 4" [ref=e134]
-        - button "Go to slide 5" [ref=e135]
-        - button "Go to slide 6" [ref=e136]
-        - button "Go to slide 7" [ref=e137]
-  - button "Open Next.js Dev Tools" [ref=e143] [cursor=pointer]:
-    - img [ref=e144]
-  - alert [ref=e147]
+    - main [ref=e2]:
+        - generic [ref=e4]:
+            - link "NTT DATA" [ref=e5] [cursor=pointer]:
+                - /url: /
+                - img "NTT DATA" [ref=e6]
+            - generic [ref=e7]:
+                - navigation "Main navigation" [ref=e8]:
+                    - generic [ref=e9]:
+                        - link "PROGRAM OVERVIEW" [ref=e11] [cursor=pointer]:
+                            - /url: "#program-overview"
+                        - link "BENEFITS" [ref=e14] [cursor=pointer]:
+                            - /url: "#benefits"
+                        - link "TIMELINE" [ref=e17] [cursor=pointer]:
+                            - /url: "#timeline"
+                        - link "CONTACT" [ref=e20] [cursor=pointer]:
+                            - /url: "#contact"
+                - generic [ref=e21]:
+                    - link "VIEW PROBLEM STATEMENTS" [ref=e22] [cursor=pointer]:
+                        - /url: "#problem-statements"
+                    - link "REGISTER" [ref=e23] [cursor=pointer]:
+                        - /url: "#register"
+        - generic [ref=e24]:
+            - img "Tokyo cityscape at night" [ref=e25]
+            - generic:
+                - img
+            - generic [ref=e28]:
+                - heading "NTT Open Innovation Program" [level=1] [ref=e29]:
+                    - generic [ref=e30]: NTT OPEN
+                    - generic [ref=e31]: INNOVATION WEEK
+                - paragraph [ref=e32]: We are looking at innovative Startup solutions that address business challenges and solve societal issues.
+                - link "REGISTER" [ref=e33] [cursor=pointer]:
+                    - /url: "#register"
+        - generic [ref=e35]:
+            - img "NTT DATA headquarters cityscape" [ref=e36]
+            - generic [ref=e38]:
+                - heading "ABOUT NTT DATA" [level=2] [ref=e39]
+                - paragraph [ref=e40]: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        - generic [ref=e42]:
+            - heading "BENEFIT FROM NTT Open Innovation Program" [level=2] [ref=e43]
+            - paragraph [ref=e44]: Offers startups access to industry expertise, funding of pilots, global visibility and commercial collaboration opportunities
+            - generic [ref=e45]:
+                - generic [ref=e46]:
+                    - generic [ref=e47]:
+                        - img "POC Funding" [ref=e48]
+                        - generic [ref=e49]: BENEFIT 1
+                        - heading "POC FUNDING" [level=3] [ref=e51]
+                    - paragraph [ref=e52]:
+                        - text: Proof of Concept (POC) funding of up to
+                        - strong [ref=e53]: USD 30,000
+                        - text: to help turn ideas into reality.
+                - generic [ref=e54]:
+                    - generic [ref=e55]:
+                        - img "Expert Mentorship" [ref=e56]
+                        - generic [ref=e57]: BENEFIT 2
+                        - heading "EXPERT MENTORSHIP" [level=3] [ref=e59]
+                    - paragraph [ref=e60]:
+                        - text: Guidance from
+                        - strong [ref=e61]: NTT DATA innovation leaders
+                        - text: ", offering strategic advice and insights to help accelerate scaling."
+                - generic [ref=e62]:
+                    - generic [ref=e63]:
+                        - img "Commercial Collaboration" [ref=e64]
+                        - generic [ref=e65]: BENEFIT 3
+                        - heading "COMMERCIAL COLLABORATION" [level=3] [ref=e67]
+                    - paragraph [ref=e68]:
+                        - text: The opportunity to build
+                        - strong [ref=e69]: integrated offerings
+                        - text: and bring solutions to market together.
+        - generic [ref=e70]:
+            - heading "PROGRAM OVERVIEW" [level=2] [ref=e72]
+            - region [ref=e74]:
+                - generic [ref=e76]:
+                    - group [ref=e77]:
+                        - generic [ref=e78]:
+                            - img "Workshops" [ref=e79]
+                            - generic [ref=e81]:
+                                - heading "WORKSHOPS" [level=3] [ref=e82]
+                                - paragraph [ref=e83]: Co-creation sessions between customers and startups with support from SMEs and a moderator.
+                    - group [ref=e84]:
+                        - generic [ref=e85]:
+                            - img "Cultural Activity" [ref=e86]
+                            - generic [ref=e88]:
+                                - heading "CULTURAL ACTIVITY" [level=3] [ref=e89]
+                                - paragraph [ref=e90]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    - group [ref=e91]:
+                        - generic [ref=e92]:
+                            - img "Matching Sessions" [ref=e93]
+                            - generic [ref=e95]:
+                                - heading "MATCHING SESSIONS" [level=3] [ref=e96]
+                                - paragraph [ref=e97]: Matching sessions between prepared startups and NTT opcos for new business development.
+                    - group [ref=e98]:
+                        - generic [ref=e99]:
+                            - img "Pitch Battle" [ref=e100]
+                            - generic [ref=e102]:
+                                - heading "PITCH BATTLE" [level=3] [ref=e103]
+                                - paragraph [ref=e104]: Customer/startup teams present their solutions.
+                    - group [ref=e105]:
+                        - generic [ref=e106]:
+                            - img "Pitch Battle" [ref=e107]
+                            - generic [ref=e109]:
+                                - heading "PITCH BATTLE" [level=3] [ref=e110]
+                                - paragraph [ref=e111]: Customer/startup teams present their solutions.
+                    - group [ref=e112]:
+                        - generic [ref=e113]:
+                            - img "Pitch Battle" [ref=e114]
+                            - generic [ref=e116]:
+                                - heading "PITCH BATTLE" [level=3] [ref=e117]
+                                - paragraph [ref=e118]: Customer/startup teams present their solutions.
+                    - group [ref=e119]:
+                        - generic [ref=e120]:
+                            - img "Pitch Battle" [ref=e121]
+                            - generic [ref=e123]:
+                                - heading "PITCH BATTLE" [level=3] [ref=e124]
+                                - paragraph [ref=e125]: Customer/startup teams present their solutions.
+                - button "Previous slide" [ref=e126]:
+                    - img
+                    - generic [ref=e127]: Previous slide
+                - button "Next slide" [ref=e128]:
+                    - img
+                    - generic [ref=e129]: Next slide
+            - generic [ref=e130]:
+                - button "Go to slide 1" [ref=e131]
+                - button "Go to slide 2" [ref=e132]
+                - button "Go to slide 3" [ref=e133]
+                - button "Go to slide 4" [ref=e134]
+                - button "Go to slide 5" [ref=e135]
+                - button "Go to slide 6" [ref=e136]
+                - button "Go to slide 7" [ref=e137]
+    - button "Open Next.js Dev Tools" [ref=e143] [cursor=pointer]:
+        - img [ref=e144]
+    - alert [ref=e147]
