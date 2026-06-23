@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { SITE_CONTENT } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
@@ -54,20 +55,15 @@ export default function Hero() {
           <p className="mb-8 max-w-[520px] text-sm leading-relaxed text-white/88 sm:mb-10 sm:text-base md:text-lg">
             {hero.description}
           </p>
-          <span
-            aria-disabled="true"
+          <Link
+            href={hero.action.href}
             className={cn(
               buttonVariants({ variant: "default" }),
-              "pointer-events-none h-12 w-48 flex-col gap-0.5 rounded-md border-0 bg-[#3176e4] text-white sm:h-14 sm:w-56",
+              "h-12 w-48 rounded-md border-0 bg-[#3176e4] text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#2560c8] sm:h-14 sm:w-56 sm:text-sm",
             )}
           >
-            <span className="text-xs font-bold uppercase tracking-widest sm:text-sm">
-              {hero.action.label}
-            </span>
-            <span className="text-[0.6rem] font-light uppercase tracking-[0.2em] text-white/80">
-              Coming Soon
-            </span>
-          </span>
+            {hero.action.label}
+          </Link>
         </div>
       </div>
     </section>

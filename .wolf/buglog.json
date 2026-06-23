@@ -857,10 +857,119 @@
       "file": "lib/mailer.ts",
       "root_cause": "SMTP_PASS was set to the raw Google Workspace account LOGIN password instead of a Gmail App Password. Google has blocked SMTP auth with the plain account password since May 2022; only a 16-char App Password (requires 2FA) or OAuth2 is accepted. transporter.sendMail() throws EAUTH, and the empty catch{} in app/api/ntt-data/route.ts:172 swallows it into a generic 500 with no detail. Secondary latent bug: SMTP_FROM=\"NTT Data\" is a display name, not an email, so route.ts:157 builds an invalid from-address <NTT Data> that will fail sendMail even after the password is fixed.",
       "fix": "Generate a Gmail App Password at myaccount.google.com/apppasswords (2FA must be ON) and set SMTP_PASS to the 16-char code (spaces removed). Set SMTP_FROM to a valid email (openinnovation@ntt-startupchallenge.com) or remove it so it falls back to SMTP_USER. Restart the server so env reloads. Confirm with scripts/smtp-verify.mjs (transporter.verify()) -> expect VERIFY RESULT: OK.",
-      "tags": ["nodemailer", "smtp", "gmail", "app-password", "EAUTH", "535", "BadCredentials", "env", "500", "silent-failure"],
-      "related_bugs": ["bug-021"],
+      "tags": [
+        "nodemailer",
+        "smtp",
+        "gmail",
+        "app-password",
+        "EAUTH",
+        "535",
+        "BadCredentials",
+        "env",
+        "500",
+        "silent-failure"
+      ],
+      "related_bugs": [
+        "bug-021"
+      ],
       "occurrences": 1,
       "last_seen": "2026-06-20T00:00:00.000Z"
+    },
+    {
+      "id": "bug-054",
+      "timestamp": "2026-06-23T02:27:07.136Z",
+      "error_message": "Incorrect value in code",
+      "file": "lib/site-content.ts",
+      "root_cause": "Had \"#register\"",
+      "fix": "Changed to \"/startup-registration\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-23T02:27:07.136Z"
+    },
+    {
+      "id": "bug-055",
+      "timestamp": "2026-06-23T02:27:13.869Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/hero.tsx",
+      "root_cause": "Had \"@/components/ui/button\"",
+      "fix": "Changed to \"next/link\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-23T02:27:13.869Z"
+    },
+    {
+      "id": "bug-056",
+      "timestamp": "2026-06-23T02:27:17.715Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/hero.tsx",
+      "root_cause": "9 lines replaced/restructured",
+      "fix": "Rewrote 14→9 lines (9 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-23T02:27:17.715Z"
+    },
+    {
+      "id": "bug-057",
+      "timestamp": "2026-06-23T02:38:15.448Z",
+      "error_message": "Type error",
+      "file": "lib/site-content.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-23T02:38:15.448Z"
+    },
+    {
+      "id": "bug-058",
+      "timestamp": "2026-06-23T02:38:17.448Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/about.tsx",
+      "root_cause": "Had \"@/lib/site-content\"",
+      "fix": "Changed to \"next/link\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-23T02:38:17.448Z"
+    },
+    {
+      "id": "bug-059",
+      "timestamp": "2026-06-23T03:05:28.159Z",
+      "error_message": "Incorrect value in code",
+      "file": "lib/site-content.ts",
+      "root_cause": "Had \"REGISTRATION OPEN\"",
+      "fix": "Changed to \"Registration Open\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-23T03:05:28.159Z"
     }
   ]
 }

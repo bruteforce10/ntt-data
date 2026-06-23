@@ -25,27 +25,28 @@ export default function ProblemOverview() {
       id="problem-statements"
       className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-16"
     >
-      <div className="pointer-events-none absolute -right-0 -top-0 h-[340px] w-[340px] sm:h-[320px] sm:w-[320px]">
+      {/* <div className="pointer-events-none absolute -right-0 -top-0 h-[340px] w-[340px] sm:h-[320px] sm:w-[320px]">
         <Image
           src={problemOverview.ornament.src}
           alt={problemOverview.ornament.alt}
           fill
           className="object-contain object-top"
         />
-      </div>
+      </div> */}
 
       <div className="relative mx-auto w-full px-6">
         <h2 className="mb-10 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
           {problemOverview.title}
         </h2>
 
-        <div className="mx-auto w-full text-center">
-          <p
-            className="mx-auto text-[4.5rem] font-black uppercase leading-none text-[#154284] sm:text-[6.75rem] lg:text-[8rem]"
-            style={{ fontFamily: "var(--font-nulshock)" }}
-          >
-            Coming Soon
-          </p>
+        <div className="mx-auto w-full max-w-5xl">
+          <Image
+            src="/Assets Picture/coming-soon.png"
+            alt="Coming Soon"
+            width={1423}
+            height={430}
+            className="mx-auto h-auto w-full object-cover"
+          />
         </div>
 
         {/*

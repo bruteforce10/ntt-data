@@ -1,7 +1,5 @@
 "use client";
 import * as React from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { SITE_CONTENT } from "@/lib/site-content";
 
 const { countdown } = SITE_CONTENT;
@@ -28,10 +26,10 @@ function pad(n: number, digits: number = 2) {
 }
 
 const UNITS = [
-  { key: "days" as const, label: "DAYS", digits: 3 },
-  { key: "hours" as const, label: "HRS", digits: 2 },
-  { key: "minutes" as const, label: "MIN", digits: 2 },
-  { key: "seconds" as const, label: "SEC", digits: 2 },
+  { key: "days" as const, label: "Days", digits: 3 },
+  { key: "hours" as const, label: "Hours", digits: 2 },
+  { key: "minutes" as const, label: "Minutes", digits: 2 },
+  { key: "seconds" as const, label: "Seconds", digits: 2 },
 ];
 
 export default function Countdown() {
@@ -43,8 +41,12 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section id="countdown" className="relative overflow-hidden py-16">
-      <div className="relative flex min-h-70 items-center justify-center sm:min-h-115 lg:min-h-110">
+    <section id="countdown" className="bg-white">
+      <h2 className="px-6 py-8 text-center text-2xl font-bold tracking-wide text-[#0070C0] sm:py-10 sm:text-3xl lg:text-4xl">
+        {countdown.title}
+      </h2>
+
+      <div className="relative overflow-hidden border-y-2 border-[#3176e4]/60">
         <video
           autoPlay
           loop
@@ -54,41 +56,28 @@ export default function Countdown() {
         >
           <source src={countdown.video.src} type={countdown.video.type} />
         </video>
+        <div className="absolute inset-0 bg-black/20" />
 
-        <div className="relative z-10 px-6  text-center">
-          <div className="rounded-2xl border border-white/10 bg-[#0a1a3a]/50 px-8 py-10 backdrop-blur-md sm:px-14 sm:py-12 lg:px-36 lg:py-14">
-            <p className="mb-8 text-md font-bold uppercase tracking-[0.25em] text-white/70 sm:text-xl">
-              {countdown.title}
-            </p>
-
-            <div className="flex items-center gap-2 sm:gap-4 lg:gap-6 max-sm:px-12">
+        <div className="relative z-10 flex justify-center px-4 py-10 sm:px-8 sm:py-14">
+          <div className="w-full max-w-7xl rounded-full border border-white/30 bg-white/10 px-6 py-6 shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-12 sm:py-8">
+            <div className="flex items-center justify-center gap-3 sm:gap-8 lg:gap-14">
               {UNITS.map(({ key, label, digits }, i) => (
                 <React.Fragment key={key}>
                   <div className="flex flex-col items-center">
-                    <span className="text-4xl font-black tabular-nums text-white sm:text-5xl lg:text-7xl">
-                      {timeLeft ? pad(timeLeft[key], digits) : pad(0, digits)}
+                    <span className="text-4xl font-light leading-none tabular-nums text-white sm:text-6xl lg:text-7xl">
+                      {pad(timeLeft[key], digits)}
                     </span>
-                    <span className="mt-2 text-[10px] font-semibold uppercase tracking-widest text-white/50 sm:text-xs">
+                    <span className="mt-2 text-[10px] font-normal tracking-wide text-white/60 sm:mt-3 sm:text-sm">
                       {label}
                     </span>
                   </div>
                   {i < UNITS.length - 1 && (
-                    <span className="mb-5 text-2xl font-black text-white/40 sm:text-3xl lg:text-5xl">
+                    <span className="mb-6 text-3xl font-light leading-none text-white/50 sm:mb-8 sm:text-5xl lg:text-6xl">
                       :
                     </span>
                   )}
                 </React.Fragment>
               ))}
-            </div>
-
-            <div className="mt-8 flex justify-center">
-              <Button
-                nativeButton={false}
-                render={<Link href="/startup-registration" />}
-                className="min-h-12 rounded-2xl bg-[#3176e4] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_40px_rgba(49,118,228,0.26)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#2560c8] focus-visible:ring-2 focus-visible:ring-white/80"
-              >
-                Register Now
-              </Button>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-20T11:38:22.908Z
-> Files: 10 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-23T03:19:32.239Z
+> Files: 7 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -14,7 +14,6 @@
 
 ## app/
 
-- `page.tsx` — Home (~197 tok)
 
 ## app/api/deck-submission/
 
@@ -27,19 +26,18 @@
 
 ## app/faq/
 
-- `page.tsx` — FaqPage route (/faq); Navbar + breadcrumb + reused Faq section + Footer (~375 tok)
 
 ## app/startup-registration/
 
-- `page.tsx` — --- Temporarily disabled while Startup Registration is under construction --- (~842 tok)
+- `page.tsx` — Startup Registration route: ACTIVE form (Navbar + FloatingDock + breadcrumb + StartupRegistrationForm + Footer); COMING SOON placeholder kept commented for restore (~829 tok)
 
 ## components/
 
-- `floating-dock.tsx` — getActionClassName (~1351 tok)
-- `footer.tsx` — footerLinks (~580 tok)
-- `hero.tsx` — Hero (~804 tok)
-- `navbar.tsx` — NAVBAR_ACTIONS (~3827 tok)
-- `program-overview.tsx` — ProgramOverview — switches between carousel (>5 items) and centered flex-wrap grid (≤5 items); shares ProgramCard (~1141 tok)
+- `about.tsx` — About; description + "Apply Now!" CTA Link (about.cta.href -> /startup-registration) (~431 tok)
+- `benefit.tsx` — Benefit; centered circular-icon layout (icon + blue title + description per column); icons from /Assets Picture/benefit/{1,2,3}.png, object-cover square (~439 tok)
+- `countdown.tsx` — Countdown; "Registration Open" heading on white above full-width video banner with a translucent rounded-full pill (light numerals + title-case labels); no CTA button (~920 tok)
+- `hero.tsx` — Hero; REGISTER CTA is an active Link to hero.action.href (/startup-registration) (~778 tok)
+- `problem-overview.tsx` — ProblemOverview — "Coming Soon" now rendered via /Assets Picture/coming-soon.png (object-cover crop, max-w-5xl); cards grid still commented out; problem modal/dialog present (~1671 tok)
 
 ## components/ui/ (shadcn — Base UI registry, import from @base-ui/react/*)
 
@@ -49,14 +47,13 @@
 
 ## lib/
 
-- `site-content.ts` — Exports SITE_CONTENT (~4529 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~4605 tok)
 
 ## public/
 
 
 ## scripts/
 
-- `smtp-verify.mjs` — Temporary diagnostic: verify SMTP auth/connection without sending mail. (~317 tok)
 
 ## utils/
 

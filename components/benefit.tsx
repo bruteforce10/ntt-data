@@ -5,38 +5,33 @@ const { benefit } = SITE_CONTENT;
 
 export default function Benefit() {
   return (
-    <section id="benefits" className="bg-white py-4 sm:py-8 lg:py-4">
+    <section id="benefits" className="bg-white py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
         <h2 className="mb-3 text-center text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
           {benefit.title}
         </h2>
-        <p className="mb-12 text-center text-sm lg:text-lg text-gray-500 sm:text-base">
+        <p className="mx-auto mb-14 max-w-2xl text-center text-sm leading-relaxed text-gray-500 sm:text-base lg:text-lg">
           {benefit.subtitle}
         </p>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-8">
           {benefit.items.map((item) => (
-            <div key={item.number} className="flex flex-col">
-              <div className="relative h-[220px] overflow-hidden sm:h-[240px] lg:h-[260px]">
-                <Image
-                  src={item.image.src}
-                  alt={item.image.alt}
-                  fill
-                  className="object-cover"
-                />
-                {/* <div className="absolute left-6 sm:left-3 top-3">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#3176e4]">
-                    {item.number}
-                  </span>
-                </div> */}
-                <div className="absolute top-3 sm:left-3 right-3 left-6">
-                  <h3 className="text-lg font-black text-shadow-2xs uppercase leading-tight text-white lg:text-xl">
-                    {item.title}
-                  </h3>
-                </div>
-              </div>
+            <div
+              key={item.number}
+              className="flex flex-col items-center text-center"
+            >
+              <Image
+                src={item.image.src}
+                alt={item.image.alt}
+                width={160}
+                height={160}
+                className="h-32 w-32 object-cover sm:h-36 sm:w-36"
+              />
+              <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#0070C0] lg:text-xl">
+                {item.title}
+              </h3>
               <p
-                className="mt-4 text-center text-sm leading-relaxed text-gray-700"
+                className="mt-3 max-w-xs text-sm leading-relaxed text-gray-600"
                 dangerouslySetInnerHTML={{ __html: item.descriptionHtml }}
               />
             </div>

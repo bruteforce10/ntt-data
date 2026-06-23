@@ -413,3 +413,35 @@
 | 18:38 | Edited app/startup-registration/page.tsx | 2→2 lines | ~32 |
 | 18:38 | Edited app/startup-registration/page.tsx | 2→2 lines | ~20 |
 | 18:38 | Session end: 3 writes across 1 files (page.tsx) | 3 reads | ~4723 tok |
+
+## Session: 2026-06-23 09:24
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:27 | Edited lib/site-content.ts | 6→6 lines | ~40 |
+| 09:27 | Edited lib/site-content.ts | inline fix | ~19 |
+| 09:27 | Edited components/hero.tsx | added 1 import(s) | ~34 |
+| 09:27 | Edited components/hero.tsx | CSS: hover | ~111 |
+| 09:27 | Re-enabled REGISTER CTA: hero disabled span -> Link to /startup-registration (removed "Coming Soon" subtext); dock action comingSoon true->false; hero.action.href #register -> /startup-registration | components/hero.tsx, components/floating-dock.tsx(data), lib/site-content.ts | tsc --noEmit clean (exit 0) | ~3k |
+| 09:28 | Session end: 4 writes across 2 files (site-content.ts, hero.tsx) | 5 reads | ~204 tok |
+| 09:38 | Edited lib/site-content.ts | 2→3 lines | ~28 |
+| 09:38 | Edited components/about.tsx | added 1 import(s) | ~32 |
+| 09:38 | Edited components/about.tsx | CSS: hover, hover | ~153 |
+| 09:38 | Added Apply Now! CTA button below About description -> Link to /startup-registration (white rounded gradient button, blue text per ref image); added about.cta to SITE_CONTENT | components/about.tsx, lib/site-content.ts | tsc --noEmit clean (exit 0) | ~2k |
+| 09:38 | Session end: 7 writes across 3 files (site-content.ts, hero.tsx, about.tsx) | 6 reads | ~5031 tok |
+| 09:54 | Edited lib/site-content.ts | 5→5 lines | ~58 |
+| 09:54 | Edited lib/site-content.ts | 4→4 lines | ~32 |
+| 09:54 | Edited lib/site-content.ts | 4→4 lines | ~34 |
+| 09:54 | Created components/benefit.tsx | — | ~439 |
+| 09:55 | Benefit layout -> centered circular-icon style (icon over blue title over description); swapped item images to /Assets Picture/benefit/1-3.png; object-cover square crop on 16:9 source | components/benefit.tsx, lib/site-content.ts | tsc --noEmit clean (exit 0); designqc unavailable (openwolf not on PATH) | ~3k |
+| 09:55 | Session end: 11 writes across 4 files (site-content.ts, hero.tsx, about.tsx, benefit.tsx) | 9 reads | ~5594 tok |
+| 10:05 | Edited lib/site-content.ts | 2→2 lines | ~14 |
+| 10:05 | Created components/countdown.tsx | — | ~920 |
+| 10:06 | Countdown redesign per ref image: title moved out onto white heading above full-width video banner; countdown in translucent rounded-full glass pill, font-light numerals, title-case labels (Days/Hours/Minutes/Seconds); removed Register Now button + Link/Button imports; title data REGISTRATION OPEN -> Registration Open | components/countdown.tsx, lib/site-content.ts | tsc --noEmit clean (exit 0) | ~3k |
+| 10:06 | Session end: 13 writes across 5 files (site-content.ts, hero.tsx, about.tsx, benefit.tsx, countdown.tsx) | 9 reads | ~6519 tok |
+| 10:12 | Edited components/problem-overview.tsx | 8→9 lines | ~82 |
+| 10:12 | problem-overview Coming Soon text -> coming-soon.png image (next/image width/height + object-cover to crop 16:9 vertical whitespace, max-w-5xl, centered); removed nulshock inline-style <p> | components/problem-overview.tsx | tsc --noEmit clean (exit 0) | ~2k |
+| 10:12 | Session end: 14 writes across 6 files (site-content.ts, hero.tsx, about.tsx, benefit.tsx, countdown.tsx) | 9 reads | ~6601 tok |
+| 10:19 | Created app/startup-registration/page.tsx | — | ~829 |
+| 10:20 | Re-enabled Startup Registration page: commented out COMING SOON placeholder return + its Home/Button imports, activated real return (Navbar+FloatingDock+breadcrumb+StartupRegistrationForm+Footer); uncommented imports; metadata title Coming Soon -> Startup Registration | NTT Open Innovation Week | app/startup-registration/page.tsx | tsc --noEmit clean (exit 0); same components proven on app/page.tsx | ~3k |
+| 10:20 | Session end: 15 writes across 7 files (site-content.ts, hero.tsx, about.tsx, benefit.tsx, countdown.tsx) | 10 reads | ~7430 tok |
