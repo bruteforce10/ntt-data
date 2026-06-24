@@ -445,3 +445,10 @@
 | 10:19 | Created app/startup-registration/page.tsx                                                                                                                                                                                                                                                                                       | —                                                                            | ~829                                                                     |
 | 10:20 | Re-enabled Startup Registration page: commented out COMING SOON placeholder return + its Home/Button imports, activated real return (Navbar+FloatingDock+breadcrumb+StartupRegistrationForm+Footer); uncommented imports; metadata title Coming Soon -> Startup Registration                                                    | NTT Open Innovation Program                                                  | app/startup-registration/page.tsx                                        | tsc --noEmit clean (exit 0); same components proven on app/page.tsx | ~3k |
 | 10:20 | Session end: 15 writes across 7 files (site-content.ts, hero.tsx, about.tsx, benefit.tsx, countdown.tsx)                                                                                                                                                                                                                        | 10 reads                                                                     | ~7430 tok                                                                |
+
+## Session: 2026-06-24 09:13
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:17 | Created components/countdown.tsx | — | ~340 |
+| 09:17 | countdown timer -> big "COMING SOON" NotoSans text (clamp fluid, like coming-soon.svg) | components/countdown.tsx | done; removed timer state, now RSC | ~600 |

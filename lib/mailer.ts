@@ -98,7 +98,7 @@ export function buildRegistrationEmail(opts: {
               <li>Language: <strong>English</strong></li>
               <li>File name format: <strong>StartupName_ChallengeName.pdf</strong></li>
             </ul>
-            <p style="margin:0 0 8px;color:#e02020;font-size:14px;font-weight:bold;">Submission deadline: June 30th, 2026</p>
+            <p style="margin:0 0 8px;color:#e02020;font-size:14px;font-weight:bold;">Submission deadline: June 31th, 2026</p>
             ${multiDeckNote}
             <!-- CTA Button -->
             <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0 0;">
@@ -116,7 +116,7 @@ export function buildRegistrationEmail(opts: {
         <!-- Footer -->
         <tr>
           <td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb;">
-            <p style="margin:0;color:#6b7280;font-size:12px;">Best regards,<br><strong style="color:#154284;">Open Innovation Team</strong></p>
+            <p style="margin:0;color:#6b7280;font-size:12px;">Best regards,<br><strong style="color:#154284;">Open Innovation Program Team</strong></p>
           </td>
         </tr>
       </table>
@@ -139,7 +139,7 @@ Submission Details:
 - Maximum size: 150 MB
 - Language: English
 - File name format: StartupName_ChallengeName.pdf
-- Submission deadline: June 30th, 2026
+- Submission deadline: June 31th, 2026
 
 Submit your pitch deck here: ${submitUrl}
 
@@ -150,9 +150,9 @@ Open Innovation Program Team`;
 }
 
 const DECK_TIMELINE = {
-  reviewPeriod: "July 1 - July 15, 2026",
-  notificationDate: "July 22, 2026",
-  eventDate: "August 2026",
+  reviewPeriod: "July, 2026",
+  notificationDate: "July, 2026",
+  eventDate: "August 31, 2026 - Sep 2, 2026",
   contactEmail: "openinnovation@ntt-startupchallenge.com",
 };
 
@@ -228,7 +228,7 @@ export function buildDeckSubmissionEmail(opts: {
               <a href="mailto:${DECK_TIMELINE.contactEmail}" style="color:#0070C0;text-decoration:underline;">${DECK_TIMELINE.contactEmail}</a>.
             </p>
             <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
-              Thank you once again for your participation. We look forward to reviewing your proposal.
+              Thank you once again for your participation. 
             </p>
           </td>
         </tr>
@@ -262,7 +262,7 @@ Should any additional information be required, our team will contact you directl
 
 If you have any questions, please feel free to contact us at ${DECK_TIMELINE.contactEmail}.
 
-Thank you once again for your participation. We look forward to reviewing your proposal.
+Thank you once again for your participation. 
 
 Best regards,
 Open Innovation Program Team`;

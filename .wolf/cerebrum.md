@@ -25,6 +25,8 @@
   - `<NavigationMenu viewport={false}>` → no `viewport` prop (remove it); Base UI always renders a shared Positioner/Viewport.
 - Some Base UI errors only throw on component **mount/open** (e.g. opening a menu), so a page-load console check misses them — verify interactively (open every dropdown/menu).
 - designqc desktop viewport ≈ `--max-width` (default 1200px). The navbar's desktop layout uses the `xl` (1280px) breakpoint, so capture with `--max-width 1440` to see the full desktop nav instead of the mobile hamburger.
+- For big banner-style text that scales to fill the width (mimicking a wide exported SVG/PNG), use a static Tailwind arbitrary class with clamp, e.g. `text-[clamp(2rem,11vw,9.5rem)]`. This is fluid like the SVG yet satisfies the "no inline style, static classes only" preference. `font-sans` already = NotoSans (`--font-sans: var(--font-noto-sans)` in globals.css), max weight loaded is 700 (`font-bold`).
+- `openwolf` CLI is NOT on PATH in this environment (not a local/global npm bin), so `openwolf designqc` can't be auto-run here — verify UI in the browser instead.
 
 ## Do-Not-Repeat
 
