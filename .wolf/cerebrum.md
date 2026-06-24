@@ -27,6 +27,7 @@
 - designqc desktop viewport ≈ `--max-width` (default 1200px). The navbar's desktop layout uses the `xl` (1280px) breakpoint, so capture with `--max-width 1440` to see the full desktop nav instead of the mobile hamburger.
 - For big banner-style text that scales to fill the width (mimicking a wide exported SVG/PNG), use a static Tailwind arbitrary class with clamp, e.g. `text-[clamp(2rem,11vw,9.5rem)]`. This is fluid like the SVG yet satisfies the "no inline style, static classes only" preference. `font-sans` already = NotoSans (`--font-sans: var(--font-noto-sans)` in globals.css), max weight loaded is 700 (`font-bold`).
 - `openwolf` CLI is NOT on PATH in this environment (not a local/global npm bin), so `openwolf designqc` can't be auto-run here — verify UI in the browser instead.
+- `public/Assets Picture/coming-soon.svg` = the words "COMING SOON" in brand blue `#0070C0`, drawn in a wide techno font (looks like the project's Nulshock), implemented as two embedded base64 PNGs (white letters used as a luminance mask over a solid `#0070C0` fill). To inspect such an SVG's true color/look, decode its base64 with PowerShell `[Convert]::FromBase64String` → write PNG → Read it; sample pixels via `System.Drawing.Bitmap.GetPixel`. The text version now used in `problem-overview.tsx` reproduces it with NotoSans.
 
 ## Do-Not-Repeat
 

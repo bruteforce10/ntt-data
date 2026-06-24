@@ -40,13 +40,9 @@ export default function ProblemOverview() {
         </h2>
 
         <div className="mx-auto w-full max-w-5xl">
-          <Image
-            src="/Assets Picture/coming-soon.svg"
-            alt="Coming Soon"
-            width={1423}
-            height={430}
-            className="mx-auto h-auto w-full object-cover"
-          />
+          <p className="whitespace-nowrap text-center font-sans text-[clamp(1.5rem,10.5vw,8rem)] font-bold uppercase leading-none tracking-tight text-[#0070C0]">
+            Coming Soon
+          </p>
         </div>
 
         {/*

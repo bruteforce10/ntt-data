@@ -452,3 +452,12 @@
 |------|--------|---------|---------|--------|
 | 09:17 | Created components/countdown.tsx | — | ~340 |
 | 09:17 | countdown timer -> big "COMING SOON" NotoSans text (clamp fluid, like coming-soon.svg) | components/countdown.tsx | done; removed timer state, now RSC | ~600 |
+| 09:19 | Session end: 1 writes across 1 files (countdown.tsx) | 5 reads | ~5865 tok |
+| 09:20 | revert countdown.tsx back to original timer (git checkout); user asked "balikan seperti semula" | components/countdown.tsx | reverted; anatomy restored | ~50 |
+| 09:20 | Session end: 1 writes across 1 files (countdown.tsx) | 5 reads | ~5865 tok |
+| 09:22 | Created components/countdown.tsx | — | ~920 |
+| 09:22 | restore countdown timer (COMING SOON was auto-committed, git checkout brought it back) -> rewrote original timer version | components/countdown.tsx | done | ~700 |
+| 09:22 | Session end: 2 writes across 1 files (countdown.tsx) | 5 reads | ~6785 tok |
+| 09:28 | Edited components/problem-overview.tsx | 9→5 lines | ~76 |
+| 09:28 | problem-overview: replace coming-soon.svg <Image> with NotoSans text "COMING SOON" (font-bold, #0070C0, fluid clamp fills max-w-5xl like svg) | components/problem-overview.tsx | done; typecheck ok | ~900 |
+| 09:29 | Session end: 3 writes across 2 files (countdown.tsx, problem-overview.tsx) | 6 reads | ~8532 tok |
