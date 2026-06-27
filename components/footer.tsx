@@ -8,7 +8,7 @@ const footerLinks = navbar.links.filter((link) => link.label !== "FAQ'S");
 
 export default function Footer() {
   return (
-    <footer className="bg-[#154284] py-12 sm:pt-16 sm:pb-45">
+    <footer className="bg-[#154284] pt-12 pb-36 sm:pt-16 sm:pb-45">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-10">
           <a

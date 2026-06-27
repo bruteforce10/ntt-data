@@ -593,3 +593,102 @@
 | 15:07 | Created components/faq.tsx | — | ~1102 |
 | 15:07 | Created app/page.tsx | — | ~222 |
 | 15:09 | Added home-only FAQ data (HOME_FAQ, 8 items/4 groups); Faq now takes optional content prop; /faq keeps full SITE_CONTENT.faq | lib/home-faq.ts, components/faq.tsx, app/page.tsx | done; tsc clean for changed files | ~3000 |
+
+## Session: 2026-06-27 20:06
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:43 | Created docs/superpowers/specs/2026-06-27-ntt-data-dashboard-design.md | — | ~2962 |
+| 20:45 | Brainstormed + wrote NTT admin dashboard design spec (approved) | docs/superpowers/specs/2026-06-27-ntt-data-dashboard-design.md | committed on feat/ntt-data-dashboard | ~6k |
+| 20:54 | Created docs/superpowers/plans/2026-06-27-ntt-data-dashboard.md | — | ~10200 |
+| 20:55 | Wrote 12-task implementation plan for NTT admin dashboard | docs/superpowers/plans/2026-06-27-ntt-data-dashboard.md | committed on feat/ntt-data-dashboard; awaiting exec-mode choice | ~9k |
+| 21:12 | Created vitest.config.ts | — | ~89 |
+| 21:12 | Created vitest.setup.ts | — | ~13 |
+| 21:12 | Created scripts/hash-admin-password.mjs | — | ~65 |
+| 21:12 | Created components/ui/table.tsx | — | ~699 |
+| 21:12 | Created components/ui/badge.tsx | — | ~317 |
+| 21:12 | Created components/ui/popover.tsx | — | ~384 |
+| 21:22 | Created lib/ntt-data/types.ts | — | ~198 |
+| 21:22 | Created auth.config.ts | — | ~178 |
+| 21:22 | Created auth.ts | — | ~172 |
+| 21:22 | Created middleware.ts | — | ~95 |
+| 21:23 | Created app/api/auth/[...nextauth]/route.ts | — | ~22 |
+| 21:30 | Created tests/auth/verify-credentials.test.ts | — | ~398 |
+| 21:30 | Created lib/auth/verify-credentials.ts | — | ~246 |
+| 21:32 | Edited tests/auth/verify-credentials.test.ts | inline fix | ~9 |
+| 21:33 | Task1-2 done: deps+vitest+ui primitives; Auth.js v5 split-config + bcrypt verifyCredentials (TDD 5/5 green, tsc clean) | auth.ts middleware.ts lib/auth/verify-credentials.ts | committed | ~5k |
+| 21:34 | Created app/login/actions.ts | — | ~168 |
+| 21:34 | Created app/login/login-form.tsx | — | ~442 |
+| 21:34 | Created app/login/page.tsx | — | ~256 |
+| 21:34 | Created app/dashboard/sign-out-button.tsx | — | ~122 |
+| 21:34 | Created app/dashboard/page.tsx | — | ~173 |
+| 21:42 | Task3: login + auth gate verified e2e; fixed Next dotenv-expand mangling bcrypt hash in .env.local (escape dollar-signs) | app/login app/dashboard .env.local | committed; bug-090 | ~7k |
+| 21:43 | Session end: 21 writes across 19 files (2026-06-27-ntt-data-dashboard-design.md, 2026-06-27-ntt-data-dashboard.md, vitest.config.ts, vitest.setup.ts, hash-admin-password.mjs) | 6 reads | ~18153 tok |
+| 22:11 | Session end: 21 writes across 19 files (2026-06-27-ntt-data-dashboard-design.md, 2026-06-27-ntt-data-dashboard.md, vitest.config.ts, vitest.setup.ts, hash-admin-password.mjs) | 6 reads | ~18153 tok |
+| 22:28 | Created tests/ntt-data/is-new.test.ts | — | ~314 |
+| 22:28 | Created tests/ntt-data/export-selection.test.ts | — | ~192 |
+| 22:28 | Created tests/ntt-data/export-xlsx.test.ts | — | ~262 |
+| 22:29 | Session end: 24 writes across 22 files (2026-06-27-ntt-data-dashboard-design.md, 2026-06-27-ntt-data-dashboard.md, vitest.config.ts, vitest.setup.ts, hash-admin-password.mjs) | 6 reads | ~18921 tok |
+
+## Session: 2026-06-27 22:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-27 22:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-27 22:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-27 22:38
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:40 | Created lib/ntt-data/columns-config.ts | — | ~446 |
+| 22:41 | Session end: 1 writes across 1 files (columns-config.ts) | 0 reads | ~446 tok |
+| 22:43 | Created lib/ntt-data/is-new.ts | — | ~118 |
+| 22:43 | Created lib/ntt-data/export-selection.ts | — | ~43 |
+| 22:44 | Created lib/ntt-data/export-xlsx.ts | — | ~243 |
+| 22:45 | Created lib/ntt-data/pocketbase.ts | — | ~446 |
+| 22:45 | Edited app/api/ntt-data/route.ts | added error handling | ~178 |
+| 22:46 | Created app/api/ntt-data/[id]/file/[field]/route.ts | — | ~382 |
+| 22:51 | Created components/dashboard/record-detail.tsx | — | ~701 |
+| 22:52 | Created components/dashboard/columns.tsx | — | ~1573 |
+| 22:54 | Created components/dashboard/data-table.tsx | — | ~3688 |
+| 22:54 | Edited app/dashboard/page.tsx | added error handling | ~412 |
+| 22:55 | Edited app/dashboard/page.tsx | added 1 import(s) | ~76 |
+| 22:55 | Edited app/dashboard/page.tsx | CSS: records | ~22 |
+| 22:55 | Edited app/dashboard/page.tsx | modified catch() | ~28 |
+| 22:55 | Edited components/dashboard/columns.tsx | reduced (-6 lines) | ~15 |
+| 22:56 | Session end: 15 writes across 10 files (columns-config.ts, is-new.ts, export-selection.ts, export-xlsx.ts, pocketbase.ts) | 1 reads | ~8371 tok |
+
+## Session: 2026-06-27 23:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:33 | Edited lib/site-content.ts | "2026-07-31T23:59:59" → "2026-07-31T00:00:00" | ~11 |
+| 23:33 | Session end: 1 writes across 1 files (site-content.ts) | 1 reads | ~8112 tok |
+| 23:36 | Edited components/faq.tsx | removed 8 lines | ~15 |
+| 23:37 | Session end: 2 writes across 2 files (site-content.ts, faq.tsx) | 2 reads | ~9229 tok |
+| 23:52 | Edited components/faq.tsx | 12→12 lines | ~141 |
+| 23:52 | Edited components/faq.tsx | — | ~0 |
+| 23:52 | Edited components/faq.tsx | removed 11 lines | ~1 |
+| 23:53 | Session end: 5 writes across 2 files (site-content.ts, faq.tsx) | 2 reads | ~9097 tok |
+| 23:59 | Edited components/faq.tsx | reduced (-6 lines) | ~434 |
+| 23:59 | Session end: 6 writes across 2 files (site-content.ts, faq.tsx) | 2 reads | ~9531 tok |
+| 00:09 | Edited lib/site-content.ts | 4→8 lines | ~74 |
+| 00:09 | Edited lib/site-content.ts | 3→7 lines | ~65 |
+| 00:09 | Edited components/problem-overview.tsx | added 1 import(s) | ~84 |
+| 00:09 | Edited components/problem-overview.tsx | expanded (+11 lines) | ~143 |
+| 00:09 | Session end: 10 writes across 3 files (site-content.ts, faq.tsx, problem-overview.tsx) | 3 reads | ~11275 tok |
+| 00:11 | Edited components/problem-overview.tsx | 11→11 lines | ~104 |
+| 00:11 | Edited components/problem-overview.tsx | added nullish coalescing | ~221 |
+| 00:12 | Session end: 12 writes across 3 files (site-content.ts, faq.tsx, problem-overview.tsx) | 3 reads | ~11868 tok |
+| 00:14 | Edited components/startup-registration-form.tsx | added 1 import(s) | ~36 |
+| 00:14 | Edited components/startup-registration-form.tsx | expanded (+9 lines) | ~157 |
+| 00:15 | Session end: 14 writes across 4 files (site-content.ts, faq.tsx, problem-overview.tsx, startup-registration-form.tsx) | 4 reads | ~20162 tok |

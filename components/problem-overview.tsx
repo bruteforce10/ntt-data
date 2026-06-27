@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { SITE_CONTENT } from "@/lib/site-content";
@@ -53,6 +54,17 @@ export default function ProblemOverview() {
               }}
               className="group flex h-full cursor-pointer flex-col rounded-2xl border border-white/5 bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 p-6 backdrop-blur-sm transition duration-200 ease-out hover:border-white/20 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3176e4]"
             >
+              {"logo" in item && item.logo && (
+                <div className="mb-4">
+                  <Image
+                    src={item.logo.src}
+                    alt={item.logo.alt}
+                    width={200}
+                    height={60}
+                    className="object-contain"
+                  />
+                </div>
+              )}
               <h3 className="text-base font-bold leading-snug text-white sm:text-lg">
                 {item.title}
               </h3>
@@ -81,6 +93,25 @@ export default function ProblemOverview() {
             {/* Left panel */}
             <div className="flex flex-col justify-between bg-white p-8 sm:w-[40%] sm:p-10">
               <div>
+                {"logo" in (selected ?? {}) &&
+                  (selected as { logo?: { src: string; alt: string } })
+                    ?.logo && (
+                    <div className="mb-6">
+                      <Image
+                        src={
+                          (selected as { logo: { src: string; alt: string } })
+                            .logo.src
+                        }
+                        alt={
+                          (selected as { logo: { src: string; alt: string } })
+                            .logo.alt
+                        }
+                        width={240}
+                        height={60}
+                        className="object-contain"
+                      />
+                    </div>
+                  )}
                 <h3 className="text-2xl font-black leading-tight text-gray-900 sm:text-3xl">
                   {selected?.title}
                 </h3>

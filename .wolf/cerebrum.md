@@ -50,6 +50,8 @@
 - [2026-06-27] Don't register a NEW Tailwind v4 `font-*` utility with a self-referential `@theme inline { --font-x: var(--font-x); }`. It compiles with no error but generates NO utility class, so the `font-x` class is a silent no-op (text keeps the inherited font). Use a concrete value referencing the next/font variable instead, e.g. `--font-georgia: var(--font-georgia-base), Georgia, serif;`. The self-ref only "works" for built-ins like `font-sans`/`font-serif`/`font-mono` that Tailwind ships by default. (see buglog bug-068)
 - [2026-06-27] Don't screenshot a mid-page section via an absolute `clip` computed from `getBoundingClientRect` right after `Page.navigate` — unloaded (lazy) images above collapse the layout so the reported offset is wrong (it captured the Hero instead of `#roadmap`). Instead `scrollIntoView` the section, wait for images, then capture the VIEWPORT (no clip). Also: the first headless request after editing triggers a cold Turbopack compile that can exceed the screenshot budget and yield a blank page — warm the page with a `curl` first.
 
+- [2026-06-27] Don't put a raw bcrypt hash (`$2b$10$...`) in `.env.local` — Next's `@next/env` runs dotenv-expand and treats `$2b`/`$10`/etc. as variable refs, corrupting it (loads empty/partial). **Single-quoting does NOT prevent expansion** in this version. Fix: escape every `$` as `\$` (`\$2b\$10\$...`). Symptom: Auth.js `CredentialsSignin` for the CORRECT password while the unit test (hash passed directly, not via env) passes green. (see buglog bug-090)
+
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->

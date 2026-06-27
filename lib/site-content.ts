@@ -149,7 +149,7 @@ export const SITE_CONTENT = {
       { label: "HOME", href: "/" },
       { label: "WHY PARTICIPATE?", href: "#benefits" },
       { label: "PROBLEM STATEMENTS", href: "#problem-statements" },
-      { label: "TIMELINE", href: "#countdown" },
+      { label: "TIMELINE", href: "#roadmap" },
       { label: "FAQ'S", href: "#faq" },
     ],
     actions: [
@@ -195,8 +195,8 @@ export const SITE_CONTENT = {
     action: { label: "REGISTER", href: "/startup-registration" },
   },
   countdown: {
-    title: "Registration Open",
-    targetDate: "2026-08-31T00:00:00",
+    title: "Registration Closes",
+    targetDate: "2026-07-31T00:00:00",
     video: {
       src: "/Video Countdown.webm",
       type: "video/webm",
@@ -210,6 +210,10 @@ export const SITE_CONTENT = {
     },
     items: [
       {
+        logo: {
+          src: "/problem-overview/logo-alliance.png",
+          alt: "Alliance Bank",
+        },
         title:
           "Building an Enterprise AI Knowledge Platform to Unlock Structured Insights from Fragmented Data",
         description:
@@ -219,6 +223,10 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
+        logo: {
+          src: "/problem-overview/logo-alliance.png",
+          alt: "Alliance Bank",
+        },
         title:
           "Enabling Enterprise-Grade Digital Twins for Intelligent Workforce Augmentation",
         description:

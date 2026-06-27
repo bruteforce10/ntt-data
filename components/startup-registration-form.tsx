@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { AlertCircle, FileText, Info, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -675,6 +676,15 @@ export default function StartupRegistrationForm() {
                     <span className="absolute right-4 top-4 flex h-6 w-6 items-center justify-center rounded-full bg-[#3176E4] text-xs font-bold text-white">
                       {selectedProblems.indexOf(i) + 1}
                     </span>
+                  )}
+                  {"logo" in item && item.logo && (
+                    <Image
+                      src={(item as { logo: { src: string; alt: string } }).logo.src}
+                      alt={(item as { logo: { src: string; alt: string } }).logo.alt}
+                      width={180}
+                      height={60}
+                      className="object-contain"
+                    />
                   )}
                   <p className="text-sm font-semibold leading-snug text-white">
                     {item.title}
