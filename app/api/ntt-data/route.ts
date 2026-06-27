@@ -1,6 +1,25 @@
 import { NextResponse } from "next/server";
 import { transporter, buildRegistrationEmail } from "@/lib/mailer";
 
+import { auth } from "@/auth";
+import { fetchAllRecords } from "@/lib/ntt-data/pocketbase";
+
+export async function GET() {
+  const session = await auth();
+  if (!session?.user) {
+    return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
+  }
+  try {
+    const data = await fetchAllRecords();
+    return NextResponse.json({ success: true, data });
+  } catch (err) {
+    return NextResponse.json(
+      { success: false, error: String(err) },
+      { status: 500 },
+    );
+  }
+}
+
 const POCKETBASE_URL =
   process.env.POCKETBASE_URL || "https://pb.ntt-startupchallenge.com";
 
