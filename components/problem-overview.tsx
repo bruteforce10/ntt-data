@@ -131,11 +131,32 @@ export default function ProblemOverview() {
 
             {/* Right panel */}
             <div className="flex-1 overflow-y-auto border-l border-gray-100 bg-white px-8 py-10 max-h-[60vh] sm:max-h-[70vh] sm:px-10 sm:pt-12">
-              <div className="space-y-4 text-sm leading-relaxed text-justify text-gray-700">
-                {selected?.fullDescription.split("\n\n").map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
+              {"detail" in (selected ?? {}) && (selected as { detail?: { context: string[]; description: { develop: string; helpsUsers: string[]; solutionMust: string[] } } })?.detail ? (() => {
+                const detail = (selected as { detail: { context: string[]; description: { develop: string; helpsUsers: string[]; solutionMust: string[] } } }).detail;
+                return (
+                  <div className="space-y-6 text-sm leading-relaxed text-justify text-gray-700">
+                    <div>
+                      <p className="mb-2 font-bold text-gray-900">Challenge Context:</p>
+                      <div className="space-y-3">
+                        {detail.context.map((para, i) => <p key={i}>{para}</p>)}
+                      </div>
+                    </div>
+                    <div>
+                      <p className="mb-2 font-bold text-gray-900">Challenge Description:</p>
+                      <p className="mb-3 italic">Develop:</p>
+                      <p className="mb-4">{detail.description.develop}</p>
+                      <p className="mb-2 italic">That helps users to:</p>
+                      <ol className="mb-4 list-decimal space-y-1 pl-5">
+                        {detail.description.helpsUsers.map((item, i) => <li key={i}>{item}</li>)}
+                      </ol>
+                      <p className="mb-2 italic">The solution must be able to:</p>
+                      <ol className="list-decimal space-y-1 pl-5">
+                        {detail.description.solutionMust.map((item, i) => <li key={i}>{item}</li>)}
+                      </ol>
+                    </div>
+                  </div>
+                );
+              })() : null}
             </div>
           </div>
         </DialogContent>

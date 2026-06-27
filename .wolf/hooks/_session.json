@@ -13,7 +13,7 @@
       "first_read": "2026-06-27T16:36:41.874Z"
     },
     "/Users/mm/Documents/ntt-data/components/problem-overview.tsx": {
-      "count": 2,
+      "count": 3,
       "tokens": 1634,
       "first_read": "2026-06-27T17:08:56.942Z"
     },
@@ -107,17 +107,35 @@
       "action": "edit",
       "tokens": 157,
       "at": "2026-06-27T17:14:53.187Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+      "action": "edit",
+      "tokens": 870,
+      "at": "2026-06-27T17:40:32.150Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+      "action": "edit",
+      "tokens": 768,
+      "at": "2026-06-27T17:40:52.127Z"
+    },
+    {
+      "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+      "action": "edit",
+      "tokens": 539,
+      "at": "2026-06-27T17:41:06.011Z"
     }
   ],
   "edit_counts": {
-    "lib/site-content.ts": 3,
+    "lib/site-content.ts": 5,
     "components/faq.tsx": 5,
-    "components/problem-overview.tsx": 4,
+    "components/problem-overview.tsx": 5,
     "components/startup-registration-form.tsx": 2
   },
   "anatomy_hits": 4,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 4,
+  "repeated_reads_warned": 5,
   "cerebrum_warnings": 0,
-  "stop_count": 7
+  "stop_count": 8
 }

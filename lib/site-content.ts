@@ -218,8 +218,33 @@ export const SITE_CONTENT = {
           "Building an Enterprise AI Knowledge Platform to Unlock Structured Insights from Fragmented Data",
         description:
           "Enterprise data and knowledge stay fragmented across SharePoint, OneDrive, email, and legacy systems. Analytics remain manual and narrow, with uneven governance and weak semantic structure — making accurate, up-to-date information hard to access.",
-        fullDescription:
-          "As the bank accelerates its transformation into an AI-powered enterprise, it faces a core challenge: enterprise data and knowledge remain fragmented across systems, repositories, and communication channels, including SharePoint, OneDrive, email, and legacy platforms.\n\nAlthough foundational data assets exist, analytics and reporting remain largely manual and designed for narrow use cases. Inconsistent structure, limited semantic organisation, and uneven governance make it difficult for employees to access accurate, up-to-date information efficiently.\n\nEmployees often rely on multiple stakeholders to validate information and reach decisions, as expertise and reasoning models are not consolidated. This slows execution, creates knowledge gaps, and limits consistent decision-making across the organisation.\n\nTo address this, the bank aims to build a centralised AI-enabled knowledge platform underpinned by domain-to-data mapping. This would structure domain knowledge and enterprise data into reusable, AI-ready data products that support intelligent applications, agents, and future digital capabilities.\n\nDevelop: An enterprise-grade AI knowledge platform that uses domain-to-data mapping to consolidate fragmented sources into a structured, accessible, and continuously updated knowledge base.\n\nThat helps users to:\n\n1. Access relevant policies, procedures, and organisational knowledge through natural language queries\n\n2. Reduce manual searches and repeated stakeholder consultations\n\n3. Make faster, more consistent decisions using a reliable single source of truth\n\n4. Improve productivity by minimising time spent searching and validating information\n\n5. Enable conversational, AI-driven querying across business domains with role-specific, context-aware guidance\n\nThe solution must be able to:\n\n1. Map business concepts to underlying data through a domain-to-data semantic layer\n\n2. Ingest and integrate data from enterprise sources such as SharePoint, OneDrive, email, and core systems\n\n3. Support reusable, enterprise-wide knowledge layers that can power AI agents and digital interfaces\n\n4. Keep the knowledge base continuously updated, including from email communications where required\n\n5. Enable role-based access controls and strict data governance to ensure sensitive information is protected\n\n6. Operate as an enterprise-wide platform capable of scaling across multiple business units",
+        detail: {
+          context: [
+            "As the bank accelerates its transformation into an AI-powered enterprise, it faces a core challenge: enterprise data and knowledge remain fragmented across systems, repositories, and communication channels, including SharePoint, OneDrive, email, and legacy platforms.",
+            "Although foundational data assets exist, analytics and reporting remain largely manual and designed for narrow use cases. Inconsistent structure, limited semantic organisation, and uneven governance make it difficult for employees to access accurate, up-to-date information efficiently.",
+            "Employees often rely on multiple stakeholders to validate information and reach decisions, as expertise and reasoning models are not consolidated. This slows execution, creates knowledge gaps, and limits consistent decision-making across the organisation.",
+            "To address this, the bank aims to build a centralised AI-enabled knowledge platform underpinned by domain-to-data mapping. This would structure domain knowledge and enterprise data into reusable, AI-ready data products that support intelligent applications, agents, and future digital capabilities.",
+          ],
+          description: {
+            develop:
+              "An enterprise-grade AI knowledge platform that uses domain-to-data mapping to consolidate fragmented sources into a structured, accessible, and continuously updated knowledge base.",
+            helpsUsers: [
+              "Access relevant policies, procedures, and organisational knowledge through natural language queries",
+              "Reduce manual searches and repeated stakeholder consultations",
+              "Make faster, more consistent decisions using a reliable single source of truth",
+              "Improve productivity by minimising time spent searching and validating information",
+              "Enable conversational, AI-driven querying across business domains with role-specific, context-aware guidance",
+            ],
+            solutionMust: [
+              "Map business concepts to underlying data through a domain-to-data semantic layer",
+              "Ingest and integrate data from enterprise sources such as SharePoint, OneDrive, email, and core systems",
+              "Support reusable, enterprise-wide knowledge layers that can power AI agents and digital interfaces",
+              "Keep the knowledge base continuously updated, including from email communications where required",
+              "Enable role-based access controls and strict data governance to ensure sensitive information is protected",
+              "Operate as an enterprise-wide platform capable of scaling across multiple business units",
+            ],
+          },
+        },
         href: "#problem-statements",
       },
       {
@@ -231,8 +256,33 @@ export const SITE_CONTENT = {
           "Enabling Enterprise-Grade Digital Twins for Intelligent Workforce Augmentation",
         description:
           "Much organisational knowledge and decision logic stays tacit, fragmented, and tied to individuals, creating execution bottlenecks. Generic AI tools lack context on working styles, decision criteria, and organisational nuance — limiting scalable productivity.",
-        fullDescription:
-          "Financial institutions are moving toward AI-enabled operating models to improve productivity, decision-making, and consistency. However, much organisational knowledge and decision logic remain tacit, fragmented, and dependent on individuals, creating execution bottlenecks and hindering employee productivity.\n\nExisting analytics and reporting processes are often manual, fragmented, and designed for narrow use cases. This limits scalable AI adoption and the bank's ability to deliver conversational, context-aware business insights.\n\nExisting AI tools often generate generic outputs that lack contextual awareness of individual working styles, decision criteria, and organisational nuances.\n\nThe bank seeks to explore digital twin capabilities, AI-driven representations of employees that learn behaviours, preferences, and decision patterns. These digital twins would act as intelligent co-workers, enabling scalable productivity gains while meeting enterprise governance, security, and compliance requirements.\n\nDevelop: Enterprise-grade digital twin solutions that learn, replicate, and augment employee behaviours, decision patterns, and communication styles within a secure banking environment.\n\nThat helps users to:\n\n1. Automate routine cognitive tasks, including document review, approvals, and content creation\n\n2. Receive next-best-action recommendations aligned with personal decision criteria and working style\n\n3. Accelerate workflows such as project approvals, UAT reviews, and financial analysis with greater confidence and consistency\n\n4. Produce outputs (e.g. emails, reports) in the user's own tone and style\n\nThe solution must be able to:\n\n1. Learn from structured and unstructured enterprise sources such as emails, documents, and past decisions while preserving data privacy\n\n2. Replicate user-specific behaviours such as approval logic, prioritisation criteria, and communication tone\n\n3. Provide confidence levels and rationale for outputs and recommendations\n\n4. Integrate seamlessly within enterprise systems and workflows\n\n5. Ensure strict access control, governance, and compliance for regulated financial environments\n\n6. Operate within a private, secure AI environment (non-public data exposure)\n\n7. Scale across multiple roles and functions, supporting different \"twin\" configurations per user",
+        detail: {
+          context: [
+            "Financial institutions are moving toward AI-enabled operating models to improve productivity, decision-making, and consistency. However, much organisational knowledge and decision logic remain tacit, fragmented, and dependent on individuals, creating execution bottlenecks and hindering employee productivity.",
+            "Existing analytics and reporting processes are often manual, fragmented, and designed for narrow use cases. This limits scalable AI adoption and the bank's ability to deliver conversational, context-aware business insights.",
+            "Existing AI tools often generate generic outputs that lack contextual awareness of individual working styles, decision criteria, and organisational nuances.",
+            "The bank seeks to explore digital twin capabilities, AI-driven representations of employees that learn behaviours, preferences, and decision patterns. These digital twins would act as intelligent co-workers, enabling scalable productivity gains while meeting enterprise governance, security, and compliance requirements.",
+          ],
+          description: {
+            develop:
+              "Enterprise-grade digital twin solutions that learn, replicate, and augment employee behaviours, decision patterns, and communication styles within a secure banking environment.",
+            helpsUsers: [
+              "Automate routine cognitive tasks, including document review, approvals, and content creation",
+              "Receive next-best-action recommendations aligned with personal decision criteria and working style",
+              "Accelerate workflows such as project approvals, UAT reviews, and financial analysis with greater confidence and consistency",
+              'Produce outputs (e.g. emails, reports) in the user\'s own tone and style',
+            ],
+            solutionMust: [
+              "Learn from structured and unstructured enterprise sources such as emails, documents, and past decisions while preserving data privacy",
+              "Replicate user-specific behaviours such as approval logic, prioritisation criteria, and communication tone",
+              "Provide confidence levels and rationale for outputs and recommendations",
+              "Integrate seamlessly within enterprise systems and workflows",
+              "Ensure strict access control, governance, and compliance for regulated financial environments",
+              "Operate within a private, secure AI environment (non-public data exposure)",
+              'Scale across multiple roles and functions, supporting different "twin" configurations per user',
+            ],
+          },
+        },
         href: "#problem-statements",
       },
       // {

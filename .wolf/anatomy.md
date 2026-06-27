@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-27T17:14:52.779Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-27T17:41:05.966Z
 > Files: 50 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/
@@ -71,7 +71,7 @@
 - `faq.tsx` — Faq (~735 tok)
 - `footer.tsx` — footerLinks (~844 tok)
 - `hero.tsx` — Hero; REGISTER CTA is an active Link to hero.action.href (/startup-registration) (~778 tok)
-- `problem-overview.tsx` — ProblemOverview — renders modal (~1634 tok)
+- `problem-overview.tsx` — ProblemOverview — renders modal (~2109 tok)
 - `program-overview.tsx` — ITEM_COUNT; "Program Overview" h2 heading uses `font-georgia` (Georgia) (~1148 tok)
 - `roadmap.tsx` — Roadmap; "Program Roadmap and Timeline" section. Server Component, data-driven from `SITE_CONTENT.roadmap`. Desktop CSS grid (pills span phases, chevrons between steps); mobile vertical stack w/ rotate-90 chevrons. White icons from `public/time-line`; `font-georgia` heading (~1713 tok)
 - `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8228 tok)
@@ -105,7 +105,7 @@
 ## lib/
 
 - `home-faq.ts` — Home page FAQ content — a curated, shorter set shown on the landing page. (~1019 tok)
-- `site-content.ts` — Exports SITE_CONTENT (~8178 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~8341 tok)
 
 ## lib/auth/
 
