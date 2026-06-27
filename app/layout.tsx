@@ -14,6 +14,17 @@ const nulshockBd = localFont({
   variable: "--font-nulshock",
 });
 
+const georgia = localFont({
+  src: [
+    { path: "../public/georgia/georgia.ttf", weight: "400", style: "normal" },
+    { path: "../public/georgia/georgiai.ttf", weight: "400", style: "italic" },
+    { path: "../public/georgia/georgiab.ttf", weight: "700", style: "normal" },
+    { path: "../public/georgia/georgiaz.ttf", weight: "700", style: "italic" },
+  ],
+  variable: "--font-georgia-base",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "NTT Open Innovation Program",
   description:
@@ -28,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${notoSans.variable} ${nulshockBd.variable} h-full antialiased`}
+      className={`${notoSans.variable} ${nulshockBd.variable} ${georgia.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

@@ -461,3 +461,135 @@
 | 09:28 | Edited components/problem-overview.tsx | 9→5 lines | ~76 |
 | 09:28 | problem-overview: replace coming-soon.svg <Image> with NotoSans text "COMING SOON" (font-bold, #0070C0, fluid clamp fills max-w-5xl like svg) | components/problem-overview.tsx | done; typecheck ok | ~900 |
 | 09:29 | Session end: 3 writes across 2 files (countdown.tsx, problem-overview.tsx) | 6 reads | ~8532 tok |
+
+## Session: 2026-06-27 10:51
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:57 | Edited app/layout.tsx | expanded (+11 lines) | ~149 |
+| 10:57 | Edited app/layout.tsx | "${notoSans.variable} ${nu" → "${notoSans.variable} ${nu" | ~30 |
+| 10:58 | Edited app/globals.css | CSS: --font-georgia | ~37 |
+| 10:58 | Edited app/globals.css | CSS: --font-georgia | ~42 |
+| 10:58 | Edited components/about.tsx | "mb-8 text-2xl font-black " → "mb-8 font-georgia text-2x" | ~37 |
+| 10:58 | Edited components/benefit.tsx | "mb-3 text-center text-2xl" → "mb-3 text-center font-geo" | ~40 |
+| 10:58 | Edited components/program-overview.tsx | "text-2xl font-black capit" → "font-georgia text-2xl fon" | ~35 |
+| 10:58 | Edited components/countdown.tsx | "px-6 py-8 text-center tex" → "px-6 py-8 text-center fon" | ~40 |
+| 10:58 | Edited components/problem-overview.tsx | "mb-10 text-center text-2x" → "mb-10 text-center font-ge" | ~40 |
+| 11:02 | Edited app/globals.css | 2→2 lines | ~28 |
+| 11:02 | Edited app/globals.css | 3→2 lines | ~20 |
+| 11:05 | Switched 5 section headings (About, Why Participate?, Program Overview, Registration Open, Explore the Challenges) to Georgia font: loaded public/georgia 4 ttf via next/font/local in layout.tsx, registered font-georgia utility in globals.css, applied class to each h2. Fixed Tailwind v4 gotcha (self-ref @theme inline did not generate the utility → concrete value). Verified: tsc clean + .font-georgia rule in served CSS + class on all 5 rendered headings. | layout.tsx, globals.css, about/benefit/program-overview/countdown/problem-overview.tsx | done | ~120 |
+| 11:06 | Session end: 11 writes across 7 files (layout.tsx, globals.css, about.tsx, benefit.tsx, program-overview.tsx) | 8 reads | ~8560 tok |
+| 11:22 | Edited components/countdown.tsx | CSS: milliseconds, milliseconds | ~194 |
+| 11:22 | Edited components/countdown.tsx | 6→7 lines | ~88 |
+| 11:22 | Edited components/countdown.tsx | CSS: frame | ~73 |
+| 11:22 | Edited components/countdown.tsx | 19→19 lines | ~289 |
+| 11:23 | Edited lib/site-content.ts | 4→4 lines | ~28 |
+| 11:23 | Session end: 16 writes across 8 files (layout.tsx, globals.css, about.tsx, benefit.tsx, program-overview.tsx) | 8 reads | ~9232 tok |
+| 11:30 | Session end: 16 writes across 8 files (layout.tsx, globals.css, about.tsx, benefit.tsx, program-overview.tsx) | 8 reads | ~9067 tok |
+| 11:31 | Edited lib/site-content.ts | expanded (+10 lines) | ~406 |
+| 11:31 | Edited components/benefit.tsx | "mb-3 text-center font-geo" → "mb-14 text-center font-ge" | ~40 |
+| 11:31 | Edited components/benefit.tsx | "mt-6 text-lg font-black u" → "mt-6 text-lg font-black l" | ~27 |
+| 11:31 | Session end: 19 writes across 8 files (layout.tsx, globals.css, about.tsx, benefit.tsx, program-overview.tsx) | 8 reads | ~9540 tok |
+| 11:33 | Edited lib/site-content.ts | 5→10 lines | ~101 |
+| 11:33 | Session end: 20 writes across 8 files (layout.tsx, globals.css, about.tsx, benefit.tsx, program-overview.tsx) | 8 reads | ~9641 tok |
+| 11:34 | Edited lib/site-content.ts | removed 11 lines | ~2 |
+| 11:34 | Edited components/benefit.tsx | CSS: lg | ~204 |
+| 11:35 | Edited components/benefit.tsx | inline fix | ~10 |
+| 11:36 | Session end: 23 writes across 8 files (layout.tsx, globals.css, about.tsx, benefit.tsx, program-overview.tsx) | 8 reads | ~9857 tok |
+
+## Session: 2026-06-27 11:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:39 | Edited components/problem-overview.tsx | reduced (-7 lines) | ~25 |
+| 11:39 | Edited components/problem-overview.tsx | 7→5 lines | ~16 |
+| 11:40 | activate problem grid, remove Coming Soon placeholder | components/problem-overview.tsx | done, tsc clean | ~2k |
+| 11:40 | Session end: 2 writes across 1 files (problem-overview.tsx) | 1 reads | ~1672 tok |
+| 11:44 | Edited components/problem-overview.tsx | reduced (-7 lines) | ~25 |
+| 11:44 | Edited components/problem-overview.tsx | removed 13 lines | ~32 |
+| 11:44 | Edited components/problem-overview.tsx | 3→2 lines | ~25 |
+| 11:45 | Session end: 5 writes across 1 files (problem-overview.tsx) | 1 reads | ~1754 tok |
+| 12:08 | Edited lib/site-content.ts | 14→9 lines | ~840 |
+| 12:08 | Edited lib/site-content.ts | removed 16 lines | ~13 |
+| 12:09 | Edited lib/site-content.ts | 14→9 lines | ~815 |
+| 12:09 | Edited components/problem-overview.tsx | CSS: sm | ~81 |
+| 12:09 | Edited components/startup-registration-form.tsx | removed 8 lines | ~23 |
+| 12:10 | Edited components/startup-registration-form.tsx | 3→2 lines | ~27 |
+
+## Session: 2026-06-27 12:10
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 12:10 | update problem statements to 2 bank AI challenges; add card title; drop logo icons from card+dialog+form; remove unused next/image imports | lib/site-content.ts, components/problem-overview.tsx, components/startup-registration-form.tsx | done, tsc clean | ~12k |
+| 12:14 | Edited components/problem-overview.tsx | "flex-1 overflow-y-auto bo" → "flex-1 overflow-y-auto bo" | ~42 |
+| 12:14 | Session end: 1 writes across 1 files (problem-overview.tsx) | 0 reads | ~42 tok |
+| 12:23 | Edited lib/site-content.ts | expanded (+170 lines) | ~2701 |
+| 12:23 | Edited components/faq.tsx | CSS: question, answer | ~67 |
+| 12:23 | Edited components/faq.tsx | 3→3 lines | ~47 |
+| 12:23 | Edited components/faq.tsx | CSS: marker, marker, marker | ~398 |
+| 12:24 | Edited components/countdown.tsx | modified pad() | ~120 |
+| 12:24 | Edited components/countdown.tsx | inline fix | ~20 |
+| 12:24 | Edited app/page.tsx | added 1 import(s) | ~40 |
+| 12:24 | Edited app/page.tsx | 3→4 lines | ~22 |
+| 12:24 | fix countdown hydration mismatch (deterministic ZERO_TIME initial state) | components/countdown.tsx | done, tsc 0, bug-084 logged | ~3k |
+| 12:24 | Session end: 9 writes across 5 files (problem-overview.tsx, site-content.ts, faq.tsx, countdown.tsx, page.tsx) | 7 reads | ~10023 tok |
+| 12:29 | Session end: 9 writes across 5 files (problem-overview.tsx, site-content.ts, faq.tsx, countdown.tsx, page.tsx) | 7 reads | ~10023 tok |
+
+## Session: 2026-06-27 13:46
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:48 | Edited lib/site-content.ts | expanded (+38 lines) | ~3040 |
+| 13:48 | Created components/faq.tsx | — | ~810 |
+
+## Session: 2026-06-27 13:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-27 13:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-27 13:55
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-27 13:59
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-27 13:59
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:01 | Created components/faq.tsx | — | ~1062 |
+| 14:01 | Session end: 1 writes across 1 files (faq.tsx) | 0 reads | ~1062 tok |
+| 14:03 | Edited lib/site-content.ts | expanded (+19 lines) | ~186 |
+| 14:04 | Edited components/footer.tsx | added 1 import(s) | ~46 |
+| 14:04 | Edited components/footer.tsx | expanded (+21 lines) | ~317 |
+| 14:05 | Add footer legal links row (Privacy Statement, Terms of Use, Contact Us) | lib/site-content.ts, components/footer.tsx | tsc passed | ~3k |
+| 14:05 | Session end: 4 writes across 3 files (faq.tsx, site-content.ts, footer.tsx) | 2 reads | ~9387 tok |
+| 14:10 | Edited lib/site-content.ts | expanded (+50 lines) | ~344 |
+| 14:10 | Edited app/page.tsx | 2→3 lines | ~18 |
+| 14:11 | Created components/roadmap.tsx | — | ~1713 |
+| 14:11 | Edited app/page.tsx | added 1 import(s) | ~40 |
+| 14:22 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/cdp-shot.mjs | — | ~948 |
+
+## Session: 2026-06-27 14:23
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:23 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/cdp-shot.mjs | modified shoot() | ~320 |
+| 14:24 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/cdp-shot.mjs | 2→2 lines | ~50 |
+| 14:25 | Built "Program Roadmap and Timeline" section (3-phase timeline: desktop CSS grid + mobile vertical, white icons from public/time-line) | components/roadmap.tsx, lib/site-content.ts, app/page.tsx | done; tsc clean; verified desktop+mobile via Chrome CDP | ~7k |
+| 14:29 | Session end: 2 writes across 1 files (cdp-shot.mjs) | 4 reads | ~9570 tok |
+| 14:30 | Edited lib/site-content.ts | reduced (-161 lines) | ~959 |
+| 15:05 | Edited lib/site-content.ts | expanded (+161 lines) | ~3038 |
+| 15:05 | Created lib/home-faq.ts | — | ~1019 |
+| 15:07 | Created components/faq.tsx | — | ~1102 |
+| 15:07 | Created app/page.tsx | — | ~222 |
+| 15:09 | Added home-only FAQ data (HOME_FAQ, 8 items/4 groups); Faq now takes optional content prop; /faq keeps full SITE_CONTENT.faq | lib/home-faq.ts, components/faq.tsx, app/page.tsx | done; tsc clean for changed files | ~3000 |

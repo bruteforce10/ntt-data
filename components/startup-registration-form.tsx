@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import { AlertCircle, FileText, Info, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -677,13 +676,6 @@ export default function StartupRegistrationForm() {
                       {selectedProblems.indexOf(i) + 1}
                     </span>
                   )}
-                  <Image
-                    src={item.logo.src}
-                    alt={item.logo.alt}
-                    width={item.logo.width}
-                    height={item.logo.height}
-                    className="h-8 w-auto object-contain object-left flex-shrink-0"
-                  />
                   <p className="text-sm font-semibold leading-snug text-white">
                     {item.title}
                   </p>
