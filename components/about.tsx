@@ -20,7 +20,7 @@ export default function About() {
           <h2 className="mb-8 font-georgia text-2xl font-black titlecase tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
             {about.title}
           </h2>
-          <p className="text-sm leading-relaxed max-w-[900px] text-left text-gray-800 sm:text-base lg:text-lg">
+          <p className="text-sm leading-relaxed max-w-[850px] text-left text-gray-800 sm:text-base lg:text-lg">
             {about.description}
           </p>
           <Link
