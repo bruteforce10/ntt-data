@@ -2,12 +2,12 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 656504,
-    "total_reads": 400,
-    "total_writes": 764,
-    "total_sessions": 48,
+    "total_tokens_estimated": 656511,
+    "total_reads": 403,
+    "total_writes": 765,
+    "total_sessions": 51,
     "anatomy_hits": 153,
-    "anatomy_misses": 217,
+    "anatomy_misses": 220,
     "repeated_reads_blocked": 83,
     "estimated_savings_vs_bare_cli": 361035
   },
@@ -8021,6 +8021,46 @@
         "writes_count": 17,
         "repeated_reads_blocked": 5,
         "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-06-28-0808",
+      "started": "2026-06-28T01:08:43.801Z",
+      "ended": "2026-06-28T01:12:16.405Z",
+      "reads": [
+        {
+          "file": "/Users/mm/.claude/projects/-Users-mm-Documents-ntt-data/memory/MEMORY.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/mailer.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/.npmrc",
+          "tokens_estimated": 7,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 7,
+        "reads_count": 3,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
       }
     }
   ],

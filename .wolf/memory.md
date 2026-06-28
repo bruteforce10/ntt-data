@@ -696,3 +696,21 @@
 | 00:40 | Edited lib/site-content.ts | expanded (+25 lines) | ~768 |
 | 00:41 | Edited components/problem-overview.tsx | added nullish coalescing | ~539 |
 | 00:41 | Session end: 17 writes across 4 files (site-content.ts, faq.tsx, problem-overview.tsx, startup-registration-form.tsx) | 4 reads | ~22339 tok |
+
+## Session: 2026-06-28 08:03
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-28 08:05
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-06-28 08:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:12 | Created .npmrc | — | ~6 |
+| 08:12 | add .npmrc legacy-peer-deps to fix Vercel build (next-auth@5/nodemailer@8 peer conflict) | .npmrc | created | ~20 tok |
+| 08:12 | Session end: 1 writes across 1 files (.npmrc) | 3 reads | ~7 tok |

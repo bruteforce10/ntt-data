@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-27T17:41:05.966Z
-> Files: 50 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-28T01:12:01.445Z
+> Files: 51 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/
 
@@ -9,6 +9,7 @@
 
 ## ./
 
+- `.npmrc` (~6 tok)
 - `auth.config.ts` — Edge-safe Auth.js config shared by the middleware and the full `auth.ts`. (~178 tok)
 - `auth.ts` (~172 tok)
 - `middleware.ts` — Edge-safe: uses only `authConfig` (no Credentials/bcrypt import). The (~95 tok)
