@@ -131,8 +131,8 @@ export default function ProblemOverview() {
 
             {/* Right panel */}
             <div className="flex-1 overflow-y-auto border-l border-gray-100 bg-white px-8 py-10 max-h-[60vh] sm:max-h-[70vh] sm:px-10 sm:pt-12">
-              {"detail" in (selected ?? {}) && (selected as { detail?: { context: string[]; description: { develop: string; helpsUsers: string[]; solutionMust: string[] } } })?.detail ? (() => {
-                const detail = (selected as { detail: { context: string[]; description: { develop: string; helpsUsers: string[]; solutionMust: string[] } } }).detail;
+              {"detail" in (selected ?? {}) && (selected as { detail?: { context: readonly string[]; description: { develop: string; helpsUsers: readonly string[]; solutionMust: readonly string[] } } })?.detail ? (() => {
+                const detail = (selected as { detail: { context: readonly string[]; description: { develop: string; helpsUsers: readonly string[]; solutionMust: readonly string[] } } }).detail;
                 return (
                   <div className="space-y-6 text-sm leading-relaxed text-justify text-gray-700">
                     <div>
