@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-28T01:15:07.392Z
-> Files: 51 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-29T17:53:26.527Z
+> Files: 52 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/
 
@@ -67,15 +67,15 @@
 ## components/
 
 - `about.tsx` — About; h2 heading uses `font-georgia` (Georgia) (~490 tok)
-- `benefit.tsx` — Benefit (~539 tok)
-- `countdown.tsx` — getTimeLeft (~1106 tok)
+- `benefit.tsx` — Benefit (~398 tok)
+- `countdown.tsx` — getTimeLeft (~1044 tok)
 - `faq.tsx` — Faq (~735 tok)
 - `footer.tsx` — footerLinks (~844 tok)
 - `hero.tsx` — Hero; REGISTER CTA is an active Link to hero.action.href (/startup-registration) (~778 tok)
-- `problem-overview.tsx` — ProblemOverview — renders modal (~2124 tok)
+- `problem-overview.tsx` — ProblemOverview — renders modal (~2300 tok)
 - `program-overview.tsx` — ITEM_COUNT; "Program Overview" h2 heading uses `font-georgia` (Georgia) (~1148 tok)
 - `roadmap.tsx` — Roadmap; "Program Roadmap and Timeline" section. Server Component, data-driven from `SITE_CONTENT.roadmap`. Desktop CSS grid (pills span phases, chevrons between steps); mobile vertical stack w/ rotate-90 chevrons. White icons from `public/time-line`; `font-georgia` heading (~1713 tok)
-- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8228 tok)
+- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8240 tok)
 
 ## components/dashboard/
 
@@ -94,6 +94,7 @@
 
 ## constant/
 
+- `problemOverview.ts` — Exports ALLIANCE_BANK_LABEL (~23 tok)
 
 ## docs/superpowers/plans/
 
@@ -106,7 +107,7 @@
 ## lib/
 
 - `home-faq.ts` — Home page FAQ content — a curated, shorter set shown on the landing page. (~1019 tok)
-- `site-content.ts` — Exports SITE_CONTENT (~8341 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~8406 tok)
 
 ## lib/auth/
 

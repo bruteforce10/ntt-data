@@ -21,11 +21,6 @@ export const SITE_CONTENT = {
           src: "/Assets Picture/benefit/1.png",
           alt: "Global Market Access",
         },
-        extra: {
-          title: "POC Support",
-          descriptionHtml:
-            "The winning team will receive a <strong>USD $30,000</strong> reward in Time &amp; Material services to bring their PoC to life.",
-        },
       },
       {
         number: "BENEFIT 2",
@@ -45,6 +40,16 @@ export const SITE_CONTENT = {
         image: {
           src: "/Assets Picture/benefit/3.png",
           alt: "Commercial Collaboration",
+        },
+      },
+      {
+        number: "BENEFIT 4",
+        title: "POC Support",
+        descriptionHtml:
+          "The winning team will receive a USD $30,000 reward in Time &amp; Material services to bring their PoC to life.",
+        image: {
+          src: "/Assets Picture/benefit/4.png",
+          alt: "POC Support",
         },
       },
     ],
@@ -103,10 +108,10 @@ export const SITE_CONTENT = {
             },
           },
           {
-            caption: "Upload your pitchdeck.",
+            caption: "Upload your pitch deck.",
             icon: {
               src: "/time-line/2.png",
-              alt: "Upload your pitchdeck",
+              alt: "Upload your pitch deck",
             },
           },
         ],
@@ -147,10 +152,10 @@ export const SITE_CONTENT = {
     },
     links: [
       { label: "HOME", href: "/" },
-      { label: "WHY PARTICIPATE?", href: "#benefits" },
-      { label: "PROBLEM STATEMENTS", href: "#problem-statements" },
-      { label: "TIMELINE", href: "#roadmap" },
-      { label: "FAQ'S", href: "#faq" },
+      { label: "WHY PARTICIPATE?", href: "/#benefits" },
+      { label: "PROBLEM STATEMENTS", href: "/#problem-statements" },
+      { label: "TIMELINE", href: "/#roadmap" },
+      { label: "FAQ'S", href: "/#faq" },
     ],
     actions: [
       {
@@ -214,6 +219,7 @@ export const SITE_CONTENT = {
           src: "/problem-overview/logo-alliance.png",
           alt: "Alliance Bank",
         },
+        logoLabel: "A Leading Digital Bank in Southeast Asia",
         title:
           "Building an Enterprise AI Knowledge Platform to Unlock Structured Insights from Fragmented Data",
         description:
@@ -252,6 +258,7 @@ export const SITE_CONTENT = {
           src: "/problem-overview/logo-alliance.png",
           alt: "Alliance Bank",
         },
+        logoLabel: "A Leading Digital Bank in Southeast Asia",
         title:
           "Enabling Enterprise-Grade Digital Twins for Intelligent Workforce Augmentation",
         description:
@@ -270,7 +277,7 @@ export const SITE_CONTENT = {
               "Automate routine cognitive tasks, including document review, approvals, and content creation",
               "Receive next-best-action recommendations aligned with personal decision criteria and working style",
               "Accelerate workflows such as project approvals, UAT reviews, and financial analysis with greater confidence and consistency",
-              'Produce outputs (e.g. emails, reports) in the user\'s own tone and style',
+              "Produce outputs (e.g. emails, reports) in the user's own tone and style",
             ],
             solutionMust: [
               "Learn from structured and unstructured enterprise sources such as emails, documents, and past decisions while preserving data privacy",

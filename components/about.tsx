@@ -17,7 +17,7 @@ export default function About() {
         /> */}
         <div className="absolute inset-0 bg-white/40" />
         <div className="relative z-10 mx-auto flex min-h-[280px]  flex-col items-center justify-center px-6 py-20 text-center sm:min-h-[560px] lg:min-h-[250px]">
-          <h2 className="mb-8 font-georgia text-2xl font-black titlecase tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
+          <h2 className="mb-8 font-georgia text-2xl font-normal titlecase tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
             {about.title}
           </h2>
           <p className="text-sm leading-relaxed max-w-[850px] text-left text-gray-800 sm:text-base lg:text-lg">

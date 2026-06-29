@@ -59,7 +59,7 @@ export default function Hero() {
             href={hero.action.href}
             className={cn(
               buttonVariants({ variant: "default" }),
-              "h-12 w-48 rounded-md border-0 bg-[#3176e4] text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#2560c8] sm:h-14 sm:w-56 sm:text-sm",
+              "h-12 w-48 rounded-full border-0 bg-[#3176e4] text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#2560c8] sm:h-14 sm:w-56 sm:text-sm",
             )}
           >
             {hero.action.label}

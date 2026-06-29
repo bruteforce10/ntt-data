@@ -9,19 +9,17 @@ interface TimeLeft {
   hours: number;
   minutes: number;
   seconds: number;
-  milliseconds: number;
 }
 
 function getTimeLeft(): TimeLeft {
   const diff = new Date(countdown.targetDate).getTime() - Date.now();
   if (diff <= 0)
-    return { days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0 };
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-  const milliseconds = diff % 1000;
-  return { days, hours, minutes, seconds, milliseconds };
+  return { days, hours, minutes, seconds };
 }
 
 function pad(n: number, digits: number = 2) {
@@ -36,7 +34,6 @@ const ZERO_TIME: TimeLeft = {
   hours: 0,
   minutes: 0,
   seconds: 0,
-  milliseconds: 0,
 };
 
 const UNITS = [
@@ -44,7 +41,6 @@ const UNITS = [
   { key: "hours" as const, label: "Hours", digits: 2 },
   { key: "minutes" as const, label: "Minutes", digits: 2 },
   { key: "seconds" as const, label: "Seconds", digits: 2 },
-  { key: "milliseconds" as const, label: "Ms", digits: 3 },
 ];
 
 export default function Countdown() {
@@ -62,7 +58,7 @@ export default function Countdown() {
 
   return (
     <section id="countdown" className="bg-white">
-      <h2 className="px-6 py-8 text-center font-georgia text-2xl font-bold tracking-wide text-[#0070C0] sm:py-10 sm:text-3xl lg:text-4xl">
+      <h2 className="px-6 py-8 text-center font-georgia text-2xl font-normal tracking-wide text-[#0070C0] sm:py-10 sm:text-3xl lg:text-4xl">
         {countdown.title}
       </h2>
 
@@ -93,7 +89,7 @@ export default function Countdown() {
                   </div>
                   {i < UNITS.length - 1 && (
                     <span className="mb-5 text-xl font-light leading-none text-white/50 sm:mb-7 sm:text-3xl lg:text-5xl">
-                      {UNITS[i + 1].key === "milliseconds" ? "." : ":"}
+                      :
                     </span>
                   )}
                 </React.Fragment>

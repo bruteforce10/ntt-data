@@ -28,18 +28,14 @@ interface FaqProps {
   content?: FaqContent;
 }
 
-
 export default function Faq({ content = SITE_CONTENT.faq }: FaqProps) {
   const faqGroups = content.groups;
   return (
     <section id="faq" className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-200 px-6">
-        <h2 className="mb-3 text-center font-georgia text-2xl font-black capitalize tracking-wide text-[#0070C0] sm:text-3xl">
+        <h2 className="mb-3 text-center font-georgia text-2xl font-normal capitalize tracking-wide text-[#0070C0] sm:text-3xl">
           {content.title}
         </h2>
-        <p className="mb-12 text-center text-sm text-gray-500 sm:text-base">
-          {content.subtitle}
-        </p>
 
         <Accordion multiple={false} className="w-full">
           {faqGroups.flatMap((group, g) =>
@@ -70,7 +66,7 @@ export default function Faq({ content = SITE_CONTENT.faq }: FaqProps) {
                   ) : null}
                 </AccordionContent>
               </AccordionItem>
-            ))
+            )),
           )}
         </Accordion>
       </div>

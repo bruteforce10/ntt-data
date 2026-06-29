@@ -74,7 +74,9 @@ function StepIcon({ step, className }: { step: Step; className?: string }) {
 // vertical center of the icons in the horizontal (desktop) layout.
 function ChevronCell({ className }: { className?: string }) {
   return (
-    <div className={cn("flex h-20 items-center justify-center px-1", className)}>
+    <div
+      className={cn("flex h-20 items-center justify-center px-1", className)}
+    >
       <Chevron className="h-8 w-7 text-white/70" />
     </div>
   );
@@ -82,7 +84,13 @@ function ChevronCell({ className }: { className?: string }) {
 
 // Icon + caption. `compact` tightens the caption width so the two steps of a
 // multi-step phase (July) sit side by side within a single column.
-function StepItem({ step, compact = false }: { step: Step; compact?: boolean }) {
+function StepItem({
+  step,
+  compact = false,
+}: {
+  step: Step;
+  compact?: boolean;
+}) {
   return (
     <div className="flex min-w-0 flex-1 flex-col items-center text-center">
       <div className="flex h-20 items-center justify-center">
@@ -106,7 +114,7 @@ export default function Roadmap() {
   return (
     <section id="roadmap" className="bg-white">
       <div className="mx-auto max-w-[1200px] px-6 pb-10 pt-12 text-center sm:pt-16 lg:pt-20">
-        <h2 className="font-georgia text-2xl font-black tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
+        <h2 className="font-georgia text-2xl font-normal tracking-wide text-[#0070C0] sm:text-3xl lg:text-4xl">
           {roadmap.title}
         </h2>
       </div>

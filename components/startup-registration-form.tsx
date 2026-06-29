@@ -21,14 +21,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SITE_CONTENT } from "@/lib/site-content";
+import { ALLIANCE_BANK_LABEL } from "@/constant/problemOverview";
 
 const { problemOverview } = SITE_CONTENT;
 
 const MAX_DESCRIPTION_FILE_BYTES = 8 * 1024 * 1024;
 const DESCRIPTION_FILE_ACCEPT = ".pdf,application/pdf";
 
-const BUSINESS_MODES = ["Startup", "Partner"] as const;
-type BusinessMode = (typeof BUSINESS_MODES)[number];
 const FUNDING_STAGES = [
   "Pre-Seed",
   "Seed",
@@ -55,9 +54,11 @@ type ErrorKey =
   | "jobTitle"
   | "startupName"
   | "website"
-  | "businessMode"
+  | "fundingStage"
   | "country"
   | "city"
+  | "companyAddress"
+  | "companyDescription"
   | "problemStatement"
   | "hearAboutUs"
   | "hearAboutUsOther"
@@ -120,9 +121,6 @@ function Field({
 export default function StartupRegistrationForm() {
   const [selectedProblems, setSelectedProblems] = React.useState<number[]>([]);
   const [problemStatement, setProblemStatement] = React.useState("");
-  const [businessMode, setBusinessMode] = React.useState<BusinessMode | null>(
-    null,
-  );
   const [hearAboutUs, setHearAboutUs] = React.useState<HearAboutUs | null>(
     null,
   );
@@ -226,10 +224,16 @@ export default function StartupRegistrationForm() {
     }
     if (!jobTitle) nextErrors.jobTitle = "Job title is required.";
     if (!startupName) nextErrors.startupName = "Startup name is required.";
-    if (website && !isValidUrl(website)) {
+    if (!website) {
+      nextErrors.website = "Website is required.";
+    } else if (!isValidUrl(website)) {
       nextErrors.website = "Use a valid URL, including https://.";
     }
-    if (!businessMode) nextErrors.businessMode = "Business mode is required.";
+    if (!fundingStage) nextErrors.fundingStage = "Funding stage is required.";
+    if (!companyAddress) nextErrors.companyAddress = "Company address is required.";
+    if (!companyDescription.trim() && !descriptionFile) {
+      nextErrors.companyDescription = "Company description is required.";
+    }
     if (!country) nextErrors.country = "Country is required.";
     if (!city) nextErrors.city = "City is required.";
     if (!problemStatement) {
@@ -277,9 +281,6 @@ export default function StartupRegistrationForm() {
     submitData.append("job_title", jobTitle);
     submitData.append("startup_name", startupName);
     if (normalizedWebsite) submitData.append("website", normalizedWebsite);
-    if (businessMode) {
-      submitData.append("business_mode", businessMode.toLowerCase());
-    }
     submitData.append("country", country);
     submitData.append("city", city);
     if (companyAddress) submitData.append("company_address", companyAddress);
@@ -318,7 +319,6 @@ export default function StartupRegistrationForm() {
       form.reset();
       setSelectedProblems([]);
       setProblemStatement("");
-      setBusinessMode(null);
       setHearAboutUs(null);
       setHearAboutUsOther("");
       setFundingStage(null);
@@ -343,6 +343,16 @@ export default function StartupRegistrationForm() {
 
   return (
     <>
+      <div className="mb-8 rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+        <p className="text-base leading-relaxed text-gray-700">
+          We are excited to welcome you to the{" "}
+          <span className="font-semibold text-[#154284]">
+            NTT DATA Open Innovation Program
+          </span>
+          ! Please complete this quick registration form to get started.
+        </p>
+      </div>
+
       <form onSubmit={handleSubmit} noValidate>
         <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
           <div className="grid gap-5 sm:grid-cols-2">
@@ -411,7 +421,7 @@ export default function StartupRegistrationForm() {
               />
             </Field>
 
-            <Field label="Website" id="website" error={errors.website}>
+            <Field label="Website *" id="website" error={errors.website}>
               <Input
                 id="website"
                 name="website"
@@ -421,57 +431,7 @@ export default function StartupRegistrationForm() {
               />
             </Field>
 
-            <Field
-              label="Business Mode *"
-              id="businessMode"
-              error={errors.businessMode}
-            >
-              <Select
-                id="businessMode"
-                name="businessMode"
-                required
-                value={businessMode}
-                onValueChange={(value) =>
-                  setBusinessMode(value as BusinessMode | null)
-                }
-              >
-                <SelectTrigger
-                  className="w-full"
-                  aria-invalid={Boolean(errors.businessMode)}
-                >
-                  <SelectValue placeholder="Select business mode" />
-                </SelectTrigger>
-                <SelectContent>
-                  {BUSINESS_MODES.map((m) => (
-                    <SelectItem key={m} value={m}>
-                      {m}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </Field>
-
-            <Field label="Country *" id="country" error={errors.country}>
-              <Input
-                id="country"
-                name="country"
-                placeholder="Country"
-                required
-                aria-invalid={Boolean(errors.country)}
-              />
-            </Field>
-
-            <Field label="City *" id="city" error={errors.city}>
-              <Input
-                id="city"
-                name="city"
-                placeholder="City"
-                required
-                aria-invalid={Boolean(errors.city)}
-              />
-            </Field>
-
-            <Field label="Funding Stage" id="fundingStage">
+            <Field label="Funding Stage *" id="fundingStage" error={errors.fundingStage}>
               <Select
                 id="fundingStage"
                 name="fundingStage"
@@ -482,7 +442,7 @@ export default function StartupRegistrationForm() {
                   if (nextValue !== "Other") setFundingStageOther("");
                 }}
               >
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full" aria-invalid={Boolean(errors.fundingStage)}>
                   <SelectValue placeholder="Select funding stage" />
                 </SelectTrigger>
                 <SelectContent>
@@ -512,17 +472,39 @@ export default function StartupRegistrationForm() {
               </Field>
             )}
 
-            <Field label="Company Address" id="companyAddress" full>
+            <Field label="Company Address *" id="companyAddress" full error={errors.companyAddress}>
               <Textarea
                 id="companyAddress"
                 name="companyAddress"
                 placeholder="Enter your company address..."
                 rows={3}
                 className="resize-none"
+                required
+                aria-invalid={Boolean(errors.companyAddress)}
               />
             </Field>
 
-            <Field label="Company Description" id="companyDescription" full>
+            <Field label="City *" id="city" error={errors.city}>
+              <Input
+                id="city"
+                name="city"
+                placeholder="City"
+                required
+                aria-invalid={Boolean(errors.city)}
+              />
+            </Field>
+
+            <Field label="Country *" id="country" error={errors.country}>
+              <Input
+                id="country"
+                name="country"
+                placeholder="Country"
+                required
+                aria-invalid={Boolean(errors.country)}
+              />
+            </Field>
+
+            <Field label="Company Description *" id="companyDescription" full error={errors.companyDescription}>
               <Textarea
                 id="companyDescription"
                 name="companyDescription"
@@ -532,7 +514,7 @@ export default function StartupRegistrationForm() {
                 placeholder={
                   hasDescriptionFile
                     ? "PDF uploaded — remove it to type a description instead"
-                    : "Tell us about your company..."
+                    : "Share a brief overview of your company and your core focus."
                 }
                 rows={4}
                 className="resize-none disabled:cursor-not-allowed disabled:bg-gray-50 disabled:opacity-60"
@@ -612,6 +594,58 @@ export default function StartupRegistrationForm() {
                 )}
               </div>
             </Field>
+
+            <Field
+              label="How Did You Hear About Us? *"
+              id="hearAboutUs"
+              error={errors.hearAboutUs}
+              full
+            >
+              <Select
+                id="hearAboutUs"
+                name="hearAboutUs"
+                required
+                value={hearAboutUs}
+                onValueChange={(value) => {
+                  const nextValue = value as HearAboutUs | null;
+                  setHearAboutUs(nextValue);
+                  if (nextValue !== "Others") setHearAboutUsOther("");
+                }}
+              >
+                <SelectTrigger
+                  className="w-full"
+                  aria-invalid={Boolean(errors.hearAboutUs)}
+                >
+                  <SelectValue placeholder="Select an option" />
+                </SelectTrigger>
+                <SelectContent>
+                  {HEAR_ABOUT_US.map((h) => (
+                    <SelectItem key={h} value={h}>
+                      {h}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Field>
+
+            {hearAboutUs === "Others" && (
+              <Field
+                label="Please Specify *"
+                id="hearAboutUsOther"
+                error={errors.hearAboutUsOther}
+                full
+              >
+                <Input
+                  id="hearAboutUsOther"
+                  name="hearAboutUsOther"
+                  value={hearAboutUsOther}
+                  onChange={(event) => setHearAboutUsOther(event.target.value)}
+                  placeholder="Tell us where you heard about this program"
+                  required
+                  aria-invalid={Boolean(errors.hearAboutUsOther)}
+                />
+              </Field>
+            )}
           </div>
         </div>
 
@@ -653,7 +687,9 @@ export default function StartupRegistrationForm() {
               <Info className="mt-0.5 size-5 flex-shrink-0" aria-hidden />
               <p className="font-medium leading-relaxed">
                 Please note that every selected problem statement must be
-                accompanied by a pitch deck
+                accompanied by a pitch deck. Once you submit this form, we'll
+                send an email to your registered address with a link to upload
+                your pitch deck.
               </p>
             </div>
           )}
@@ -666,10 +702,10 @@ export default function StartupRegistrationForm() {
                   type="button"
                   onClick={() => toggleProblem(i)}
                   className={[
-                    "relative flex flex-col gap-3 rounded-2xl border-2 bg-gradient-to-br from-[#1a3a6b]/80 to-[#04101e]/50 p-6 text-left backdrop-blur-sm transition-all",
+                    "relative flex h-full flex-col items-center justify-between rounded-2xl bg-gray-100 p-8 shadow-xl transition duration-200 ease-out",
                     isSelected
-                      ? "border-[#3176E4] ring-2 ring-[#3176E4]/30"
-                      : "border-transparent hover:border-white/20",
+                      ? "outline outline-2 outline-offset-2 outline-[#3176E4] ring-2 ring-[#3176E4]/30"
+                      : "hover:shadow-md",
                   ].join(" ")}
                 >
                   {isSelected && (
@@ -677,81 +713,29 @@ export default function StartupRegistrationForm() {
                       {selectedProblems.indexOf(i) + 1}
                     </span>
                   )}
-                  {"logo" in item && item.logo && (
-                    <Image
-                      src={(item as { logo: { src: string; alt: string } }).logo.src}
-                      alt={(item as { logo: { src: string; alt: string } }).logo.alt}
-                      width={180}
-                      height={60}
-                      className="object-contain"
-                    />
-                  )}
-                  <p className="text-sm font-semibold leading-snug text-white">
-                    {item.title}
-                  </p>
-                  <p className="text-xs leading-relaxed text-white/70">
-                    {item.description}
-                  </p>
+                  <div className="flex flex-col items-center gap-3">
+                    {"logo" in item && item.logo && (
+                      <Image
+                        src={(item as { logo: { src: string; alt: string } }).logo.src}
+                        alt={(item as { logo: { src: string; alt: string } }).logo.alt}
+                        width={180}
+                        height={60}
+                        className="object-contain"
+                      />
+                    )}
+                    {"logoLabel" in item && (
+                      <p className="text-sm italic text-gray-500">
+                        {ALLIANCE_BANK_LABEL}
+                      </p>
+                    )}
+                    <h3 className="text-center text-base font-black leading-snug text-[#0070C0] sm:text-lg">
+                      {item.title}
+                    </h3>
+                  </div>
                 </button>
               );
             })}
           </div>
-        </div>
-
-        <div className="mt-8 rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
-          <Field
-            label="How Did You Hear About Us? *"
-            id="hearAboutUs"
-            error={errors.hearAboutUs}
-            full
-          >
-            <Select
-              id="hearAboutUs"
-              name="hearAboutUs"
-              required
-              value={hearAboutUs}
-              onValueChange={(value) => {
-                const nextValue = value as HearAboutUs | null;
-                setHearAboutUs(nextValue);
-                if (nextValue !== "Others") setHearAboutUsOther("");
-              }}
-            >
-              <SelectTrigger
-                className="w-full"
-                aria-invalid={Boolean(errors.hearAboutUs)}
-              >
-                <SelectValue placeholder="Select an option" />
-              </SelectTrigger>
-              <SelectContent>
-                {HEAR_ABOUT_US.map((h) => (
-                  <SelectItem key={h} value={h}>
-                    {h}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </Field>
-
-          {hearAboutUs === "Others" && (
-            <div className="mt-5">
-              <Field
-                label="Please Specify *"
-                id="hearAboutUsOther"
-                error={errors.hearAboutUsOther}
-                full
-              >
-                <Input
-                  id="hearAboutUsOther"
-                  name="hearAboutUsOther"
-                  value={hearAboutUsOther}
-                  onChange={(event) => setHearAboutUsOther(event.target.value)}
-                  placeholder="Tell us where you heard about this program"
-                  required
-                  aria-invalid={Boolean(errors.hearAboutUsOther)}
-                />
-              </Field>
-            </div>
-          )}
         </div>
 
         {formError && (
