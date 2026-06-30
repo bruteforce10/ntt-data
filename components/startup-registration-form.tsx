@@ -714,10 +714,10 @@ export default function StartupRegistrationForm() {
                     </span>
                   )}
                   <div className="flex flex-col items-center gap-3">
-                    {"logo" in item && item.logo && (
+                    {(item as unknown as { logo?: { src: string; alt: string } }).logo && (
                       <Image
-                        src={(item as { logo: { src: string; alt: string } }).logo.src}
-                        alt={(item as { logo: { src: string; alt: string } }).logo.alt}
+                        src={(item as unknown as { logo: { src: string; alt: string } }).logo.src}
+                        alt={(item as unknown as { logo: { src: string; alt: string } }).logo.alt}
                         width={180}
                         height={60}
                         className="object-contain"

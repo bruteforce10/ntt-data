@@ -215,10 +215,10 @@ export const SITE_CONTENT = {
     },
     items: [
       {
-        logo: {
-          src: "/problem-overview/logo-alliance.png",
-          alt: "Alliance Bank",
-        },
+        // logo: {
+        //   src: "/problem-overview/logo-alliance.png",
+        //   alt: "Alliance Bank",
+        // },
         logoLabel: "A Leading Digital Bank in Southeast Asia",
         title:
           "Building an Enterprise AI Knowledge Platform to Unlock Structured Insights from Fragmented Data",
@@ -254,10 +254,10 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
-        logo: {
-          src: "/problem-overview/logo-alliance.png",
-          alt: "Alliance Bank",
-        },
+        // logo: {
+        //   src: "/problem-overview/logo-alliance.png",
+        //   alt: "Alliance Bank",
+        // },
         logoLabel: "A Leading Digital Bank in Southeast Asia",
         title:
           "Enabling Enterprise-Grade Digital Twins for Intelligent Workforce Augmentation",

@@ -80,25 +80,24 @@ export default function ProblemOverview() {
             {/* Left panel */}
             <div className="flex flex-col justify-between bg-white p-8 sm:w-[40%] sm:p-10">
               <div>
-                {"logo" in (selected ?? {}) &&
-                  (selected as { logo?: { src: string; alt: string } })
-                    ?.logo && (
-                    <div className="mb-4">
-                      <Image
-                        src={
-                          (selected as { logo: { src: string; alt: string } })
-                            .logo.src
-                        }
-                        alt={
-                          (selected as { logo: { src: string; alt: string } })
-                            .logo.alt
-                        }
-                        width={240}
-                        height={60}
-                        className="object-contain"
-                      />
-                    </div>
-                  )}
+                {(selected as { logo?: { src: string; alt: string } })
+                  ?.logo && (
+                  <div className="mb-4">
+                    <Image
+                      src={
+                        (selected as { logo: { src: string; alt: string } })
+                          .logo.src
+                      }
+                      alt={
+                        (selected as { logo: { src: string; alt: string } })
+                          .logo.alt
+                      }
+                      width={240}
+                      height={60}
+                      className="object-contain"
+                    />
+                  </div>
+                )}
                 {"logoLabel" in (selected ?? {}) && (
                   <p className="mb-6 text-sm italic text-gray-500">
                     {ALLIANCE_BANK_LABEL}

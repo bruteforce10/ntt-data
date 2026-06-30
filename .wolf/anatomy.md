@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-29T17:53:26.527Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-30T02:37:05.079Z
 > Files: 52 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/
@@ -72,10 +72,10 @@
 - `faq.tsx` — Faq (~735 tok)
 - `footer.tsx` — footerLinks (~844 tok)
 - `hero.tsx` — Hero; REGISTER CTA is an active Link to hero.action.href (/startup-registration) (~778 tok)
-- `problem-overview.tsx` — ProblemOverview — renders modal (~2300 tok)
+- `problem-overview.tsx` — ProblemOverview — renders modal (~2277 tok)
 - `program-overview.tsx` — ITEM_COUNT; "Program Overview" h2 heading uses `font-georgia` (Georgia) (~1148 tok)
 - `roadmap.tsx` — Roadmap; "Program Roadmap and Timeline" section. Server Component, data-driven from `SITE_CONTENT.roadmap`. Desktop CSS grid (pills span phases, chevrons between steps); mobile vertical stack w/ rotate-90 chevrons. White icons from `public/time-line`; `font-georgia` heading (~1713 tok)
-- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8240 tok)
+- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8258 tok)
 
 ## components/dashboard/
 
