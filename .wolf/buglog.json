@@ -112,6 +112,18 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-29T17:53:26.732Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-06-30T09:40:00Z",
+      "error_message": "Type error: Conversion of type '{ readonly logoLabel: ... }' to type '{ logo: { src: string; alt: string; }; }' may be a mistake because neither type sufficiently overlaps with the other.",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Direct `as` cast from item type (which has logoLabel, not logo) to { logo: ... } fails TS because the types don't overlap. The logo property is commented out in site-content.ts items.",
+      "fix": "Cast through unknown first: `selected as unknown as { logo: { src: string; alt: string } }`",
+      "tags": ["typescript", "type-cast", "build-error", "vercel"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-30"
     }
   ]
 }

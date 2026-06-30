@@ -85,11 +85,11 @@ export default function ProblemOverview() {
                   <div className="mb-4">
                     <Image
                       src={
-                        (selected as { logo: { src: string; alt: string } })
+                        (selected as unknown as { logo: { src: string; alt: string } })
                           .logo.src
                       }
                       alt={
-                        (selected as { logo: { src: string; alt: string } })
+                        (selected as unknown as { logo: { src: string; alt: string } })
                           .logo.alt
                       }
                       width={240}
