@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-30T02:41:39.790Z
-> Files: 52 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-30T23:17:14.069Z
+> Files: 54 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/
 
@@ -37,7 +37,7 @@
 
 ## app/api/ntt-data/
 
-- `route.ts` — Next.js API route: GET, POST (~1799 tok)
+- `route.ts` — Next.js API route: GET, POST (~1903 tok)
 
 ## app/api/ntt-data/[id]/file/[field]/
 
@@ -69,13 +69,14 @@
 - `about.tsx` — About; h2 heading uses `font-georgia` (Georgia) (~490 tok)
 - `benefit.tsx` — Benefit (~398 tok)
 - `countdown.tsx` — getTimeLeft (~1044 tok)
+- `deck-submission-form.tsx` — MAX_SIZE_BYTES — renders form (~2488 tok)
 - `faq.tsx` — Faq (~735 tok)
 - `footer.tsx` — footerLinks (~844 tok)
 - `hero.tsx` — Hero; REGISTER CTA is an active Link to hero.action.href (/startup-registration) (~778 tok)
 - `problem-overview.tsx` — ProblemOverview — renders modal (~2283 tok)
 - `program-overview.tsx` — ITEM_COUNT; "Program Overview" h2 heading uses `font-georgia` (Georgia) (~1148 tok)
 - `roadmap.tsx` — Roadmap; "Program Roadmap and Timeline" section. Server Component, data-driven from `SITE_CONTENT.roadmap`. Desktop CSS grid (pills span phases, chevrons between steps); mobile vertical stack w/ rotate-90 chevrons. White icons from `public/time-line`; `font-georgia` heading (~1713 tok)
-- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8258 tok)
+- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8316 tok)
 
 ## components/dashboard/
 
@@ -107,6 +108,7 @@
 ## lib/
 
 - `home-faq.ts` — Home page FAQ content — a curated, shorter set shown on the landing page. (~1019 tok)
+- `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4076 tok)
 - `site-content.ts` — Exports SITE_CONTENT (~8406 tok)
 
 ## lib/auth/

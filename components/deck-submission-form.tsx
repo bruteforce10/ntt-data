@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -93,16 +94,30 @@ export default function DeckSubmissionForm() {
             >
               <X className="size-5" />
             </button>
-            <h2 className="mb-5 text-base font-bold uppercase tracking-widest text-gray-900">
-              Thank You for Submitting
+
+            <div className="mx-auto mb-6 flex size-20 items-center justify-center rounded-2xl bg-[#0070C0]">
+              <Image
+                src="/Logo/Open Innovation Week.png"
+                alt="Open Innovation Week"
+                width={56}
+                height={56}
+                className="object-contain"
+              />
+            </div>
+
+            <h2 className="mb-4 text-xl font-bold text-gray-900">
+              Thank You for Submitting!
             </h2>
-            <p className="mb-5 text-sm leading-relaxed text-gray-700">
-              We have successfully received your submission. Please check your
-              email for a detailed guide on the next steps. If you do not see it
-              within a few minutes, kindly check your spam or junk folder.
+            <p className="mb-4 text-sm leading-relaxed text-gray-700">
+              We have successfully received your pitch deck.
             </p>
-            <p className="text-sm text-gray-700">
-              For further assistance, please reach out to us at{" "}
+            <p className="mb-4 text-sm leading-relaxed text-gray-700">
+              Our team at NTT DATA and our network of industry experts will now
+              review your submission. If your startup is shortlisted, we will
+              reach out to you directly with the next steps.
+            </p>
+            <p className="mb-6 text-sm text-gray-700">
+              Need any help? Feel free to contact us at:{" "}
               <a
                 href="mailto:openinnovation@ntt-startupchallenge.com"
                 className="font-medium text-[#0070C0] underline underline-offset-2"
@@ -110,6 +125,13 @@ export default function DeckSubmissionForm() {
                 openinnovation@ntt-startupchallenge.com
               </a>
             </p>
+            <Button
+              type="button"
+              className="w-full bg-[#3176E4] text-sm hover:bg-[#0070C0]"
+              onClick={() => setSubmitted(false)}
+            >
+              Close
+            </Button>
           </div>
         </div>
       )}
@@ -148,7 +170,7 @@ export default function DeckSubmissionForm() {
                 htmlFor="deck-file"
                 className="text-sm font-medium text-gray-700"
               >
-                Pitch Deck File <span className="text-red-500">*</span>
+                Upload File <span className="text-red-500">*</span>
               </Label>
               <label
                 htmlFor="deck-file"

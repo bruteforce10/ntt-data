@@ -32,13 +32,16 @@ export function buildRegistrationEmail(opts: {
     .map((s) => s.trim())
     .filter(Boolean);
 
-  const statementList = statements
-    .map((s) => `<li style="margin-bottom:4px;">${s}</li>`)
+  const challengeRows = statements
+    .map(
+      (s) =>
+        `<tr><td style="padding:5px 0;color:#6b7280;font-size:13px;width:160px;">Business Challenge</td><td style="padding:5px 0;font-size:13px;font-weight:bold;color:#111827;">${s}</td></tr>`,
+    )
     .join("");
 
   const multiDeckNote =
     statements.length > 1
-      ? `<p style="margin:16px 0;color:#374151;">Please be advised that if you select more than one problem statement, a separate pitch deck must be submitted for each problem statement selected.</p>`
+      ? `<p style="margin:16px 0;color:#374151;font-size:14px;line-height:1.6;"><strong>Note:</strong> If you have registered for more than one business challenge, please submit a separate pitch deck for each specific challenge.</p>`
       : "";
 
   const html = `<!DOCTYPE html>
@@ -54,69 +57,79 @@ export function buildRegistrationEmail(opts: {
             <p style="margin:0;color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:0.5px;">
               Open Innovation Program
             </p>
-            <p style="margin:6px 0 0;color:#93c5fd;font-size:13px;">Registration Confirmation</p>
+            <p style="margin:6px 0 0;color:#93c5fd;font-size:13px;">Registration Confirmed</p>
           </td>
         </tr>
         <!-- Body -->
         <tr>
           <td style="padding:40px;">
-            <p style="margin:0 0 16px;color:#111827;font-size:15px;">Dear <strong>${name}</strong>, Representative of <strong>${startupName}</strong>,</p>
+            <p style="margin:0 0 16px;color:#111827;font-size:15px;">Dear <strong>${name}</strong>,</p>
             <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
-              Thank you for successfully registering for the selected Problem Statement at Open Innovation Program. We are excited to have you join this initiative and look forward to reviewing your innovative solution.
+              Thank you for registering <strong>${startupName}</strong> for the Open Innovation Program! We are excited to have you join this program and look forward to reviewing your innovative solution.
             </p>
-            <p style="margin:0 0 8px;color:#111827;font-size:14px;font-weight:bold;">You have registered for the following problem statement(s):</p>
-            <ul style="margin:0 0 16px;padding-left:20px;color:#374151;font-size:14px;line-height:1.7;">
-              ${statementList}
-            </ul>
-            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
-              This challenge focuses on addressing key business and societal issues through innovative, technology-driven solutions. We are looking for scalable ideas with clear value propositions and strong potential for collaboration.
+            <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:bold;">You have registered for the following problem statement(s):</p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 20px;">
+              ${challengeRows}
+            </table>
+            <p style="margin:0 0 24px;color:#374151;font-size:14px;line-height:1.6;">
+              Selected startups will get the opportunity to pitch directly to enterprise clients and explore pilot projects during our Open Innovation event in Singapore (Aug 31 – Sep 2, 2026).
             </p>
-            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
-              Open Innovation Program is designed to connect startups with industry leaders through curated engagement sessions, business matching opportunities, and cultural exchange activities. Selected startups will have the opportunity to present their solutions directly to corporate partners and explore potential pilot projects or long-term partnerships.
-            </p>
-            <!-- Pitch Deck Section -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f7ff;border-radius:8px;margin:24px 0;">
+            <!-- Next Step Section -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f7ff;border-radius:8px;margin:0 0 24px;">
               <tr><td style="padding:24px;">
-                <p style="margin:0 0 12px;color:#154284;font-size:14px;font-weight:bold;">Pitch Deck Requirements (maximum 8 slides)</p>
-                <ul style="margin:0;padding-left:20px;color:#374151;font-size:13px;line-height:1.8;">
-                  <li>Startup Overview</li>
-                  <li>Problem</li>
-                  <li>Proposed Solution</li>
-                  <li>Product or Technology Explanation</li>
-                  <li>Business Model</li>
-                  <li>Market Opportunity</li>
-                  <li>Traction or Existing Customers</li>
-                  <li>Competitive Advantage</li>
-                  <li>Team Introduction</li>
-                </ul>
+                <p style="margin:0 0 8px;color:#154284;font-size:15px;font-weight:bold;">Your Next Step: Submit Your Pitch Deck</p>
+                <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+                  To move forward, please upload a pitch deck of maximum 8 slides (excluding the cover page). Your deck should cover:
+                </p>
+                <ol style="margin:0;padding-left:20px;color:#374151;font-size:13px;line-height:1.8;">
+                  <li>Executive Summary</li>
+                  <li>Startup Overview &amp; Existing Customers</li>
+                  <li>Your Understanding of the Business Challenge</li>
+                  <li>Proposed Solution &amp; Technology Explanation</li>
+                  <li>Business Model &amp; Market Opportunity</li>
+                  <li>Competitive Advantage &amp; Team Introduction</li>
+                </ol>
               </td></tr>
             </table>
-            <p style="margin:0 0 8px;color:#111827;font-size:14px;font-weight:bold;">Submission Details:</p>
-            <ul style="margin:0 0 16px;padding-left:20px;color:#374151;font-size:14px;line-height:1.8;">
-              <li>File format: <strong>PDF</strong></li>
-              <li>Maximum size: <strong>8 MB</strong></li>
-              <li>Language: <strong>English</strong></li>
-              <li>File name format: <strong>StartupName_ChallengeName.pdf</strong></li>
-            </ul>
-            <p style="margin:0 0 8px;color:#e02020;font-size:14px;font-weight:bold;">Submission deadline: June 31th, 2026</p>
+            <!-- Submission Guidelines -->
+            <p style="margin:0 0 10px;color:#111827;font-size:14px;font-weight:bold;">Submission Guidelines:</p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 16px;">
+              <tr>
+                <td style="padding:5px 0;color:#6b7280;font-size:13px;width:160px;">Format</td>
+                <td style="padding:5px 0;font-size:13px;color:#111827;">PDF only (Max size: 8 MB)</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 0;color:#6b7280;font-size:13px;">Language</td>
+                <td style="padding:5px 0;font-size:13px;color:#111827;">English</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 0;color:#6b7280;font-size:13px;">File Name Format</td>
+                <td style="padding:5px 0;font-size:13px;color:#111827;"><strong>StartupName_ChallengeName.pdf</strong></td>
+              </tr>
+              <tr>
+                <td style="padding:5px 0;color:#6b7280;font-size:13px;">Submission Deadline</td>
+                <td style="padding:5px 0;font-size:13px;font-weight:bold;color:#e02020;">July 31, 2026</td>
+              </tr>
+            </table>
             ${multiDeckNote}
             <!-- CTA Button -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0;">
               <tr><td align="center">
                 <a href="${submitUrl}" style="display:inline-block;background:#3176E4;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;padding:14px 36px;border-radius:8px;letter-spacing:0.5px;">
                   Submit Pitch Deck
                 </a>
               </td></tr>
             </table>
-            <p style="margin:28px 0 0;color:#374151;font-size:14px;line-height:1.6;">
-              We look forward to receiving your submission and discovering impactful innovations from your team.
+            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+              We look forward to reviewing your submission.
             </p>
           </td>
         </tr>
         <!-- Footer -->
         <tr>
           <td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb;">
-            <p style="margin:0;color:#6b7280;font-size:12px;">Best regards,<br><strong style="color:#154284;">Open Innovation Program Team</strong></p>
+            <p style="margin:0 0 4px;color:#6b7280;font-size:12px;">Best regards,</p>
+            <p style="margin:0;font-size:12px;font-weight:bold;color:#154284;">The Open Innovation Program Team</p>
           </td>
         </tr>
       </table>
@@ -125,26 +138,41 @@ export function buildRegistrationEmail(opts: {
 </body>
 </html>`;
 
-  const text = `Dear ${name}, Representative of ${startupName},
+  const challengeLines = statements
+    .map((s) => `Business Challenge: ${s}`)
+    .join("\n");
 
-Thank you for successfully registering for the selected Problem Statement at Open Innovation Program.
+  const text = `Dear ${name},
 
-Problem Statement(s):
-${statements.map((s) => `- ${s}`).join("\n")}
+Thank you for registering ${startupName} for the Open Innovation Program! We are excited to have you join this program and look forward to reviewing your innovative solution.
 
-You are required to submit a Pitch Deck (max 8 slides) covering: Startup Overview, Problem, Proposed Solution, Product/Technology, Business Model, Market Opportunity, Traction, Competitive Advantage, Team Introduction.
+You have registered for the following problem statement(s):
+${challengeLines}
 
-Submission Details:
-- File format: PDF
-- Maximum size: 150 MB
+Selected startups will get the opportunity to pitch directly to enterprise clients and explore pilot projects during our Open Innovation event in Singapore (Aug 31 – Sep 2, 2026).
+
+Your Next Step: Submit Your Pitch Deck
+
+To move forward, please upload a pitch deck of maximum 8 slides (excluding the cover page). Your deck should cover:
+1. Executive Summary
+2. Startup Overview & Existing Customers
+3. Your Understanding of the Business Challenge
+4. Proposed Solution & Technology Explanation
+5. Business Model & Market Opportunity
+6. Competitive Advantage & Team Introduction
+
+Submission Guidelines:
+- Format: PDF only (Max size: 8 MB)
 - Language: English
-- File name format: StartupName_ChallengeName.pdf
-- Submission deadline: June 31th, 2026
-
+- File Name Format: StartupName_ChallengeName.pdf
+- Submission Deadline: July 31, 2026
+${statements.length > 1 ? "\nNote: If you have registered for more than one business challenge, please submit a separate pitch deck for each specific challenge.\n" : ""}
 Submit your pitch deck here: ${submitUrl}
 
+We look forward to reviewing your submission.
+
 Best regards,
-Open Innovation Program Team`;
+The Open Innovation Program Team`;
 
   return { html, text };
 }

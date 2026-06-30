@@ -120,10 +120,63 @@
       "file": "components/problem-overview.tsx",
       "root_cause": "Direct `as` cast from item type (which has logoLabel, not logo) to { logo: ... } fails TS because the types don't overlap. The logo property is commented out in site-content.ts items.",
       "fix": "Cast through unknown first: `selected as unknown as { logo: { src: string; alt: string } }`",
-      "tags": ["typescript", "type-cast", "build-error", "vercel"],
+      "tags": [
+        "typescript",
+        "type-cast",
+        "build-error",
+        "vercel"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-30"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-06-30T23:03:06.815Z",
+      "error_message": "CSS fix: hover",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "hover: bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3176E4]\" → bg-[#0070C0]\"",
+      "fix": "Changed hover: bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3176E4]\" → bg-[#0070C0]\"",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-30T23:03:06.815Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-06-30T23:10:42.680Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/api/ntt-data/route.ts",
+      "root_cause": "Had \"Registration Confirmation - Open Innovation Progr",
+      "fix": "Changed to \"Registration Confirmed: Submit your Pitch Deck fo",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-30T23:10:42.680Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-06-30T23:17:14.180Z",
+      "error_message": "Significant refactor of ",
+      "file": "app/api/ntt-data/route.ts",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 33→43 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-30T23:17:14.180Z"
     }
   ]
 }

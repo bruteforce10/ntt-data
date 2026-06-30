@@ -172,25 +172,35 @@ export async function POST(request: Request) {
         email,
         baseUrl,
       });
-      await transporter.sendMail({
-        from: `"NTT Open Innovation Program" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-        replyTo: process.env.SMTP_FROM || process.env.SMTP_USER,
-        to: email,
-        subject: "Registration Confirmation - Open Innovation Program",
-        text,
-        html,
-        headers: {
-          "X-Mailer": "NTT-OpenInnovation-Mailer",
-          Precedence: "bulk",
-          "List-Unsubscribe": `<mailto:${process.env.SMTP_FROM || process.env.SMTP_USER}?subject=unsubscribe>`,
-        },
-      });
+      try {
+        await transporter.sendMail({
+          from: `"NTT Open Innovation Program" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+          replyTo: process.env.SMTP_FROM || process.env.SMTP_USER,
+          to: email,
+          subject: "Registration Confirmed: Submit your Pitch Deck for Open Innovation Program",
+          text,
+          html,
+          headers: {
+            "X-Mailer": "NTT-OpenInnovation-Mailer",
+            Precedence: "bulk",
+            "List-Unsubscribe": `<mailto:${process.env.SMTP_FROM || process.env.SMTP_USER}?subject=unsubscribe>`,
+          },
+        });
+      } catch (mailErr) {
+        console.error("[ntt-data] sendMail failed:", mailErr);
+      }
     }
 
     return NextResponse.json({ record: result }, { status: 201 });
-  } catch {
+  } catch (err) {
+    console.error("[ntt-data] POST error:", err);
     return NextResponse.json(
-      { message: "Unable to submit registration. Please try again." },
+      {
+        message: "Unable to submit registration. Please try again.",
+        ...(process.env.NODE_ENV === "development" && {
+          debug: err instanceof Error ? err.message : String(err),
+        }),
+      },
       { status: 500 },
     );
   }

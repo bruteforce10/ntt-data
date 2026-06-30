@@ -773,15 +773,20 @@ export default function StartupRegistrationForm() {
             </svg>
           </div>
           <DialogTitle className="mt-6 text-center text-xl font-bold text-gray-900">
-            Thank you for registering!
+            Registration Successful!
           </DialogTitle>
           <DialogDescription className="mt-2 text-center text-sm leading-relaxed text-gray-500">
-            Please check your email inbox, including your spam folder, for
-            further details and important information regarding the next steps.
+            Thank you for registering for Open Innovation Program.
             <br />
             <br />
-            If you have any questions or experience any issues, please feel free
-            to contact us at{" "}
+            We have sent you a confirmation email with important next steps.
+            Please check your inbox for the pitch deck submission link and
+            guidelines.
+            <br />
+            <br />
+            If you don&apos;t see the email within a few minutes, please check
+            your spam or junk folder. Still haven&apos;t received it? Feel free
+            to write to us at:{" "}
             <a
               href="mailto:openinnovation@ntt-startupchallenge.com"
               className="text-[#3176E4] underline"

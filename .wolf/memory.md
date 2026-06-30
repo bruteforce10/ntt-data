@@ -778,3 +778,18 @@
 | 09:41 | Edited components/problem-overview.tsx | 9→9 lines | ~108 |
 | 09:40 | fix TS build error in problem-overview.tsx: cast `selected` through `unknown` before casting to `{ logo: ... }` | components/problem-overview.tsx | build error resolved | ~200 |
 | 09:42 | Session end: 1 writes across 1 files (problem-overview.tsx) | 1 reads | ~2385 tok |
+
+## Session: 2026-06-30 05:46
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 05:54 | Edited components/startup-registration-form.tsx | CSS: at | ~292 |
+| 05:54 | Session end: 1 writes across 1 files (startup-registration-form.tsx) | 1 reads | ~8550 tok |
+| 06:02 | Edited components/deck-submission-form.tsx | added 1 import(s) | ~90 |
+| 06:03 | Edited components/deck-submission-form.tsx | CSS: at | ~708 |
+| 06:03 | Session end: 3 writes across 2 files (startup-registration-form.tsx, deck-submission-form.tsx) | 2 reads | ~9348 tok |
+| 06:10 | Edited lib/mailer.ts | modified buildRegistrationEmail() | ~2250 |
+| 06:10 | Edited app/api/ntt-data/route.ts | "Registration Confirmation" → "Registration Confirmed: S" | ~27 |
+| 06:10 | Session end: 5 writes across 4 files (startup-registration-form.tsx, deck-submission-form.tsx, mailer.ts, route.ts) | 4 reads | ~13424 tok |
+| 06:17 | Edited app/api/ntt-data/route.ts | modified if() | ~420 |
+| 06:17 | Session end: 6 writes across 4 files (startup-registration-form.tsx, deck-submission-form.tsx, mailer.ts, route.ts) | 4 reads | ~13850 tok |
