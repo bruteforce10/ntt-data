@@ -230,7 +230,8 @@ export default function StartupRegistrationForm() {
       nextErrors.website = "Use a valid URL, including https://.";
     }
     if (!fundingStage) nextErrors.fundingStage = "Funding stage is required.";
-    if (!companyAddress) nextErrors.companyAddress = "Company address is required.";
+    if (!companyAddress)
+      nextErrors.companyAddress = "Company address is required.";
     if (!companyDescription.trim() && !descriptionFile) {
       nextErrors.companyDescription = "Company description is required.";
     }
@@ -431,7 +432,11 @@ export default function StartupRegistrationForm() {
               />
             </Field>
 
-            <Field label="Funding Stage *" id="fundingStage" error={errors.fundingStage}>
+            <Field
+              label="Funding Stage *"
+              id="fundingStage"
+              error={errors.fundingStage}
+            >
               <Select
                 id="fundingStage"
                 name="fundingStage"
@@ -442,7 +447,10 @@ export default function StartupRegistrationForm() {
                   if (nextValue !== "Other") setFundingStageOther("");
                 }}
               >
-                <SelectTrigger className="w-full" aria-invalid={Boolean(errors.fundingStage)}>
+                <SelectTrigger
+                  className="w-full"
+                  aria-invalid={Boolean(errors.fundingStage)}
+                >
                   <SelectValue placeholder="Select funding stage" />
                 </SelectTrigger>
                 <SelectContent>
@@ -472,11 +480,16 @@ export default function StartupRegistrationForm() {
               </Field>
             )}
 
-            <Field label="Company Address *" id="companyAddress" full error={errors.companyAddress}>
+            <Field
+              label="Company Address *"
+              id="companyAddress"
+              full
+              error={errors.companyAddress}
+            >
               <Textarea
                 id="companyAddress"
                 name="companyAddress"
-                placeholder="Enter your company address..."
+                placeholder="Enter your company address"
                 rows={3}
                 className="resize-none"
                 required
@@ -504,7 +517,12 @@ export default function StartupRegistrationForm() {
               />
             </Field>
 
-            <Field label="Company Description *" id="companyDescription" full error={errors.companyDescription}>
+            <Field
+              label="Company Description *"
+              id="companyDescription"
+              full
+              error={errors.companyDescription}
+            >
               <Textarea
                 id="companyDescription"
                 name="companyDescription"
@@ -714,10 +732,24 @@ export default function StartupRegistrationForm() {
                     </span>
                   )}
                   <div className="flex flex-col items-center gap-3">
-                    {(item as unknown as { logo?: { src: string; alt: string } }).logo && (
+                    {(
+                      item as unknown as { logo?: { src: string; alt: string } }
+                    ).logo && (
                       <Image
-                        src={(item as unknown as { logo: { src: string; alt: string } }).logo.src}
-                        alt={(item as unknown as { logo: { src: string; alt: string } }).logo.alt}
+                        src={
+                          (
+                            item as unknown as {
+                              logo: { src: string; alt: string };
+                            }
+                          ).logo.src
+                        }
+                        alt={
+                          (
+                            item as unknown as {
+                              logo: { src: string; alt: string };
+                            }
+                          ).logo.alt
+                        }
                         width={180}
                         height={60}
                         className="object-contain"
