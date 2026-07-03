@@ -6,7 +6,7 @@ export const SITE_CONTENT = {
     },
     title: "About the NTT DATA Open Innovation Program",
     description:
-      "Are you a startup or a nextgen company ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Program offers you the chance to collaborate directly with NTT DATA and its clients during a 2-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with these client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. he winning teams will receive funded technical and development support to help bring their Proof of Concept (PoC) to life.",
+      "Are you a startup or a nextgen company ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Program offers you the chance to collaborate directly with NTT DATA and its clients during a 2-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with these client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning teams will receive funded technical and development support to help bring their Proof of Concept (PoC) to life.",
     cta: { label: "Register", href: "/startup-registration" },
   },
   benefit: {
