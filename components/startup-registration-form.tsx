@@ -756,7 +756,7 @@ export default function StartupRegistrationForm() {
                       />
                     )}
                     {"logoLabel" in item && (
-                      <p className="text-sm italic text-gray-500">
+                      <p className="text-md font-semibold italic">
                         {ALLIANCE_BANK_LABEL}
                       </p>
                     )}

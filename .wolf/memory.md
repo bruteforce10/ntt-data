@@ -793,3 +793,18 @@
 | 06:10 | Session end: 5 writes across 4 files (startup-registration-form.tsx, deck-submission-form.tsx, mailer.ts, route.ts) | 4 reads | ~13424 tok |
 | 06:17 | Edited app/api/ntt-data/route.ts | modified if() | ~420 |
 | 06:17 | Session end: 6 writes across 4 files (startup-registration-form.tsx, deck-submission-form.tsx, mailer.ts, route.ts) | 4 reads | ~13850 tok |
+
+## Session: 2026-07-03 23:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-07-03 23:50
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:59 | Edited lib/site-content.ts | reduced (-100 lines) | ~1928 |
+| 00:00 | Edited components/faq.tsx | modified Faq() | ~587 |
+| 00:00 | Edited app/page.tsx | modified Home() | ~96 |
+| 00:03 | Replaced FAQ content with new full flat Q&A list (24 items, no group titles) on both home and /faq pages; deleted lib/home-faq.ts, both now share SITE_CONTENT.faq | lib/site-content.ts, components/faq.tsx, app/page.tsx, lib/home-faq.ts (deleted) | success | ~4200 |
+| 00:03 | Session end: 3 writes across 3 files (site-content.ts, faq.tsx, page.tsx) | 5 reads | ~12993 tok |

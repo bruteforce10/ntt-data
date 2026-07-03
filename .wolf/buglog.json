@@ -177,6 +177,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-06-30T23:17:14.180Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-07-03T16:59:58.510Z",
+      "error_message": "Significant refactor of ",
+      "file": "lib/site-content.ts",
+      "root_cause": "55 lines replaced/restructured",
+      "fix": "Rewrote 245→145 lines (55 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-03T16:59:58.510Z"
     }
   ]
 }

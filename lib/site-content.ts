@@ -6,7 +6,7 @@ export const SITE_CONTENT = {
     },
     title: "About the NTT DATA Open Innovation Program",
     description:
-      "Are you a startup ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Program offers you the chance to collaborate directly with NTT DATA and its clients during a 2-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with these client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning team will receive a USD $30,000 reward in Time & Material services to bring their PoC to life.",
+      "Are you a startup or a nextgen company ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Program offers you the chance to collaborate directly with NTT DATA and its clients during a 2-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with these client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. he winning teams will receive funded technical and development support to help bring their Proof of Concept (PoC) to life.",
     cta: { label: "Register", href: "/startup-registration" },
   },
   benefit: {
@@ -155,7 +155,7 @@ export const SITE_CONTENT = {
       { label: "WHY PARTICIPATE?", href: "/#benefits" },
       { label: "PROBLEM STATEMENTS", href: "/#problem-statements" },
       { label: "TIMELINE", href: "/#roadmap" },
-      { label: "FAQ'S", href: "/#faq" },
+      { label: "FAQ'S", href: "/faq" },
     ],
     actions: [
       {
@@ -201,7 +201,7 @@ export const SITE_CONTENT = {
   },
   countdown: {
     title: "Registration Closes",
-    targetDate: "2026-07-31T00:00:00",
+    targetDate: "2026-07-24T00:00:00",
     video: {
       src: "/Video Countdown.webm",
       type: "video/webm",
@@ -358,243 +358,141 @@ export const SITE_CONTENT = {
     title: "Frequently Asked Questions",
     subtitle:
       "Find quick answers to the most common questions about eligibility, the program timeline, and what to expect during the innovation sprint.",
-    groups: [
+    items: [
       {
-        title: "General Information",
-        items: [
-          {
-            question: "What is the NTT DATA Open Innovation Program 2026?",
-            answer:
-              "The NTT DATA Open Innovation Program connects startups with real business challenges from NTT DATA and its clients. Selected startups get the opportunity to present their solutions, work directly with business stakeholders, and explore the potential for a Proof of Concept (PoC) and future commercial engagement.",
-          },
-          {
-            question: "Who can apply?",
-            answer:
-              "The program is open to startups with innovative solutions that address one or more of our challenge statements. We welcome companies from any industry, technology domain, or growth stage.",
-          },
-          {
-            question: "Is there a participation fee?",
-            answer:
-              "No. There is no fee to apply for or participate in the program.",
-          },
-          {
-            question:
-              "Will travel and accommodation be provided for selected startups?",
-            answer:
-              "Travel and accommodation costs are to be covered by the participating startups. We will, however, provide all necessary logistical details and recommendations to help you plan your trip to Singapore.",
-          },
-          {
-            question: "Can startups from any country apply?",
-            answer:
-              "Yes. The program welcomes applications from startups across the region and internationally.",
-          },
+        question: "What is the NTT DATA Open Innovation Program 2026?",
+        answer:
+          "The NTT DATA Open Innovation Program is an initiative that connects startups and nextgen companies with real business challenges from NTT DATA and its clients. The program gives selected startups and nextgen companies an opportunity to present their solutions, work with business stakeholders, and explore the potential for a Proof of Concept (POC) and future commercial engagement.",
+      },
+      {
+        question: "Who can apply?",
+        answer:
+          "The program is open to startups and nextgen companies with innovative solutions that solve one or more of our challenge statements. We welcome companies from any industry, technology domain, or growth stage.",
+      },
+      {
+        question: "Is there a participation fee?",
+        answer:
+          "No. There is no fee to apply for or participate in the program.",
+      },
+      {
+        question:
+          "Will travel and accommodation be provided for selected startups?",
+        answer:
+          "Travel and accommodation costs are to be covered by the participating startups. We will, however, provide all necessary logistical details and recommendations to help you plan your trip to Singapore.",
+      },
+      {
+        question: "Can startups and nextgen companies from any country apply?",
+        answer:
+          "Yes. The Program welcomes applications from startups and nextgen companies across the region and internationally.",
+      },
+      {
+        question: "How do I apply?",
+        answer:
+          "Startups and nextgen companies can apply by visiting the Open Innovation Program webpage, reviewing the listed challenge statements, and registering their interest online. After registration, eligible startups and nextgen companies will receive instructions on how to submit their pitch deck or solution details.",
+      },
+      {
+        question: "What is the application period?",
+        answer: "Applications are open until July 31, 2026.",
+      },
+      {
+        question: "What is the application process?",
+        answer: "The process is expected to be as follows:",
+        steps: [
+          "Review the challenge statements on the program webpage",
+          "Register your interest through the registration form",
+          "Receive a link by email to submit your pitch deck",
+          "Submit your solution pitch deck for the relevant challenge",
+          "Applications are reviewed by NTT DATA and relevant stakeholders",
+          "Shortlisted startups and nextgen companies may be invited for further discussions or pitch sessions",
+          "Final selected startups will be informed directly",
         ],
       },
       {
-        title: "Application & Submission",
-        items: [
-          {
-            question: "How do I apply?",
-            answer:
-              "Visit the Open Innovation Program webpage, review the listed challenge statements, and register your interest online. After registration, eligible startups will receive instructions on how to submit their pitch deck or solution details.",
-          },
-          {
-            question: "What is the application period?",
-            answer: "Applications are open until July 31, 2026.",
-          },
-          {
-            question: "What is the application process?",
-            answer: "The process is expected to be as follows:",
-            steps: [
-              "Review the challenge statements on the program webpage.",
-              "Register your interest through the registration form.",
-              "Receive a link by email to submit your pitch deck.",
-              "Submit your solution pitch deck for the relevant challenge.",
-              "Applications are reviewed by NTT DATA and relevant stakeholders.",
-              "Shortlisted startups may be invited for further discussions or pitch sessions.",
-              "Final selected startups will be informed directly.",
-            ],
-          },
-          {
-            question: "Is there a pitch deck requirement?",
-            answer:
-              "Yes. A pitch deck is required as part of the application process.",
-          },
-          {
-            question:
-              "What is the maximum file size for pitch deck submission?",
-            answer: "The maximum file size for uploaded pitch decks is 8 MB.",
-          },
-          {
-            question:
-              "What file formats are accepted for pitch deck submissions?",
-            answer:
-              "Accepted file formats will be specified on the submission portal.",
-          },
-          {
-            question: "Can I update my application after submission?",
-            answer:
-              "Updates may be allowed before the application deadline. Please contact the Program team if changes are required.",
-          },
-          {
-            question:
-              "Will I receive a confirmation after submitting my application?",
-            answer:
-              "Yes. Applicants will receive a confirmation email after successfully submitting their application.",
-          },
-          {
-            question: "Can I submit my application after the deadline?",
-            answer:
-              "Late submissions may not be considered. Applicants are encouraged to submit before the deadline.",
-          },
+        question: "Is there a pitch deck requirement?",
+        answer:
+          "Yes. A pitch deck is required as part of the application process.",
+      },
+      {
+        question: "What is the maximum file size for pitch deck submission?",
+        answer: "The maximum file size for uploaded pitch decks is 8 MB.",
+      },
+      {
+        question: "What file formats are accepted for pitch deck submissions?",
+        answer:
+          "Accepted file formats will be specified on the submission portal.",
+      },
+      {
+        question: "Can I update my application after submission?",
+        answer:
+          "Updates may be allowed before the application deadline. If changes are required, please contact: openinnovation@ntt-startupchallenge.com.",
+      },
+      {
+        question:
+          "Will I receive a confirmation after submitting my application?",
+        answer:
+          "Yes. Applicants will receive a confirmation email after successfully submitting their application.",
+      },
+      {
+        question: "Can I submit my application after the deadline?",
+        answer:
+          "Late submissions may not be considered. Applicants are encouraged to submit before the deadline.",
+      },
+      {
+        question: "How will startups be evaluated?",
+        answer:
+          "Applications will be reviewed based on how well the startup's solution matches the challenge statement. Other factors may include:",
+        bullets: [
+          "Relevance to the business problem",
+          "Innovation and uniqueness of the solution",
+          "Market readiness and maturity of the startup",
+          "Ability to deliver or support a pilot/POC",
+          "Strategic fit with NTT DATA and/or client needs",
         ],
       },
       {
-        title: "Selection Process",
-        items: [
-          {
-            question: "How will startups be evaluated?",
-            answer:
-              "Applications are reviewed based on how well the startup's solution matches the challenge statement. Other factors may include:",
-            bullets: [
-              "Relevance to the business problem.",
-              "Innovation and uniqueness of the solution.",
-              "Market readiness and maturity of the startup.",
-              "Ability to deliver or support a pilot/PoC.",
-              "Strategic fit with NTT DATA and/or client needs.",
-            ],
-          },
-          {
-            question: "Who will evaluate the applications?",
-            answer:
-              "Applications will be reviewed by representatives from NTT DATA and relevant industry experts.",
-          },
-          {
-            question: "When will selected startups be notified?",
-            answer:
-              "Shortlisted startups will be contacted directly following the evaluation process.",
-          },
-          {
-            question: "How many startups will be selected?",
-            answer:
-              "The number of selected startups may vary depending on the challenge and evaluation results.",
-          },
-          {
-            question: "Will all applicants receive feedback?",
-            answer:
-              "Due to the volume of applications, individual feedback may not be provided to all applicants.",
-          },
-        ],
+        question: "Who will evaluate the applications?",
+        answer:
+          "Applications will be reviewed by representatives from NTT DATA and relevant industry experts.",
       },
       {
-        title: "Program Participation",
-        items: [
-          {
-            question: "What happens after being selected?",
-            answer:
-              "Selected startups will be invited to participate in NTT DATA Open Innovation Week in Singapore from August 31 to September 2, 2026.",
-          },
-          {
-            question: "Is physical attendance required?",
-            answer:
-              "Yes. Selected startups are expected to participate in person during the program in Singapore.",
-          },
-          {
-            question: "What activities will take place during the Program?",
-            answer:
-              "Participants will collaborate with NTT DATA experts and enterprise stakeholders, refine their solutions, develop Proofs of Concept (PoCs), and present their ideas during the final sessions.",
-          },
-          {
-            question: "How long is the Program?",
-            answer:
-              "The on-site program runs over three days during NTT DATA Open Innovation Week.",
-          },
-          {
-            question:
-              "Can more than one representative attend from each startup?",
-            answer:
-              "Yes. Multiple representatives may attend, subject to participation guidelines and venue capacity.",
-          },
-          {
-            question: "Is attendance required for all Program activities?",
-            answer:
-              "Selected startups are expected to participate in the key program activities and sessions.",
-          },
-        ],
+        question: "When will selected startups be notified?",
+        answer:
+          "Shortlisted startups will be contacted directly following the evaluation process.",
       },
       {
-        title: "Benefits & Opportunities",
-        items: [
-          {
-            question: "What are the benefits of joining the Program?",
-            answer:
-              "Participants gain exposure to enterprise partners, access to industry experts, collaboration opportunities, and the chance to develop solutions for real business challenges.",
-          },
-          {
-            question: "Is there any funding available?",
-            answer:
-              "The winning team may receive up to USD 30,000 in Time & Material services to support the development of their Proof of Concept (PoC).",
-          },
-          {
-            question:
-              "Can startups continue discussions with enterprise partners after the program?",
-            answer:
-              "Yes. Potential collaboration opportunities may continue beyond the program based on mutual interest and business needs.",
-          },
-          {
-            question: "Will participants receive mentorship?",
-            answer:
-              "Yes. Participants will have opportunities to engage with NTT DATA innovation leaders and industry experts throughout the program.",
-          },
-          {
-            question: "Will there be networking opportunities?",
-            answer:
-              "Yes. The program is designed to facilitate interaction among startups, enterprise partners, industry leaders, and NTT DATA representatives.",
-          },
-        ],
+        question: "How many startups will be selected?",
+        answer:
+          "The number of selected startups may vary depending on the challenge and evaluation results.",
       },
       {
-        title: "Intellectual Property & Legal",
-        items: [
-          {
-            question:
-              "Who owns the intellectual property (IP) developed during the Program?",
-            answer:
-              "Participants retain ownership of their pre-existing intellectual property. Any IP matters related to future collaborations or PoCs will be discussed separately between the relevant parties.",
-          },
-          {
-            question: "Will startups be required to sign any agreements?",
-            answer:
-              "Selected participants may be required to sign program-related agreements prior to participation.",
-          },
-          {
-            question:
-              "Will confidential information shared during the Program be protected?",
-            answer:
-              "Appropriate measures may be implemented to protect confidential information shared during program activities.",
-          },
-        ],
+        question: "Will all applicants receive feedback?",
+        answer:
+          "Due to the volume of applications, individual feedback may not be provided to all applicants.",
       },
       {
-        title: "Contact & Support",
-        items: [
-          {
-            question: "Who should I contact if I have questions?",
-            answer:
-              "For inquiries regarding the program or application process, please contact the Program team through the contact information provided on the website.",
-          },
-          {
-            question: "How can I stay updated on Program announcements?",
-            answer:
-              "Please visit the official program website and follow NTT DATA communication channels for the latest updates.",
-          },
-          {
-            question:
-              "What should I do if I experience technical issues during registration?",
-            answer:
-              "Please contact the Program support team as soon as possible for assistance.",
-          },
-        ],
+        question: "What happens after being selected?",
+        answer:
+          "Selected startups and nextgen companies will be invited to participate in NTT DATA Open Innovation Week in Singapore from 31 August to 2 September 2026.",
+      },
+      {
+        question: "Is physical attendance required?",
+        answer:
+          "Yes. Selected startups and nextgen companies are expected to participate in person during the Program in Singapore.",
+      },
+      {
+        question: "What activities will take place during the Program?",
+        answer:
+          "Participants will collaborate with NTT DATA experts and enterprise stakeholders, refine their solutions, develop Proofs of Concept (PoCs), and present their ideas during the final sessions.",
+      },
+      {
+        question: "How long is the Program?",
+        answer:
+          "The on-site Program will take place over three days during NTT DATA Open Innovation Week.",
+      },
+      {
+        question: "Can more than one representative attend from each startup?",
+        answer:
+          "Yes. Multiple representatives may attend, subject to participation guidelines and venue capacity.",
       },
     ],
   },

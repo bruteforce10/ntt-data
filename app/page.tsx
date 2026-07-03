@@ -8,7 +8,6 @@ import ProblemOverview from "@/components/problem-overview";
 import Roadmap from "@/components/roadmap";
 import Faq from "@/components/faq";
 import Footer from "@/components/footer";
-import { HOME_FAQ } from "@/lib/home-faq";
 
 export default function Home() {
   return (
@@ -21,7 +20,7 @@ export default function Home() {
       <ProblemOverview />
       <Roadmap />
       <Countdown />
-      <Faq content={HOME_FAQ} />
+      <Faq />
       <Footer />
     </main>
   );

@@ -13,8 +13,7 @@ interface TimeLeft {
 
 function getTimeLeft(): TimeLeft {
   const diff = new Date(countdown.targetDate).getTime() - Date.now();
-  if (diff <= 0)
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -37,7 +36,7 @@ const ZERO_TIME: TimeLeft = {
 };
 
 const UNITS = [
-  { key: "days" as const, label: "Days", digits: 3 },
+  { key: "days" as const, label: "Days", digits: 2 },
   { key: "hours" as const, label: "Hours", digits: 2 },
   { key: "minutes" as const, label: "Minutes", digits: 2 },
   { key: "seconds" as const, label: "Seconds", digits: 2 },

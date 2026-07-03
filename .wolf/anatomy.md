@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-30T23:17:14.069Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-03T17:00:50.647Z
 > Files: 54 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/
@@ -26,7 +26,7 @@
 
 - `globals.css` — Styles + theme tokens; defines `font-georgia` utility via `@theme inline { --font-georgia: var(--font-georgia-base), Georgia, serif; }` (~1411 tok)
 - `layout.tsx` — Root layout; loads fonts via next/font: Noto Sans (`--font-noto-sans`, default sans), Nulshock (`--font-nulshock`), Georgia local from public/georgia (`--font-georgia-base`, 4 ttf variants) (~383 tok)
-- `page.tsx` — Home (~222 tok)
+- `page.tsx` — Home (~204 tok)
 
 ## app/api/auth/[...nextauth]/
 
@@ -70,7 +70,7 @@
 - `benefit.tsx` — Benefit (~398 tok)
 - `countdown.tsx` — getTimeLeft (~1044 tok)
 - `deck-submission-form.tsx` — MAX_SIZE_BYTES — renders form (~2488 tok)
-- `faq.tsx` — Faq (~735 tok)
+- `faq.tsx` — Faq; flat `content.items[]` list (no group titles), one `<Accordion multiple={false}>` (~635 tok)
 - `footer.tsx` — footerLinks (~844 tok)
 - `hero.tsx` — Hero; REGISTER CTA is an active Link to hero.action.href (/startup-registration) (~778 tok)
 - `problem-overview.tsx` — ProblemOverview — renders modal (~2283 tok)
@@ -107,9 +107,8 @@
 
 ## lib/
 
-- `home-faq.ts` — Home page FAQ content — a curated, shorter set shown on the landing page. (~1019 tok)
 - `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4076 tok)
-- `site-content.ts` — Exports SITE_CONTENT (~8406 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~7249 tok)
 
 ## lib/auth/
 

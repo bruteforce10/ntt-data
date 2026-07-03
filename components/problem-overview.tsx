@@ -85,12 +85,18 @@ export default function ProblemOverview() {
                   <div className="mb-4">
                     <Image
                       src={
-                        (selected as unknown as { logo: { src: string; alt: string } })
-                          .logo.src
+                        (
+                          selected as unknown as {
+                            logo: { src: string; alt: string };
+                          }
+                        ).logo.src
                       }
                       alt={
-                        (selected as unknown as { logo: { src: string; alt: string } })
-                          .logo.alt
+                        (
+                          selected as unknown as {
+                            logo: { src: string; alt: string };
+                          }
+                        ).logo.alt
                       }
                       width={240}
                       height={60}
@@ -99,7 +105,7 @@ export default function ProblemOverview() {
                   </div>
                 )}
                 {"logoLabel" in (selected ?? {}) && (
-                  <p className="mb-6 text-sm italic text-gray-500">
+                  <p className="mb-6 text-md font-semibold italic">
                     {ALLIANCE_BANK_LABEL}
                   </p>
                 )}
