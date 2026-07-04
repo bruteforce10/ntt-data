@@ -46,7 +46,7 @@ export const SITE_CONTENT = {
         number: "BENEFIT 4",
         title: "POC Support",
         descriptionHtml:
-          "The winning team will receive a USD $30,000 reward in Time &amp; Material services to bring their PoC to life.",
+          "The winning teams will receive funded technical and development support to help bring their Proof of Concept (PoC) to life",
         image: {
           src: "/Assets Picture/benefit/4.png",
           alt: "POC Support",
