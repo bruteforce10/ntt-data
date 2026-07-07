@@ -116,7 +116,7 @@ export function buildRegistrationEmail(opts: {
             <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0;">
               <tr><td align="center">
                 <a href="${submitUrl}" style="display:inline-block;background:#3176E4;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;padding:14px 36px;border-radius:8px;letter-spacing:0.5px;">
-                  Submit Pitch Deck
+                  Upload Pitch Deck
                 </a>
               </td></tr>
             </table>
