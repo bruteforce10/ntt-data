@@ -39,10 +39,7 @@ export function buildRegistrationEmail(opts: {
     )
     .join("");
 
-  const multiDeckNote =
-    statements.length > 1
-      ? `<p style="margin:16px 0 0;color:#374151;font-size:13px;line-height:1.6;font-style:italic;"><strong>Note:</strong> If you have registered for more than one business challenge, please submit a separate pitch deck for each specific challenge.</p>`
-      : "";
+  const multiDeckNote = `<p style="margin:16px 0 0;color:#374151;font-size:13px;line-height:1.6;font-style:italic;"><strong>Note:</strong> If you have registered for more than one business challenge, please submit a separate pitch deck for each specific challenge.</p>`;
 
   const html = `<!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-07T17:40:41.481Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-07T17:46:32.347Z
 > Files: 55 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
@@ -112,7 +112,7 @@
 
 ## lib/
 
-- `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4082 tok)
+- `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4069 tok)
 - `site-content.ts` — Exports SITE_CONTENT (~9044 tok)
 
 ## lib/auth/
