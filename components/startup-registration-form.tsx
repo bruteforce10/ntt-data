@@ -21,7 +21,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SITE_CONTENT } from "@/lib/site-content";
-import { ALLIANCE_BANK_LABEL } from "@/constant/problemOverview";
 
 const { problemOverview } = SITE_CONTENT;
 
@@ -755,9 +754,9 @@ export default function StartupRegistrationForm() {
                         className="object-contain"
                       />
                     )}
-                    {"logoLabel" in item && (
+                    {(item as { logoLabel?: string }).logoLabel && (
                       <p className="text-md font-semibold italic">
-                        {ALLIANCE_BANK_LABEL}
+                        {(item as { logoLabel: string }).logoLabel}
                       </p>
                     )}
                     <h3 className="text-center text-base font-black leading-snug text-[#0070C0] sm:text-lg">

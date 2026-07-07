@@ -41,7 +41,7 @@ export function buildRegistrationEmail(opts: {
 
   const multiDeckNote =
     statements.length > 1
-      ? `<p style="margin:16px 0;color:#374151;font-size:14px;line-height:1.6;"><strong>Note:</strong> If you have registered for more than one business challenge, please submit a separate pitch deck for each specific challenge.</p>`
+      ? `<p style="margin:16px 0 0;color:#374151;font-size:13px;line-height:1.6;font-style:italic;"><strong>Note:</strong> If you have registered for more than one business challenge, please submit a separate pitch deck for each specific challenge.</p>`
       : "";
 
   const html = `<!DOCTYPE html>
@@ -111,16 +111,16 @@ export function buildRegistrationEmail(opts: {
                 <td style="padding:5px 0;font-size:13px;font-weight:bold;color:#e02020;">July 31, 2026</td>
               </tr>
             </table>
-            ${multiDeckNote}
             <!-- CTA Button -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0 0;">
               <tr><td align="center">
                 <a href="${submitUrl}" style="display:inline-block;background:#3176E4;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;padding:14px 36px;border-radius:8px;letter-spacing:0.5px;">
                   Upload Pitch Deck
                 </a>
               </td></tr>
             </table>
-            <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;">
+            ${multiDeckNote}
+            <p style="margin:16px 0;color:#374151;font-size:14px;line-height:1.6;">
               We look forward to reviewing your submission.
             </p>
           </td>

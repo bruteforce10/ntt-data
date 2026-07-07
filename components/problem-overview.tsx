@@ -5,15 +5,40 @@ import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { SITE_CONTENT } from "@/lib/site-content";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ALLIANCE_BANK_LABEL } from "@/constant/problemOverview";
 
 const { problemOverview } = SITE_CONTENT;
+
+interface ProblemDetailDescription {
+  develop: string;
+  question?: string;
+  helpsUsers: readonly string[];
+  priorityScope?: readonly string[];
+  targetOutcomes?: readonly string[];
+  dataExpected?: readonly string[];
+  solutionMust: readonly string[];
+  pocApproach?: readonly string[];
+}
+
+interface ProblemDetail {
+  context: readonly string[];
+  description: ProblemDetailDescription;
+}
+
+interface ProblemOverviewItem {
+  logo?: { src: string; alt: string };
+  logoLabel?: string;
+  title: string;
+  description?: string;
+  detail?: ProblemDetail;
+  href?: string;
+}
 
 export default function ProblemOverview() {
   const router = useRouter();
   const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
-  const selected =
-    selectedIndex !== null ? problemOverview.items[selectedIndex] : null;
+  const selected = (
+    selectedIndex !== null ? problemOverview.items[selectedIndex] : null
+  ) as ProblemOverviewItem | null;
 
   function handleSelectProblem() {
     if (selectedIndex === null) return;
@@ -80,33 +105,20 @@ export default function ProblemOverview() {
             {/* Left panel */}
             <div className="flex flex-col justify-between bg-white p-8 sm:w-[40%] sm:p-10">
               <div>
-                {(selected as { logo?: { src: string; alt: string } })
-                  ?.logo && (
+                {selected?.logo && (
                   <div className="mb-4">
                     <Image
-                      src={
-                        (
-                          selected as unknown as {
-                            logo: { src: string; alt: string };
-                          }
-                        ).logo.src
-                      }
-                      alt={
-                        (
-                          selected as unknown as {
-                            logo: { src: string; alt: string };
-                          }
-                        ).logo.alt
-                      }
+                      src={selected.logo.src}
+                      alt={selected.logo.alt}
                       width={240}
                       height={60}
                       className="object-contain"
                     />
                   </div>
                 )}
-                {"logoLabel" in (selected ?? {}) && (
+                {selected?.logoLabel && (
                   <p className="mb-6 text-md font-semibold italic">
-                    {ALLIANCE_BANK_LABEL}
+                    {selected.logoLabel}
                   </p>
                 )}
                 <h3 className="text-2xl font-black leading-tight text-gray-900 sm:text-3xl">
@@ -128,32 +140,10 @@ export default function ProblemOverview() {
 
             {/* Right panel */}
             <div className="flex-1 overflow-y-auto border-l border-gray-100 bg-white px-8 py-10 max-h-[60vh] sm:max-h-[70vh] sm:px-10 sm:pt-12">
-              {"detail" in (selected ?? {}) &&
-              (
-                selected as {
-                  detail?: {
-                    context: readonly string[];
-                    description: {
-                      develop: string;
-                      helpsUsers: readonly string[];
-                      solutionMust: readonly string[];
-                    };
-                  };
-                }
-              )?.detail
+              {selected?.detail
                 ? (() => {
-                    const detail = (
-                      selected as {
-                        detail: {
-                          context: readonly string[];
-                          description: {
-                            develop: string;
-                            helpsUsers: readonly string[];
-                            solutionMust: readonly string[];
-                          };
-                        };
-                      }
-                    ).detail;
+                    const detail = selected.detail as ProblemDetail;
+                    const { description } = detail;
                     return (
                       <div className="space-y-6 text-sm leading-relaxed text-justify text-gray-700">
                         <div>
@@ -171,21 +161,70 @@ export default function ProblemOverview() {
                             Challenge Description:
                           </p>
                           <p className="mb-3 italic">Develop:</p>
-                          <p className="mb-4">{detail.description.develop}</p>
+                          <p className="mb-4">{description.develop}</p>
+                          {description.question && (
+                            <p className="mb-4 font-medium text-gray-800">
+                              {description.question}
+                            </p>
+                          )}
                           <p className="mb-2 italic">That helps users to:</p>
                           <ol className="mb-4 list-decimal space-y-1 pl-5">
-                            {detail.description.helpsUsers.map((item, i) => (
+                            {description.helpsUsers.map((item, i) => (
                               <li key={i}>{item}</li>
                             ))}
                           </ol>
+                          {description.priorityScope && (
+                            <>
+                              <p className="mb-2 italic">Priority scope:</p>
+                              <ol className="mb-4 list-decimal space-y-1 pl-5">
+                                {description.priorityScope.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                                ))}
+                              </ol>
+                            </>
+                          )}
+                          {description.targetOutcomes && (
+                            <>
+                              <p className="mb-2 italic">Target outcomes:</p>
+                              <ol className="mb-4 list-decimal space-y-1 pl-5">
+                                {description.targetOutcomes.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                                ))}
+                              </ol>
+                            </>
+                          )}
+                          {description.dataExpected && (
+                            <>
+                              <p className="mb-2 italic">
+                                Data expected to be available:
+                              </p>
+                              <ol className="mb-4 list-decimal space-y-1 pl-5">
+                                {description.dataExpected.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                                ))}
+                              </ol>
+                            </>
+                          )}
                           <p className="mb-2 italic">
                             The solution must be able to:
                           </p>
                           <ol className="list-decimal space-y-1 pl-5">
-                            {detail.description.solutionMust.map((item, i) => (
+                            {description.solutionMust.map((item, i) => (
                               <li key={i}>{item}</li>
                             ))}
                           </ol>
+                          {description.pocApproach && (
+                            <>
+                              <p className="mb-2 mt-4 italic">
+                                Indicative proof-of-concept approach:
+                              </p>
+                              <ol className="list-decimal space-y-1 pl-5">
+                                {description.pocApproach.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                                ))}
+                              </ol>
+                            </>
+                          )}
                         </div>
                       </div>
                     );

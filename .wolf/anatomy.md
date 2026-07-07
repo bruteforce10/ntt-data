@@ -1,7 +1,12 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-03T17:00:50.647Z
-> Files: 54 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-07T17:40:41.481Z
+> Files: 55 tracked | Anatomy hits: 0 | Misses: 0
+
+## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
+
+- `cdp-check.mjs` — RESP: makeClient (~820 tok)
+- `render-email.mjs` — Declares result (~142 tok)
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/
 
@@ -73,10 +78,10 @@
 - `faq.tsx` — Faq; flat `content.items[]` list (no group titles), one `<Accordion multiple={false}>` (~635 tok)
 - `footer.tsx` — footerLinks (~844 tok)
 - `hero.tsx` — Hero; REGISTER CTA is an active Link to hero.action.href (/startup-registration) (~778 tok)
-- `problem-overview.tsx` — ProblemOverview — renders modal (~2283 tok)
+- `problem-overview.tsx` — ProblemOverview — renders modal (~2823 tok)
 - `program-overview.tsx` — ITEM_COUNT; "Program Overview" h2 heading uses `font-georgia` (Georgia) (~1148 tok)
 - `roadmap.tsx` — Roadmap; "Program Roadmap and Timeline" section. Server Component, data-driven from `SITE_CONTENT.roadmap`. Desktop CSS grid (pills span phases, chevrons between steps); mobile vertical stack w/ rotate-90 chevrons. White icons from `public/time-line`; `font-georgia` heading (~1713 tok)
-- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8316 tok)
+- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~8489 tok)
 
 ## components/dashboard/
 
@@ -107,8 +112,8 @@
 
 ## lib/
 
-- `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4076 tok)
-- `site-content.ts` — Exports SITE_CONTENT (~7249 tok)
+- `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4082 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~9044 tok)
 
 ## lib/auth/
 
