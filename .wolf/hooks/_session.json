@@ -1,26 +1,26 @@
 {
-  "session_id": "session-2026-07-07-0045",
-  "started": "2026-07-07T17:45:22.595Z",
+  "session_id": "session-2026-07-09-0917",
+  "started": "2026-07-09T02:17:18.545Z",
   "files_read": {
-    "/Users/mm/Documents/ntt-data/lib/mailer.ts": {
+    "c:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx": {
       "count": 1,
-      "tokens": 4082,
-      "first_read": "2026-07-07T17:46:10.460Z"
+      "tokens": 0,
+      "first_read": "2026-07-09T02:17:59.685Z"
     }
   },
   "files_written": [
     {
-      "file": "/Users/mm/Documents/ntt-data/lib/mailer.ts",
+      "file": "c:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
       "action": "edit",
-      "tokens": 78,
-      "at": "2026-07-07T17:46:32.397Z"
+      "tokens": 117,
+      "at": "2026-07-09T02:18:19.699Z"
     }
   ],
   "edit_counts": {
-    "lib/mailer.ts": 1
+    "components/problem-overview.tsx": 1
   },
-  "anatomy_hits": 1,
-  "anatomy_misses": 0,
+  "anatomy_hits": 0,
+  "anatomy_misses": 1,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1

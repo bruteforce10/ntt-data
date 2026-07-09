@@ -80,9 +80,16 @@ export default function ProblemOverview() {
               }}
               className="group flex h-full cursor-pointer flex-col items-center justify-between rounded-2xl bg-gray-100 p-8 shadow-xl transition duration-200 ease-out hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3176e4]"
             >
-              <h3 className="text-center text-base font-black leading-snug text-[#0070C0] sm:text-lg">
-                {item.title}
-              </h3>
+              <div>
+                {item.logoLabel && (
+                  <p className="mb-3 text-center text-sm font-semibold italic text-gray-600">
+                    {item.logoLabel}
+                  </p>
+                )}
+                <h3 className="text-center text-base font-black leading-snug text-[#0070C0] sm:text-lg">
+                  {item.title}
+                </h3>
+              </div>
               <div className="mt-6 flex items-center gap-2">
                 <span className="text-sm italic text-[#3176e4]">
                   View Details
