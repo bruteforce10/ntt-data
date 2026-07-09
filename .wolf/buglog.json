@@ -289,6 +289,43 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-07T17:40:41.556Z"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-07-09T08:00:43.000Z",
+      "error_message": "[auth][error] CredentialsSignin in production (Vercel) for the correct password; login works locally",
+      "file": "lib/auth/verify-credentials.ts",
+      "root_cause": "The backslash-escaped bcrypt hash ($2b$10$...) from .env was pasted into the hosting dashboard env var. Dashboard values are literal (no dotenv-expand), so the stored hash contained literal backslashes and bcrypt.compare always failed. The $ escaping is ONLY for .env files parsed by @next/env.",
+      "fix": "Set ADMIN_PASSWORD_HASH in the Vercel dashboard to the plain hash ($2b$10$... without backslashes), scope it to Production, then redeploy (env changes only apply to new deployments).",
+      "tags": [
+        "auth",
+        "nextauth",
+        "env",
+        "vercel",
+        "deployment",
+        "bcrypt"
+      ],
+      "related_bugs": [
+        "bug-090"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-07-09T08:00:43.000Z"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-07-09T08:14:57.422Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/dashboard/page.tsx",
+      "root_cause": "Had \"./sign-out-button\"",
+      "fix": "Changed to \"@/components/dashboard/email-table\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-09T08:14:57.422Z"
     }
   ]
 }

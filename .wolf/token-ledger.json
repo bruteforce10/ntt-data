@@ -2,12 +2,12 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1023163,
-    "total_reads": 490,
-    "total_writes": 889,
-    "total_sessions": 61,
+    "total_tokens_estimated": 1026920,
+    "total_reads": 516,
+    "total_writes": 894,
+    "total_sessions": 62,
     "anatomy_hits": 218,
-    "anatomy_misses": 242,
+    "anatomy_misses": 268,
     "repeated_reads_blocked": 179,
     "estimated_savings_vs_bare_cli": 920548
   },
@@ -9643,6 +9643,268 @@
         "output_tokens_estimated": 117,
         "reads_count": 1,
         "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-09-1359",
+      "started": "2026-07-09T06:59:55.414Z",
+      "ended": "2026-07-09T07:00:43.489Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-09-1359",
+      "started": "2026-07-09T06:59:55.414Z",
+      "ended": "2026-07-09T07:12:20.091Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/auth/verify-credentials.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-09-1359",
+      "started": "2026-07-09T06:59:55.414Z",
+      "ended": "2026-07-09T07:53:07.241Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/auth/verify-credentials.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/.env",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 4,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-09-1359",
+      "started": "2026-07-09T06:59:55.414Z",
+      "ended": "2026-07-09T08:03:09.532Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/auth/verify-credentials.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/.env",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 4,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-09-1359",
+      "started": "2026-07-09T06:59:55.414Z",
+      "ended": "2026-07-09T08:19:20.605Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/auth.config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/auth/verify-credentials.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/.env",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/pocketbase.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/ntt-data/[id]/file/[field]/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/ui/button.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/record-detail.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/ntt-data/[id]/send-email/route.ts",
+          "tokens_estimated": 639,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/email-table.tsx",
+          "tokens_estimated": 2545,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx",
+          "tokens_estimated": 232,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/dev-email-preview/page.tsx",
+          "tokens_estimated": 290,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 3757,
+        "reads_count": 13,
+        "writes_count": 5,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 0
       }

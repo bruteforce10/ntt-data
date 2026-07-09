@@ -846,3 +846,16 @@
 | 09:18 | Edited components/problem-overview.tsx | expanded (+7 lines) | ~117 |
 | 09:18 | Tambah logoLabel di card overview (di atas title, italic gray) | components/problem-overview.tsx | success, tsc clean | ~3k |
 | 09:19 | Session end: 1 writes across 1 files (problem-overview.tsx) | 1 reads | ~117 tok |
+
+## Session: 2026-07-09 13:59
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:52 | Set ADMIN_PASSWORD_HASH (bcrypt, \hBcescaped per bug-090) for openinnovation@ntt-startupchallenge.com; verified via @next/env + bcrypt.compare | .env | success | ~600 |
+| 15:14 | Created app/api/ntt-data/[id]/send-email/route.ts | — | ~639 |
+| 15:14 | Created components/dashboard/email-table.tsx | — | ~2545 |
+| 15:14 | Edited app/dashboard/page.tsx | added 1 import(s) | ~51 |
+| 15:15 | Edited app/dashboard/page.tsx | expanded (+13 lines) | ~232 |
+| 15:17 | Created app/dev-email-preview/page.tsx | — | ~290 |
+| 15:18 | Added Email Automation table to dashboard: per-row Send Email trigger (registration email) with confirm dialog + status; new POST /api/ntt-data/[id]/send-email | app/dashboard/page.tsx, components/dashboard/email-table.tsx, app/api/ntt-data/[id]/send-email/route.ts | tsc+eslint clean; verified render via dev server (mock preview) | ~25k |
+| 15:19 | Session end: 5 writes across 3 files (route.ts, email-table.tsx, page.tsx) | 13 reads | ~3757 tok |

@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { fetchAllRecords } from "@/lib/ntt-data/pocketbase";
 import type { NttDataRecord } from "@/lib/ntt-data/types";
 import { DataTable } from "@/components/dashboard/data-table";
+import { EmailTable } from "@/components/dashboard/email-table";
 import { SignOutButton } from "./sign-out-button";
 
 export default async function DashboardPage() {
@@ -34,13 +35,26 @@ export default async function DashboardPage() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-screen-2xl px-6 py-6">
+      <div className="mx-auto flex max-w-screen-2xl flex-col gap-12 px-6 py-6">
         {fetchError ? (
           <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             Failed to load registrations: {fetchError}
           </div>
         ) : (
-          <DataTable data={records} />
+          <>
+            <DataTable data={records} />
+
+            <section>
+              <h2 className="text-lg font-semibold text-[#154284]">
+                Email Automation
+              </h2>
+              <p className="mb-4 mt-0.5 text-xs text-slate-500">
+                Manually trigger the registration-confirmation email (pitch-deck
+                upload link) for any participant.
+              </p>
+              <EmailTable data={records} />
+            </section>
+          </>
         )}
       </div>
     </main>

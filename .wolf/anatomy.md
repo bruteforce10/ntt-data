@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-09T02:18:19.675Z
-> Files: 1 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-09T08:17:26.911Z
+> Files: 5 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
 
@@ -33,8 +33,13 @@
 ## app/api/ntt-data/[id]/file/[field]/
 
 
+## app/api/ntt-data/[id]/send-email/
+
+- `route.ts` — POST: auth-protected manual trigger — fetches record from PocketBase, sends registration-confirmation email via lib/mailer (same from/subject/headers as the form flow) (~639 tok)
+
 ## app/dashboard/
 
+- `page.tsx` — DashboardPage — renders table (~603 tok)
 
 ## app/deck-submission/
 
@@ -54,6 +59,7 @@
 
 ## components/dashboard/
 
+- `email-table.tsx` — "Email Automation" table: search + simple pagination, per-row Send Email button with confirm Dialog, per-row status sending/sent/error via POST /api/ntt-data/[id]/send-email; status is session-only, not persisted (~2545 tok)
 
 ## components/ui/
 
