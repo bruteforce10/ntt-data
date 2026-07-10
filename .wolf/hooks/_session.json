@@ -1,114 +1,63 @@
 {
-  "session_id": "session-2026-07-09-1359",
-  "started": "2026-07-09T06:59:55.414Z",
+  "session_id": "session-2026-07-10-2043",
+  "started": "2026-07-10T13:43:53.698Z",
   "files_read": {
-    "C:/Users/jayac/Documents/ntt-data/auth.ts": {
-      "count": 1,
+    "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts": {
+      "count": 2,
       "tokens": 0,
-      "first_read": "2026-07-09T07:00:32.860Z"
+      "first_read": "2026-07-10T13:50:17.801Z"
     },
-    "C:/Users/jayac/Documents/ntt-data/auth.config.ts": {
+    "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx": {
       "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T07:00:33.090Z"
+      "tokens": 2967,
+      "first_read": "2026-07-10T13:50:38.236Z"
     },
-    "C:/Users/jayac/Documents/ntt-data/lib/auth/verify-credentials.ts": {
+    "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx": {
       "count": 1,
       "tokens": 0,
-      "first_read": "2026-07-09T07:12:04.380Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/.env": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T07:51:24.574Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:11:58.183Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/types.ts": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:11:58.574Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/dashboard/data-table.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:12:03.926Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/dashboard/columns.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:12:12.533Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/app/api/ntt-data/route.ts": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:12:20.420Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/pocketbase.ts": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:12:42.737Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/app/api/ntt-data/[id]/file/[field]/route.ts": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:12:43.189Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/ui/button.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:13:03.605Z"
-    },
-    "C:/Users/jayac/Documents/ntt-data/components/dashboard/record-detail.tsx": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-07-09T08:13:04.193Z"
+      "first_read": "2026-07-10T13:52:39.125Z"
     }
   },
   "files_written": [
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/app/api/ntt-data/[id]/send-email/route.ts",
-      "action": "create",
-      "tokens": 639,
-      "at": "2026-07-09T08:14:11.487Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/email-table.tsx",
-      "action": "create",
-      "tokens": 2545,
-      "at": "2026-07-09T08:14:47.363Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx",
+      "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
       "action": "edit",
-      "tokens": 51,
-      "at": "2026-07-09T08:14:57.418Z"
+      "tokens": 98,
+      "at": "2026-07-10T13:54:25.451Z"
     },
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx",
+      "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
       "action": "edit",
-      "tokens": 232,
-      "at": "2026-07-09T08:15:01.204Z"
+      "tokens": 163,
+      "at": "2026-07-10T13:54:27.839Z"
     },
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/app/dev-email-preview/page.tsx",
+      "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
+      "action": "edit",
+      "tokens": 251,
+      "at": "2026-07-10T13:54:33.022Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+      "action": "edit",
+      "tokens": 3393,
+      "at": "2026-07-10T13:55:13.238Z"
+    },
+    {
+      "file": "C:/Users/jayac/AppData/Local/Temp/cdp-verify.cjs",
       "action": "create",
-      "tokens": 290,
-      "at": "2026-07-09T08:17:26.918Z"
+      "tokens": 1381,
+      "at": "2026-07-10T13:58:38.509Z"
     }
   ],
   "edit_counts": {
-    "app/api/ntt-data/[id]/send-email/route.ts": 1,
-    "components/dashboard/email-table.tsx": 1,
-    "app/dashboard/page.tsx": 2,
-    "app/dev-email-preview/page.tsx": 1
+    "components/problem-overview.tsx": 3,
+    "lib/site-content.ts": 1,
+    "../../AppData/Local/Temp/cdp-verify.cjs": 1
   },
-  "anatomy_hits": 0,
-  "anatomy_misses": 13,
-  "repeated_reads_warned": 0,
+  "anatomy_hits": 1,
+  "anatomy_misses": 2,
+  "repeated_reads_warned": 1,
   "cerebrum_warnings": 0,
-  "stop_count": 5
+  "stop_count": 1
 }

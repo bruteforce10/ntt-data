@@ -10,6 +10,7 @@ const { problemOverview } = SITE_CONTENT;
 
 interface ProblemDetailDescription {
   develop: string;
+  tailoredTowards?: string;
   question?: string;
   helpsUsers: readonly string[];
   priorityScope?: readonly string[];
@@ -17,6 +18,7 @@ interface ProblemDetailDescription {
   dataExpected?: readonly string[];
   solutionMust: readonly string[];
   pocApproach?: readonly string[];
+  keywords?: string;
 }
 
 interface ProblemDetail {
@@ -169,6 +171,14 @@ export default function ProblemOverview() {
                           </p>
                           <p className="mb-3 italic">Develop:</p>
                           <p className="mb-4">{description.develop}</p>
+                          {description.tailoredTowards && (
+                            <>
+                              <p className="mb-2 italic">Tailored towards:</p>
+                              <p className="mb-4">
+                                {description.tailoredTowards}
+                              </p>
+                            </>
+                          )}
                           {description.question && (
                             <p className="mb-4 font-medium text-gray-800">
                               {description.question}
@@ -230,6 +240,12 @@ export default function ProblemOverview() {
                                   <li key={i}>{item}</li>
                                 ))}
                               </ol>
+                            </>
+                          )}
+                          {description.keywords && (
+                            <>
+                              <p className="mb-2 mt-4 italic">Keywords:</p>
+                              <p>{description.keywords}</p>
                             </>
                           )}
                         </div>

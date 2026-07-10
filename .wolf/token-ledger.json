@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1026920,
-    "total_reads": 516,
-    "total_writes": 894,
-    "total_sessions": 62,
-    "anatomy_hits": 218,
-    "anatomy_misses": 268,
-    "repeated_reads_blocked": 179,
-    "estimated_savings_vs_bare_cli": 920548
+    "total_tokens_estimated": 1035173,
+    "total_reads": 519,
+    "total_writes": 899,
+    "total_sessions": 63,
+    "anatomy_hits": 219,
+    "anatomy_misses": 270,
+    "repeated_reads_blocked": 180,
+    "estimated_savings_vs_bare_cli": 920748
   },
   "sessions": [
     {
@@ -9907,6 +9907,66 @@
         "writes_count": 5,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-10-2043",
+      "started": "2026-07-10T13:43:53.698Z",
+      "ended": "2026-07-10T14:01:19.049Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 2967,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 98,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 163,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 251,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 3393,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/AppData/Local/Temp/cdp-verify.cjs",
+          "tokens_estimated": 1381,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2967,
+        "output_tokens_estimated": 5286,
+        "reads_count": 3,
+        "writes_count": 5,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 1
       }
     }
   ],

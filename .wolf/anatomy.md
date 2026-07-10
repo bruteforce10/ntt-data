@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-09T08:17:26.911Z
-> Files: 5 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-10T13:58:38.504Z
+> Files: 6 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
 
@@ -55,7 +55,7 @@
 
 ## components/
 
-- `problem-overview.tsx` — ProblemOverview — renders modal (~2967 tok)
+- `problem-overview.tsx` — ProblemOverview — "Explore the Challenges" cards + detail Dialog; optional modal sections: tailoredTowards, question, priorityScope, targetOutcomes, dataExpected, pocApproach, keywords (~3174 tok)
 
 ## components/dashboard/
 
@@ -78,6 +78,7 @@
 
 ## lib/
 
+- `site-content.ts` — SITE_CONTENT `as const`: all page copy — nav, hero, countdown, problemOverview.items (6 challenge cards: 2x Digital Bank, industrial materials co., The GEAR by Kajima II, dHost, The GEAR by Kajima I — each detail.context[] + detail.description{develop, tailoredTowards?, helpsUsers, solutionMust, keywords?, ...}), faq, roadmap (~12562 tok)
 
 ## lib/auth/
 

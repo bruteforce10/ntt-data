@@ -359,6 +359,112 @@ export const SITE_CONTENT = {
         },
         href: "#problem-statements",
       },
+      {
+        logoLabel: "The GEAR by Kajima II",
+        title:
+          "Achieving End-to-End Data Observability Across Smart Building Ecosystems",
+        description:
+          "Smart building data quality breaks down at multiple points — edge sensors, processing pipelines, and upstream configuration changes — and issues are diagnosed manually. Without an integrated end-to-end observability layer, data loss and manual reconciliation slow operations and R&D.",
+        detail: {
+          context: [
+            "The organisation operates a complex smart building ecosystem driven by IoT sensors, cloud platforms, and distributed data processing pipelines. However, data quality remains a critical challenge, with issues originating at multiple points, from edge sensors that fail to capture data, to degradation during data processing, and upstream configuration changes (e.g. AWS landing zone updates) that disrupt ingestion.",
+            "Currently, data issues are reported and diagnosed manually, creating delays and inefficiencies. Despite having strong anomaly detection capabilities at isolated system levels, there is no integrated, end-to-end observability layer across the full data lifecycle. This results in data loss, reduced operational and research accuracy, and increased manual reconciliation efforts.",
+            "The GEAR building is used as a strategic R&D centre for the Kajima group to implement and study smart building best practices, in order to develop new applications, products and services for smart buildings.",
+            "Data issues must continue to be manually identified and resolved, with frequently missed issues causing long gaps in collection. This causes delays to R&D projects, or reduction in research outcomes from working with smaller datasets, in addition to missed opportunities to further optimise the operations of The GEAR facility.",
+          ],
+          description: {
+            develop:
+              "An integrated data observability and anomaly detection solution for smart building ecosystems that provides end-to-end visibility across edge, cloud, and processing layers.",
+            tailoredTowards:
+              "The organisation’s diagnostic technicians, operations and research teams",
+            helpsUsers: [
+              "Detect and flag data anomalies in real time across IoT sensors, pipelines, and platforms",
+              "Identify root causes of data degradation across multiple transformation points",
+              "Reduce manual diagnosis and reconciliation efforts",
+              "Ensure high-quality data availability for operational and research use cases",
+            ],
+            solutionMust: [
+              "Monitor data quality across distributed architectures (edge, cloud, APIs)",
+              "Detect missing, degraded, or misrouted data due to upstream configuration changes",
+              "Correlate anomalies across multiple data sources and transformation layers",
+              "Provide actionable insights and root cause analysis for technical teams",
+              "Integrate with existing IoT and smart building platforms",
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
+      {
+        logoLabel: "dHost",
+        title:
+          "Edge AI Orchestration for In-Building Neutral Host Infrastructure",
+        description:
+          "Neutral host in-building sites are becoming AI Edge Nodes, but without an orchestration layer, compute stays fragmented and underutilised. dHost needs to allocate, monetise, and govern heterogeneous edge capacity across permanent, on-demand, and background workloads.",
+        detail: {
+          context: [
+            "dHost operates neutral host in-building connectivity infrastructure across Indonesia and the Philippines, serving multiple mobile network operators on shared carrier-grade infrastructure. The company is now converting selected in-building sites into AI Edge Nodes, starting with small deployments and scaling over time.",
+            "As demand grows for real-time AI inference, IoT analytics, computer vision, AI-RAN and sovereign AI workloads, distributed in-building infrastructure can become a new edge computing layer. However, without an orchestration layer, it is difficult to allocate compute resources consistently across heterogeneous edge nodes, balance permanent and on-demand workloads, or monetise idle capacity.",
+            "dHost aims to support four workload types on the same distributed estate: permanent tenant workloads, on-demand burst demand, background RAN-AI workloads that convert idle compute into virtual baseband resources for mobile operators, and Compute-as-a-Service resources for AI companies. A successful solution would help transform neutral host infrastructure from connectivity-only assets into programmable edge AI infrastructure.",
+            "Without a scalable orchestration framework, edge compute capacity may remain fragmented, underutilised and difficult for customers to access. This would limit dHost’s ability to support sovereign AI, venue-level AI applications, AI-RAN monetisation and compute-hour tokenisation across Southeast Asia.",
+          ],
+          description: {
+            develop:
+              "An orchestration layer for distributed AI Edge Nodes deployed across the company’s neutral host in-building infrastructure, enabling compute resources to be allocated, monetised and governed across heterogeneous sites and workload types.",
+            tailoredTowards:
+              "Neutral host operators, mobile network operators, venue owners, AI application providers, IoT solution providers, government users and regulated enterprises requiring in-country workload placement",
+            helpsUsers: [
+              "Allocate compute across distributed and heterogeneous edge nodes through a unified orchestration layer",
+              "Run permanent tenant workloads, on-demand burst workloads and deferred background workloads on the same infrastructure",
+              "Enable venue owners and third-party developers to deploy containerised AI applications without managing infrastructure",
+              "Monetise idle GPU or NPU capacity through compute-hour tokenisation, marketplace access and automated settlement",
+              "Support sovereign AI and regulated workloads by enforcing in-country workload placement",
+            ],
+            solutionMust: [
+              "Provide hardware abstraction for NVIDIA or equivalent accelerators under a unified API, avoiding lock-in to a single hardware vendor",
+              "Support multi-mode allocation across reserved, burst and background workloads",
+              "Represent compute-hours as tradeable units with real-time price discovery, reservations and automated settlement",
+              "Provide an API or marketplace interface for customers, developers and partners to access distributed edge resources",
+              "Enable deployment of containerised AI applications, including NIM, custom models and IoT analytics workloads",
+              "Provide an interface to convert idle compute slices into virtual baseband resources for mobile network operators, enabling AI-RAN on shared neutral host infrastructure",
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
+      {
+        logoLabel: "The GEAR by Kajima I",
+        title:
+          "Standardising Asset Data Handover for Smart Building Facilities Management",
+        description:
+          "Asset identification data is rarely structured during construction — it sits scattered across drawings and PDFs instead of the BIM model. Incomplete, mislabelled handover data blocks smart controls, digital twins, and energy analytics, forcing costly manual rework.",
+        detail: {
+          context: [
+            "The handover process from construction to Facilities Management (FM) currently has inconsistent asset identification information. Asset identification is rarely captured in a structured way during the construction phase, and is scattered across various construction drawings and other documents, rather than being incorporated into the Building Information Model (BIM).",
+            "Without a standard format for structuring asset data from construction through to handover, it is challenging to reliably implement smart building systems such as AI-informed controls, digital twins or energy analytics solutions. As building owners increasingly seek more data to make informed FM decisions and implement smart control systems, the lack of clean, structured asset data becomes a fundamental blocker, since poor-quality source data at handover cannot support accurate downstream applications.",
+            "Kajima has experienced this issue firsthand across various properties, with documentation and asset information scattered across multiple sources rather than centralised, the resulting BIM models containing limited data, and assets within it being mislabelled. An ideal solution would involve the property developer from the start of a project, driving the standard and engaging the main building contractor, so that asset identification data capture is designed into the construction process rather than retrofitted at handover.",
+            "Without a standardised framework, asset identification information will continue to be scattered, incomplete, and poorly labelled at handover. This makes it difficult to source good-quality data from buildings, delaying or preventing the implementation of smart control systems and digital twins, and requiring costly manual rework to reconstruct information retrospectively.",
+          ],
+          description: {
+            develop:
+              "A framework and system for capturing and structuring asset identification information during construction, so it can be reliably ingested into the BIM model at handover to Facilities Management, even where source information (e.g. construction drawings and PDFs) is not natively BIM-compatible.",
+            tailoredTowards:
+              "Property developers, main building contractors, Facilities Management teams, and smart building operations teams",
+            helpsUsers: [
+              "Capture and structure asset identification information that is currently deprioritised during the construction stage",
+              "Consolidate asset identification information that is scattered across construction drawings and other documents such as PDFs",
+              "Avoid incomplete BIM models and mislabelled assets at handover",
+              "Enable good-quality building data to support smart control systems and digital twins",
+            ],
+            solutionMust: [
+              "Ingest construction and schematic drawings and other handover documentation, to extract asset identification information",
+              "Structure extracted asset identification data into a standard framework compatible with the BIM model",
+              "Validate asset labelling and flag incomplete or inconsistent asset data against a defined schema",
+              "Support early engagement of the property developer and main contractor to drive adoption of the standard from the start of construction",
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
       // {
       //   logo: {
       //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",
