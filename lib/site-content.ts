@@ -219,6 +219,73 @@ export const SITE_CONTENT = {
         //   src: "/problem-overview/logo-alliance.png",
         //   alt: "Alliance Bank",
         // },
+        logoLabel: "A leading Southeast Asian industrial materials company",
+        title: "AI-Enabled Supply Chain Market Response",
+        description:
+          "Regional oversupply and volatile pricing are pressuring PE/PP margins, while manual, spreadsheet-based allocation processes extend response times from hours to days. The company lacks a single integrated view connecting products, supply, inventory, demand, and market pricing to guide fast reallocation decisions.",
+        detail: {
+          context: [
+            "The company operates in a highly competitive petrochemicals and advanced materials market, where regional oversupply, volatile pricing, and changing demand patterns are putting pressure on PE/PP margins.",
+            "In this environment, commercial and supply chain teams need to reallocate volume toward better-priced markets more quickly and consistently. Current decision-making can rely on manual analysis and spreadsheet-based processes across multiple functions, which can extend response times from hours to days.",
+            "The company does not currently have a single integrated decision-support view that connects PE/PP product portfolios, production footprint, inventory position, customer demand, market pricing, and operational constraints. This can limit its ability to match products to the most attractive markets and customers in near real time.",
+            "The challenge is therefore to use AI to close the speed gap in PE/PP product-to-market matching - moving from reactive, multi-day allocation decisions toward faster, more data-informed recommendations that consider demand, pricing, supply, inventory, production readiness, and logistics feasibility.",
+            "The initial proof of concept should focus on demand sensing and sales allocation for priority PE/PP product categories across domestic and regional export markets, with the potential to expand into broader supply chain and commercial planning use cases.",
+          ],
+          description: {
+            develop:
+              "An AI-enabled solution that integrates market signals, demand, pricing, supply, inventory, customer, logistics, and production constraints to accelerate supply chain and commercial decision-making for PE/PP product allocation.",
+            question:
+              "How might the company use AI to accelerate supply chain and commercial decisions by identifying attractive PE/PP markets and recommending optimal product allocation in near real time?",
+            helpsUsers: [
+              "Identify attractive and profitable markets and customer segments based on demand, pricing, margin, and supply signals.",
+              "Recommend optimal PE/PP product allocation priorities - including what to sell, where to sell, to which customers, and at what priority.",
+              "Match PE/PP product grades or categories to market opportunities across regions and customer groups.",
+              "Align commercial opportunities with inventory availability, production plans, logistics feasibility, and operational readiness.",
+              "Improve the speed, consistency, and accuracy of decisions across sales, supply chain, and production planning teams.",
+              "Support scenario-based planning and rapid response when market conditions, supply positions, or pricing signals change.",
+            ],
+            priorityScope: [
+              "PE/PP polyolefins portfolio as the initial priority scope.",
+              "Domestic and regional export markets in Southeast Asia.",
+              "Demand sensing, sales allocation, product-to-market matching, and production planning alignment.",
+            ],
+            targetOutcomes: [
+              "Reduce decision cycle time from days to hours where feasible.",
+              "Improve inventory, margin, and allocation outcomes, with specific baselines and targets to be confirmed with shortlisted partners under appropriate confidentiality arrangements.",
+              "Enable human-in-the-loop decision-making so business users can review, validate, and adjust AI-generated recommendations.",
+            ],
+            dataExpected: [
+              "Historical sales orders and demand information.",
+              "Production plans and supply availability.",
+              "Inventory data.",
+              "Customer segmentation or customer master data.",
+              "Market price indicators and external market signals, where available.",
+              "Internal sales insights, market observations, and relevant news or demand signals, where available.",
+              "Current allocation workflow documentation and business rules.",
+            ],
+            solutionMust: [
+              "Continuously ingest and analyse relevant internal and external data sources.",
+              "Generate actionable recommendations on what PE/PP products to sell, where to sell, and what to prioritise.",
+              "Balance margin optimisation with operational feasibility, including production, inventory, stock availability, and logistics constraints.",
+              "Surface the rationale behind recommendations so business users can understand key drivers and trade-offs.",
+              "Support simulation or scenario planning for changes in demand, price, supply, inventory, or production constraints.",
+              "Operate initially as a focused proof of concept using historical data, with potential to incorporate live or near-real-time data feeds in later phases.",
+              "Be capable of being validated through workshops with commercial, supply chain, and production subject matter experts.",
+            ],
+            pocApproach: [
+              "Focused proof of concept over a defined period, using historical data and human-in-the-loop validation.",
+              "Initial focus on PE/PP demand sensing and sales allocation.",
+              "Live data feeds and broader operational integration can be assessed after the initial proof of concept, subject to feasibility, governance, and business value.",
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
+      {
+        // logo: {
+        //   src: "/problem-overview/logo-alliance.png",
+        //   alt: "Alliance Bank",
+        // },
         logoLabel: "A Leading Digital Bank in Southeast Asia",
         title:
           "Building an Enterprise AI Knowledge Platform to Unlock Structured Insights from Fragmented Data",
@@ -293,108 +360,6 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
-        // logo: {
-        //   src: "/problem-overview/logo-alliance.png",
-        //   alt: "Alliance Bank",
-        // },
-        logoLabel: "A leading Southeast Asian industrial materials company",
-        title: "AI-Enabled Supply Chain Market Response",
-        description:
-          "Regional oversupply and volatile pricing are pressuring PE/PP margins, while manual, spreadsheet-based allocation processes extend response times from hours to days. The company lacks a single integrated view connecting products, supply, inventory, demand, and market pricing to guide fast reallocation decisions.",
-        detail: {
-          context: [
-            "The company operates in a highly competitive petrochemicals and advanced materials market, where regional oversupply, volatile pricing, and changing demand patterns are putting pressure on PE/PP margins.",
-            "In this environment, commercial and supply chain teams need to reallocate volume toward better-priced markets more quickly and consistently. Current decision-making can rely on manual analysis and spreadsheet-based processes across multiple functions, which can extend response times from hours to days.",
-            "The company does not currently have a single integrated decision-support view that connects PE/PP product portfolios, production footprint, inventory position, customer demand, market pricing, and operational constraints. This can limit its ability to match products to the most attractive markets and customers in near real time.",
-            "The challenge is therefore to use AI to close the speed gap in PE/PP product-to-market matching - moving from reactive, multi-day allocation decisions toward faster, more data-informed recommendations that consider demand, pricing, supply, inventory, production readiness, and logistics feasibility.",
-            "The initial proof of concept should focus on demand sensing and sales allocation for priority PE/PP product categories across domestic and regional export markets, with the potential to expand into broader supply chain and commercial planning use cases.",
-          ],
-          description: {
-            develop:
-              "An AI-enabled solution that integrates market signals, demand, pricing, supply, inventory, customer, logistics, and production constraints to accelerate supply chain and commercial decision-making for PE/PP product allocation.",
-            question:
-              "How might the company use AI to accelerate supply chain and commercial decisions by identifying attractive PE/PP markets and recommending optimal product allocation in near real time?",
-            helpsUsers: [
-              "Identify attractive and profitable markets and customer segments based on demand, pricing, margin, and supply signals.",
-              "Recommend optimal PE/PP product allocation priorities - including what to sell, where to sell, to which customers, and at what priority.",
-              "Match PE/PP product grades or categories to market opportunities across regions and customer groups.",
-              "Align commercial opportunities with inventory availability, production plans, logistics feasibility, and operational readiness.",
-              "Improve the speed, consistency, and accuracy of decisions across sales, supply chain, and production planning teams.",
-              "Support scenario-based planning and rapid response when market conditions, supply positions, or pricing signals change.",
-            ],
-            priorityScope: [
-              "PE/PP polyolefins portfolio as the initial priority scope.",
-              "Domestic and regional export markets in Southeast Asia.",
-              "Demand sensing, sales allocation, product-to-market matching, and production planning alignment.",
-            ],
-            targetOutcomes: [
-              "Reduce decision cycle time from days to hours where feasible.",
-              "Improve inventory, margin, and allocation outcomes, with specific baselines and targets to be confirmed with shortlisted partners under appropriate confidentiality arrangements.",
-              "Enable human-in-the-loop decision-making so business users can review, validate, and adjust AI-generated recommendations.",
-            ],
-            dataExpected: [
-              "Historical sales orders and demand information.",
-              "Production plans and supply availability.",
-              "Inventory data.",
-              "Customer segmentation or customer master data.",
-              "Market price indicators and external market signals, where available.",
-              "Internal sales insights, market observations, and relevant news or demand signals, where available.",
-              "Current allocation workflow documentation and business rules.",
-            ],
-            solutionMust: [
-              "Continuously ingest and analyse relevant internal and external data sources.",
-              "Generate actionable recommendations on what PE/PP products to sell, where to sell, and what to prioritise.",
-              "Balance margin optimisation with operational feasibility, including production, inventory, stock availability, and logistics constraints.",
-              "Surface the rationale behind recommendations so business users can understand key drivers and trade-offs.",
-              "Support simulation or scenario planning for changes in demand, price, supply, inventory, or production constraints.",
-              "Operate initially as a focused proof of concept using historical data, with potential to incorporate live or near-real-time data feeds in later phases.",
-              "Be capable of being validated through workshops with commercial, supply chain, and production subject matter experts.",
-            ],
-            pocApproach: [
-              "Focused proof of concept over a defined period, using historical data and human-in-the-loop validation.",
-              "Initial focus on PE/PP demand sensing and sales allocation.",
-              "Live data feeds and broader operational integration can be assessed after the initial proof of concept, subject to feasibility, governance, and business value.",
-            ],
-          },
-        },
-        href: "#problem-statements",
-      },
-      {
-        logoLabel: "The GEAR by Kajima II",
-        title:
-          "Achieving End-to-End Data Observability Across Smart Building Ecosystems",
-        description:
-          "Smart building data quality breaks down at multiple points — edge sensors, processing pipelines, and upstream configuration changes — and issues are diagnosed manually. Without an integrated end-to-end observability layer, data loss and manual reconciliation slow operations and R&D.",
-        detail: {
-          context: [
-            "The organisation operates a complex smart building ecosystem driven by IoT sensors, cloud platforms, and distributed data processing pipelines. However, data quality remains a critical challenge, with issues originating at multiple points, from edge sensors that fail to capture data, to degradation during data processing, and upstream configuration changes (e.g. AWS landing zone updates) that disrupt ingestion.",
-            "Currently, data issues are reported and diagnosed manually, creating delays and inefficiencies. Despite having strong anomaly detection capabilities at isolated system levels, there is no integrated, end-to-end observability layer across the full data lifecycle. This results in data loss, reduced operational and research accuracy, and increased manual reconciliation efforts.",
-            "The GEAR building is used as a strategic R&D centre for the Kajima group to implement and study smart building best practices, in order to develop new applications, products and services for smart buildings.",
-            "Data issues must continue to be manually identified and resolved, with frequently missed issues causing long gaps in collection. This causes delays to R&D projects, or reduction in research outcomes from working with smaller datasets, in addition to missed opportunities to further optimise the operations of The GEAR facility.",
-          ],
-          description: {
-            develop:
-              "An integrated data observability and anomaly detection solution for smart building ecosystems that provides end-to-end visibility across edge, cloud, and processing layers.",
-            tailoredTowards:
-              "The organisation’s diagnostic technicians, operations and research teams",
-            helpsUsers: [
-              "Detect and flag data anomalies in real time across IoT sensors, pipelines, and platforms",
-              "Identify root causes of data degradation across multiple transformation points",
-              "Reduce manual diagnosis and reconciliation efforts",
-              "Ensure high-quality data availability for operational and research use cases",
-            ],
-            solutionMust: [
-              "Monitor data quality across distributed architectures (edge, cloud, APIs)",
-              "Detect missing, degraded, or misrouted data due to upstream configuration changes",
-              "Correlate anomalies across multiple data sources and transformation layers",
-              "Provide actionable insights and root cause analysis for technical teams",
-              "Integrate with existing IoT and smart building platforms",
-            ],
-          },
-        },
-        href: "#problem-statements",
-      },
-      {
         logoLabel: "dHost",
         title:
           "Edge AI Orchestration for In-Building Neutral Host Infrastructure",
@@ -408,10 +373,10 @@ export const SITE_CONTENT = {
             "Without a scalable orchestration framework, edge compute capacity may remain fragmented, underutilised and difficult for customers to access. This would limit dHost’s ability to support sovereign AI, venue-level AI applications, AI-RAN monetisation and compute-hour tokenisation across Southeast Asia.",
           ],
           description: {
-            develop:
+            develop: [
               "An orchestration layer for distributed AI Edge Nodes deployed across the company’s neutral host in-building infrastructure, enabling compute resources to be allocated, monetised and governed across heterogeneous sites and workload types.",
-            tailoredTowards:
-              "Neutral host operators, mobile network operators, venue owners, AI application providers, IoT solution providers, government users and regulated enterprises requiring in-country workload placement",
+              "Tailored towards Neutral host operators, mobile network operators, venue owners, AI application providers, IoT solution providers, government users and regulated enterprises requiring in-country workload placement",
+            ],
             helpsUsers: [
               "Allocate compute across distributed and heterogeneous edge nodes through a unified orchestration layer",
               "Run permanent tenant workloads, on-demand burst workloads and deferred background workloads on the same infrastructure",
@@ -432,7 +397,7 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
-        logoLabel: "The GEAR by Kajima I",
+        logoLabel: "The GEAR by Kajima",
         title:
           "Standardising Asset Data Handover for Smart Building Facilities Management",
         description:
@@ -445,10 +410,10 @@ export const SITE_CONTENT = {
             "Without a standardised framework, asset identification information will continue to be scattered, incomplete, and poorly labelled at handover. This makes it difficult to source good-quality data from buildings, delaying or preventing the implementation of smart control systems and digital twins, and requiring costly manual rework to reconstruct information retrospectively.",
           ],
           description: {
-            develop:
+            develop: [
               "A framework and system for capturing and structuring asset identification information during construction, so it can be reliably ingested into the BIM model at handover to Facilities Management, even where source information (e.g. construction drawings and PDFs) is not natively BIM-compatible.",
-            tailoredTowards:
-              "Property developers, main building contractors, Facilities Management teams, and smart building operations teams",
+              "Tailored towards the property developer, from the start of construction, the main building contractor, Facilities Management teams, and smart building operations teams",
+            ],
             helpsUsers: [
               "Capture and structure asset identification information that is currently deprioritised during the construction stage",
               "Consolidate asset identification information that is scattered across construction drawings and other documents such as PDFs",
@@ -460,6 +425,41 @@ export const SITE_CONTENT = {
               "Structure extracted asset identification data into a standard framework compatible with the BIM model",
               "Validate asset labelling and flag incomplete or inconsistent asset data against a defined schema",
               "Support early engagement of the property developer and main contractor to drive adoption of the standard from the start of construction",
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
+      {
+        logoLabel: "The GEAR by Kajima",
+        title:
+          "Achieving End-to-End Data Observability Across Smart Building Ecosystems",
+        description:
+          "Smart building data quality breaks down at multiple points — edge sensors, processing pipelines, and upstream configuration changes — and issues are diagnosed manually. Without an integrated end-to-end observability layer, data loss and manual reconciliation slow operations and R&D.",
+        detail: {
+          context: [
+            "The organisation operates a complex smart building ecosystem driven by IoT sensors, cloud platforms, and distributed data processing pipelines. However, data quality remains a critical challenge, with issues originating at multiple points, from edge sensors that fail to capture data, to degradation during data processing, and upstream configuration changes (e.g. AWS landing zone updates) that disrupt ingestion.",
+            "Currently, data issues are reported and diagnosed manually, creating delays and inefficiencies. Despite having strong anomaly detection capabilities at isolated system levels, there is no integrated, end-to-end observability layer across the full data lifecycle. This results in data loss, reduced operational and research accuracy, and increased manual reconciliation efforts.",
+            "The GEAR building is used as a strategic R&D centre for the Kajima group to implement and study smart building best practices, in order to develop new applications, products and services for smart buildings.",
+            "Data issues must continue to be manually identified and resolved, with frequently missed issues causing long gaps in collection. This causes delays to R&D projects, or reduction in research outcomes from working with smaller datasets, in addition to missed opportunities to further optimise the operations of The GEAR facility.",
+          ],
+          description: {
+            develop: [
+              "An integrated data observability and anomaly detection solution for smart building ecosystems that provides end-to-end visibility across edge, cloud, and processing layers.",
+              "Tailored towards The organisation’s diagnostic technicians, operations and research teams",
+            ],
+            helpsUsers: [
+              "Detect and flag data anomalies in real time across IoT sensors, pipelines, and platforms",
+              "Identify root causes of data degradation across multiple transformation points",
+              "Reduce manual diagnosis and reconciliation efforts",
+              "Ensure high-quality data availability for operational and research use cases",
+            ],
+            solutionMust: [
+              "Monitor data quality across distributed architectures (edge, cloud, APIs)",
+              "Detect missing, degraded, or misrouted data due to upstream configuration changes",
+              "Correlate anomalies across multiple data sources and transformation layers",
+              "Provide actionable insights and root cause analysis for technical teams",
+              "Integrate with existing IoT and smart building platforms",
             ],
           },
         },
@@ -565,7 +565,7 @@ export const SITE_CONTENT = {
       },
       {
         question: "What is the application period?",
-        answer: "Applications are open until July 31, 2026.",
+        answer: "Applications are open until July 24, 2026.",
       },
       {
         question: "What is the application process?",

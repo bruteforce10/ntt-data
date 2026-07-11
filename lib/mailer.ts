@@ -105,7 +105,7 @@ export function buildRegistrationEmail(opts: {
               </tr>
               <tr>
                 <td style="padding:5px 0;color:#6b7280;font-size:13px;">Submission Deadline</td>
-                <td style="padding:5px 0;font-size:13px;font-weight:bold;color:#e02020;">July 31, 2026</td>
+                <td style="padding:5px 0;font-size:13px;font-weight:bold;color:#e02020;">July 24, 2026</td>
               </tr>
             </table>
             <!-- CTA Button -->
@@ -162,7 +162,7 @@ Submission Guidelines:
 - Format: PDF only (Max size: 8 MB)
 - Language: English
 - File Name Format: StartupName_ChallengeName.pdf
-- Submission Deadline: July 31, 2026
+- Submission Deadline: July 24, 2026
 ${statements.length > 1 ? "\nNote: If you have registered for more than one business challenge, please submit a separate pitch deck for each specific challenge.\n" : ""}
 Submit your pitch deck here: ${submitUrl}
 

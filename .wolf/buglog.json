@@ -342,6 +342,70 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-10T13:55:13.242Z"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-07-11T02:34:34.732Z",
+      "error_message": "CSS fix: develop",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "develop: string → string | readonly string[]",
+      "fix": "Changed develop: string → string | readonly string[]",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-11T02:34:34.732Z"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-07-11T02:34:36.487Z",
+      "error_message": "Type error",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-11T02:34:36.487Z"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-07-11T02:41:18.848Z",
+      "error_message": "Incorrect value in code",
+      "file": "lib/site-content.ts",
+      "root_cause": "Had \"The GEAR by Kajima\"",
+      "fix": "Changed to \"The GEAR by Kajima II\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-11T02:41:19.937Z"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-07-11T02:49:29.407Z",
+      "error_message": "Incorrect value in code",
+      "file": "lib/site-content.ts",
+      "root_cause": "Had \"Applications are open until July 31, 2026.\"",
+      "fix": "Changed to \"Applications are open until July 24, 2026.\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-11T02:49:29.407Z"
     }
   ]
 }

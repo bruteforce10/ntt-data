@@ -9,7 +9,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 const { problemOverview } = SITE_CONTENT;
 
 interface ProblemDetailDescription {
-  develop: string;
+  develop: string | readonly string[];
   tailoredTowards?: string;
   question?: string;
   helpsUsers: readonly string[];
@@ -170,7 +170,14 @@ export default function ProblemOverview() {
                             Challenge Description:
                           </p>
                           <p className="mb-3 italic">Develop:</p>
-                          <p className="mb-4">{description.develop}</p>
+                          <div className="mb-4 space-y-3">
+                            {(typeof description.develop === "string"
+                              ? [description.develop]
+                              : description.develop
+                            ).map((para, i) => (
+                              <p key={i}>{para}</p>
+                            ))}
+                          </div>
                           {description.tailoredTowards && (
                             <>
                               <p className="mb-2 italic">Tailored towards:</p>
