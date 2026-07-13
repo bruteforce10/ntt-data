@@ -176,7 +176,7 @@ The Open Innovation Program Team`;
 
 const DECK_TIMELINE = {
   reviewPeriod: "July, 2026",
-  notificationDate: "July, 2026",
+  notificationDate: "Early August, 2026",
   eventDate: "August 31, 2026 - Sep 2, 2026",
   contactEmail: "openinnovation@ntt-startupchallenge.com",
 };
