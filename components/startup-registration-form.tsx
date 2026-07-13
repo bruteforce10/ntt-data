@@ -775,7 +775,32 @@ export default function StartupRegistrationForm() {
           </div>
         )}
 
-        <div className="mt-8 flex justify-end pb-4">
+        <div className="mt-8 space-y-3 text-xs font-medium italic leading-relaxed text-gray-500">
+          <p>
+            By submitting this form, you consent to NTT DATA Asia Pacific Pte.
+            Ltd. and its affiliates collecting, using and disclosing your
+            personal data for the purposes of administering and managing this
+            event. Your personal data will be processed in accordance with our
+            privacy statement.{" "}
+            <a
+              href="https://services.global.ntt/en-us/legal/privacy-statement"
+              target="_blank"
+              rel="noreferrer"
+              className="break-all text-[#0070C0] underline underline-offset-2 transition-colors hover:text-[#3176E4]"
+            >
+              https://services.global.ntt/en-us/legal/privacy-statement
+            </a>
+          </p>
+          <p>
+            Videos and photographs may be taken in the event. By attending the
+            event, you consent to NTT DATA Asia Pacific Pte. Ltd. and its
+            affiliates taking, using, and publishing your videos and
+            photographs for the purposes of event reporting, marketing,
+            publicity, and media/social media.
+          </p>
+        </div>
+
+        <div className="mt-6 flex justify-end pb-4">
           <Button
             type="submit"
             disabled={isSubmitting}

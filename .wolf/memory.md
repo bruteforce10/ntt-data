@@ -889,3 +889,14 @@
 | 09:49 | Edited lib/mailer.ts | 31 → 24 | ~11 |
 | 09:49 | Deadline aligned to July 24, 2026 (FAQ answer + confirmation email HTML/text) | lib/site-content.ts, lib/mailer.ts | done | ~300 |
 | 09:49 | Session end: 7 writes across 3 files (problem-overview.tsx, site-content.ts, mailer.ts) | 4 reads | ~15961 tok |
+
+## Session: 2026-07-13 23:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:13 | Created components/navbar.tsx | — | ~1493 |
+| 23:16 | Removed nav list from navbar (desktop NavigationMenu + mobile Sheet/hamburger); kept logo, More dropdown, Open Innovation button on all breakpoints with responsive sizing | components/navbar.tsx | verified 360/390/1440 headless-Chrome screenshots, no overflow | ~650 |
+| 23:17 | Session end: 1 writes across 1 files (navbar.tsx) | 5 reads | ~1493 tok |
+| 23:21 | Edited components/startup-registration-form.tsx | CSS: https, hover, https | ~368 |
+| 23:22 | Added PDPA/media consent notice (text-xs font-medium italic gray) above Submit Registration button, privacy-statement URL as external link | components/startup-registration-form.tsx | verified desktop 1280 + mobile 390 screenshots | ~300 |
+| 23:22 | Session end: 2 writes across 2 files (navbar.tsx, startup-registration-form.tsx) | 8 reads | ~1861 tok |

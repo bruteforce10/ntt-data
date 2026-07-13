@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-11T02:49:32.119Z
-> Files: 6 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T16:21:11.958Z
+> Files: 8 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
 
@@ -55,7 +55,9 @@
 
 ## components/
 
+- `navbar.tsx` — Top navbar: logo + "More" dropdown (NAVBAR_ACTIONS) + Open Innovation button only, all breakpoints; nav list & mobile Sheet/hamburger removed 2026-07-13 (~650 tok)
 - `problem-overview.tsx` — ProblemOverview — renders modal (~3276 tok)
+- `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form; PDPA/media consent notice (small italic) sits above the submit button (~9350 tok)
 
 ## components/dashboard/
 

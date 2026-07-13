@@ -2,12 +2,12 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1070418,
-    "total_reads": 527,
-    "total_writes": 912,
-    "total_sessions": 64,
+    "total_tokens_estimated": 1073772,
+    "total_reads": 540,
+    "total_writes": 915,
+    "total_sessions": 65,
     "anatomy_hits": 224,
-    "anatomy_misses": 273,
+    "anatomy_misses": 286,
     "repeated_reads_blocked": 184,
     "estimated_savings_vs_bare_cli": 943768
   },
@@ -10131,6 +10131,133 @@
         "writes_count": 7,
         "repeated_reads_blocked": 2,
         "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-07-13-2308",
+      "started": "2026-07-13T16:08:43.114Z",
+      "ended": "2026-07-13T16:17:24.337Z",
+      "reads": [
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/cerebrum.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/designqc-captures/navcheck-mobile-360.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/designqc-captures/navcheck-desktop-1440.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/anatomy.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 1493,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 1493,
+        "reads_count": 5,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-13-2308",
+      "started": "2026-07-13T16:08:43.114Z",
+      "ended": "2026-07-13T16:22:24.373Z",
+      "reads": [
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/cerebrum.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/designqc-captures/navcheck-mobile-360.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/designqc-captures/navcheck-desktop-1440.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/anatomy.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/designqc-captures/form-desktop-1280.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/.wolf/designqc-captures/form-mobile-390.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 1493,
+          "action": "create"
+        },
+        {
+          "file": "c:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 368,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 1861,
+        "reads_count": 8,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
       }
     }
   ],

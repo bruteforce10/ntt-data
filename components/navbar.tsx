@@ -3,32 +3,9 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,11 +15,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LIST_NAVBAR } from "@/constant/listNavbar";
-import EachUtils from "@/utils/eachUtils";
-
-type NavLink = { title: string; url: string };
-type NavItem = NavLink & { opt?: NavLink[]; positionSideLeft?: boolean };
 
 type NavbarAction = {
   title: string;
@@ -101,7 +73,7 @@ export function Navbar() {
           : "bg-white",
       )}
     >
-      <div className="container mx-auto flex h-20 items-center gap-4 px-4 lg:gap-8">
+      <div className="container mx-auto flex h-20 items-center gap-2 px-4 sm:gap-4 lg:gap-8">
         {/* Logo */}
         <Link
           href="https://ntt-startupchallenge.com"
@@ -114,157 +86,28 @@ export function Navbar() {
             width={1920}
             height={674}
             priority
-            className="h-24 w-auto shrink-0 object-contain"
+            className="h-12 w-auto shrink-0 object-contain sm:h-16 md:h-24"
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden flex-1 justify-end xl:flex xl:items-center">
-          <NavigationMenu>
-            <NavigationMenuList className="justify-start gap-1">
-              <EachUtils
-                of={LIST_NAVBAR as NavItem[]}
-                render={(item: NavItem) => {
-                  if (!item.opt) {
-                    return (
-                      <NavigationMenuItem key={item.title}>
-                        <NavigationMenuLink
-                          render={<Link href={item.url} />}
-                          className={navigationMenuTriggerStyle()}
-                        >
-                          {item.title}
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    );
-                  }
-
-                  return (
-                    <NavigationMenuItem key={item.title}>
-                      <NavigationMenuTrigger>
-                        {item.title}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <ul className="grid w-[220px] gap-1 p-2">
-                          <EachUtils
-                            of={item.opt}
-                            render={(opt: NavLink) => (
-                              <ListItem
-                                key={opt.url}
-                                href={opt.url}
-                                title={opt.title}
-                              />
-                            )}
-                          />
-                        </ul>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  );
-                }}
-              />
-            </NavigationMenuList>
-          </NavigationMenu>
+        {/* Actions */}
+        <div className="ml-auto flex items-center">
+          <NavbarActions />
         </div>
-
-        {/* Desktop Actions */}
-        <div className="hidden xl:flex xl:items-center">
-          <DesktopNavbarActions />
-        </div>
-
-        {/* Mobile Navigation */}
-        <Sheet>
-          <SheetTrigger
-            render={
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Open navigation menu"
-                className="ml-auto h-11 w-11 rounded-full border border-blue-ntt/15 bg-white text-blue-ntt shadow-sm hover:bg-blue-ntt/5 xl:hidden"
-              >
-                <Menu className="h-5 w-5" aria-hidden="true" />
-              </Button>
-            }
-          />
-          <SheetContent
-            side="right"
-            className="w-[320px] max-w-[calc(100vw-1rem)] overflow-y-auto overscroll-y-contain border-l border-blue-ntt/10 bg-white sm:w-[400px]"
-          >
-            <SheetHeader>
-              <SheetTitle className="text-left text-lg text-blue-ntt-700">
-                Navigation
-              </SheetTitle>
-              <SheetDescription className="text-left text-sm leading-6 text-slate-600">
-                Explore NTT Startup Challenge pages and take the next step from
-                here.
-              </SheetDescription>
-            </SheetHeader>
-
-            <div className="px-4 pb-6">
-              <Accordion multiple={false} className="mt-2">
-                <EachUtils
-                  of={LIST_NAVBAR as NavItem[]}
-                  render={(item: NavItem) => {
-                    if (!item.opt) {
-                      return (
-                        <Link
-                          key={item.title}
-                          href={item.url}
-                          className="block rounded-2xl px-3 py-4 text-sm font-medium text-slate-800 transition-colors hover:bg-blue-ntt/5 hover:text-blue-ntt"
-                        >
-                          {item.title}
-                        </Link>
-                      );
-                    }
-
-                    return (
-                      <AccordionItem
-                        key={item.title}
-                        value={item.title.toLowerCase().replace(/\s+/g, "-")}
-                      >
-                        <AccordionTrigger className="px-3 text-sm font-medium text-slate-800">
-                          {item.title}
-                        </AccordionTrigger>
-                        <AccordionContent className="px-3">
-                          <div className="flex flex-col space-y-1">
-                            <EachUtils
-                              of={item.opt}
-                              render={(opt: NavLink) => (
-                                <Link
-                                  href={opt.url}
-                                  key={opt.url}
-                                  className="rounded-xl px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-blue-ntt/5 hover:text-blue-ntt"
-                                >
-                                  {opt.title}
-                                </Link>
-                              )}
-                            />
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    );
-                  }}
-                />
-              </Accordion>
-
-              <div className="mt-8">
-                <MobileNavbarActions />
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
       </div>
     </header>
   );
 }
 
-function DesktopNavbarActions() {
+function NavbarActions() {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2 sm:gap-3">
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
             <Button
               variant="outline"
-              className="min-h-11 rounded-2xl border-blue-ntt/20 bg-white px-4 py-3 text-[0.95rem] font-semibold text-slate-800 shadow-[0_10px_28px_rgba(8,41,71,0.08)] transition-all duration-200 hover:border-blue-ntt/40 hover:bg-blue-ntt/5 hover:text-blue-ntt"
+              className="min-h-11 rounded-2xl border-blue-ntt/20 bg-white px-3 py-3 text-sm font-semibold text-slate-800 shadow-[0_10px_28px_rgba(8,41,71,0.08)] transition-all duration-200 hover:border-blue-ntt/40 hover:bg-blue-ntt/5 hover:text-blue-ntt sm:px-4 sm:text-[0.95rem]"
             >
               More
               <ChevronDown className="size-4" aria-hidden="true" />
@@ -297,81 +140,17 @@ function DesktopNavbarActions() {
       <Link
         href="/"
         aria-label="Open Innovation"
-        className="flex min-h-11 items-center rounded-2xl bg-[#154284] px-4 py-2 shadow-[0_12px_30px_rgba(21,66,132,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0f3263] motion-reduce:hover:translate-y-0"
+        className="flex min-h-11 items-center rounded-2xl bg-[#154284] px-3 py-2 shadow-[0_12px_30px_rgba(21,66,132,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0f3263] motion-reduce:hover:translate-y-0 sm:px-4"
       >
         <Image
           src="/Logo/oi-logo.png"
           alt="Open Innovation"
           width={200}
           height={50}
-          className="h-6 w-auto object-contain"
+          className="h-5 w-auto object-contain sm:h-6"
         />
       </Link>
     </div>
-  );
-}
-
-function MobileNavbarActions() {
-  return (
-    <div className="flex flex-col gap-3">
-      <NavbarActionButton
-        {...SECONDARY_ACTIONS[0]}
-        mobile
-        className="min-h-12 w-full rounded-2xl border border-blue-ntt/25 bg-blue-ntt/5 px-5 py-3 text-base font-semibold text-blue-ntt transition-colors duration-200 hover:bg-blue-ntt/10"
-      />
-      {SECONDARY_ACTIONS.slice(1).map((action) => (
-        <a
-          key={action.title}
-          href={action.href}
-          {...getActionProps(action)}
-          className="rounded-xl px-1 py-2 text-sm font-medium text-slate-600 underline-offset-4 transition-colors hover:text-blue-ntt hover:underline"
-        >
-          {action.title}
-        </a>
-      ))}
-    </div>
-  );
-}
-
-function NavbarActionButton({
-  title,
-  href,
-  className,
-  external = false,
-  mobile = false,
-  disabled = false,
-  badge,
-}: NavbarAction & { className?: string; mobile?: boolean }) {
-  const content = (
-    <>
-      <span className="text-balance">{title}</span>
-      {badge ? (
-        <span className="text-[0.45rem] font-medium tracking-[0.18em] uppercase opacity-90">
-          {badge}
-        </span>
-      ) : null}
-    </>
-  );
-
-  return (
-    <Button
-      nativeButton={false}
-      render={
-        disabled ? (
-          <span aria-disabled="true" className="cursor-default" />
-        ) : (
-          <a href={href} {...getActionProps({ href, external })} />
-        )
-      }
-      className={cn(
-        "touch-manipulation text-center leading-tight whitespace-normal",
-        badge && "h-auto flex-col gap-1",
-        mobile ? "w-full justify-center" : "justify-center",
-        className,
-      )}
-    >
-      {content}
-    </Button>
   );
 }
 
@@ -386,35 +165,4 @@ function getActionProps(action: Pick<NavbarAction, "href" | "external">) {
   }
 
   return {};
-}
-
-function ListItem({
-  title,
-  href,
-  children,
-  className,
-}: {
-  title: string;
-  href: string;
-  children?: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <li>
-      <NavigationMenuLink
-        render={<Link href={href} />}
-        className={cn(
-          "flex-col items-start gap-1 rounded-md p-3 text-slate-900 hover:bg-blue-ntt/5 hover:text-blue-ntt",
-          className,
-        )}
-      >
-        <div className="text-sm font-medium leading-none">{title}</div>
-        {children ? (
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        ) : null}
-      </NavigationMenuLink>
-    </li>
-  );
 }

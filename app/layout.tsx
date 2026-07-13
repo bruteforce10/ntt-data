@@ -26,7 +26,7 @@ const georgia = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "NTT Open Innovation Program",
+  title: "NTT DATA Open Innovation Program",
   description:
     "We are looking at innovative Startup solutions that address business challenges and solve societal issues.",
 };

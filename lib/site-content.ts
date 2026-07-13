@@ -200,7 +200,7 @@ export const SITE_CONTENT = {
     action: { label: "REGISTER", href: "/startup-registration" },
   },
   countdown: {
-    title: "Registration Closes",
+    title: "Registration Deadline: July 24, 2026",
     targetDate: "2026-07-24T00:00:00",
     video: {
       src: "/Video Countdown.webm",
@@ -585,63 +585,63 @@ export const SITE_CONTENT = {
         answer:
           "Yes. A pitch deck is required as part of the application process.",
       },
-      {
-        question: "What is the maximum file size for pitch deck submission?",
-        answer: "The maximum file size for uploaded pitch decks is 8 MB.",
-      },
-      {
-        question: "What file formats are accepted for pitch deck submissions?",
-        answer:
-          "Accepted file formats will be specified on the submission portal.",
-      },
-      {
-        question: "Can I update my application after submission?",
-        answer:
-          "Updates may be allowed before the application deadline. If changes are required, please contact: openinnovation@ntt-startupchallenge.com.",
-      },
-      {
-        question:
-          "Will I receive a confirmation after submitting my application?",
-        answer:
-          "Yes. Applicants will receive a confirmation email after successfully submitting their application.",
-      },
-      {
-        question: "Can I submit my application after the deadline?",
-        answer:
-          "Late submissions may not be considered. Applicants are encouraged to submit before the deadline.",
-      },
-      {
-        question: "How will startups be evaluated?",
-        answer:
-          "Applications will be reviewed based on how well the startup's solution matches the challenge statement. Other factors may include:",
-        bullets: [
-          "Relevance to the business problem",
-          "Innovation and uniqueness of the solution",
-          "Market readiness and maturity of the startup",
-          "Ability to deliver or support a pilot/POC",
-          "Strategic fit with NTT DATA and/or client needs",
-        ],
-      },
-      {
-        question: "Who will evaluate the applications?",
-        answer:
-          "Applications will be reviewed by representatives from NTT DATA and relevant industry experts.",
-      },
-      {
-        question: "When will selected startups be notified?",
-        answer:
-          "Shortlisted startups will be contacted directly following the evaluation process.",
-      },
-      {
-        question: "How many startups will be selected?",
-        answer:
-          "The number of selected startups may vary depending on the challenge and evaluation results.",
-      },
-      {
-        question: "Will all applicants receive feedback?",
-        answer:
-          "Due to the volume of applications, individual feedback may not be provided to all applicants.",
-      },
+      // {
+      //   question: "What is the maximum file size for pitch deck submission?",
+      //   answer: "The maximum file size for uploaded pitch decks is 8 MB.",
+      // },
+      // {
+      //   question: "What file formats are accepted for pitch deck submissions?",
+      //   answer:
+      //     "Accepted file formats will be specified on the submission portal.",
+      // },
+      // {
+      //   question: "Can I update my application after submission?",
+      //   answer:
+      //     "Updates may be allowed before the application deadline. If changes are required, please contact: openinnovation@ntt-startupchallenge.com.",
+      // },
+      // {
+      //   question:
+      //     "Will I receive a confirmation after submitting my application?",
+      //   answer:
+      //     "Yes. Applicants will receive a confirmation email after successfully submitting their application.",
+      // },
+      // {
+      //   question: "Can I submit my application after the deadline?",
+      //   answer:
+      //     "Late submissions may not be considered. Applicants are encouraged to submit before the deadline.",
+      // },
+      // {
+      //   question: "How will startups be evaluated?",
+      //   answer:
+      //     "Applications will be reviewed based on how well the startup's solution matches the challenge statement. Other factors may include:",
+      //   bullets: [
+      //     "Relevance to the business problem",
+      //     "Innovation and uniqueness of the solution",
+      //     "Market readiness and maturity of the startup",
+      //     "Ability to deliver or support a pilot/POC",
+      //     "Strategic fit with NTT DATA and/or client needs",
+      //   ],
+      // },
+      // {
+      //   question: "Who will evaluate the applications?",
+      //   answer:
+      //     "Applications will be reviewed by representatives from NTT DATA and relevant industry experts.",
+      // },
+      // {
+      //   question: "When will selected startups be notified?",
+      //   answer:
+      //     "Shortlisted startups will be contacted directly following the evaluation process.",
+      // },
+      // {
+      //   question: "How many startups will be selected?",
+      //   answer:
+      //     "The number of selected startups may vary depending on the challenge and evaluation results.",
+      // },
+      // {
+      //   question: "Will all applicants receive feedback?",
+      //   answer:
+      //     "Due to the volume of applications, individual feedback may not be provided to all applicants.",
+      // },
       {
         question: "What happens after being selected?",
         answer:
@@ -652,16 +652,16 @@ export const SITE_CONTENT = {
         answer:
           "Yes. Selected startups and nextgen companies are expected to participate in person during the Program in Singapore.",
       },
-      {
-        question: "What activities will take place during the Program?",
-        answer:
-          "Participants will collaborate with NTT DATA experts and enterprise stakeholders, refine their solutions, develop Proofs of Concept (PoCs), and present their ideas during the final sessions.",
-      },
-      {
-        question: "How long is the Program?",
-        answer:
-          "The on-site Program will take place over three days during NTT DATA Open Innovation Week.",
-      },
+      // {
+      //   question: "What activities will take place during the Program?",
+      //   answer:
+      //     "Participants will collaborate with NTT DATA experts and enterprise stakeholders, refine their solutions, develop Proofs of Concept (PoCs), and present their ideas during the final sessions.",
+      // },
+      // {
+      //   question: "How long is the Program?",
+      //   answer:
+      //     "The on-site Program will take place over three days during NTT DATA Open Innovation Week.",
+      // },
       {
         question: "Can more than one representative attend from each startup?",
         answer:
