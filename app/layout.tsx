@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import localFont from "next/font/local";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site-config";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -26,9 +27,45 @@ const georgia = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "NTT DATA Open Innovation Program",
-  description:
-    "We are looking at innovative Startup solutions that address business challenges and solve societal issues.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: [
+    "NTT DATA",
+    "open innovation",
+    "startup program",
+    "startup challenge",
+    "innovation program",
+    "pitch deck",
+  ],
+  // No `url` here: child pages inherit this whole object, and Next.js metadata
+  // merging is shallow — a per-page openGraph would wipe siteName/images.
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

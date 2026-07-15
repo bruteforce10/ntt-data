@@ -900,3 +900,29 @@
 | 23:21 | Edited components/startup-registration-form.tsx | CSS: https, hover, https | ~368 |
 | 23:22 | Added PDPA/media consent notice (text-xs font-medium italic gray) above Submit Registration button, privacy-statement URL as external link | components/startup-registration-form.tsx | verified desktop 1280 + mobile 390 screenshots | ~300 |
 | 23:22 | Session end: 2 writes across 2 files (navbar.tsx, startup-registration-form.tsx) | 8 reads | ~1861 tok |
+
+## Session: 2026-07-15 14:02
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:25 | Created scripts/generate-seo-assets.js | — | ~848 |
+| 14:25 | Created lib/site-config.ts | — | ~208 |
+| 14:26 | Created app/sitemap.ts | — | ~233 |
+| 14:26 | Created app/robots.ts | — | ~125 |
+| 14:26 | Created app/manifest.ts | — | ~161 |
+| 14:26 | Edited app/layout.tsx | added 1 import(s) | ~64 |
+| 14:26 | Edited app/layout.tsx | expanded (+36 lines) | ~257 |
+| 14:26 | Edited app/page.tsx | modified Home() | ~343 |
+| 14:26 | Edited app/faq/page.tsx | CSS: alternates, canonical | ~72 |
+| 14:27 | Edited app/startup-registration/page.tsx | CSS: description, alternates, canonical | ~86 |
+| 14:27 | Edited app/deck-submission/page.tsx | CSS: description, alternates, canonical | ~74 |
+| 14:27 | Edited app/login/page.tsx | CSS: robots, index, follow | ~34 |
+| 14:27 | Edited app/dashboard/page.tsx | added 1 import(s) | ~33 |
+| 14:27 | Edited app/dashboard/page.tsx | modified DashboardPage() | ~64 |
+| 14:31 | SEO baseline: sitemap.ts, robots.ts, manifest.ts, lib/site-config.ts (SITE_URL=oiw.ntt-startupchallenge.com, user-confirmed), full root metadata (metadataBase/title template/OG/twitter), per-page canonicals+descriptions, noindex login+dashboard, JSON-LD home, generated og-image.jpg + icons via scripts/generate-seo-assets.js | app/*, lib/site-config.ts, public/ | build OK, verified via next start + curl (robots/sitemap/manifest/head tags all correct) | ~28k |
+| 14:32 | Session end: 14 writes across 7 files (generate-seo-assets.js, site-config.ts, sitemap.ts, robots.ts, manifest.ts) | 14 reads | ~4494 tok |
+| 14:36 | Edited components/startup-registration-form.tsx | CSS: country | ~124 |
+| 14:37 | Edited components/startup-registration-form.tsx | test() → isValidPhoneNumber() | ~50 |
+| 14:37 | Edited components/startup-registration-form.tsx | 7→8 lines | ~83 |
+| 14:38 | Phone field: all-country lenient validation (isValidPhoneNumber: strip separators, /^\+?\d{7,15}$/), placeholder shows +62/0895 formats, autoComplete=tel; enriched auto bug-029 | components/startup-registration-form.tsx, .wolf/buglog.json | 12 regex cases + tsc pass | ~6k |
+| 14:39 | Session end: 17 writes across 8 files (generate-seo-assets.js, site-config.ts, sitemap.ts, robots.ts, manifest.ts) | 15 reads | ~14101 tok |

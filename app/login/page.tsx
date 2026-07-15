@@ -5,7 +5,11 @@ import { auth } from "@/auth";
 import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = {
-  title: "Masuk — NTT Startup Challenge Admin",
+  title: "Masuk Admin",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function LoginPage() {

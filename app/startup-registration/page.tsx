@@ -11,7 +11,12 @@ import StartupRegistrationForm from "@/components/startup-registration-form";
 // import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Startup Registration | NTT Open Innovation Program",
+  title: "Startup Registration",
+  description:
+    "Register your startup for the NTT DATA Open Innovation Program and pitch your solution to real business challenges from NTT DATA and its partners.",
+  alternates: {
+    canonical: "/startup-registration",
+  },
 };
 
 export default function StartupRegistrationPage() {

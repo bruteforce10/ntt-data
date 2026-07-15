@@ -6,7 +6,12 @@ import Footer from "@/components/footer";
 import DeckSubmissionForm from "@/components/deck-submission-form";
 
 export const metadata: Metadata = {
-  title: "Deck Submission — NTT Open Innovation Program",
+  title: "Pitch Deck Submission",
+  description:
+    "Submit your pitch deck for the NTT DATA Open Innovation Program after completing your startup registration.",
+  alternates: {
+    canonical: "/deck-submission",
+  },
 };
 
 export default function DeckSubmissionPage() {

@@ -7,9 +7,12 @@ import Faq from "@/components/faq";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "FAQ — NTT DATA Open Innovation Program",
+  title: "FAQ",
   description:
     "Find answers to common questions about eligibility, the program timeline, and what to expect during the NTT DATA innovation sprint.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FaqPage() {

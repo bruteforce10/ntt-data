@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { auth } from "@/auth";
@@ -6,6 +7,14 @@ import type { NttDataRecord } from "@/lib/ntt-data/types";
 import { DataTable } from "@/components/dashboard/data-table";
 import { EmailTable } from "@/components/dashboard/email-table";
 import { SignOutButton } from "./sign-out-button";
+
+export const metadata: Metadata = {
+  title: "Dashboard Admin",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default async function DashboardPage() {
   const session = await auth();

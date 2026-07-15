@@ -406,6 +406,71 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-11T02:49:29.407Z"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-07-15T07:26:36.034Z",
+      "error_message": "CSS fix: title, description",
+      "file": "app/layout.tsx",
+      "root_cause": "title: \"NTT DATA Open Innovation Program\", → SITE_NAME,; description: \"We are looking at innovative Startup solutions that address business challenges and solve societal issues.\", → SITE_DESCRIPTION,",
+      "fix": "Changed title: \"NTT DATA Open Innovation Program\", → SITE_NAME,; description: \"We are looking at innovative Startup solutions that address business challenges and solve societal issues.\", → SITE_DESCRIPTION,",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-15T07:26:36.034Z"
+    },
+    {
+      "id": "bug-027",
+      "timestamp": "2026-07-15T07:26:59.755Z",
+      "error_message": "CSS fix: title",
+      "file": "app/faq/page.tsx",
+      "root_cause": "title: \"FAQ — NTT DATA Open Innovation Program\", → \"FAQ\",",
+      "fix": "Changed title: \"FAQ — NTT DATA Open Innovation Program\", → \"FAQ\",",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 4,
+      "last_seen": "2026-07-15T07:27:05.750Z"
+    },
+    {
+      "id": "bug-028",
+      "timestamp": "2026-07-15T07:27:16.745Z",
+      "error_message": "Type error",
+      "file": "app/dashboard/page.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-15T07:27:16.745Z"
+    },
+    {
+      "id": "bug-029",
+      "timestamp": "2026-07-15T07:37:14.189Z",
+      "error_message": "User: phone field felt Indonesia-only and hard to fill; old regex /^\\+?[\\d\\s()-]+$/ also accepted junk like '+' or '(' alone (no digit/length requirement) and rejected dot separators",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Placeholder suggested only +62 format and the permissive character-class regex had no length rule, so validation was both too loose (single '+' passed) and unfriendly (dots failed)",
+      "fix": "Added isValidPhoneNumber(): strip [\\s().-] separators then require /^\\+?\\d{7,15}$/ (E.164) — accepts any country code (+62, +1, ...) or local 0-prefixed numbers; placeholder now shows both formats, added autoComplete=tel; submit still sends digits-only (server route.ts:119 strips non-digits anyway)",
+      "tags": [
+        "phone-validation",
+        "form",
+        "ux",
+        "startup-registration"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-15T07:37:14.189Z"
     }
   ]
 }

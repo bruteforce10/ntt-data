@@ -69,6 +69,14 @@ function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+// Accepts any country: optional +country-code (e.g. +62, +1, +65) or a local
+// 0-prefixed number (e.g. 0895...). Separators (space, dash, dot, parens) are
+// ignored; 7-15 digits per ITU E.164.
+function isValidPhoneNumber(value: string) {
+  const normalized = value.replace(/[\s().-]/g, "");
+  return /^\+?\d{7,15}$/.test(normalized);
+}
+
 function isValidUrl(value: string) {
   try {
     if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(value)) {
@@ -218,8 +226,9 @@ export default function StartupRegistrationForm() {
     } else if (!isValidEmail(email)) {
       nextErrors.email = "Use a valid email address.";
     }
-    if (phoneNumber && !/^\+?[\d\s()-]+$/.test(phoneNumber)) {
-      nextErrors.phoneNumber = "Use a valid phone number.";
+    if (phoneNumber && !isValidPhoneNumber(phoneNumber)) {
+      nextErrors.phoneNumber =
+        "Use a valid phone number, e.g. +62 812 3456 7890 or 0895 1234 5678.";
     }
     if (!jobTitle) nextErrors.jobTitle = "Job title is required.";
     if (!startupName) nextErrors.startupName = "Startup name is required.";
@@ -392,7 +401,8 @@ export default function StartupRegistrationForm() {
                 id="phone"
                 name="phoneNumber"
                 type="tel"
-                placeholder="+62 xxx xxxx xxxx"
+                autoComplete="tel"
+                placeholder="e.g. +62 812 3456 7890 / 0895 1234 5678"
                 aria-invalid={Boolean(errors.phoneNumber)}
               />
             </Field>
@@ -794,9 +804,9 @@ export default function StartupRegistrationForm() {
           <p>
             Videos and photographs may be taken in the event. By attending the
             event, you consent to NTT DATA Asia Pacific Pte. Ltd. and its
-            affiliates taking, using, and publishing your videos and
-            photographs for the purposes of event reporting, marketing,
-            publicity, and media/social media.
+            affiliates taking, using, and publishing your videos and photographs
+            for the purposes of event reporting, marketing, publicity, and
+            media/social media.
           </p>
         </div>
 
