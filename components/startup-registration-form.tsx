@@ -28,7 +28,6 @@ const MAX_DESCRIPTION_FILE_BYTES = 8 * 1024 * 1024;
 const DESCRIPTION_FILE_ACCEPT = ".pdf,application/pdf";
 
 const FUNDING_STAGES = [
-  "Pre-Seed",
   "Seed",
   "Series A",
   "Series B",
