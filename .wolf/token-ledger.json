@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1092367,
-    "total_reads": 569,
-    "total_writes": 946,
+    "total_tokens_estimated": 1106627,
+    "total_reads": 584,
+    "total_writes": 968,
     "total_sessions": 66,
-    "anatomy_hits": 231,
-    "anatomy_misses": 308,
-    "repeated_reads_blocked": 186,
-    "estimated_savings_vs_bare_cli": 963868
+    "anatomy_hits": 235,
+    "anatomy_misses": 319,
+    "repeated_reads_blocked": 188,
+    "estimated_savings_vs_bare_cli": 983368
   },
   "sessions": [
     {
@@ -10619,6 +10619,223 @@
         "output_tokens_estimated": 2859,
         "reads_count": 15,
         "writes_count": 17,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-15-1402",
+      "started": "2026-07-15T07:02:10.611Z",
+      "ended": "2026-07-15T09:32:06.222Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/layout.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/faq/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/startup-registration/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/login/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/.env",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/ntt-data/[id]/send-email/route.ts",
+          "tokens_estimated": 639,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 650,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/next.config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/public/og-image.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/public/icons/icon-512.png",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx",
+          "tokens_estimated": 603,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 9350,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/scripts/generate-seo-assets.js",
+          "tokens_estimated": 848,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-config.ts",
+          "tokens_estimated": 208,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/sitemap.ts",
+          "tokens_estimated": 233,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/robots.ts",
+          "tokens_estimated": 125,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/manifest.ts",
+          "tokens_estimated": 161,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/layout.tsx",
+          "tokens_estimated": 64,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/layout.tsx",
+          "tokens_estimated": 257,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/page.tsx",
+          "tokens_estimated": 343,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/faq/page.tsx",
+          "tokens_estimated": 72,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/startup-registration/page.tsx",
+          "tokens_estimated": 86,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/login/page.tsx",
+          "tokens_estimated": 34,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx",
+          "tokens_estimated": 33,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/dashboard/page.tsx",
+          "tokens_estimated": 64,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 124,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 83,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 0,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 8,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 87,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 11242,
+        "output_tokens_estimated": 3018,
+        "reads_count": 15,
+        "writes_count": 22,
         "repeated_reads_blocked": 2,
         "anatomy_lookups": 4
       }

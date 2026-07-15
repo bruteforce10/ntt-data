@@ -49,7 +49,6 @@ type ErrorKey =
   | "firstName"
   | "lastName"
   | "email"
-  | "phoneNumber"
   | "jobTitle"
   | "startupName"
   | "website"
@@ -67,14 +66,6 @@ type FormErrors = Partial<Record<ErrorKey, string>>;
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
-// Accepts any country: optional +country-code (e.g. +62, +1, +65) or a local
-// 0-prefixed number (e.g. 0895...). Separators (space, dash, dot, parens) are
-// ignored; 7-15 digits per ITU E.164.
-function isValidPhoneNumber(value: string) {
-  const normalized = value.replace(/[\s().-]/g, "");
-  return /^\+?\d{7,15}$/.test(normalized);
 }
 
 function isValidUrl(value: string) {
@@ -226,10 +217,6 @@ export default function StartupRegistrationForm() {
     } else if (!isValidEmail(email)) {
       nextErrors.email = "Use a valid email address.";
     }
-    if (phoneNumber && !isValidPhoneNumber(phoneNumber)) {
-      nextErrors.phoneNumber =
-        "Use a valid phone number, e.g. +62 812 3456 7890 or 0895 1234 5678.";
-    }
     if (!jobTitle) nextErrors.jobTitle = "Job title is required.";
     if (!startupName) nextErrors.startupName = "Startup name is required.";
     if (!website) {
@@ -284,8 +271,9 @@ export default function StartupRegistrationForm() {
     const submitData = new FormData();
     submitData.append("full_name", `${firstName} ${lastName}`.trim());
     submitData.append("email", email);
+    // Sent as-is; the API route normalizes to digits before PocketBase.
     if (phoneNumber) {
-      submitData.append("phone_number", phoneNumber.replace(/[^\d]/g, ""));
+      submitData.append("phone_number", phoneNumber);
     }
     submitData.append("job_title", jobTitle);
     submitData.append("startup_name", startupName);
@@ -396,14 +384,13 @@ export default function StartupRegistrationForm() {
               />
             </Field>
 
-            <Field label="Phone Number" id="phone" error={errors.phoneNumber}>
+            <Field label="Phone Number" id="phone">
               <Input
                 id="phone"
                 name="phoneNumber"
                 type="tel"
                 autoComplete="tel"
                 placeholder="e.g. +62 812 3456 7890 / 0895 1234 5678"
-                aria-invalid={Boolean(errors.phoneNumber)}
               />
             </Field>
 

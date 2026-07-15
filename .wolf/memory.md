@@ -926,3 +926,10 @@
 | 14:37 | Edited components/startup-registration-form.tsx | 7→8 lines | ~83 |
 | 14:38 | Phone field: all-country lenient validation (isValidPhoneNumber: strip separators, /^\+?\d{7,15}$/), placeholder shows +62/0895 formats, autoComplete=tel; enriched auto bug-029 | components/startup-registration-form.tsx, .wolf/buglog.json | 12 regex cases + tsc pass | ~6k |
 | 14:39 | Session end: 17 writes across 8 files (generate-seo-assets.js, site-config.ts, sitemap.ts, robots.ts, manifest.ts) | 15 reads | ~14101 tok |
+| 16:30 | Edited components/startup-registration-form.tsx | — | ~0 |
+| 16:30 | Edited components/startup-registration-form.tsx | 3→2 lines | ~8 |
+| 16:30 | Edited components/startup-registration-form.tsx | 5→1 lines | ~19 |
+| 16:30 | Edited components/startup-registration-form.tsx | modified if() | ~45 |
+| 16:30 | Edited components/startup-registration-form.tsx | 10→9 lines | ~87 |
+| 16:31 | User correction: removed phone validation entirely (no isValidPhoneNumber, no ErrorKey, raw value submitted; server normalizes) | components/startup-registration-form.tsx | tsc clean; cerebrum+buglog updated | ~3k |
+| 16:32 | Session end: 22 writes across 8 files (generate-seo-assets.js, site-config.ts, sitemap.ts, robots.ts, manifest.ts) | 15 reads | ~14260 tok |

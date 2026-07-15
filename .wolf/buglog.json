@@ -461,16 +461,49 @@
       "error_message": "User: phone field felt Indonesia-only and hard to fill; old regex /^\\+?[\\d\\s()-]+$/ also accepted junk like '+' or '(' alone (no digit/length requirement) and rejected dot separators",
       "file": "components/startup-registration-form.tsx",
       "root_cause": "Placeholder suggested only +62 format and the permissive character-class regex had no length rule, so validation was both too loose (single '+' passed) and unfriendly (dots failed)",
-      "fix": "Added isValidPhoneNumber(): strip [\\s().-] separators then require /^\\+?\\d{7,15}$/ (E.164) — accepts any country code (+62, +1, ...) or local 0-prefixed numbers; placeholder now shows both formats, added autoComplete=tel; submit still sends digits-only (server route.ts:119 strips non-digits anyway)",
+      "fix": "SUPERSEDED same day (see bug-031): first replaced regex with E.164 isValidPhoneNumber(), but user then asked to drop phone validation entirely",
       "tags": [
         "phone-validation",
         "form",
         "ux",
         "startup-registration"
       ],
-      "related_bugs": [],
+      "related_bugs": ["bug-031"],
       "occurrences": 1,
       "last_seen": "2026-07-15T07:37:14.189Z"
+    },
+    {
+      "id": "bug-030",
+      "timestamp": "2026-07-15T09:30:22.292Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Had \"phoneNumber\"",
+      "fix": "Changed to \"jobTitle\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-15T09:30:22.292Z"
+    },
+    {
+      "id": "bug-031",
+      "timestamp": "2026-07-15T09:30:24.973Z",
+      "error_message": "User correction: 'kalau tidak di lolosin aja gak usah ada verifikasi tak ada logicnya' — wanted NO phone validation at all, not a looser regex",
+      "file": "components/startup-registration-form.tsx",
+      "root_cause": "Phone is an optional contact field; any format check still blocks legitimate users, so the user prefers zero client-side verification",
+      "fix": "Removed isValidPhoneNumber() + its error branch, dropped phoneNumber from ErrorKey, removed error/aria-invalid props from the input; raw value submitted as-is (API route app/api/ntt-data/route.ts normalizes to digits before PocketBase). Kept type=tel, autoComplete=tel, placeholder examples as pure hints",
+      "tags": [
+        "phone-validation",
+        "user-correction",
+        "form",
+        "startup-registration"
+      ],
+      "related_bugs": ["bug-029"],
+      "occurrences": 1,
+      "last_seen": "2026-07-15T09:30:24.973Z"
     }
   ]
 }

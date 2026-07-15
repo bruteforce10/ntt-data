@@ -180,6 +180,36 @@
       "action": "edit",
       "tokens": 83,
       "at": "2026-07-15T07:37:16.488Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 0,
+      "at": "2026-07-15T09:30:20.751Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 8,
+      "at": "2026-07-15T09:30:22.288Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 19,
+      "at": "2026-07-15T09:30:24.968Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 45,
+      "at": "2026-07-15T09:30:40.535Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx",
+      "action": "edit",
+      "tokens": 87,
+      "at": "2026-07-15T09:30:43.538Z"
     }
   ],
   "edit_counts": {
@@ -195,11 +225,11 @@
     "app/deck-submission/page.tsx": 1,
     "app/login/page.tsx": 1,
     "app/dashboard/page.tsx": 2,
-    "components/startup-registration-form.tsx": 3
+    "components/startup-registration-form.tsx": 8
   },
   "anatomy_hits": 4,
   "anatomy_misses": 11,
   "repeated_reads_warned": 2,
   "cerebrum_warnings": 0,
-  "stop_count": 2
+  "stop_count": 3
 }

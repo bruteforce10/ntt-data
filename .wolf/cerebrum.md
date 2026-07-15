@@ -9,7 +9,7 @@
 <!-- How the user likes things done. Code style, tools, patterns, communication. -->
 - [2026-06-02] NO inline `style={{ ... }}` on JSX. Sizing/layout via `<Image>` props (`width`/`height`) or static Tailwind classes only. User said: "saya gak mau menggunakan inline css tapi dari Image atau tailwindnya".
 - Per-item image sizing from data: store numeric pixel `width`/`height` on the data object, pass directly as `<Image width={n} height={n}>` props. Avoid `fill` + sized wrapper for variable sizes.
-- [2026-07-15] Form validation should be LENIENT and international, not Indonesia-only. Phone: accept any country (+code or local 0-prefix), tolerate separators, simple length check — user asked "permudah isiannya bisa semua negara" and prefers easy verification over strict rules. No country-dropdown; keep a single free-text field.
+- [2026-07-15] Phone Number field = NO client-side validation at all. User first asked to loosen it for all countries, then corrected further: "kalau tidak di lolosin aja gak usah ada verifikasi tak ada logicnya" — any input passes, plain free-text field (type=tel + autoComplete=tel + placeholder showing +62/0895 examples only as hints). Raw value is sent; the API route (app/api/ntt-data/route.ts) normalizes to digits. Do not reintroduce format/length checks on optional contact fields.
 
 ## Key Learnings
 
