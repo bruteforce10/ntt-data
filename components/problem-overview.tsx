@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { SITE_CONTENT } from "@/lib/site-content";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ProblemRichDetail, {
+  type ProblemRichDetail as ProblemRichDetailData,
+} from "@/components/problem/problem-rich-detail";
 
 const { problemOverview } = SITE_CONTENT;
 
@@ -32,6 +35,7 @@ interface ProblemOverviewItem {
   title: string;
   description?: string;
   detail?: ProblemDetail;
+  richDetail?: ProblemRichDetailData;
   href?: string;
 }
 
@@ -149,117 +153,119 @@ export default function ProblemOverview() {
 
             {/* Right panel */}
             <div className="flex-1 overflow-y-auto border-l border-gray-100 bg-white px-8 py-10 max-h-[60vh] sm:max-h-[70vh] sm:px-10 sm:pt-12">
-              {selected?.detail
-                ? (() => {
-                    const detail = selected.detail as ProblemDetail;
-                    const { description } = detail;
-                    return (
-                      <div className="space-y-6 text-sm leading-relaxed text-justify text-gray-700">
-                        <div>
-                          <p className="mb-2 font-bold text-gray-900">
-                            Challenge Context:
-                          </p>
-                          <div className="space-y-3">
-                            {detail.context.map((para, i) => (
-                              <p key={i}>{para}</p>
-                            ))}
-                          </div>
-                        </div>
-                        <div>
-                          <p className="mb-2 font-bold text-gray-900">
-                            Challenge Description:
-                          </p>
-                          <p className="mb-3 italic">Develop:</p>
-                          <div className="mb-4 space-y-3">
-                            {(typeof description.develop === "string"
-                              ? [description.develop]
-                              : description.develop
-                            ).map((para, i) => (
-                              <p key={i}>{para}</p>
-                            ))}
-                          </div>
-                          {description.tailoredTowards && (
-                            <>
-                              <p className="mb-2 italic">Tailored towards:</p>
-                              <p className="mb-4">
-                                {description.tailoredTowards}
-                              </p>
-                            </>
-                          )}
-                          {description.question && (
-                            <p className="mb-4 font-medium text-gray-800">
-                              {description.question}
-                            </p>
-                          )}
-                          <p className="mb-2 italic">That helps users to:</p>
-                          <ol className="mb-4 list-decimal space-y-1 pl-5">
-                            {description.helpsUsers.map((item, i) => (
-                              <li key={i}>{item}</li>
-                            ))}
-                          </ol>
-                          {description.priorityScope && (
-                            <>
-                              <p className="mb-2 italic">Priority scope:</p>
-                              <ol className="mb-4 list-decimal space-y-1 pl-5">
-                                {description.priorityScope.map((item, i) => (
-                                  <li key={i}>{item}</li>
-                                ))}
-                              </ol>
-                            </>
-                          )}
-                          {description.targetOutcomes && (
-                            <>
-                              <p className="mb-2 italic">Target outcomes:</p>
-                              <ol className="mb-4 list-decimal space-y-1 pl-5">
-                                {description.targetOutcomes.map((item, i) => (
-                                  <li key={i}>{item}</li>
-                                ))}
-                              </ol>
-                            </>
-                          )}
-                          {description.dataExpected && (
-                            <>
-                              <p className="mb-2 italic">
-                                Data expected to be available:
-                              </p>
-                              <ol className="mb-4 list-decimal space-y-1 pl-5">
-                                {description.dataExpected.map((item, i) => (
-                                  <li key={i}>{item}</li>
-                                ))}
-                              </ol>
-                            </>
-                          )}
-                          <p className="mb-2 italic">
-                            The solution must be able to:
-                          </p>
-                          <ol className="list-decimal space-y-1 pl-5">
-                            {description.solutionMust.map((item, i) => (
-                              <li key={i}>{item}</li>
-                            ))}
-                          </ol>
-                          {description.pocApproach && (
-                            <>
-                              <p className="mb-2 mt-4 italic">
-                                Indicative proof-of-concept approach:
-                              </p>
-                              <ol className="list-decimal space-y-1 pl-5">
-                                {description.pocApproach.map((item, i) => (
-                                  <li key={i}>{item}</li>
-                                ))}
-                              </ol>
-                            </>
-                          )}
-                          {description.keywords && (
-                            <>
-                              <p className="mb-2 mt-4 italic">Keywords:</p>
-                              <p>{description.keywords}</p>
-                            </>
-                          )}
+              {selected?.richDetail ? (
+                <ProblemRichDetail detail={selected.richDetail} />
+              ) : selected?.detail ? (
+                (() => {
+                  const detail = selected.detail as ProblemDetail;
+                  const { description } = detail;
+                  return (
+                    <div className="space-y-6 text-sm leading-relaxed text-justify text-gray-700">
+                      <div>
+                        <p className="mb-2 font-bold text-gray-900">
+                          Challenge Context:
+                        </p>
+                        <div className="space-y-3">
+                          {detail.context.map((para, i) => (
+                            <p key={i}>{para}</p>
+                          ))}
                         </div>
                       </div>
-                    );
-                  })()
-                : null}
+                      <div>
+                        <p className="mb-2 font-bold text-gray-900">
+                          Challenge Description:
+                        </p>
+                        <p className="mb-3 italic">Develop:</p>
+                        <div className="mb-4 space-y-3">
+                          {(typeof description.develop === "string"
+                            ? [description.develop]
+                            : description.develop
+                          ).map((para, i) => (
+                            <p key={i}>{para}</p>
+                          ))}
+                        </div>
+                        {description.tailoredTowards && (
+                          <>
+                            <p className="mb-2 italic">Tailored towards:</p>
+                            <p className="mb-4">
+                              {description.tailoredTowards}
+                            </p>
+                          </>
+                        )}
+                        {description.question && (
+                          <p className="mb-4 font-medium text-gray-800">
+                            {description.question}
+                          </p>
+                        )}
+                        <p className="mb-2 italic">That helps users to:</p>
+                        <ol className="mb-4 list-decimal space-y-1 pl-5">
+                          {description.helpsUsers.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ol>
+                        {description.priorityScope && (
+                          <>
+                            <p className="mb-2 italic">Priority scope:</p>
+                            <ol className="mb-4 list-decimal space-y-1 pl-5">
+                              {description.priorityScope.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ol>
+                          </>
+                        )}
+                        {description.targetOutcomes && (
+                          <>
+                            <p className="mb-2 italic">Target outcomes:</p>
+                            <ol className="mb-4 list-decimal space-y-1 pl-5">
+                              {description.targetOutcomes.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ol>
+                          </>
+                        )}
+                        {description.dataExpected && (
+                          <>
+                            <p className="mb-2 italic">
+                              Data expected to be available:
+                            </p>
+                            <ol className="mb-4 list-decimal space-y-1 pl-5">
+                              {description.dataExpected.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ol>
+                          </>
+                        )}
+                        <p className="mb-2 italic">
+                          The solution must be able to:
+                        </p>
+                        <ol className="list-decimal space-y-1 pl-5">
+                          {description.solutionMust.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ol>
+                        {description.pocApproach && (
+                          <>
+                            <p className="mb-2 mt-4 italic">
+                              Indicative proof-of-concept approach:
+                            </p>
+                            <ol className="list-decimal space-y-1 pl-5">
+                              {description.pocApproach.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ol>
+                          </>
+                        )}
+                        {description.keywords && (
+                          <>
+                            <p className="mb-2 mt-4 italic">Keywords:</p>
+                            <p>{description.keywords}</p>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })()
+              ) : null}
             </div>
           </div>
         </DialogContent>

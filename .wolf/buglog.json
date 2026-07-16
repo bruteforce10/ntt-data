@@ -468,7 +468,9 @@
         "ux",
         "startup-registration"
       ],
-      "related_bugs": ["bug-031"],
+      "related_bugs": [
+        "bug-031"
+      ],
       "occurrences": 1,
       "last_seen": "2026-07-15T07:37:14.189Z"
     },
@@ -501,9 +503,43 @@
         "form",
         "startup-registration"
       ],
-      "related_bugs": ["bug-029"],
+      "related_bugs": [
+        "bug-029"
+      ],
       "occurrences": 1,
       "last_seen": "2026-07-15T09:30:24.973Z"
+    },
+    {
+      "id": "bug-032",
+      "timestamp": "2026-07-15T17:10:41.444Z",
+      "error_message": "Type error",
+      "file": "lib/site-content.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-15T17:10:41.444Z"
+    },
+    {
+      "id": "bug-033",
+      "timestamp": "2026-07-15T17:13:21.946Z",
+      "error_message": "Type error",
+      "file": "components/problem-overview.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation | Also: {selected?.richDetail ? (; <ProblemRichDetail detail={selected.richDetail} />",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-15T17:13:31.796Z"
     }
   ]
 }

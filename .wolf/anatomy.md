@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-15T09:30:43.520Z
-> Files: 19 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-15T17:33:49.967Z
+> Files: 20 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
 
@@ -65,12 +65,16 @@
 ## components/
 
 - `navbar.tsx` — Top navbar: logo + "More" dropdown (NAVBAR_ACTIONS) + Open Innovation button only, all breakpoints; nav list & mobile Sheet/hamburger removed 2026-07-13 (~650 tok)
-- `problem-overview.tsx` — ProblemOverview — renders modal (~3276 tok)
+- `problem-overview.tsx` — ProblemOverview: "Explore the Challenges" card grid + detail modal. Right panel branches on the item shape — `richDetail` renders <ProblemRichDetail> (components/problem/), otherwise the standard `detail` context/description lists. Cards map by array index; `?problem=<index>` links into startup-registration (~3279 tok)
 - `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~9052 tok)
 
 ## components/dashboard/
 
 - `email-table.tsx` — "Email Automation" table: search + simple pagination, per-row Send Email button with confirm Dialog, per-row status sending/sent/error via POST /api/ntt-data/[id]/send-email; status is session-only, not persisted (~2545 tok)
+
+## components/problem/
+
+- `problem-rich-detail.tsx` — Renders the long-form `richDetail` problem layout: trade cards, numbered pain points, dependency chain, 7 capability modules, label/description tables. Exports the `ProblemRichDetail` type consumed by problem-overview.tsx. Trade→colour map is WCAG-AA verified; brand #3176e4 deliberately excluded (4.34:1 on white) (~2502 tok)
 
 ## components/ui/
 
@@ -91,7 +95,7 @@
 
 - `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4154 tok)
 - `site-config.ts` — Exports SITE_URL (NEXT_PUBLIC_SITE_URL, fallback https://oiw.ntt-startupchallenge.com), SITE_NAME, SITE_DESCRIPTION — single source of truth for SEO/canonical (~208 tok)
-- `site-content.ts` — Exports SITE_CONTENT (~12497 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~20300 tok)
 
 ## lib/auth/
 

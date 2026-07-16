@@ -933,3 +933,23 @@
 | 16:30 | Edited components/startup-registration-form.tsx | 10→9 lines | ~87 |
 | 16:31 | User correction: removed phone validation entirely (no isValidPhoneNumber, no ErrorKey, raw value submitted; server normalizes) | components/startup-registration-form.tsx | tsc clean; cerebrum+buglog updated | ~3k |
 | 16:32 | Session end: 22 writes across 8 files (generate-seo-assets.js, site-config.ts, sitemap.ts, robots.ts, manifest.ts) | 15 reads | ~14260 tok |
+
+## Session: 2026-07-15 23:57
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:10 | Edited lib/site-content.ts | modified offline() | ~5988 |
+| 00:12 | Created components/problem/problem-rich-detail.tsx | — | ~2502 |
+| 00:13 | Edited components/problem-overview.tsx | 2→5 lines | ~70 |
+| 00:13 | Edited components/problem-overview.tsx | 5→6 lines | ~36 |
+| 00:13 | Edited components/problem-overview.tsx | 3→5 lines | ~69 |
+| 00:13 | Edited components/problem-overview.tsx | 2→2 lines | ~14 |
+| 00:25 | Session end: 6 writes across 3 files (site-content.ts, problem-rich-detail.tsx, problem-overview.tsx) | 4 reads | ~21007 tok |
+
+## Session: 2026-07-15 00:30
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:33 | Edited lib/site-content.ts | expanded (+35 lines) | ~1370 |
+| 00:34 | Added problemOverview item 8 "Connected Machines for Operational Efficiency and OT Security" (India automotive mfr): standard `detail` shape, 5 context paras + develop/helpsUsers(5)/solutionMust(6); APPENDED to preserve `?problem=N` deep links | lib/site-content.ts | tsc --noEmit clean | ~2k |
+| 00:35 | Session end: 1 writes across 1 files (site-content.ts) | 1 reads | ~4649 tok |
