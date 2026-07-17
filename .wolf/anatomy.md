@@ -1,13 +1,17 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-15T17:33:49.967Z
-> Files: 20 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-17T17:14:31.604Z
+> Files: 21 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
 
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d4b558a1-d9b0-410a-a76e-060cd8d0dba0/scratchpad/
 
+
+## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/f1b4550f-e6e1-4d86-aba9-c13c3f504060/scratchpad/
+
+- `verify-modals.mjs` — CHROME: getWsUrl, cdp, evalIn (~1313 tok)
 
 ## ./
 
@@ -65,7 +69,7 @@
 ## components/
 
 - `navbar.tsx` — Top navbar: logo + "More" dropdown (NAVBAR_ACTIONS) + Open Innovation button only, all breakpoints; nav list & mobile Sheet/hamburger removed 2026-07-13 (~650 tok)
-- `problem-overview.tsx` — ProblemOverview: "Explore the Challenges" card grid + detail modal. Right panel branches on the item shape — `richDetail` renders <ProblemRichDetail> (components/problem/), otherwise the standard `detail` context/description lists. Cards map by array index; `?problem=<index>` links into startup-registration (~3279 tok)
+- `problem-overview.tsx` — ProblemOverview — renders modal (~3633 tok)
 - `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~9052 tok)
 
 ## components/dashboard/
@@ -95,7 +99,7 @@
 
 - `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4154 tok)
 - `site-config.ts` — Exports SITE_URL (NEXT_PUBLIC_SITE_URL, fallback https://oiw.ntt-startupchallenge.com), SITE_NAME, SITE_DESCRIPTION — single source of truth for SEO/canonical (~208 tok)
-- `site-content.ts` — Exports SITE_CONTENT (~20300 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~22070 tok)
 
 ## lib/auth/
 

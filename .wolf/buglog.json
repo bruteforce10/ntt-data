@@ -540,6 +540,22 @@
       "related_bugs": [],
       "occurrences": 2,
       "last_seen": "2026-07-15T17:13:31.796Z"
+    },
+    {
+      "id": "bug-034",
+      "timestamp": "2026-07-17T17:08:07.621Z",
+      "error_message": "Type error",
+      "file": "lib/site-content.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-17T17:08:07.621Z"
     }
   ]
 }

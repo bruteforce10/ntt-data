@@ -15,11 +15,13 @@ interface ProblemDetailDescription {
   develop: string | readonly string[];
   tailoredTowards?: string;
   question?: string;
-  helpsUsers: readonly string[];
+  painPoints?: readonly string[];
+  helpsUsers?: readonly string[];
   priorityScope?: readonly string[];
   targetOutcomes?: readonly string[];
   dataExpected?: readonly string[];
-  solutionMust: readonly string[];
+  solutionMust?: readonly string[];
+  lookingFor?: readonly string[];
   pocApproach?: readonly string[];
   keywords?: string;
 }
@@ -184,6 +186,16 @@ export default function ProblemOverview() {
                             <p key={i}>{para}</p>
                           ))}
                         </div>
+                        {description.painPoints && (
+                          <>
+                            <p className="mb-2 italic">Main pain points:</p>
+                            <ol className="mb-4 list-decimal space-y-1 pl-5">
+                              {description.painPoints.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ol>
+                          </>
+                        )}
                         {description.tailoredTowards && (
                           <>
                             <p className="mb-2 italic">Tailored towards:</p>
@@ -197,12 +209,16 @@ export default function ProblemOverview() {
                             {description.question}
                           </p>
                         )}
-                        <p className="mb-2 italic">That helps users to:</p>
-                        <ol className="mb-4 list-decimal space-y-1 pl-5">
-                          {description.helpsUsers.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ol>
+                        {description.helpsUsers && (
+                          <>
+                            <p className="mb-2 italic">That helps users to:</p>
+                            <ol className="mb-4 list-decimal space-y-1 pl-5">
+                              {description.helpsUsers.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ol>
+                          </>
+                        )}
                         {description.priorityScope && (
                           <>
                             <p className="mb-2 italic">Priority scope:</p>
@@ -235,14 +251,30 @@ export default function ProblemOverview() {
                             </ol>
                           </>
                         )}
-                        <p className="mb-2 italic">
-                          The solution must be able to:
-                        </p>
-                        <ol className="list-decimal space-y-1 pl-5">
-                          {description.solutionMust.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ol>
+                        {description.solutionMust && (
+                          <>
+                            <p className="mb-2 italic">
+                              The solution must be able to:
+                            </p>
+                            <ol className="list-decimal space-y-1 pl-5">
+                              {description.solutionMust.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ol>
+                          </>
+                        )}
+                        {description.lookingFor && (
+                          <>
+                            <p className="mb-2 mt-4 italic">
+                              What we are looking for:
+                            </p>
+                            <ol className="list-decimal space-y-1 pl-5">
+                              {description.lookingFor.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ol>
+                          </>
+                        )}
                         {description.pocApproach && (
                           <>
                             <p className="mb-2 mt-4 italic">

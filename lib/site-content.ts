@@ -465,298 +465,298 @@ export const SITE_CONTENT = {
         },
         href: "#problem-statements",
       },
-      // {
-      //   logoLabel: "A global infrastructure and engineering services provider",
-      //   title:
-      //     "Unified Orchestration for Multi-Trade Data Centre Delivery and Lifecycle Operations",
-      //   description:
-      //     "Three licensed trades — liquid cooling, low voltage cabling, and in-rack nodes — build the same hyperscale data centre with no orchestration layer above them. Sequencing, workforce, assets, and quality are coordinated through site meetings and supervisor memory, and the project record fractures at the Day 1 to Day 2 handover.",
-      //   richDetail: {
-      //     trades: {
-      //       heading: "Three trades with one delivery motion",
-      //       intro:
-      //         "Fusion Engineering brings together three distinct, licensed, and separately certified trade disciplines to deliver a hyperscale liquid-cooled data centre: mechanical/HVAC engineers who install and commission the liquid cooling loop, BICSI-certified technicians who run and certify low-voltage cabling, and data centre technicians who rack, stack, and burn in the compute nodes themselves.",
-      //       cards: [
-      //         {
-      //           trade: "cooling",
-      //           title: "Liquid Cooling",
-      //           subtitle:
-      //             "Mechanical/HVAC · CDU · piping · pressure & leak testing",
-      //         },
-      //         {
-      //           trade: "cabling",
-      //           title: "Low Voltage Cabling",
-      //           subtitle:
-      //             "BICSI-certified · copper/fibre · pathway · OTDR/Fluke certification",
-      //         },
-      //         {
-      //           trade: "nodes",
-      //           title: "In-Rack Nodes & Switches",
-      //           subtitle:
-      //             "Rack & stack · GPU/compute install · firmware · burn-in QA",
-      //         },
-      //       ],
-      //       body: [
-      //         "Each of these trades is deep, specialised, and already well understood on its own terms. What is not solved in the industry, is the layer that sits above them: the coordination of sequencing, documentation, quality, and workforce across all three, on the same floor, in the same rack, on the same timeline. Today that coordination happens through site meetings, WhatsApp groups, and a project manager holding the whole picture in their head.",
-      //         "The same gap repeats on Day 2. Fusion Engineering already defines a lifecycle support structure CDU service contracts, cable recertification, OEM break-fix running in parallel across the same three trades. But Day 1 as-built records and Day 2 service records live in entirely separate systems, so the lifecycle team inherits a facility they were not present to build, with no continuous record connecting install to operation.",
-      //       ],
-      //       callout: {
-      //         title: "The Orchestration Layer",
-      //         text: "One project record. One sequencing engine. One QA standard. Across all three trades, Day 1 through Day 2.",
-      //       },
-      //     },
-      //     broken: {
-      //       heading: "What is broken today",
-      //       intro:
-      //         "The following pain points are active and recurring across the company's Fusion Engineering project delivery:",
-      //       items: [
-      //         {
-      //           title: "No cross-trade sequencing engine",
-      //           description:
-      //             "Liquid cooling, cabling, and node install teams work in the same physical space with hard dependencies between them. cooling loop pressure testing must clear before cabling proceeds, cabling certification must clear before node burn-in but these dependencies are tracked informally, through site meetings and supervisor memory, not through any system that can block, gate, or flag out-of-sequence work.",
-      //         },
-      //         {
-      //           title: "No unified project command view across trades",
-      //           description:
-      //             "Each trade effectively runs its own project tracking. mechanical uses commissioning checklists, cabling uses cut sheets and certification logs, node teams use asset and firmware trackers. There is no single view that shows a project manager the real-time status of all three trades, in all data halls, on one screen.",
-      //         },
-      //         {
-      //           title:
-      //             "Workforce attendance with no verifiable evidence, across three separately-badged crews",
-      //           description:
-      //             "Attendance is recorded manually and separately per trade. often per subcontractor. There is no unified, verifiable record of who from which trade was on site, when, and for how long. The solution must function offline and combine biometric verification with photographic evidence against a known staff register, across all three crews.",
-      //         },
-      //         {
-      //           title:
-      //             "Equipment and materials with no location intelligence, across three overlapping toolsets",
-      //           description:
-      //             "Pipefitting tools, cable test equipment, and rack integration hardware move independently around the same data halls, often staged by different crews with no shared visibility. BLE tracking has not been applied across a multi-trade site.",
-      //         },
-      //         {
-      //           title:
-      //             "Quality issues caught too late, and only within a single trade's own inspection",
-      //           description:
-      //             "Each trade inspects its own work. commissioning agents check cooling, QA/network leads check cabling, burn-in engineers check nodes but nothing checks the interfaces between trades (e.g., a cable pathway routed too close to a cooling manifold, a rack placement that blocks CDU service access). There is no systematic, always-on visual check that spans trade boundaries.",
-      //         },
-      //         {
-      //           title:
-      //             "Documentation that fractures at the Day 1 to Day 2 handover",
-      //           description:
-      //             "As-built records, commissioning reports, cable certification data, and asset registers are generated by three different Day 1 teams in three different formats. When the project transitions to Day 2 managed lifecycle support, the incoming service team inherits a facility with no continuous, query-able project record connecting what was built to what must now be maintained.",
-      //         },
-      //       ],
-      //     },
-      //     solve: {
-      //       heading: "What we want to solve",
-      //       paragraphs: [
-      //         "Fusion Engineering already has three highly capable trade teams and a defined Day 1 / Day 2 lifecycle structure. What it does not have is the software layer that sits above all of it to coordinate sequencing, workforce, assets, quality, and documentation as one continuous product rather than three parallel disciplines.",
-      //       ],
-      //       question:
-      //         "How might we build a single orchestration platform that sits above liquid cooling, low voltage cabling, and in-rack node delivery. sequencing cross-trade dependencies, verifying workforce and assets across all three crews, applying AI-powered visual QA across every trade's defect categories, and carrying one continuous project record from Day 1 deployment through Day 2 managed lifecycle so that Fusion Engineering delivers as one coordinated product, not three coordinated trades?",
-      //       note: "The platform must treat the project as the fundamental unit of organisation. A project manager, a client, or a Day 2 lifecycle engineer should be able to pull one continuous record per project ID, spanning every trade and every phase, from mobilisation to ongoing service.",
-      //     },
-      //     dependencyChain: {
-      //       heading: "The dependency chain the platform must understand",
-      //       intro:
-      //         "This is illustrative of the kind of cross-trade sequence the orchestration layer needs to model, gate, and flag deviations from not a fixed workflow every project must follow verbatim.",
-      //       steps: [
-      //         {
-      //           trade: "nodes",
-      //           label: "Rack Placement",
-      //           description:
-      //             "In-rack nodes team confirms rack position and floor readiness",
-      //         },
-      //         {
-      //           trade: "cooling",
-      //           label: "Cooling Loop Prep",
-      //           description:
-      //             "Liquid cooling team runs piping, pressure-tests before any adjacent trade proceeds",
-      //         },
-      //         {
-      //           trade: "cabling",
-      //           label: "Cabling & Pathway",
-      //           description:
-      //             "Low voltage team runs and certifies cable pathways once cooling infrastructure is verified clear",
-      //         },
-      //         {
-      //           trade: "cooling",
-      //           label: "CDU Commissioning",
-      //           description:
-      //             "Liquid cooling team commissions CDU; leak/flow verification gates node power-on",
-      //         },
-      //         {
-      //           trade: "nodes",
-      //           label: "Node Install & Burn-In",
-      //           description:
-      //             "In-rack team installs and burns in compute; final cross-trade sign-off closes the sequence",
-      //         },
-      //       ],
-      //     },
-      //     capabilities: {
-      //       heading: "The seven capability areas we want to address",
-      //       intro:
-      //         "We are seeking a solution that addresses all seven modules within one coherent, integrated platform. Solutions that address fewer modules with exceptional depth will also be considered, provided the architecture is explicitly designed to extend to the rest.",
-      //       modules: [
-      //         {
-      //           title: "Cross-Trade Sequencing & Handoff Orchestration",
-      //           bullets: [
-      //             "Configurable dependency model: define which trade's task must clear (and to what verification standard) before another trade's task can begin",
-      //             "Automated gating: a downstream task cannot be marked ready-to-start until its upstream dependency is verified complete in the system, not just verbally confirmed",
-      //             "Real-time conflict and collision flagging: two trades scheduled in the same rack or hall zone at a conflicting time, or a trade proceeding out of sequence",
-      //             "Cross-trade interface QA: checkpoints specifically for the physical interfaces between trades (e.g., cable pathway clearance from cooling manifolds, rack access clearance for CDU service)",
-      //             "Escalation routing: sequencing conflicts flagged to the relevant trade leads and the overall project manager simultaneously",
-      //           ],
-      //         },
-      //         {
-      //           title: "Project Management & Single Pane of Glass",
-      //           bullets: [
-      //             "Project-based data structure: every record, asset, person, defect, and document linked to a project ID and a trade",
-      //             "Multi-data-hall, multi-country and multi-trade support: hall-level and trade-level views rolling up into one project-level dashboard",
-      //             "Real-time status across all three trades simultaneously: task completion, workforce presence, QA status, flagged defects, sequencing conflicts, documentation completeness",
-      //             "Portfolio view for the company and Fusion Engineering team across all active projects",
-      //             "Role-based access: project manager, trade lead (mechanical/cabling/rack), QA lead, client view",
-      //             "Offline-first with background sync when connectivity is restored",
-      //           ],
-      //         },
-      //         {
-      //           title: "Workforce Verification & Evidenced Timesheets",
-      //           bullets: [
-      //             "Fingerprint-based time-in / time-out verification linked to project ID, hall, and trade assignment",
-      //             "Photo capture (depth sensing) at check-in matched against a registered ground staff photo register per trade crew",
-      //             "Offline biometric processing, no cloud dependency for core attendance function",
-      //             "Structured timesheet output per engineer, per trade, per day: project ID, hall, task code, hours, biometric confirmation status",
-      //             "Exportable, trade-segmented billing evidence package per invoice period",
-      //             "Subcontractor, temp staff vs direct staff distinction, separately trackable by trade",
-      //           ],
-      //         },
-      //         {
-      //           title:
-      //             "Equipment & Materials Asset Tracking (BLE or alternative technology)",
-      //           bullets: [
-      //             "BLE beacon tagging of physical assets across all three trades: pipefitting and pressure-test tools, cable drums and test equipment, rack integration hardware",
-      //             "Indoor location tracking within data hall with zone-level accuracy, trade-tagged so overlapping equipment from different crews is distinguishable",
-      //             "Shared asset register per project: what is on site, where it currently is, which trade last interacted with it",
-      //             "Cross-hall and cross-trade visibility: asset last seen with the cooling crew in Hall A, currently staged with the cabling crew in Hall B",
-      //             "Check-out / check-in workflow for controlled equipment shared or borrowed across trades",
-      //             "Offline BLE scanning with local persistence, no network required for core tracking",
-      //           ],
-      //         },
-      //         {
-      //           title: "Cable Patching Validation & Cut Sheet Management",
-      //           bullets: [
-      //             "Digital cut sheet import and management. Excel migration path required, not replacement from scratch",
-      //             "Guided patching workflow with source/destination port and cable type confirmation before task closes",
-      //             "Barcode or QR-code scanning of patch panel ports to confirm correct physical connection",
-      //             "Patching tasks gated by the sequencing engine against cooling loop and rack placement dependencies",
-      //             "Multi-data-hall patching with cross-hall dependency tracking",
-      //             "Submission-ready, certified patching record for client documentation",
-      //             "Documentation with translation capability for multiple foreign languages",
-      //           ],
-      //         },
-      //         {
-      //           title:
-      //             "AI Visual QA/QC: Photo-Based Defect Detection Across All Three Trades",
-      //           subtitle:
-      //             "Point-of-installation image recognition that flags issues before sign-off — not limited to cabling",
-      //           bullets: [
-      //             "Structured photo capture built into the installation workflow for all three trades, not cabling alone: terminations, cooling fittings, rack/node placement",
-      //             "Real-time, on-device image analysis flagging likely defects immediately, before the engineer moves to the next task",
-      //             "Defect confidence scoring with low-confidence flags routed to human review rather than blocking work outright",
-      //             "Trade-specific defect taxonomies, extensible as new trades or task types are added to the platform",
-      //             "Cross-trade interface checks (e.g., cable routing proximity to cooling components) as a distinct detection category, not just single-trade defects",
-      //             "Edge/on-device inference given offline job site conditions",
-      //             "Defect lifecycle integrated with QA workflow: flagged > assigned > re-checked > closed, full audit trail",
-      //             "False-positive feedback loop feeding back into model performance over time",
-      //           ],
-      //           table: {
-      //             caption:
-      //               "Defect taxonomy, extended across all three Fusion Engineering trades:",
-      //             rows: [
-      //               {
-      //                 label: "Low voltage cabling",
-      //                 description:
-      //                   "Improper crimping, exposed conductors, bend radius violations, missing/incorrect labelling, incorrect port-to-slot mapping",
-      //               },
-      //               {
-      //                 label: "Liquid cooling",
-      //                 description:
-      //                   "Fitting misalignment, missing safety wire/lock, condensation or residue indicating a slow leak, incorrect manifold torque",
-      //               },
-      //               {
-      //                 label: "In-rack nodes & switches",
-      //                 description:
-      //                   "Incorrect rack unit placement, blocked airflow/cable clearance, unseated GPU/compute modules, mislabelled asset tags",
-      //               },
-      //             ],
-      //           },
-      //         },
-      //         {
-      //           title: "Documentation Continuity: Day 1 to Day 2 Lifecycle",
-      //           bullets: [
-      //             "All Day 1 records — commissioning reports, cable certification data, asset registers, QA logs, sequencing history — linked to project ID and queryable from a single interface",
-      //             "Day 2 lifecycle events (PM visits, break-fix, MACs, recertification, coolant servicing) logged against the same project ID and the same as-built record, not a separate system",
-      //             "Automated handover package assembly at Day 1 close-out: a complete, structured record the Day 2 team inherits rather than rediscovers",
-      //             "Version control and change history across the full project lifecycle — as-built updates from Day 2 MACs feed back into the same living record",
-      //             "Client-facing project portal spanning both deployment status and ongoing lifecycle status",
-      //           ],
-      //         },
-      //       ],
-      //     },
-      //     requirements: {
-      //       heading: "Some technical requirements",
-      //       intro:
-      //         "Any proposed solution must satisfy the following constraints to be viable for Fusion Engineering's operating environment:",
-      //       rows: [
-      //         {
-      //           label: "Offline-first architecture",
-      //           description:
-      //             "All modules including AI image analysis and cross-trade sequencing logic must deliver their core function without expectation of internet connectivity. DC sites operate under strict network access controls.",
-      //         },
-      //         {
-      //           label: "Project-based, trade-tagged data model",
-      //           description:
-      //             "The project ID is the master key; every record must also carry a trade tag so cross-trade and single-trade views are both possible from the same data.",
-      //         },
-      //         {
-      //           label: "Multi-hall, multi-trade support",
-      //           description:
-      //             "The platform must support multiple data halls and all three trades within a single project, with hall- and trade-level granularity rolling up to one project-level view.",
-      //         },
-      //         {
-      //           label: "Configurable sequencing logic",
-      //           description:
-      //             "Cross-trade dependencies must be configurable per project, not hardcoded. As different sites and rack configurations will require different sequencing rules.",
-      //         },
-      //         {
-      //           label: "BLE indoor tracking",
-      //           description:
-      //             "Deployable without facility network modification. Zone-level accuracy is the minimum requirement, with trade-level asset tagging.",
-      //         },
-      //         {
-      //           label: "Biometric + photo attendance",
-      //           description:
-      //             "Both fingerprint verification and photographic evidence against a registered staff photo database are required, across all three trade crews.",
-      //         },
-      //         {
-      //           label: "Excel migration path",
-      //           description:
-      //             "The solution must accept existing Excel cut sheets, commissioning checklists, and asset registers as input, not require re-entry from scratch.",
-      //         },
-      //         {
-      //           label: "Edge-capable AI inference",
-      //           description:
-      //             "Visual defect detection must run, or degrade gracefully, without live cloud connectivity, across all trade-specific defect categories.",
-      //         },
-      //         {
-      //           label: "Day 1–to–Day 2 continuity",
-      //           description:
-      //             "The data model must not treat deployment and lifecycle management as separate systems; one project record must span both phases.",
-      //         },
-      //       ],
-      //     },
-      //   },
-      //   href: "#problem-statements",
-      // },
+      {
+        logoLabel: "A global infrastructure and engineering services provider",
+        title:
+          "Unified Orchestration for Multi-Trade Data Centre Delivery and Lifecycle Operations",
+        description:
+          "Three licensed trades — liquid cooling, low voltage cabling, and in-rack nodes — build the same hyperscale data centre with no orchestration layer above them. Sequencing, workforce, assets, and quality are coordinated through site meetings and supervisor memory, and the project record fractures at the Day 1 to Day 2 handover.",
+        richDetail: {
+          trades: {
+            heading: "Three trades with one delivery motion",
+            intro:
+              "Fusion Engineering brings together three distinct, licensed, and separately certified trade disciplines to deliver a hyperscale liquid-cooled data centre: mechanical/HVAC engineers who install and commission the liquid cooling loop, BICSI-certified technicians who run and certify low-voltage cabling, and data centre technicians who rack, stack, and burn in the compute nodes themselves.",
+            cards: [
+              {
+                trade: "cooling",
+                title: "Liquid Cooling",
+                subtitle:
+                  "Mechanical/HVAC · CDU · piping · pressure & leak testing",
+              },
+              {
+                trade: "cabling",
+                title: "Low Voltage Cabling",
+                subtitle:
+                  "BICSI-certified · copper/fibre · pathway · OTDR/Fluke certification",
+              },
+              {
+                trade: "nodes",
+                title: "In-Rack Nodes & Switches",
+                subtitle:
+                  "Rack & stack · GPU/compute install · firmware · burn-in QA",
+              },
+            ],
+            body: [
+              "Each of these trades is deep, specialised, and already well understood on its own terms. What is not solved in the industry, is the layer that sits above them: the coordination of sequencing, documentation, quality, and workforce across all three, on the same floor, in the same rack, on the same timeline. Today that coordination happens through site meetings, WhatsApp groups, and a project manager holding the whole picture in their head.",
+              "The same gap repeats on Day 2. Fusion Engineering already defines a lifecycle support structure CDU service contracts, cable recertification, OEM break-fix running in parallel across the same three trades. But Day 1 as-built records and Day 2 service records live in entirely separate systems, so the lifecycle team inherits a facility they were not present to build, with no continuous record connecting install to operation.",
+            ],
+            callout: {
+              title: "The Orchestration Layer",
+              text: "One project record. One sequencing engine. One QA standard. Across all three trades, Day 1 through Day 2.",
+            },
+          },
+          broken: {
+            heading: "What is broken today",
+            intro:
+              "The following pain points are active and recurring across the company's Fusion Engineering project delivery:",
+            items: [
+              {
+                title: "No cross-trade sequencing engine",
+                description:
+                  "Liquid cooling, cabling, and node install teams work in the same physical space with hard dependencies between them. cooling loop pressure testing must clear before cabling proceeds, cabling certification must clear before node burn-in but these dependencies are tracked informally, through site meetings and supervisor memory, not through any system that can block, gate, or flag out-of-sequence work.",
+              },
+              {
+                title: "No unified project command view across trades",
+                description:
+                  "Each trade effectively runs its own project tracking. mechanical uses commissioning checklists, cabling uses cut sheets and certification logs, node teams use asset and firmware trackers. There is no single view that shows a project manager the real-time status of all three trades, in all data halls, on one screen.",
+              },
+              {
+                title:
+                  "Workforce attendance with no verifiable evidence, across three separately-badged crews",
+                description:
+                  "Attendance is recorded manually and separately per trade. often per subcontractor. There is no unified, verifiable record of who from which trade was on site, when, and for how long. The solution must function offline and combine biometric verification with photographic evidence against a known staff register, across all three crews.",
+              },
+              {
+                title:
+                  "Equipment and materials with no location intelligence, across three overlapping toolsets",
+                description:
+                  "Pipefitting tools, cable test equipment, and rack integration hardware move independently around the same data halls, often staged by different crews with no shared visibility. BLE tracking has not been applied across a multi-trade site.",
+              },
+              {
+                title:
+                  "Quality issues caught too late, and only within a single trade's own inspection",
+                description:
+                  "Each trade inspects its own work. commissioning agents check cooling, QA/network leads check cabling, burn-in engineers check nodes but nothing checks the interfaces between trades (e.g., a cable pathway routed too close to a cooling manifold, a rack placement that blocks CDU service access). There is no systematic, always-on visual check that spans trade boundaries.",
+              },
+              {
+                title:
+                  "Documentation that fractures at the Day 1 to Day 2 handover",
+                description:
+                  "As-built records, commissioning reports, cable certification data, and asset registers are generated by three different Day 1 teams in three different formats. When the project transitions to Day 2 managed lifecycle support, the incoming service team inherits a facility with no continuous, query-able project record connecting what was built to what must now be maintained.",
+              },
+            ],
+          },
+          solve: {
+            heading: "What we want to solve",
+            paragraphs: [
+              "Fusion Engineering already has three highly capable trade teams and a defined Day 1 / Day 2 lifecycle structure. What it does not have is the software layer that sits above all of it to coordinate sequencing, workforce, assets, quality, and documentation as one continuous product rather than three parallel disciplines.",
+            ],
+            question:
+              "How might we build a single orchestration platform that sits above liquid cooling, low voltage cabling, and in-rack node delivery. sequencing cross-trade dependencies, verifying workforce and assets across all three crews, applying AI-powered visual QA across every trade's defect categories, and carrying one continuous project record from Day 1 deployment through Day 2 managed lifecycle so that Fusion Engineering delivers as one coordinated product, not three coordinated trades?",
+            note: "The platform must treat the project as the fundamental unit of organisation. A project manager, a client, or a Day 2 lifecycle engineer should be able to pull one continuous record per project ID, spanning every trade and every phase, from mobilisation to ongoing service.",
+          },
+          dependencyChain: {
+            heading: "The dependency chain the platform must understand",
+            intro:
+              "This is illustrative of the kind of cross-trade sequence the orchestration layer needs to model, gate, and flag deviations from not a fixed workflow every project must follow verbatim.",
+            steps: [
+              {
+                trade: "nodes",
+                label: "Rack Placement",
+                description:
+                  "In-rack nodes team confirms rack position and floor readiness",
+              },
+              {
+                trade: "cooling",
+                label: "Cooling Loop Prep",
+                description:
+                  "Liquid cooling team runs piping, pressure-tests before any adjacent trade proceeds",
+              },
+              {
+                trade: "cabling",
+                label: "Cabling & Pathway",
+                description:
+                  "Low voltage team runs and certifies cable pathways once cooling infrastructure is verified clear",
+              },
+              {
+                trade: "cooling",
+                label: "CDU Commissioning",
+                description:
+                  "Liquid cooling team commissions CDU; leak/flow verification gates node power-on",
+              },
+              {
+                trade: "nodes",
+                label: "Node Install & Burn-In",
+                description:
+                  "In-rack team installs and burns in compute; final cross-trade sign-off closes the sequence",
+              },
+            ],
+          },
+          capabilities: {
+            heading: "The seven capability areas we want to address",
+            intro:
+              "We are seeking a solution that addresses all seven modules within one coherent, integrated platform. Solutions that address fewer modules with exceptional depth will also be considered, provided the architecture is explicitly designed to extend to the rest.",
+            modules: [
+              {
+                title: "Cross-Trade Sequencing & Handoff Orchestration",
+                bullets: [
+                  "Configurable dependency model: define which trade's task must clear (and to what verification standard) before another trade's task can begin",
+                  "Automated gating: a downstream task cannot be marked ready-to-start until its upstream dependency is verified complete in the system, not just verbally confirmed",
+                  "Real-time conflict and collision flagging: two trades scheduled in the same rack or hall zone at a conflicting time, or a trade proceeding out of sequence",
+                  "Cross-trade interface QA: checkpoints specifically for the physical interfaces between trades (e.g., cable pathway clearance from cooling manifolds, rack access clearance for CDU service)",
+                  "Escalation routing: sequencing conflicts flagged to the relevant trade leads and the overall project manager simultaneously",
+                ],
+              },
+              {
+                title: "Project Management & Single Pane of Glass",
+                bullets: [
+                  "Project-based data structure: every record, asset, person, defect, and document linked to a project ID and a trade",
+                  "Multi-data-hall, multi-country and multi-trade support: hall-level and trade-level views rolling up into one project-level dashboard",
+                  "Real-time status across all three trades simultaneously: task completion, workforce presence, QA status, flagged defects, sequencing conflicts, documentation completeness",
+                  "Portfolio view for the company and Fusion Engineering team across all active projects",
+                  "Role-based access: project manager, trade lead (mechanical/cabling/rack), QA lead, client view",
+                  "Offline-first with background sync when connectivity is restored",
+                ],
+              },
+              {
+                title: "Workforce Verification & Evidenced Timesheets",
+                bullets: [
+                  "Fingerprint-based time-in / time-out verification linked to project ID, hall, and trade assignment",
+                  "Photo capture (depth sensing) at check-in matched against a registered ground staff photo register per trade crew",
+                  "Offline biometric processing, no cloud dependency for core attendance function",
+                  "Structured timesheet output per engineer, per trade, per day: project ID, hall, task code, hours, biometric confirmation status",
+                  "Exportable, trade-segmented billing evidence package per invoice period",
+                  "Subcontractor, temp staff vs direct staff distinction, separately trackable by trade",
+                ],
+              },
+              {
+                title:
+                  "Equipment & Materials Asset Tracking (BLE or alternative technology)",
+                bullets: [
+                  "BLE beacon tagging of physical assets across all three trades: pipefitting and pressure-test tools, cable drums and test equipment, rack integration hardware",
+                  "Indoor location tracking within data hall with zone-level accuracy, trade-tagged so overlapping equipment from different crews is distinguishable",
+                  "Shared asset register per project: what is on site, where it currently is, which trade last interacted with it",
+                  "Cross-hall and cross-trade visibility: asset last seen with the cooling crew in Hall A, currently staged with the cabling crew in Hall B",
+                  "Check-out / check-in workflow for controlled equipment shared or borrowed across trades",
+                  "Offline BLE scanning with local persistence, no network required for core tracking",
+                ],
+              },
+              {
+                title: "Cable Patching Validation & Cut Sheet Management",
+                bullets: [
+                  "Digital cut sheet import and management. Excel migration path required, not replacement from scratch",
+                  "Guided patching workflow with source/destination port and cable type confirmation before task closes",
+                  "Barcode or QR-code scanning of patch panel ports to confirm correct physical connection",
+                  "Patching tasks gated by the sequencing engine against cooling loop and rack placement dependencies",
+                  "Multi-data-hall patching with cross-hall dependency tracking",
+                  "Submission-ready, certified patching record for client documentation",
+                  "Documentation with translation capability for multiple foreign languages",
+                ],
+              },
+              {
+                title:
+                  "AI Visual QA/QC: Photo-Based Defect Detection Across All Three Trades",
+                subtitle:
+                  "Point-of-installation image recognition that flags issues before sign-off — not limited to cabling",
+                bullets: [
+                  "Structured photo capture built into the installation workflow for all three trades, not cabling alone: terminations, cooling fittings, rack/node placement",
+                  "Real-time, on-device image analysis flagging likely defects immediately, before the engineer moves to the next task",
+                  "Defect confidence scoring with low-confidence flags routed to human review rather than blocking work outright",
+                  "Trade-specific defect taxonomies, extensible as new trades or task types are added to the platform",
+                  "Cross-trade interface checks (e.g., cable routing proximity to cooling components) as a distinct detection category, not just single-trade defects",
+                  "Edge/on-device inference given offline job site conditions",
+                  "Defect lifecycle integrated with QA workflow: flagged > assigned > re-checked > closed, full audit trail",
+                  "False-positive feedback loop feeding back into model performance over time",
+                ],
+                table: {
+                  caption:
+                    "Defect taxonomy, extended across all three Fusion Engineering trades:",
+                  rows: [
+                    {
+                      label: "Low voltage cabling",
+                      description:
+                        "Improper crimping, exposed conductors, bend radius violations, missing/incorrect labelling, incorrect port-to-slot mapping",
+                    },
+                    {
+                      label: "Liquid cooling",
+                      description:
+                        "Fitting misalignment, missing safety wire/lock, condensation or residue indicating a slow leak, incorrect manifold torque",
+                    },
+                    {
+                      label: "In-rack nodes & switches",
+                      description:
+                        "Incorrect rack unit placement, blocked airflow/cable clearance, unseated GPU/compute modules, mislabelled asset tags",
+                    },
+                  ],
+                },
+              },
+              {
+                title: "Documentation Continuity: Day 1 to Day 2 Lifecycle",
+                bullets: [
+                  "All Day 1 records — commissioning reports, cable certification data, asset registers, QA logs, sequencing history — linked to project ID and queryable from a single interface",
+                  "Day 2 lifecycle events (PM visits, break-fix, MACs, recertification, coolant servicing) logged against the same project ID and the same as-built record, not a separate system",
+                  "Automated handover package assembly at Day 1 close-out: a complete, structured record the Day 2 team inherits rather than rediscovers",
+                  "Version control and change history across the full project lifecycle — as-built updates from Day 2 MACs feed back into the same living record",
+                  "Client-facing project portal spanning both deployment status and ongoing lifecycle status",
+                ],
+              },
+            ],
+          },
+          requirements: {
+            heading: "Some technical requirements",
+            intro:
+              "Any proposed solution must satisfy the following constraints to be viable for Fusion Engineering's operating environment:",
+            rows: [
+              {
+                label: "Offline-first architecture",
+                description:
+                  "All modules including AI image analysis and cross-trade sequencing logic must deliver their core function without expectation of internet connectivity. DC sites operate under strict network access controls.",
+              },
+              {
+                label: "Project-based, trade-tagged data model",
+                description:
+                  "The project ID is the master key; every record must also carry a trade tag so cross-trade and single-trade views are both possible from the same data.",
+              },
+              {
+                label: "Multi-hall, multi-trade support",
+                description:
+                  "The platform must support multiple data halls and all three trades within a single project, with hall- and trade-level granularity rolling up to one project-level view.",
+              },
+              {
+                label: "Configurable sequencing logic",
+                description:
+                  "Cross-trade dependencies must be configurable per project, not hardcoded. As different sites and rack configurations will require different sequencing rules.",
+              },
+              {
+                label: "BLE indoor tracking",
+                description:
+                  "Deployable without facility network modification. Zone-level accuracy is the minimum requirement, with trade-level asset tagging.",
+              },
+              {
+                label: "Biometric + photo attendance",
+                description:
+                  "Both fingerprint verification and photographic evidence against a registered staff photo database are required, across all three trade crews.",
+              },
+              {
+                label: "Excel migration path",
+                description:
+                  "The solution must accept existing Excel cut sheets, commissioning checklists, and asset registers as input, not require re-entry from scratch.",
+              },
+              {
+                label: "Edge-capable AI inference",
+                description:
+                  "Visual defect detection must run, or degrade gracefully, without live cloud connectivity, across all trade-specific defect categories.",
+              },
+              {
+                label: "Day 1–to–Day 2 continuity",
+                description:
+                  "The data model must not treat deployment and lifecycle management as separate systems; one project record must span both phases.",
+              },
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
       {
         logoLabel: "A leading India-based automotive manufacturer",
         title: "Connected Machines for Operational Efficiency and OT Security",
@@ -787,6 +787,77 @@ export const SITE_CONTENT = {
               "Maintain OT asset and security visibility, including device identity, communication patterns, vulnerabilities and abnormal behaviour.",
               "Embed OT security and governance controls, including network segmentation, role-based access, authentication, encryption, audit trails and safe monitoring practices.",
               "Integrate and scale across plants and suppliers through existing OT/IT platforms, modular deployment options and a repeatable pilot-to-rollout approach.",
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
+      {
+        logoLabel: "A leading Southeast Asian telecommunications and digital services provider",
+        title: "AI-Powered Autonomous Telco Assurance and Operations",
+        description:
+          "Operational workflows and insights are fragmented across network-monitoring, incident-management, field-service, service-desk, customer-care, billing, and CRM systems, limiting end-to-end visibility and slowing fault and congestion detection. The opportunity is a vendor-agnostic AI agent layer that orchestrates semi-autonomous assurance and operations across the existing technology estate, keeping critical or high-impact actions under human review.",
+        detail: {
+          context: [
+            "The company operates extensive fixed broadband and mobile networks supported by multiple network-monitoring, incident-management, field-service, service-desk, customer-care, billing, CRM, and operational-data environments.",
+            "Today, operational workflows and insights are fragmented across these systems and teams. This limits end-to-end visibility, slows fault and congestion detection, creates manual ticket triage and hand-offs, and makes it harder to coordinate field response and customer communications during service-impacting events.",
+            "The company is seeking to improve network reliability, service quality, customer support, and operational efficiency without replacing its existing technology estate. The opportunity is to introduce a vendor-agnostic AI agent layer that can integrate with current tools and orchestrate work across network operations, service management, field teams, and customer care.",
+            "The target state is a cost-effective, semi-autonomous operating model in which AI predicts and prioritizes issues, coordinates routine actions, and proactively informs customers, while critical or high-impact actions remain subject to human review and approval.",
+          ],
+          description: {
+            develop:
+              "A vendor-agnostic AI agent platform that integrates with existing network-management, service-desk, CRM, billing, field-service, and operational-data environments to enable cost-effective, semi-autonomous telco assurance and operations.",
+            helpsUsers: [
+              "Detect and predict fixed and mobile network faults, service degradation, and congestion earlier.",
+              "Prioritize incidents, tickets, and field-team activities based on service impact, urgency, and operational context.",
+              "Coordinate work across network operations, incident management, field service, customer care, and billing support with fewer manual hand-offs.",
+              "Provide proactive, accurate customer notifications and support agents with relevant service-impact information.",
+              "Improve network reliability, customer experience, resolution speed, and operational cost efficiency while retaining human oversight.",
+            ],
+            solutionMust: [
+              "Integrate with heterogeneous and existing network-management tools, service desks, CRM systems, billing platforms, field-service applications, and operational data sources through configurable connectors or APIs.",
+              "Correlate network, incident, customer, and operational signals to support predictive fault detection, congestion analysis, and service-quality monitoring.",
+              "Automate ticket classification, enrichment, prioritization, routing, and recommended next actions across support and operations teams.",
+              "Orchestrate semi-autonomous workflows for predictive maintenance, outage response, field-service dispatch, customer-care automation, and billing-query handling.",
+              "Provide end-to-end observability, action traceability, audit logs, governance controls, and clear escalation paths.",
+              "Apply confidence thresholds and human approval gates before critical, high-risk, or service-impacting actions are executed.",
+              "Operate across both fixed broadband and mobile environments without creating dependency on a single network equipment or software vendor.",
+              "Support a practical pilot with measurable operational and customer-service outcomes and a clear path to scale.",
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
+      {
+        logoLabel: "A Fortune 500 global pharmaceutical and healthcare company",
+        title:
+          "Real-Time Predictive Quality and Multivariate Batch Release for GxP Pharmaceutical Manufacturing",
+        description:
+          "Pharmaceutical batch release still depends on end-of-line laboratory testing that adds days of delay and ties up working capital, while high-frequency process, sensor, and PAT data streams stay underused for real-time quality decisions. The opportunity is to apply machine learning and multivariate analytics to predict Critical Quality Attributes during production, within a validated, explainable, GxP-compliant environment.",
+        detail: {
+          context: [
+            "Pharmaceutical batch release today relies heavily on end-of-line laboratory testing. Samples are pulled only after a batch has been produced and sent to quality control labs, where results can take several days. A batch cannot be released until every test passes, which delays supply, ties up working capital in held inventory, and means quality problems are discovered only after the batch has already been manufactured.",
+            "At the same time, modern manufacturing lines generate large volumes of high-frequency process and sensor data. Hundreds of interacting Critical Process Parameters (CPPs), raw material attributes, environmental conditions, and Process Analytical Technology (PAT) spectra are captured continuously, yet remain largely underused for real-time quality decisions.",
+            "Regulators such as the FDA and EMA actively encourage a shift toward Quality-by-Design and Real-Time Release Testing (RTRT), where quality is assured continuously during production rather than confirmed afterwards. The opportunity is to apply machine learning and multivariate analytics to predict final product quality while a batch is still being made. Any solution, however, must operate within a strictly regulated GxP environment and satisfy validation, data integrity, explainability, and human-oversight requirements that most off-the-shelf tools do not address.",
+          ],
+          description: {
+            develop:
+              "A solution that ingests multivariate, time-series manufacturing data across hundreds of interacting parameters and predicts Critical Quality Attributes (CQAs), such as potency, dissolution rate, tablet hardness, content uniformity, and moisture, in real time, flagging likely deviations before a batch is completed and supporting faster, evidence-based release decisions.",
+            painPoints: [
+              "Slow release cycles: end-of-line laboratory testing adds days of delay and held inventory before a batch can ship.",
+              "Late defect detection: quality issues surface only after production, driving scrap, rework, deviations, and lengthy investigations.",
+              "Underused data: rich Critical Process Parameter, material, environmental, and Process Analytical Technology (NIR and Raman) data streams are not converted into real-time quality insight.",
+              "Deployment under regulation: introducing machine learning into a GxP setting is difficult given 21 CFR Part 11, computer system validation (CSV), data integrity, and model-explainability expectations.",
+            ],
+            targetOutcomes: [
+              "Real-time prediction of CQAs from in-process data, enabling Real-Time Release Testing and shorter release cycle times.",
+              "Earlier detection of emerging deviations, with causal root-cause insight across raw materials, equipment, and process history.",
+              "A validated, auditable, and explainable model with human-in-the-loop review and continuous drift and performance monitoring.",
+            ],
+            lookingFor: [
+              "Use statistical and machine-learning models to identify key patterns, predict outcomes, and forecast trends from complex and time-series data.",
+              "PAT integration for inline spectroscopy (NIR, Raman) and multi-source sensor fusion.",
+              "A compliance-ready MLOps wrapper providing model versioning, audit trails, validation documentation, and ongoing performance monitoring aligned to GxP and 21 CFR Part 11.",
             ],
           },
         },
