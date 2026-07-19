@@ -1,8 +1,9 @@
 import { auth } from "@/auth";
 import { getRecord, fetchRecordFile } from "@/lib/ntt-data/pocketbase";
+import { NTT_DATA_FILE_FIELDS } from "@/lib/ntt-data/columns-config";
 import type { NttDataRecord, NttDataFileField } from "@/lib/ntt-data/types";
 
-const FILE_FIELDS = new Set<NttDataFileField>(["pick_deck", "company_description_pdf"]);
+const FILE_FIELDS = new Set<string>(NTT_DATA_FILE_FIELDS);
 
 type Params = { id: string; field: string };
 
@@ -14,7 +15,7 @@ export async function GET(_req: Request, ctx: { params: Promise<Params> }) {
 
   const { id, field } = await ctx.params;
 
-  if (!FILE_FIELDS.has(field as NttDataFileField)) {
+  if (!FILE_FIELDS.has(field)) {
     return new Response("Not Found", { status: 404 });
   }
 

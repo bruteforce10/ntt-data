@@ -572,6 +572,377 @@
       "related_bugs": [],
       "occurrences": 4,
       "last_seen": "2026-07-18T04:23:16.791Z"
+    },
+    {
+      "id": "bug-036",
+      "timestamp": "2026-07-19T01:59:59.879Z",
+      "error_message": "Significant refactor of ",
+      "file": "lib/ntt-data/types.ts",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 3→8 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T01:59:59.879Z"
+    },
+    {
+      "id": "bug-037",
+      "timestamp": "2026-07-19T02:00:00.991Z",
+      "error_message": "Incorrect value in code",
+      "file": "lib/ntt-data/columns-config.ts",
+      "root_cause": "Had \"./types\"",
+      "fix": "Changed to \"@/lib/problem-decks\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:00:00.991Z"
+    },
+    {
+      "id": "bug-038",
+      "timestamp": "2026-07-19T02:01:40.842Z",
+      "error_message": "Type error",
+      "file": "lib/ntt-data/columns-config.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:01:40.842Z"
+    },
+    {
+      "id": "bug-039",
+      "timestamp": "2026-07-19T02:02:25.029Z",
+      "error_message": "Wrong condition in logic",
+      "file": "app/api/ntt-data/[id]/file/[field]/route.ts",
+      "root_cause": "Condition was: if (!FILE_FIELDS.has(field as NttDataFileField)",
+      "fix": "Changed to: if (!FILE_FIELDS.has(field)",
+      "tags": [
+        "auto-detected",
+        "logic-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:02:25.029Z"
+    },
+    {
+      "id": "bug-040",
+      "timestamp": "2026-07-19T02:06:01.281Z",
+      "error_message": "CSS fix: header",
+      "file": "components/dashboard/columns.tsx",
+      "root_cause": "header: \"Pitch Deck\", → \"Pitch Decks\",",
+      "fix": "Changed header: \"Pitch Deck\", → \"Pitch Decks\",",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:06:01.281Z"
+    },
+    {
+      "id": "bug-041",
+      "timestamp": "2026-07-19T02:07:15.665Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/dashboard/data-table.tsx",
+      "root_cause": "Had \"@/lib/ntt-data/types\"",
+      "fix": "Changed to \"@/lib/problem-decks\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:07:15.665Z"
+    },
+    {
+      "id": "bug-042",
+      "timestamp": "2026-07-19T02:12:00.543Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 4→8 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:12:00.543Z"
+    },
+    {
+      "id": "bug-043",
+      "timestamp": "2026-07-19T02:12:02.202Z",
+      "error_message": "Missing guard clause",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "No early return/throw for edge case: !emailFromQuery",
+      "fix": "Added guard clause: if (!emailFromQuery)",
+      "tags": [
+        "auto-detected",
+        "guard-clause",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:12:02.202Z"
+    },
+    {
+      "id": "bug-044",
+      "timestamp": "2026-07-19T02:16:54.454Z",
+      "error_message": "Incorrect value in code",
+      "file": "../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs",
+      "root_cause": "Had \"http://127.0.0.1:3100\"",
+      "fix": "Changed to \"http://127.0.0.1:3000\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "mjs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:16:54.454Z"
+    },
+    {
+      "id": "bug-045",
+      "timestamp": "2026-07-19T02:18:41.379Z",
+      "error_message": "Wrong condition in logic",
+      "file": "../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs",
+      "root_cause": "Condition was: if (url.indexOf(\"/api/deck-submission?email=\")",
+      "fix": "Changed to: if (url.includes(\"/api/deck-submission\")",
+      "tags": [
+        "auto-detected",
+        "logic-fix",
+        "mjs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:18:41.379Z"
+    },
+    {
+      "id": "bug-046",
+      "timestamp": "2026-07-19T02:22:33.910Z",
+      "error_message": "Null/undefined access in ",
+      "file": "../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "mjs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:22:33.910Z"
+    },
+    {
+      "id": "bug-047",
+      "timestamp": "2026-07-19T02:24:09.390Z",
+      "error_message": "Wrong condition in logic",
+      "file": "../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs",
+      "root_cause": "Condition was: if (url.includes(\"/api/deck-submission\")",
+      "fix": "Changed to: if (\n      url.includes(\"/api/deck-submission\")",
+      "tags": [
+        "auto-detected",
+        "logic-fix",
+        "mjs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:24:09.390Z"
+    },
+    {
+      "id": "bug-048",
+      "timestamp": "2026-07-19T02:29:27.403Z",
+      "error_message": "Incorrect value in code",
+      "file": "../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs",
+      "root_cause": "Had \"http://127.0.0.1:3000\"",
+      "fix": "Changed to \"http://127.0.0.1:3200\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "mjs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:29:27.403Z"
+    },
+    {
+      "id": "bug-049",
+      "timestamp": "2026-07-19T02:31:40.497Z",
+      "error_message": "eslint react-hooks/set-state-in-effect: 'Avoid calling setState() directly within an effect' in deck-submission-form.tsx (no-email branch set loadError/status synchronously in useEffect body)",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "Initial rewrite set the no-email error state inside the effect body instead of deriving it from props/params at initialization",
+      "fix": "Initialize status/loadError lazily from emailFromQuery in useState(...) and early-return from the effect when email is absent",
+      "tags": [
+        "eslint",
+        "react-hooks",
+        "set-state-in-effect",
+        "deck-submission"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:31:40.497Z"
+    },
+    {
+      "id": "bug-050",
+      "timestamp": "2026-07-19T02:31:40.497Z",
+      "error_message": "Headless-Chrome verification: page stuck at 'Loading your registration…' — React never hydrated ANY element (no __reactFiber keys on navbar/main/body) against the user's running `next dev` on :3000",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "Environmental, not app code: the user's editor-attached dev server is instrumented by Console Ninja ('Console Ninja extension is connected to Next.js' in dev log), which breaks client hydration in headless Chrome. In-page fetch and SSR HTML were healthy; prod build hydrated fine.",
+      "fix": "Verify client behavior against `npm run build` + `PORT=3200 npx next start` instead of the instrumented dev server; all scenarios passed there (2 inputs PO_01/PO_08, uploaded-hint, submit gating).",
+      "tags": [
+        "headless-chrome",
+        "hydration",
+        "console-ninja",
+        "next-dev",
+        "verification"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:31:40.497Z"
+    },
+    {
+      "id": "bug-051",
+      "timestamp": "2026-07-19T02:54:12.057Z",
+      "error_message": "Incorrect value in code",
+      "file": "lib/problem-decks.ts",
+      "root_cause": "Had \"PO-01\"",
+      "fix": "Changed to \"PO_01\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T02:54:12.057Z"
+    },
+    {
+      "id": "bug-052",
+      "timestamp": "2026-07-19T06:59:52.873Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/api/deck-submission/route.ts",
+      "root_cause": "Had \", \"",
+      "fix": "Changed to \"${deck.title}\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-19T06:59:54.088Z"
+    },
+    {
+      "id": "bug-053",
+      "timestamp": "2026-07-19T07:04:14.016Z",
+      "error_message": "Significant refactor of ",
+      "file": "app/api/deck-submission/route.ts",
+      "root_cause": "15 lines replaced/restructured",
+      "fix": "Rewrote 17→4 lines (15 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T07:04:14.016Z"
+    },
+    {
+      "id": "bug-054",
+      "timestamp": "2026-07-19T07:05:02.133Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 5→4 lines (2 removed) | Also: Upload one pitch deck for each problem statement y; during registration.",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-19T07:05:05.338Z"
+    },
+    {
+      "id": "bug-055",
+      "timestamp": "2026-07-19T07:24:09.054Z",
+      "error_message": "CSS fix: accessorKey, header",
+      "file": "components/dashboard/columns.tsx",
+      "root_cause": "accessorKey: \"pick_deck\", → deck.field,; header: \"Pitch Decks\", → deck.id,",
+      "fix": "Changed accessorKey: \"pick_deck\", → deck.field,; header: \"Pitch Decks\", → deck.id,",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T07:24:09.054Z"
+    },
+    {
+      "id": "bug-056",
+      "timestamp": "2026-07-19T07:36:36.595Z",
+      "error_message": "CSS fix: header",
+      "file": "components/dashboard/columns.tsx",
+      "root_cause": "header: deck.id, → () => (",
+      "fix": "Changed header: deck.id, → () => (",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T07:36:36.595Z"
+    },
+    {
+      "id": "bug-057",
+      "timestamp": "2026-07-19T07:48:00.753Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/dashboard/columns.tsx",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 8→8 lines (5 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T07:48:00.753Z"
+    },
+    {
+      "id": "bug-058",
+      "timestamp": "2026-07-19T07:49:05.255Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/layout.tsx",
+      "root_cause": "Had \"./globals.css\"",
+      "fix": "Changed to \"@/components/ui/tooltip\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-19T07:49:05.255Z"
     }
   ]
 }

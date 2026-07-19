@@ -6,21 +6,92 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AlertCircle, Loader2, X } from "lucide-react";
+import { PROBLEM_DECKS, type ProblemDeck } from "@/lib/problem-decks";
+import { AlertCircle, CheckCircle2, Loader2, X } from "lucide-react";
 
 const MAX_SIZE_BYTES = 8 * 1024 * 1024;
 const ACCEPTED = "image/*,.pdf,.ppt,.pptx";
+const SUPPORT_EMAIL = "openinnovation@ntt-startupchallenge.com";
+
+interface DeckProblem {
+  deck: ProblemDeck;
+  uploaded: boolean;
+}
+
+function SupportLink() {
+  return (
+    <a
+      href={`mailto:${SUPPORT_EMAIL}`}
+      className="font-medium text-[#0070C0] underline underline-offset-2"
+    >
+      {SUPPORT_EMAIL}
+    </a>
+  );
+}
 
 export default function DeckSubmissionForm() {
   const searchParams = useSearchParams();
   const emailFromQuery = searchParams.get("email") ?? "";
 
-  const [fileName, setFileName] = React.useState("No file chosen");
-  const [file, setFile] = React.useState<File | null>(null);
-  const [sizeError, setSizeError] = React.useState(false);
+  const [status, setStatus] = React.useState<"loading" | "ready" | "error">(
+    emailFromQuery ? "loading" : "error",
+  );
+  const [loadError, setLoadError] = React.useState<string | null>(
+    emailFromQuery
+      ? null
+      : "Open this page using the pitch-deck link from your registration confirmation email.",
+  );
+  const [problems, setProblems] = React.useState<DeckProblem[]>([]);
+  const [files, setFiles] = React.useState<Record<string, File | null>>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitted, setSubmitted] = React.useState(false);
   const [submitError, setSubmitError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (!emailFromQuery) return;
+
+    let cancelled = false;
+
+    async function loadProblems() {
+      try {
+        const res = await fetch(
+          `/api/deck-submission?email=${encodeURIComponent(emailFromQuery)}`,
+        );
+        const data = await res.json().catch(() => null);
+        if (!res.ok) {
+          throw new Error(
+            data?.message ?? "Unable to load your registration.",
+          );
+        }
+        if (cancelled) return;
+
+        const items: DeckProblem[] = (
+          (data?.problems ?? []) as { id?: string; uploaded?: boolean }[]
+        )
+          .map((p) => ({
+            deck: PROBLEM_DECKS.find((d) => d.id === p.id),
+            uploaded: Boolean(p.uploaded),
+          }))
+          .filter((p): p is DeckProblem => Boolean(p.deck));
+
+        setProblems(items);
+        setStatus("ready");
+      } catch (err) {
+        if (cancelled) return;
+        setLoadError(
+          err instanceof Error
+            ? err.message
+            : "Unable to load your registration.",
+        );
+        setStatus("error");
+      }
+    }
+
+    loadProblems();
+    return () => {
+      cancelled = true;
+    };
+  }, [emailFromQuery]);
 
   React.useEffect(() => {
     if (!submitted) return;
@@ -31,17 +102,27 @@ export default function DeckSubmissionForm() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [submitted]);
 
-  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleFileChange(
+    problemId: string,
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) {
     const picked = e.target.files?.[0] ?? null;
-    setFile(picked);
-    setFileName(picked?.name ?? "No file chosen");
-    setSizeError(picked ? picked.size > MAX_SIZE_BYTES : false);
+    setFiles((prev) => ({ ...prev, [problemId]: picked }));
     setSubmitError(null);
   }
 
+  const oversizedIds = problems
+    .filter((p) => (files[p.deck.id]?.size ?? 0) > MAX_SIZE_BYTES)
+    .map((p) => p.deck.id);
+  const pickedCount = problems.filter((p) => files[p.deck.id]).length;
+  const allUploaded =
+    problems.length > 0 && problems.every((p) => p.uploaded);
+  const canSubmit =
+    !isSubmitting && pickedCount > 0 && oversizedIds.length === 0;
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!file || sizeError) return;
+    if (!canSubmit) return;
 
     setIsSubmitting(true);
     setSubmitError(null);
@@ -49,7 +130,10 @@ export default function DeckSubmissionForm() {
     try {
       const fd = new FormData();
       fd.append("email", emailFromQuery);
-      fd.append("pick_deck", file);
+      for (const problem of problems) {
+        const file = files[problem.deck.id];
+        if (file) fd.append(problem.deck.field, file);
+      }
 
       const res = await fetch("/api/deck-submission", {
         method: "POST",
@@ -61,6 +145,12 @@ export default function DeckSubmissionForm() {
           data?.message ?? "Submission failed. Please try again.",
         );
       }
+      setProblems((prev) =>
+        prev.map((p) =>
+          files[p.deck.id] ? { ...p, uploaded: true } : p,
+        ),
+      );
+      setFiles({});
       setSubmitted(true);
     } catch (err) {
       setSubmitError(
@@ -71,6 +161,45 @@ export default function DeckSubmissionForm() {
     } finally {
       setIsSubmitting(false);
     }
+  }
+
+  if (status === "loading") {
+    return (
+      <div className="mx-auto flex w-full items-center justify-center gap-3 rounded-2xl bg-white p-10 text-sm text-gray-600 shadow-sm ring-1 ring-gray-100">
+        <Loader2 className="size-4 animate-spin text-[#0070C0]" />
+        Loading your registration…
+      </div>
+    );
+  }
+
+  if (status === "error") {
+    return (
+      <div className="mx-auto w-full rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+        <p className="flex items-start gap-2 text-sm font-medium text-red-700">
+          <AlertCircle className="mt-0.5 size-4 shrink-0" />
+          {loadError}
+        </p>
+        <p className="mt-3 text-sm text-gray-600">
+          Need any help? Feel free to contact us at: <SupportLink />
+        </p>
+      </div>
+    );
+  }
+
+  if (problems.length === 0) {
+    return (
+      <div className="mx-auto w-full rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+        <p className="flex items-start gap-2 text-sm font-medium text-amber-700">
+          <AlertCircle className="mt-0.5 size-4 shrink-0" />
+          We couldn&apos;t find any selected problem statements for your
+          registration.
+        </p>
+        <p className="mt-3 text-sm text-gray-600">
+          Please contact us at <SupportLink /> so we can help you submit your
+          pitch deck.
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -117,13 +246,7 @@ export default function DeckSubmissionForm() {
               reach out to you directly with the next steps.
             </p>
             <p className="mb-6 text-sm text-gray-700">
-              Need any help? Feel free to contact us at:{" "}
-              <a
-                href="mailto:openinnovation@ntt-startupchallenge.com"
-                className="font-medium text-[#0070C0] underline underline-offset-2"
-              >
-                openinnovation@ntt-startupchallenge.com
-              </a>
+              Need any help? Feel free to contact us at: <SupportLink />
             </p>
             <Button
               type="button"
@@ -166,33 +289,11 @@ export default function DeckSubmissionForm() {
             </div>
 
             <div>
-              <Label
-                htmlFor="deck-file"
-                className="text-sm font-medium text-gray-700"
-              >
-                Upload File <span className="text-red-500">*</span>
-              </Label>
-              <label
-                htmlFor="deck-file"
-                className="mt-1.5 flex h-8 cursor-pointer items-center rounded-lg border border-input bg-transparent px-2.5 text-base transition-colors outline-none hover:border-[#3176E4] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 md:text-sm"
-              >
-                <span className="min-w-0 truncate">
-                  <span className="mr-2 font-medium text-gray-900">
-                    Choose File
-                  </span>
-                  <span className="text-muted-foreground">{fileName}</span>
-                </span>
-              </label>
-              <input
-                id="deck-file"
-                name="deckFile"
-                type="file"
-                accept={ACCEPTED}
-                required
-                className="sr-only"
-                onChange={handleFileChange}
-              />
-
+              <p className="text-sm font-medium text-gray-700">
+                Upload your pitch deck for the problem statements you selected
+                during registration. You can submit some now and add or
+                replace the rest later through this same link.
+              </p>
               <div className="mt-2 flex flex-col gap-1">
                 <p className="flex items-start gap-1.5 text-xs text-amber-600">
                   <AlertCircle className="mt-0.5 size-3.5 shrink-0" />
@@ -200,17 +301,81 @@ export default function DeckSubmissionForm() {
                 </p>
                 <p className="flex items-start gap-1.5 text-xs text-amber-600">
                   <AlertCircle className="mt-0.5 size-3.5 shrink-0" />
-                  Maximum file size:{" "}
+                  Maximum file size per deck:{" "}
                   <strong className="font-semibold">8 MB</strong>
                 </p>
               </div>
-
-              {sizeError && (
-                <p className="mt-1.5 text-xs font-medium text-red-600">
-                  File exceeds 8 MB. Please choose a smaller file.
-                </p>
-              )}
             </div>
+
+            {allUploaded && (
+              <p className="flex items-start gap-1.5 rounded-lg bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-700">
+                <CheckCircle2 className="mt-0.5 size-3.5 shrink-0" />
+                All your pitch decks have been received. Choose a file below
+                only if you want to replace one.
+              </p>
+            )}
+
+            {problems.map(({ deck, uploaded }) => {
+              const inputId = `deck-file-${deck.id}`;
+              const file = files[deck.id] ?? null;
+              const isOversized = oversizedIds.includes(deck.id);
+
+              return (
+                <div
+                  key={deck.id}
+                  className="rounded-xl border border-gray-200 p-4"
+                >
+                  <Label
+                    htmlFor={inputId}
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    <span className="font-bold text-[#154284]">
+                      {deck.title}
+                    </span>
+                  </Label>
+                  {deck.logoLabel && (
+                    <p className="mt-0.5 text-xs italic text-gray-500">
+                      {deck.logoLabel}
+                    </p>
+                  )}
+                  <label
+                    htmlFor={inputId}
+                    className="mt-2 flex h-8 cursor-pointer items-center rounded-lg border border-input bg-transparent px-2.5 text-base transition-colors outline-none hover:border-[#3176E4] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 md:text-sm"
+                  >
+                    <span className="min-w-0 truncate">
+                      <span className="mr-2 font-medium text-gray-900">
+                        Choose File
+                      </span>
+                      <span className="text-muted-foreground">
+                        {file?.name ?? "No file chosen"}
+                      </span>
+                    </span>
+                  </label>
+                  <input
+                    id={inputId}
+                    name={deck.field}
+                    type="file"
+                    accept={ACCEPTED}
+                    className="sr-only"
+                    onChange={(e) => handleFileChange(deck.id, e)}
+                  />
+
+                  {uploaded && !file && (
+                    <p className="mt-1.5 flex items-center gap-1.5 text-xs font-medium text-emerald-600">
+                      <CheckCircle2 className="size-3.5 shrink-0" />
+                      Already uploaded — choose a file only if you want to
+                      replace it.
+                    </p>
+                  )}
+
+                  {isOversized && (
+                    <p className="mt-1.5 text-xs font-medium text-red-600">
+                      File exceeds 8 MB. Please choose a smaller file.
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -223,7 +388,7 @@ export default function DeckSubmissionForm() {
         <div className="mt-8 flex justify-end pb-4">
           <Button
             type="submit"
-            disabled={isSubmitting || sizeError || !file}
+            disabled={!canSubmit}
             className="rounded-xl bg-[#154284] px-10 py-6 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#0d2d6b] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSubmitting ? (

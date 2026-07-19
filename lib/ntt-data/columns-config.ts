@@ -1,4 +1,5 @@
-import type { NttDataRecord } from "./types";
+import { PROBLEM_DECKS, PROBLEM_DECK_FIELDS } from "@/lib/problem-decks";
+import type { NttDataFileField, NttDataRecord } from "./types";
 
 export type ColumnType = "text" | "number" | "email" | "url" | "file" | "date" | "facet";
 
@@ -22,6 +23,13 @@ export const COLUMN_META: ColumnMeta[] = [
   { key: "problem_statement", label: "Problem Statement", type: "text" },
   { key: "did_you_hear_about_us", label: "How Did You Hear About Us", type: "text" },
   { key: "pick_deck", label: "Pitch Deck", type: "file" },
+  ...PROBLEM_DECKS.map(
+    (deck): ColumnMeta => ({
+      key: deck.field,
+      label: `${deck.id} Deck`,
+      type: "file",
+    }),
+  ),
   { key: "funding_stage", label: "Funding Stage", type: "facet" },
   { key: "company_description_pdf", label: "Company Description PDF", type: "file" },
   { key: "company_description", label: "Company Description", type: "text" },
@@ -32,3 +40,9 @@ export const COLUMN_META: ColumnMeta[] = [
 export const COLUMN_META_BY_KEY = Object.fromEntries(
   COLUMN_META.map((m) => [m.key, m]),
 ) as Record<string, ColumnMeta>;
+
+export const NTT_DATA_FILE_FIELDS: readonly NttDataFileField[] = [
+  "pick_deck",
+  "company_description_pdf",
+  ...PROBLEM_DECK_FIELDS,
+];

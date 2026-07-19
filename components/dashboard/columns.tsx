@@ -19,8 +19,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import { isNew } from "@/lib/ntt-data/is-new";
+import { PROBLEM_DECKS } from "@/lib/problem-decks";
 import type { NttDataRecord } from "@/lib/ntt-data/types";
 import { RecordDetail } from "./record-detail";
 
@@ -71,13 +77,23 @@ function RowActions({ row }: { row: Row<NttDataRecord> }) {
             <EyeIcon className="h-3.5 w-3.5" /> View Details
           </DropdownMenuItem>
           <DropdownMenuSeparator />
+          {PROBLEM_DECKS.filter((deck) => record[deck.field]).map((deck) => (
+            <DropdownMenuItem
+              key={deck.field}
+              onClick={() =>
+                window.open(`/api/ntt-data/${record.id}/file/${deck.field}`)
+              }
+            >
+              <DownloadIcon className="h-3.5 w-3.5" /> {deck.id} Deck
+            </DropdownMenuItem>
+          ))}
           {record.pick_deck ? (
             <DropdownMenuItem
               onClick={() =>
                 window.open(`/api/ntt-data/${record.id}/file/pick_deck`)
               }
             >
-              <DownloadIcon className="h-3.5 w-3.5" /> Pitch Deck
+              <DownloadIcon className="h-3.5 w-3.5" /> Pitch Deck (Legacy)
             </DropdownMenuItem>
           ) : null}
           {record.company_description_pdf ? (
@@ -166,19 +182,35 @@ export const columns: ColumnDef<NttDataRecord>[] = [
     accessorKey: "city",
     header: "City",
   },
-  {
-    accessorKey: "pick_deck",
-    header: "Pitch Deck",
-    enableSorting: false,
-    enableGlobalFilter: false,
-    cell: ({ row }) => (
-      <FileCell
-        recordId={row.original.id}
-        field="pick_deck"
-        filename={row.original.pick_deck}
-      />
-    ),
-  },
+  ...PROBLEM_DECKS.map(
+    (deck): ColumnDef<NttDataRecord> => ({
+      accessorKey: deck.field,
+      header: () => (
+        <Tooltip>
+          <TooltipTrigger className="cursor-help underline decoration-dotted underline-offset-4">
+            {deck.id}
+          </TooltipTrigger>
+          <TooltipContent>{deck.title}</TooltipContent>
+        </Tooltip>
+      ),
+      enableSorting: false,
+      enableColumnFilter: false,
+      enableGlobalFilter: false,
+      cell: ({ row }) =>
+        row.original[deck.field] ? (
+          <a
+            href={`/api/ntt-data/${row.original.id}/file/${deck.field}`}
+            download
+            title={row.original[deck.field]}
+            className="text-xs whitespace-nowrap text-[#0070C0] underline underline-offset-2 hover:text-[#154284]"
+          >
+            Download
+          </a>
+        ) : (
+          <span className="text-slate-400">—</span>
+        ),
+    }),
+  ),
   {
     accessorKey: "company_description_pdf",
     header: "Company PDF",

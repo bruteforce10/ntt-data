@@ -979,3 +979,89 @@
 | 11:23 | Edited lib/site-content.ts | 1→2 lines | ~34 |
 | 11:23 | Edited lib/site-content.ts | 1→2 lines | ~29 |
 | 11:23 | Session end: 15 writes across 3 files (problem-overview.tsx, site-content.ts, verify-modals.mjs) | 5 reads | ~33286 tok |
+
+## Session: 2026-07-19 08:46
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:51 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/check-pb.mjs | — | ~368 |
+| 08:56 | Created tests/ntt-data/problem-decks.test.ts | — | ~790 |
+| 08:57 | Created lib/problem-decks.ts | — | ~505 |
+| 08:58 | Edited lib/ntt-data/columns-config.ts | modified map() | ~76 |
+| 08:59 | Edited lib/ntt-data/types.ts | 3→8 lines | ~68 |
+| 09:00 | Edited lib/ntt-data/columns-config.ts | added 1 import(s) | ~28 |
+| 09:01 | Edited lib/ntt-data/columns-config.ts | 2→2 lines | ~40 |
+| 09:01 | Edited lib/ntt-data/columns-config.ts | expanded (+6 lines) | ~76 |
+| 09:02 | Edited app/api/ntt-data/[id]/file/[field]/route.ts | inline fix | ~10 |
+| 09:02 | Edited components/dashboard/record-detail.tsx | 2→2 lines | ~25 |
+| 09:04 | Edited app/api/ntt-data/[id]/file/[field]/route.ts | added 1 import(s) | ~89 |
+| 09:04 | Edited components/dashboard/record-detail.tsx | 13→10 lines | ~85 |
+| 09:05 | Edited components/dashboard/columns.tsx | CSS: record, hover, hover | ~302 |
+| 09:05 | Edited components/dashboard/columns.tsx | added 1 import(s) | ~59 |
+| 09:06 | Edited components/dashboard/columns.tsx | CSS: enableColumnFilter | ~62 |
+| 09:06 | Edited components/dashboard/columns.tsx | expanded (+10 lines) | ~204 |
+| 09:06 | Edited components/dashboard/data-table.tsx | 3→5 lines | ~52 |
+| 09:07 | Edited components/dashboard/data-table.tsx | added 1 import(s) | ~53 |
+| 09:08 | Created app/api/deck-submission/route.ts | — | ~2514 |
+| 09:10 | Created components/deck-submission-form.tsx | — | ~4119 |
+| 09:12 | Edited components/deck-submission-form.tsx | CSS: null | ~92 |
+| 09:12 | Edited components/deck-submission-form.tsx | reduced (-6 lines) | ~25 |
+| 09:13 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | — | ~1595 |
+| 09:16 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | "http://127.0.0.1:3100" → "http://127.0.0.1:3000" | ~10 |
+| 09:18 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | 5→6 lines | ~96 |
+| 09:18 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | 4→5 lines | ~51 |
+| 09:21 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | 6→11 lines | ~170 |
+| 09:21 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | 4→6 lines | ~58 |
+| 09:22 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | added optional chaining | ~87 |
+| 09:22 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | added 1 condition(s) | ~207 |
+| 09:22 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | 4→6 lines | ~51 |
+| 09:24 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | 4→9 lines | ~122 |
+| 09:24 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | 2→6 lines | ~44 |
+| 09:24 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | modified 0() | ~185 |
+| 09:27 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/probe-hydration.mjs | — | ~782 |
+| 09:29 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/verify-deck-form.mjs | "http://127.0.0.1:3000" → "http://127.0.0.1:3200" | ~10 |
+| 09:31 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/append-buglog.mjs | — | ~640 |
+| 09:45 | Per-problem pitch decks: new lib/problem-decks.ts (PO-xx id -> PO_xx PB field + title matcher) + 10 unit tests (TDD) | lib/problem-decks.ts, tests/ntt-data/problem-decks.test.ts | 26/26 tests green | ~9k |
+| 09:50 | Deck form rewritten: GET selected problems per email -> one upload input per PO (required unless uploaded); API GET added + POST multi-file->single PB PATCH | components/deck-submission-form.tsx, app/api/deck-submission/route.ts | tsc+eslint clean | ~14k |
+| 09:55 | Dashboard adjusted: combined Pitch Decks column + per-PO row actions/detail/export/file-proxy via NTT_DATA_FILE_FIELDS | components/dashboard/*, lib/ntt-data/* | tsc clean | ~6k |
+| 10:05 | Verified on prod build (next start :3200, headless CDP + fetch stub): 2 inputs for PO-01+PO-08, uploaded-hint, submit gating, no-email guidance all pass; dev :3000 hydration hang = Console Ninja (bug-050) | scratchpad/verify-deck-form.mjs | all scenarios pass | ~20k |
+| 09:33 | Session end: 37 writes across 13 files (check-pb.mjs, problem-decks.test.ts, problem-decks.ts, columns-config.ts, types.ts) | 17 reads | ~24100 tok |
+| 09:52 | Edited tests/ntt-data/problem-decks.test.ts | 9→9 lines | ~107 |
+| 09:52 | Edited tests/ntt-data/problem-decks.test.ts | 2→3 lines | ~40 |
+| 09:52 | Edited tests/ntt-data/problem-decks.test.ts | 11→11 lines | ~138 |
+| 09:54 | Edited lib/problem-decks.ts | 5→5 lines | ~55 |
+| 09:54 | Edited lib/problem-decks.ts | 2→2 lines | ~26 |
+| 09:55 | User request: site-content problemOverview ids PO-xx -> PO_xx so id === PocketBase field name; tests updated first (TDD), sed on 10 id lines, comments aligned | lib/site-content.ts, lib/problem-decks.ts, tests/ntt-data/problem-decks.test.ts | 26/26 green, tsc clean | ~3k |
+| 09:56 | Session end: 42 writes across 13 files (check-pb.mjs, problem-decks.test.ts, problem-decks.ts, columns-config.ts, types.ts) | 17 reads | ~24466 tok |
+| 10:08 | Edited components/deck-submission-form.tsx | 9→9 lines | ~110 |
+| 13:59 | Edited app/api/deck-submission/route.ts | 3→3 lines | ~59 |
+| 13:59 | Edited app/api/deck-submission/route.ts | 3→3 lines | ~39 |
+| 14:00 | Session end: 45 writes across 13 files (check-pb.mjs, problem-decks.test.ts, problem-decks.ts, columns-config.ts, types.ts) | 17 reads | ~24674 tok |
+| 14:04 | Edited app/api/deck-submission/route.ts | modified if() | ~123 |
+| 14:04 | Edited app/api/deck-submission/route.ts | reduced (-13 lines) | ~60 |
+| 14:05 | Edited components/deck-submission-form.tsx | 5→4 lines | ~44 |
+| 14:05 | Edited components/deck-submission-form.tsx | 4→3 lines | ~32 |
+| 14:05 | Edited components/deck-submission-form.tsx | 4→5 lines | ~85 |
+| 14:06 | Session end: 50 writes across 13 files (check-pb.mjs, problem-decks.test.ts, problem-decks.ts, columns-config.ts, types.ts) | 17 reads | ~25018 tok |
+
+## Session: 2026-07-19 14:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:13 | Edited components/deck-submission-form.tsx | reduced (-6 lines) | ~106 |
+| 14:14 | Session end: 1 writes across 1 files (deck-submission-form.tsx) | 2 reads | ~13263 tok |
+| 14:24 | Edited components/dashboard/columns.tsx | CSS: hover | ~195 |
+| 14:25 | Edited components/dashboard/columns.tsx | — | ~0 |
+| 14:26 | Session end: 3 writes across 2 files (deck-submission-form.tsx, columns.tsx) | 3 reads | ~15358 tok |
+| 14:36 | Edited components/dashboard/columns.tsx | expanded (+7 lines) | ~66 |
+| 14:37 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/bookkeep.mjs | — | ~800 |
+| 19:30 | Made per-problem deck uploads truly optional (removed missingRequired from canSubmit) | components/deck-submission-form.tsx | done | ~1k |
+| 19:45 | Dashboard: replaced combined Pitch Decks column with separate PO_01..PO_10 Download columns; removed DeckLinksCell | components/dashboard/columns.tsx | done | ~2k |
+| 19:55 | Added native title tooltip (problem title) on PO column headers | components/dashboard/columns.tsx | done | ~0.5k |
+| 14:38 | Session end: 5 writes across 3 files (deck-submission-form.tsx, columns.tsx, bookkeep.mjs) | 3 reads | ~16281 tok |
+| 14:44 | Session end: 5 writes across 3 files (deck-submission-form.tsx, columns.tsx, bookkeep.mjs) | 3 reads | ~16281 tok |
+| 14:47 | Edited app/layout.tsx | 1→3 lines | ~34 |
+| 14:47 | Edited components/dashboard/columns.tsx | 1→6 lines | ~37 |
+| 14:48 | Edited components/dashboard/columns.tsx | 8→8 lines | ~78 |
+| 14:49 | Edited app/layout.tsx | added 1 import(s) | ~45 |
+| 14:50 | Session end: 9 writes across 4 files (deck-submission-form.tsx, columns.tsx, bookkeep.mjs, layout.tsx) | 5 reads | ~17101 tok |

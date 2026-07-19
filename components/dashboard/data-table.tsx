@@ -48,6 +48,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { COLUMN_META_BY_KEY } from "@/lib/ntt-data/columns-config";
+import { PROBLEM_DECK_FIELDS } from "@/lib/problem-decks";
 import type { NttDataRecord } from "@/lib/ntt-data/types";
 import { resolveExportRows } from "@/lib/ntt-data/export-selection";
 import { recordsToAoa, downloadXlsx } from "@/lib/ntt-data/export-xlsx";
@@ -58,7 +59,9 @@ const PAGE_SIZE_OPTIONS = [10, 25, 50, 100] as const;
 const EXPORT_KEYS: (keyof NttDataRecord)[] = [
   "full_name", "email", "phone_number", "job_title", "startup_name",
   "website", "business_mode", "country", "city", "company_address",
-  "problem_statement", "did_you_hear_about_us", "pick_deck", "funding_stage",
+  "problem_statement", "did_you_hear_about_us", "pick_deck",
+  ...PROBLEM_DECK_FIELDS,
+  "funding_stage",
   "company_description", "company_description_pdf", "created", "updated",
 ];
 

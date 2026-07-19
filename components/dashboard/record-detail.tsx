@@ -1,7 +1,7 @@
 "use client";
 
-import { COLUMN_META } from "@/lib/ntt-data/columns-config";
-import type { NttDataRecord, NttDataFileField } from "@/lib/ntt-data/types";
+import { COLUMN_META, NTT_DATA_FILE_FIELDS } from "@/lib/ntt-data/columns-config";
+import type { NttDataRecord } from "@/lib/ntt-data/types";
 import {
   Sheet,
   SheetContent,
@@ -9,10 +9,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 
-const FILE_FIELDS = new Set<NttDataFileField>([
-  "pick_deck",
-  "company_description_pdf",
-]);
+const FILE_FIELDS = new Set<string>(NTT_DATA_FILE_FIELDS);
 
 interface RecordDetailProps {
   record: NttDataRecord | null;
@@ -34,7 +31,7 @@ export function RecordDetail({ record, open, onOpenChange }: RecordDetailProps) 
         <dl className="grid gap-4 px-4 pb-8">
           {COLUMN_META.map(({ key, label, type }) => {
             const raw = record[key];
-            const isFile = FILE_FIELDS.has(key as NttDataFileField);
+            const isFile = FILE_FIELDS.has(key);
             const displayValue =
               raw !== undefined && raw !== null && raw !== ""
                 ? String(raw)
