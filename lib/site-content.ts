@@ -219,6 +219,7 @@ export const SITE_CONTENT = {
         //   src: "/problem-overview/logo-alliance.png",
         //   alt: "Alliance Bank",
         // },
+        id: "PO-01",
         logoLabel: "A leading Southeast Asian industrial materials company",
         title: "AI-Enabled Supply Chain Market Response",
         description:
@@ -286,6 +287,7 @@ export const SITE_CONTENT = {
         //   src: "/problem-overview/logo-alliance.png",
         //   alt: "Alliance Bank",
         // },
+        id: "PO-02",
         logoLabel: "A Leading Digital Bank in Southeast Asia",
         title:
           "Building an Enterprise AI Knowledge Platform to Unlock Structured Insights from Fragmented Data",
@@ -325,6 +327,7 @@ export const SITE_CONTENT = {
         //   src: "/problem-overview/logo-alliance.png",
         //   alt: "Alliance Bank",
         // },
+        id: "PO-03",
         logoLabel: "A Leading Digital Bank in Southeast Asia",
         title:
           "Enabling Enterprise-Grade Digital Twins for Intelligent Workforce Augmentation",
@@ -360,6 +363,7 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
+        id: "PO-04",
         logoLabel: "dHost",
         title:
           "Edge AI Orchestration for In-Building Neutral Host Infrastructure",
@@ -397,6 +401,7 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
+        id: "PO-05",
         logoLabel: "The GEAR by Kajima",
         title:
           "Standardising Asset Data Handover for Smart Building Facilities Management",
@@ -431,6 +436,7 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
+        id: "PO-06",
         logoLabel: "The GEAR by Kajima",
         title:
           "Achieving End-to-End Data Observability Across Smart Building Ecosystems",
@@ -466,6 +472,7 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
+        id:"PO-07",
         logoLabel: "A global infrastructure and engineering services provider",
         title:
           "Unified Orchestration for Multi-Trade Data Centre Delivery and Lifecycle Operations",
@@ -758,6 +765,7 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
+        id:"PO-08",
         logoLabel: "A leading India-based automotive manufacturer",
         title: "Connected Machines for Operational Efficiency and OT Security",
         description:
@@ -793,6 +801,7 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
+        id: "PO-09",
         logoLabel: "A leading Southeast Asian telecommunications and digital services provider",
         title: "AI-Powered Autonomous Telco Assurance and Operations",
         description:
@@ -829,6 +838,7 @@ export const SITE_CONTENT = {
         href: "#problem-statements",
       },
       {
+        id: "PO-10",
         logoLabel: "A Fortune 500 global pharmaceutical and healthcare company",
         title:
           "Real-Time Predictive Quality and Multivariate Batch Release for GxP Pharmaceutical Manufacturing",

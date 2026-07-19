@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-17T17:14:31.604Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-18T04:23:16.469Z
 > Files: 21 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
@@ -99,7 +99,7 @@
 
 - `mailer.ts` — Exports transporter, buildRegistrationEmail, buildDeckSubmissionEmail (~4154 tok)
 - `site-config.ts` — Exports SITE_URL (NEXT_PUBLIC_SITE_URL, fallback https://oiw.ntt-startupchallenge.com), SITE_NAME, SITE_DESCRIPTION — single source of truth for SEO/canonical (~208 tok)
-- `site-content.ts` — Exports SITE_CONTENT (~22070 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~22139 tok)
 
 ## lib/auth/
 
