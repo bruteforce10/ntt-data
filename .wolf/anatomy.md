@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-19T07:49:05.095Z
-> Files: 36 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-21T17:52:19.847Z
+> Files: 44 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/
 
@@ -10,6 +10,10 @@
 - `check-pb.mjs` — Declares envRaw (~368 tok)
 - `probe-hydration.mjs` — Declares SCRATCH (~782 tok)
 - `verify-deck-form.mjs` — SCRATCH: warm, send, evalJs, navigate, screenshot (~2194 tok)
+
+## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/7a26cf47-3e42-4577-af5b-502e6667d243/scratchpad/
+
+- `verify-hash-corruption.mjs` — Declares password (~192 tok)
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/ae0aa915-b62d-4e38-ac95-c3145ed9b82b/scratchpad/
 
@@ -43,7 +47,11 @@
 
 ## app/api/deck-submission/
 
-- `route.ts` — GET /api/deck-submission?email=... (~2413 tok)
+- `route.ts` — GET /api/deck-submission?email=... (~2486 tok)
+
+## app/api/fast-track/
+
+- `route.ts` — Returns true when an ntt_data record already uses this email, false when (~1984 tok)
 
 ## app/api/ntt-data/
 
@@ -68,6 +76,10 @@
 
 - `page.tsx` — metadata (~392 tok)
 
+## app/fast-track/
+
+- `page.tsx` — metadata (~332 tok)
+
 ## app/login/
 
 - `page.tsx` — metadata (~274 tok)
@@ -78,14 +90,15 @@
 
 ## components/
 
-- `deck-submission-form.tsx` — MAX_SIZE_BYTES — renders form (~4066 tok)
+- `deck-submission-form.tsx` — Error carrying the HTTP status so callers can special-case not-found. (~5868 tok)
+- `fast-track-form.tsx` — EMAIL_RE — renders form (~2094 tok)
 - `navbar.tsx` — Top navbar: logo + "More" dropdown (NAVBAR_ACTIONS) + Open Innovation button only, all breakpoints; nav list & mobile Sheet/hamburger removed 2026-07-13 (~650 tok)
 - `problem-overview.tsx` — ProblemOverview — renders modal (~3633 tok)
 - `startup-registration-form.tsx` — MAX_DESCRIPTION_FILE_BYTES — renders form (~9052 tok)
 
 ## components/dashboard/
 
-- `columns.tsx` — FileCell (~1875 tok)
+- `columns.tsx` — FileCell (~2024 tok)
 - `data-table.tsx` — DataTable: toolbar search/column-toggle/Excel export (EXPORT_KEYS incl PO_01..PO_10), header sort+filter, pagination (~2600 tok)
 - `email-table.tsx` — "Email Automation" table: search + simple pagination, per-row Send Email button with confirm Dialog, per-row status sending/sent/error via POST /api/ntt-data/[id]/send-email; status is session-only, not persisted (~2545 tok)
 - `record-detail.tsx` — Sheet detail: iterates COLUMN_META (incl PO deck rows), file fields render as /api/ntt-data/[id]/file/[field] download links via NTT_DATA_FILE_FIELDS (~700 tok)
@@ -96,6 +109,7 @@
 
 ## components/ui/
 
+- `badge.tsx` — badgeVariants (~354 tok)
 
 ## components/ui/ (shadcn — Base UI registry, import from @base-ui/react/*)
 
@@ -108,6 +122,7 @@
 
 ## docs/superpowers/specs/
 
+- `2026-07-21-deck-submission-email-gate-design.md` — Deck Submission — Email Gate (~1782 tok)
 
 ## lib/
 
@@ -122,6 +137,7 @@
 ## lib/ntt-data/
 
 - `columns-config.ts` — Exports ColumnType, ColumnMeta, COLUMN_META, COLUMN_META_BY_KEY, NTT_DATA_FILE_FIELDS (~553 tok)
+- `is-new.ts` — Picks the recency badge for a table row. "New" wins over "Updated" so a (~463 tok)
 - `types.ts` — Exports NttDataFileField, NttDataRecord, ApiResponse (~236 tok)
 
 ## public/
@@ -136,6 +152,7 @@
 
 ## tests/ntt-data/
 
+- `is-new.test.ts` — Declares NOW (~864 tok)
 - `problem-decks.test.ts` — Declares deck (~800 tok)
 
 ## utils/

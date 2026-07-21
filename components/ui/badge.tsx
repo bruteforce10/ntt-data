@@ -13,6 +13,8 @@ const badgeVariants = cva(
         outline: "border-border text-foreground",
         // Brand-blue "New" badge (CLAUDE.md button blue).
         new: "border-transparent bg-[#3176E4] text-white",
+        // Amber "Updated" badge — distinct from the blue "New".
+        updated: "border-amber-200 bg-amber-50 text-amber-700",
       },
     },
     defaultVariants: {

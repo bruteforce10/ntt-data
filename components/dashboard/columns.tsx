@@ -25,7 +25,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import { isNew } from "@/lib/ntt-data/is-new";
+import { rowBadge } from "@/lib/ntt-data/is-new";
 import { PROBLEM_DECKS } from "@/lib/problem-decks";
 import type { NttDataRecord } from "@/lib/ntt-data/types";
 import { RecordDetail } from "./record-detail";
@@ -140,12 +140,29 @@ export const columns: ColumnDef<NttDataRecord>[] = [
   {
     accessorKey: "full_name",
     header: "Full Name",
-    cell: ({ row }) => (
-      <div className="flex min-w-[140px] items-center gap-1.5">
-        <span>{row.original.full_name}</span>
-        {isNew(row.original) && <Badge variant="new">New</Badge>}
-      </div>
-    ),
+    cell: ({ row }) => {
+      const badge = rowBadge(row.original);
+      return (
+        <div className="flex min-w-[140px] items-center gap-1.5">
+          <span>{row.original.full_name}</span>
+          {badge?.type === "new" && <Badge variant="new">New</Badge>}
+          {badge?.type === "updated" && (
+            <Badge
+              variant="updated"
+              title={`Updated ${new Date(badge.updatedAt).toLocaleString(
+                "id-ID",
+              )}`}
+            >
+              Updated{" "}
+              {new Date(badge.updatedAt).toLocaleDateString("id-ID", {
+                day: "numeric",
+                month: "short",
+              })}
+            </Badge>
+          )}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "email",

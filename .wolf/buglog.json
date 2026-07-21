@@ -943,6 +943,59 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-19T07:49:05.255Z"
+    },
+    {
+      "id": "bug-059",
+      "timestamp": "2026-07-21T16:34:24.505Z",
+      "error_message": "Incorrect value in code",
+      "file": "../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/7a26cf47-3e42-4577-af5b-502e6667d243/scratchpad/verify-hash-corruption.mjs",
+      "root_cause": "Had \"bcryptjs\"",
+      "fix": "Changed to \"/Users/mm/Documents/ntt-data/node_modules/bcryptj",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "mjs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-21T16:34:24.505Z"
+    },
+    {
+      "id": "bug-060",
+      "timestamp": "2026-07-21T16:35:48.542769Z",
+      "error_message": "User report: login selalu gagal (CredentialsSignin) walau password sudah benar; user meminta password tidak usah di-hash",
+      "file": ".env.local",
+      "root_cause": "ADMIN_PASSWORD_HASH stored as \\$2b\\$10\\$... (literal backslashes before each $, 63 chars instead of 60). Same corruption pattern as bug-019, but this time baked directly into .env.local rather than the Vercel dashboard. bcrypt.compare() always returns false against a malformed hash regardless of password correctness.",
+      "fix": "Stripped the literal backslashes from ADMIN_PASSWORD_HASH in .env.local, restoring the valid 60-char $2b$10$... bcrypt hash. Verified the corruption mechanism with a synthetic repro (scratchpad/verify-hash-corruption.mjs) before editing. Declined the requested workaround of removing password hashing entirely (would store the admin password in plaintext) and explained why to the user.",
+      "tags": [
+        "auth",
+        "nextauth",
+        "env",
+        "bcrypt",
+        "dotenv-escaping",
+        "credentials-signin"
+      ],
+      "related_bugs": [
+        "bug-019"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-07-21T16:35:48.542769Z"
+    },
+    {
+      "id": "bug-061",
+      "timestamp": "2026-07-21T17:09:37.384Z",
+      "error_message": "Significant refactor of ",
+      "file": "app/api/deck-submission/route.ts",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 4→10 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-21T17:09:37.384Z"
     }
   ]
 }

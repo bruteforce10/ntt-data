@@ -138,10 +138,16 @@ export async function GET(request: Request) {
     const lookup = await lookupRegistration(email, token);
     if (!lookup.ok) return lookup.response;
 
-    const problems = selectedDecksOf(lookup.record).map((deck) => ({
-      id: deck.id,
-      uploaded: Boolean(lookup.record[deck.field]),
-    }));
+    const problems = selectedDecksOf(lookup.record).map((deck) => {
+      const value = lookup.record[deck.field];
+      return {
+        id: deck.id,
+        uploaded: Boolean(value),
+        // PocketBase stores the persisted file name (may carry a random
+        // suffix); "" when nothing has been uploaded for this deck yet.
+        filename: typeof value === "string" ? value : "",
+      };
+    });
 
     return NextResponse.json({ problems });
   } catch {

@@ -1,98 +1,61 @@
 {
-  "session_id": "session-2026-07-19-1409",
-  "started": "2026-07-19T07:09:35.991Z",
+  "session_id": "session-2026-07-21-0038",
+  "started": "2026-07-21T17:38:38.712Z",
   "files_read": {
-    "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx": {
+    "/Users/mm/Documents/ntt-data/lib/problem-decks.ts": {
       "count": 1,
-      "tokens": 4105,
-      "first_read": "2026-07-19T07:13:22.615Z"
+      "tokens": 510,
+      "first_read": "2026-07-21T17:42:56.753Z"
     },
-    "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx": {
+    "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts": {
       "count": 1,
-      "tokens": 9052,
-      "first_read": "2026-07-19T07:13:58.212Z"
+      "tokens": 2486,
+      "first_read": "2026-07-21T17:42:56.978Z"
     },
-    "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx": {
-      "count": 1,
-      "tokens": 1900,
-      "first_read": "2026-07-19T07:22:47.416Z"
-    },
-    "/Users/mm/Documents/ntt-data/components/ui/tooltip.tsx": {
+    "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts": {
       "count": 1,
       "tokens": 0,
-      "first_read": "2026-07-19T07:46:42.057Z"
+      "first_read": "2026-07-21T17:43:10.253Z"
     },
-    "/Users/mm/Documents/ntt-data/app/layout.tsx": {
+    "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx": {
       "count": 1,
-      "tokens": 626,
-      "first_read": "2026-07-19T07:46:42.545Z"
+      "tokens": 329,
+      "first_read": "2026-07-21T17:43:10.711Z"
+    },
+    "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts": {
+      "count": 1,
+      "tokens": 236,
+      "first_read": "2026-07-21T17:43:11.212Z"
     }
   },
   "files_written": [
     {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
-      "action": "edit",
-      "tokens": 106,
-      "at": "2026-07-19T07:13:48.590Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
-      "action": "edit",
-      "tokens": 195,
-      "at": "2026-07-19T07:24:09.047Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
-      "action": "edit",
-      "tokens": 0,
-      "at": "2026-07-19T07:25:33.533Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
-      "action": "edit",
-      "tokens": 66,
-      "at": "2026-07-19T07:36:36.589Z"
-    },
-    {
-      "file": "/private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/bookkeep.mjs",
+      "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
       "action": "create",
-      "tokens": 857,
-      "at": "2026-07-19T07:37:55.976Z"
+      "tokens": 1984,
+      "at": "2026-07-21T17:51:52.244Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/app/layout.tsx",
-      "action": "edit",
-      "tokens": 34,
-      "at": "2026-07-19T07:47:57.437Z"
+      "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+      "action": "create",
+      "tokens": 2094,
+      "at": "2026-07-21T17:52:15.954Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
-      "action": "edit",
-      "tokens": 37,
-      "at": "2026-07-19T07:47:59.035Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
-      "action": "edit",
-      "tokens": 78,
-      "at": "2026-07-19T07:48:00.748Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/app/layout.tsx",
-      "action": "edit",
-      "tokens": 45,
-      "at": "2026-07-19T07:49:05.251Z"
+      "file": "/Users/mm/Documents/ntt-data/app/fast-track/page.tsx",
+      "action": "create",
+      "tokens": 332,
+      "at": "2026-07-21T17:52:19.895Z"
     }
   ],
   "edit_counts": {
-    "components/deck-submission-form.tsx": 1,
-    "components/dashboard/columns.tsx": 5,
-    "../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/bookkeep.mjs": 1,
-    "app/layout.tsx": 2
+    "app/api/fast-track/route.ts": 1,
+    "components/fast-track-form.tsx": 1,
+    "app/fast-track/page.tsx": 1
   },
   "anatomy_hits": 4,
   "anatomy_misses": 1,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 5
+  "stop_count": 1
 }

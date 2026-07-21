@@ -6,16 +6,76 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { PROBLEM_DECKS, type ProblemDeck } from "@/lib/problem-decks";
 import { AlertCircle, CheckCircle2, Loader2, X } from "lucide-react";
 
 const MAX_SIZE_BYTES = 8 * 1024 * 1024;
 const ACCEPTED = "image/*,.pdf,.ppt,.pptx";
 const SUPPORT_EMAIL = "openinnovation@ntt-startupchallenge.com";
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const NOT_FOUND_MESSAGE =
+  "We couldn't find a registration for that email. Please make sure you're using the same email you registered with.";
+
+type Status = "idle" | "checking" | "ready" | "error";
 
 interface DeckProblem {
   deck: ProblemDeck;
   uploaded: boolean;
+  filename: string;
+}
+
+interface PendingReplace {
+  id: string;
+  title: string;
+  oldName: string;
+  file: File;
+}
+
+/** Error carrying the HTTP status so callers can special-case not-found. */
+class LoadError extends Error {
+  status: number;
+  constructor(message: string, status: number) {
+    super(message);
+    this.status = status;
+  }
+}
+
+/**
+ * Loads the registrant's selected problem decks. Shared by both entry paths:
+ * the email-link flow (query param, on mount) and the manual Check flow.
+ */
+async function fetchProblems(email: string): Promise<DeckProblem[]> {
+  const res = await fetch(
+    `/api/deck-submission?email=${encodeURIComponent(email)}`,
+  );
+  const data = await res.json().catch(() => null);
+  if (!res.ok) {
+    throw new LoadError(
+      data?.message ?? "Unable to load your registration.",
+      res.status,
+    );
+  }
+  return (
+    (data?.problems ?? []) as {
+      id?: string;
+      uploaded?: boolean;
+      filename?: string;
+    }[]
+  )
+    .map((p) => ({
+      deck: PROBLEM_DECKS.find((d) => d.id === p.id),
+      uploaded: Boolean(p.uploaded),
+      filename: typeof p.filename === "string" ? p.filename : "",
+    }))
+    .filter((p): p is DeckProblem => Boolean(p.deck));
 }
 
 function SupportLink() {
@@ -31,49 +91,34 @@ function SupportLink() {
 
 export default function DeckSubmissionForm() {
   const searchParams = useSearchParams();
-  const emailFromQuery = searchParams.get("email") ?? "";
+  const emailFromQuery = (searchParams.get("email") ?? "").trim();
 
-  const [status, setStatus] = React.useState<"loading" | "ready" | "error">(
-    emailFromQuery ? "loading" : "error",
+  // With a query email (email-link flow) we auto-load; otherwise the user
+  // types their email and gates it behind the Check button.
+  const [status, setStatus] = React.useState<Status>(
+    emailFromQuery ? "checking" : "idle",
   );
-  const [loadError, setLoadError] = React.useState<string | null>(
-    emailFromQuery
-      ? null
-      : "Open this page using the pitch-deck link from your registration confirmation email.",
-  );
+  const [activeEmail, setActiveEmail] = React.useState(emailFromQuery);
+  const [emailInput, setEmailInput] = React.useState("");
+  const [gateError, setGateError] = React.useState<string | null>(null);
+  const [loadError, setLoadError] = React.useState<string | null>(null);
   const [problems, setProblems] = React.useState<DeckProblem[]>([]);
   const [files, setFiles] = React.useState<Record<string, File | null>>({});
+  const [pendingReplace, setPendingReplace] =
+    React.useState<PendingReplace | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitted, setSubmitted] = React.useState(false);
   const [submitError, setSubmitError] = React.useState<string | null>(null);
 
+  // Email-link flow: load the moment we have a query email.
   React.useEffect(() => {
     if (!emailFromQuery) return;
 
     let cancelled = false;
-
-    async function loadProblems() {
+    (async () => {
       try {
-        const res = await fetch(
-          `/api/deck-submission?email=${encodeURIComponent(emailFromQuery)}`,
-        );
-        const data = await res.json().catch(() => null);
-        if (!res.ok) {
-          throw new Error(
-            data?.message ?? "Unable to load your registration.",
-          );
-        }
+        const items = await fetchProblems(emailFromQuery);
         if (cancelled) return;
-
-        const items: DeckProblem[] = (
-          (data?.problems ?? []) as { id?: string; uploaded?: boolean }[]
-        )
-          .map((p) => ({
-            deck: PROBLEM_DECKS.find((d) => d.id === p.id),
-            uploaded: Boolean(p.uploaded),
-          }))
-          .filter((p): p is DeckProblem => Boolean(p.deck));
-
         setProblems(items);
         setStatus("ready");
       } catch (err) {
@@ -85,9 +130,8 @@ export default function DeckSubmissionForm() {
         );
         setStatus("error");
       }
-    }
+    })();
 
-    loadProblems();
     return () => {
       cancelled = true;
     };
@@ -102,13 +146,64 @@ export default function DeckSubmissionForm() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [submitted]);
 
+  async function handleCheck(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const email = emailInput.trim();
+    if (!EMAIL_RE.test(email)) {
+      setGateError("Please enter a valid email address.");
+      return;
+    }
+
+    setGateError(null);
+    setStatus("checking");
+    try {
+      const items = await fetchProblems(email);
+      setActiveEmail(email);
+      setProblems(items);
+      setStatus("ready");
+    } catch (err) {
+      // Back to the gate so the user can correct the email and retry.
+      setStatus("idle");
+      if (err instanceof LoadError && err.status === 404) {
+        setGateError(NOT_FOUND_MESSAGE);
+      } else {
+        setGateError(
+          err instanceof Error
+            ? err.message
+            : "Something went wrong. Please try again.",
+        );
+      }
+    }
+  }
+
   function handleFileChange(
-    problemId: string,
+    problem: DeckProblem,
     e: React.ChangeEvent<HTMLInputElement>,
   ) {
     const picked = e.target.files?.[0] ?? null;
-    setFiles((prev) => ({ ...prev, [problemId]: picked }));
+    // Reset so re-picking the same file after Cancel still fires onChange.
+    e.target.value = "";
     setSubmitError(null);
+    if (!picked) return;
+
+    // Replacing an already-uploaded deck needs an explicit confirmation.
+    if (problem.uploaded) {
+      setPendingReplace({
+        id: problem.deck.id,
+        title: problem.deck.title,
+        oldName: problem.filename,
+        file: picked,
+      });
+      return;
+    }
+
+    setFiles((prev) => ({ ...prev, [problem.deck.id]: picked }));
+  }
+
+  function confirmReplace() {
+    if (!pendingReplace) return;
+    setFiles((prev) => ({ ...prev, [pendingReplace.id]: pendingReplace.file }));
+    setPendingReplace(null);
   }
 
   const oversizedIds = problems
@@ -129,7 +224,7 @@ export default function DeckSubmissionForm() {
 
     try {
       const fd = new FormData();
-      fd.append("email", emailFromQuery);
+      fd.append("email", activeEmail);
       for (const problem of problems) {
         const file = files[problem.deck.id];
         if (file) fd.append(problem.deck.field, file);
@@ -147,7 +242,9 @@ export default function DeckSubmissionForm() {
       }
       setProblems((prev) =>
         prev.map((p) =>
-          files[p.deck.id] ? { ...p, uploaded: true } : p,
+          files[p.deck.id]
+            ? { ...p, uploaded: true, filename: files[p.deck.id]!.name }
+            : p,
         ),
       );
       setFiles({});
@@ -163,11 +260,69 @@ export default function DeckSubmissionForm() {
     }
   }
 
-  if (status === "loading") {
+  if (status === "checking") {
     return (
       <div className="mx-auto flex w-full items-center justify-center gap-3 rounded-2xl bg-white p-10 text-sm text-gray-600 shadow-sm ring-1 ring-gray-100">
         <Loader2 className="size-4 animate-spin text-[#0070C0]" />
-        Loading your registration…
+        Checking your registration…
+      </div>
+    );
+  }
+
+  if (status === "idle") {
+    return (
+      <div className="mx-auto w-full rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+        <form
+          onSubmit={handleCheck}
+          className="grid gap-4"
+          aria-label="Check registration email"
+        >
+          <div>
+            <Label
+              htmlFor="check-email"
+              className="text-sm font-medium text-gray-700"
+            >
+              Email <span className="text-red-500">*</span>
+            </Label>
+            <p className="mt-1 text-sm text-gray-600">
+              Enter the email you used during registration to load your
+              pitch-deck submission.
+            </p>
+            <Input
+              id="check-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="you@company.com"
+              value={emailInput}
+              onChange={(e) => {
+                setEmailInput(e.target.value);
+                setGateError(null);
+              }}
+              className="mt-2"
+            />
+          </div>
+
+          {gateError && (
+            <p className="flex items-start gap-2 text-sm font-medium text-red-700">
+              <AlertCircle className="mt-0.5 size-4 shrink-0" />
+              {gateError}
+            </p>
+          )}
+
+          <div className="flex justify-end">
+            <Button
+              type="submit"
+              className="bg-[#3176E4] text-sm hover:bg-[#0070C0]"
+            >
+              Check Email
+            </Button>
+          </div>
+
+          <p className="text-sm text-gray-600">
+            Need any help? Feel free to contact us at: <SupportLink />
+          </p>
+        </form>
       </div>
     );
   }
@@ -201,6 +356,15 @@ export default function DeckSubmissionForm() {
       </div>
     );
   }
+
+  const replaceTitle = pendingReplace
+    ? `Replace file for “${pendingReplace.title}”?`
+    : "";
+  const replaceMessage = pendingReplace
+    ? pendingReplace.oldName
+      ? `“${pendingReplace.oldName}” will be replaced with “${pendingReplace.file.name}” when you submit.`
+      : `“${pendingReplace.file.name}” will replace the current file when you submit.`
+    : "";
 
   return (
     <>
@@ -259,6 +423,38 @@ export default function DeckSubmissionForm() {
         </div>
       )}
 
+      <Dialog
+        open={!!pendingReplace}
+        onOpenChange={(open) => {
+          if (!open) setPendingReplace(null);
+        }}
+      >
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-[#154284]">{replaceTitle}</DialogTitle>
+            <DialogDescription className="break-all">
+              {replaceMessage}
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setPendingReplace(null)}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="button"
+              className="bg-[#154284] text-white hover:bg-[#0d2d6b]"
+              onClick={confirmReplace}
+            >
+              Replace
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
       <form
         onSubmit={handleSubmit}
         className="mx-auto w-full"
@@ -281,7 +477,7 @@ export default function DeckSubmissionForm() {
                 id="deck-email"
                 name="email"
                 type="email"
-                value={emailFromQuery}
+                value={activeEmail}
                 disabled
                 readOnly
                 className="mt-1.5 cursor-not-allowed bg-gray-50 text-gray-500"
@@ -315,7 +511,8 @@ export default function DeckSubmissionForm() {
               </p>
             )}
 
-            {problems.map(({ deck, uploaded }) => {
+            {problems.map((problem) => {
+              const { deck, uploaded, filename } = problem;
               const inputId = `deck-file-${deck.id}`;
               const file = files[deck.id] ?? null;
               const isOversized = oversizedIds.includes(deck.id);
@@ -357,14 +554,24 @@ export default function DeckSubmissionForm() {
                     type="file"
                     accept={ACCEPTED}
                     className="sr-only"
-                    onChange={(e) => handleFileChange(deck.id, e)}
+                    onChange={(e) => handleFileChange(problem, e)}
                   />
 
                   {uploaded && !file && (
-                    <p className="mt-1.5 flex items-center gap-1.5 text-xs font-medium text-emerald-600">
-                      <CheckCircle2 className="size-3.5 shrink-0" />
-                      Already uploaded — choose a file only if you want to
-                      replace it.
+                    <p className="mt-1.5 flex items-start gap-1.5 text-xs font-medium text-emerald-600">
+                      <CheckCircle2 className="mt-0.5 size-3.5 shrink-0" />
+                      <span>
+                        Already uploaded
+                        {filename ? (
+                          <>
+                            {": "}
+                            <span className="font-semibold break-all">
+                              {filename}
+                            </span>
+                          </>
+                        ) : null}
+                        {" — choose a file only if you want to replace it."}
+                      </span>
                     </p>
                   )}
 

@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1436755,
-    "total_reads": 692,
-    "total_writes": 1208,
-    "total_sessions": 71,
-    "anatomy_hits": 272,
-    "anatomy_misses": 386,
+    "total_tokens_estimated": 1537735,
+    "total_reads": 740,
+    "total_writes": 1230,
+    "total_sessions": 74,
+    "anatomy_hits": 310,
+    "anatomy_misses": 396,
     "repeated_reads_blocked": 209,
-    "estimated_savings_vs_bare_cli": 1216692
+    "estimated_savings_vs_bare_cli": 1224292
   },
   "sessions": [
     {
@@ -12939,6 +12939,555 @@
         "output_tokens_estimated": 1418,
         "reads_count": 5,
         "writes_count": 9,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-21-2330",
+      "started": "2026-07-21T16:30:04.625Z",
+      "ended": "2026-07-21T16:36:47.076Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/auth.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/auth/verify-credentials.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/.env.local",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/private/tmp/claude-501/-Users-mm-Documents-ntt-data/7a26cf47-3e42-4577-af5b-502e6667d243/scratchpad/verify-hash-corruption.mjs",
+          "tokens_estimated": 191,
+          "action": "create"
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-mm-Documents-ntt-data/7a26cf47-3e42-4577-af5b-502e6667d243/scratchpad/verify-hash-corruption.mjs",
+          "tokens_estimated": 24,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 215,
+        "reads_count": 3,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-21-2341",
+      "started": "2026-07-21T16:41:18.878Z",
+      "ended": "2026-07-21T16:50:41.399Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 4066,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 2413,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 510,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 6989,
+        "output_tokens_estimated": 0,
+        "reads_count": 4,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-21-2341",
+      "started": "2026-07-21T16:41:18.878Z",
+      "ended": "2026-07-21T16:55:14.551Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 4066,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 2413,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 510,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 6989,
+        "output_tokens_estimated": 0,
+        "reads_count": 4,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-21-2341",
+      "started": "2026-07-21T16:41:18.878Z",
+      "ended": "2026-07-21T16:58:30.601Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 4066,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 2413,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 510,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/docs/superpowers/specs/2026-07-21-deck-submission-email-gate-design.md",
+          "tokens_estimated": 2036,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6989,
+        "output_tokens_estimated": 2036,
+        "reads_count": 4,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-21-2341",
+      "started": "2026-07-21T16:41:18.878Z",
+      "ended": "2026-07-21T17:13:58.961Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 4066,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 2413,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 510,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/docs/superpowers/specs/2026-07-21-deck-submission-email-gate-design.md",
+          "tokens_estimated": 2036,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 116,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 5868,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6989,
+        "output_tokens_estimated": 8020,
+        "reads_count": 4,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-21-2341",
+      "started": "2026-07-21T16:41:18.878Z",
+      "ended": "2026-07-21T17:22:50.569Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 4066,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 2413,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 510,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 1875,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 236,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/docs/superpowers/specs/2026-07-21-deck-submission-email-gate-design.md",
+          "tokens_estimated": 2036,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 116,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 5868,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 9100,
+        "output_tokens_estimated": 8020,
+        "reads_count": 6,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-07-21-2341",
+      "started": "2026-07-21T16:41:18.878Z",
+      "ended": "2026-07-21T17:25:37.204Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 4066,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 2413,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 510,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 1875,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 236,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/is-new.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/ui/badge.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/is-new.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/docs/superpowers/specs/2026-07-21-deck-submission-email-gate-design.md",
+          "tokens_estimated": 2036,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 116,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 5868,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 9100,
+        "output_tokens_estimated": 8020,
+        "reads_count": 9,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-07-21-2341",
+      "started": "2026-07-21T16:41:18.878Z",
+      "ended": "2026-07-21T17:30:04.725Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 4066,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 2413,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 510,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 1875,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 236,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/is-new.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/ui/badge.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/is-new.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/docs/superpowers/specs/2026-07-21-deck-submission-email-gate-design.md",
+          "tokens_estimated": 2036,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 116,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 5868,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/is-new.ts",
+          "tokens_estimated": 463,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/is-new.test.ts",
+          "tokens_estimated": 864,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/ui/badge.tsx",
+          "tokens_estimated": 71,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 2024,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 9100,
+        "output_tokens_estimated": 11442,
+        "reads_count": 9,
+        "writes_count": 7,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-07-21-0038",
+      "started": "2026-07-21T17:38:38.712Z",
+      "ended": "2026-07-21T17:52:46.334Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 510,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 2486,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx",
+          "tokens_estimated": 329,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 236,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 1984,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 2094,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/fast-track/page.tsx",
+          "tokens_estimated": 332,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 3561,
+        "output_tokens_estimated": 4410,
+        "reads_count": 5,
+        "writes_count": 3,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 4
       }

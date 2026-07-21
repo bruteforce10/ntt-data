@@ -1065,3 +1065,38 @@
 | 14:48 | Edited components/dashboard/columns.tsx | 8→8 lines | ~78 |
 | 14:49 | Edited app/layout.tsx | added 1 import(s) | ~45 |
 | 14:50 | Session end: 9 writes across 4 files (deck-submission-form.tsx, columns.tsx, bookkeep.mjs, layout.tsx) | 5 reads | ~17101 tok |
+
+## Session: 2026-07-21 23:30
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:33 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/7a26cf47-3e42-4577-af5b-502e6667d243/scratchpad/verify-hash-corruption.mjs | — | ~178 |
+| 23:34 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/7a26cf47-3e42-4577-af5b-502e6667d243/scratchpad/verify-hash-corruption.mjs | "bcryptjs" → "/Users/mm/Documents/ntt-d" | ~22 |
+| 23:36 | Session end: 2 writes across 1 files (verify-hash-corruption.mjs) | 3 reads | ~215 tok |
+
+## Session: 2026-07-21 23:41
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:57 | Created docs/superpowers/specs/2026-07-21-deck-submission-email-gate-design.md | — | ~1900 |
+| 23:58 | Session end: 1 writes across 1 files (2026-07-21-deck-submission-email-gate-design.md) | 4 reads | ~9025 tok |
+| 00:09 | Edited app/api/deck-submission/route.ts | expanded (+6 lines) | ~116 |
+| 00:12 | Created components/deck-submission-form.tsx | — | ~5868 |
+| 00:13 | Add email-gate (Check Email) to /deck-submission: manual email verify → show upload inputs; GET returns filename; replace-confirm Dialog | app/api/deck-submission/route.ts, components/deck-submission-form.tsx | tsc 0 errors; API 404/400 verified; browser UI unverified (extension offline) | ~7k |
+| 00:13 | Session end: 3 writes across 3 files (2026-07-21-deck-submission-email-gate-design.md, route.ts, deck-submission-form.tsx) | 4 reads | ~15009 tok |
+| 00:22 | Session end: 3 writes across 3 files (2026-07-21-deck-submission-email-gate-design.md, route.ts, deck-submission-form.tsx) | 6 reads | ~17120 tok |
+| 00:25 | Session end: 3 writes across 3 files (2026-07-21-deck-submission-email-gate-design.md, route.ts, deck-submission-form.tsx) | 9 reads | ~17120 tok |
+| 00:28 | Created lib/ntt-data/is-new.ts | — | ~463 |
+| 00:29 | Created tests/ntt-data/is-new.test.ts | — | ~864 |
+| 00:29 | Edited components/ui/badge.tsx | CSS: updated | ~71 |
+| 00:29 | Created components/dashboard/columns.tsx | — | ~2024 |
+| 00:30 | Session end: 7 writes across 7 files (2026-07-21-deck-submission-email-gate-design.md, route.ts, deck-submission-form.tsx, is-new.ts, is-new.test.ts) | 9 reads | ~20542 tok |
+
+## Session: 2026-07-21 00:38
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:51 | Created app/api/fast-track/route.ts | — | ~1984 |
+| 00:52 | Created components/fast-track-form.tsx | — | ~2094 |
+| 00:52 | Created app/fast-track/page.tsx | — | ~332 |
+| 00:52 | Session end: 3 writes across 3 files (route.ts, fast-track-form.tsx, page.tsx) | 5 reads | ~7971 tok |
