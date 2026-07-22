@@ -1100,3 +1100,17 @@
 | 00:52 | Created components/fast-track-form.tsx | — | ~2094 |
 | 00:52 | Created app/fast-track/page.tsx | — | ~332 |
 | 00:52 | Session end: 3 writes across 3 files (route.ts, fast-track-form.tsx, page.tsx) | 5 reads | ~7971 tok |
+
+## Session: 2026-07-22 13:50
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:00 | Edited lib/ntt-data/columns-config.ts | 3→2 lines | ~31 |
+| 14:00 | Edited components/dashboard/data-table.tsx | 8→8 lines | ~100 |
+| 14:00 | Edited components/dashboard/data-table.tsx | 5→3 lines | ~31 |
+| 14:00 | Edited components/dashboard/columns.tsx | CSS: value | ~148 |
+| 14:00 | Edited components/dashboard/columns.tsx | added nullish coalescing | ~195 |
+| 14:01 | Edited components/dashboard/columns.tsx | CSS: enableColumnFilter, hover | ~194 |
+| 14:01 | Edited components/dashboard/columns.tsx | removed 22 lines | ~14 |
+| 14:03 | Dashboard table: +company_address/problem_statement/did_you_hear_about_us cols, combined Company Description (PDF-or-text), country/city visible, removed business_mode; export drops business_mode (keeps funding_stage + descriptions) | columns.tsx, data-table.tsx, columns-config.ts | tsc clean, eslint 0 errors | ~9k |
+| 14:03 | Session end: 7 writes across 3 files (columns-config.ts, data-table.tsx, columns.tsx) | 7 reads | ~713 tok |

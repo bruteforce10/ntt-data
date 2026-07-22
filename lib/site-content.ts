@@ -200,8 +200,8 @@ export const SITE_CONTENT = {
     action: { label: "REGISTER", href: "/startup-registration" },
   },
   countdown: {
-    title: "Registration Deadline: July 24, 2026",
-    targetDate: "2026-07-24T00:00:00",
+    title: "Registration Deadline: July 27, 2026",
+    targetDate: "2026-07-27T00:00:00",
     video: {
       src: "/Video Countdown.webm",
       type: "video/webm",
@@ -802,7 +802,8 @@ export const SITE_CONTENT = {
       },
       {
         id: "PO_09",
-        logoLabel: "A leading Southeast Asian telecommunications and digital services provider",
+        logoLabel:
+          "A leading Southeast Asian telecommunications and digital services provider",
         title: "AI-Powered Autonomous Telco Assurance and Operations",
         description:
           "Operational workflows and insights are fragmented across network-monitoring, incident-management, field-service, service-desk, customer-care, billing, and CRM systems, limiting end-to-end visibility and slowing fault and congestion detection. The opportunity is a vendor-agnostic AI agent layer that orchestrates semi-autonomous assurance and operations across the existing technology estate, keeping critical or high-impact actions under human review.",
@@ -973,7 +974,7 @@ export const SITE_CONTENT = {
       },
       {
         question: "What is the application period?",
-        answer: "Applications are open until July 24, 2026.",
+        answer: "Applications are open until July 27, 2026.",
       },
       {
         question: "What is the application process?",

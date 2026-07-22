@@ -996,6 +996,70 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-21T17:09:37.384Z"
+    },
+    {
+      "id": "bug-062",
+      "timestamp": "2026-07-22T07:00:35.885Z",
+      "error_message": "Incorrect value in code",
+      "file": "lib/ntt-data/columns-config.ts",
+      "root_cause": "Had \"business_mode\"",
+      "fix": "Changed to \"country\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-22T07:00:35.885Z"
+    },
+    {
+      "id": "bug-063",
+      "timestamp": "2026-07-22T07:00:40.856Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/dashboard/data-table.tsx",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 5→3 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-22T07:00:40.856Z"
+    },
+    {
+      "id": "bug-064",
+      "timestamp": "2026-07-22T07:00:57.886Z",
+      "error_message": "Null/undefined access in ",
+      "file": "components/dashboard/columns.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-22T07:00:57.886Z"
+    },
+    {
+      "id": "bug-065",
+      "timestamp": "2026-07-22T07:01:04.610Z",
+      "error_message": "CSS fix: accessorKey, header",
+      "file": "components/dashboard/columns.tsx",
+      "root_cause": "accessorKey: \"company_description_pdf\", → \"company_description\",; header: \"Company PDF\", → \"Company Description\",",
+      "fix": "Changed accessorKey: \"company_description_pdf\", → \"company_description\",; header: \"Company PDF\", → \"Company Description\",",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-22T07:01:04.610Z"
     }
   ]
 }

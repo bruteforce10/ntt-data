@@ -15,6 +15,8 @@
 - Per-item image sizing from data: store numeric pixel `width`/`height` on the data object, pass directly as `<Image width={n} height={n}>` props. Avoid `fill` + sized wrapper for variable sizes.
 - [2026-07-15] Phone Number field = NO client-side validation at all. User first asked to loosen it for all countries, then corrected further: "kalau tidak di lolosin aja gak usah ada verifikasi tak ada logicnya" — any input passes, plain free-text field (type=tel + autoComplete=tel + placeholder showing +62/0895 examples only as hints). Raw value is sent; the API route (app/api/ntt-data/route.ts) normalizes to digits. Do not reintroduce format/length checks on optional contact fields.
 
+- (2026-07-22) Dashboard table (`components/dashboard/columns.tsx` + `data-table.tsx`): show company_address, problem_statement, did_you_hear_about_us, country, city; long free-text cells use the `TextCell` helper (`max-w truncate` + `title` tooltip). Company description is ONE combined column — render the `company_description_pdf` download link when present, else the `company_description` text, never both. `business_mode` was removed from the dashboard entirely (table column, COLUMN_META, EXPORT_KEYS) per user; the PB field + registration API (`app/api/ntt-data/route.ts`) were intentionally left intact. Excel export must include funding_stage + both description fields; only `business_mode` was dropped from EXPORT_KEYS.
+
 ## Key Learnings
 
 - **Project:** ntt-data

@@ -1,60 +1,94 @@
 {
-  "session_id": "session-2026-07-21-0038",
-  "started": "2026-07-21T17:38:38.712Z",
+  "session_id": "session-2026-07-22-1350",
+  "started": "2026-07-22T06:50:04.117Z",
   "files_read": {
-    "/Users/mm/Documents/ntt-data/lib/problem-decks.ts": {
-      "count": 1,
-      "tokens": 510,
-      "first_read": "2026-07-21T17:42:56.753Z"
-    },
-    "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts": {
-      "count": 1,
-      "tokens": 2486,
-      "first_read": "2026-07-21T17:42:56.978Z"
-    },
-    "/Users/mm/Documents/ntt-data/app/api/ntt-data/route.ts": {
+    "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/columns-config.ts": {
       "count": 1,
       "tokens": 0,
-      "first_read": "2026-07-21T17:43:10.253Z"
+      "first_read": "2026-07-22T06:57:51.553Z"
     },
-    "/Users/mm/Documents/ntt-data/app/deck-submission/page.tsx": {
+    "C:/Users/jayac/Documents/ntt-data/components/dashboard/data-table.tsx": {
       "count": 1,
-      "tokens": 329,
-      "first_read": "2026-07-21T17:43:10.711Z"
+      "tokens": 0,
+      "first_read": "2026-07-22T06:57:52.049Z"
     },
-    "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts": {
+    "C:/Users/jayac/Documents/ntt-data/components/dashboard/columns.tsx": {
       "count": 1,
-      "tokens": 236,
-      "first_read": "2026-07-21T17:43:11.212Z"
+      "tokens": 0,
+      "first_read": "2026-07-22T06:57:52.567Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/types.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-22T06:57:53.003Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/export-xlsx.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-22T06:58:18.240Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/export-selection.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-22T06:58:19.208Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/components/dashboard/record-detail.tsx": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-22T06:58:19.329Z"
     }
   },
   "files_written": [
     {
-      "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
-      "action": "create",
-      "tokens": 1984,
-      "at": "2026-07-21T17:51:52.244Z"
+      "file": "C:/Users/jayac/Documents/ntt-data/lib/ntt-data/columns-config.ts",
+      "action": "edit",
+      "tokens": 31,
+      "at": "2026-07-22T07:00:35.881Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
-      "action": "create",
-      "tokens": 2094,
-      "at": "2026-07-21T17:52:15.954Z"
+      "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/data-table.tsx",
+      "action": "edit",
+      "tokens": 100,
+      "at": "2026-07-22T07:00:39.301Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/app/fast-track/page.tsx",
-      "action": "create",
-      "tokens": 332,
-      "at": "2026-07-21T17:52:19.895Z"
+      "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/data-table.tsx",
+      "action": "edit",
+      "tokens": 31,
+      "at": "2026-07-22T07:00:40.853Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/columns.tsx",
+      "action": "edit",
+      "tokens": 148,
+      "at": "2026-07-22T07:00:49.269Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/columns.tsx",
+      "action": "edit",
+      "tokens": 195,
+      "at": "2026-07-22T07:00:57.883Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/columns.tsx",
+      "action": "edit",
+      "tokens": 194,
+      "at": "2026-07-22T07:01:04.605Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/dashboard/columns.tsx",
+      "action": "edit",
+      "tokens": 14,
+      "at": "2026-07-22T07:01:35.785Z"
     }
   ],
   "edit_counts": {
-    "app/api/fast-track/route.ts": 1,
-    "components/fast-track-form.tsx": 1,
-    "app/fast-track/page.tsx": 1
+    "lib/ntt-data/columns-config.ts": 1,
+    "components/dashboard/data-table.tsx": 2,
+    "components/dashboard/columns.tsx": 4
   },
-  "anatomy_hits": 4,
-  "anatomy_misses": 1,
+  "anatomy_hits": 0,
+  "anatomy_misses": 7,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1

@@ -30,24 +30,12 @@ import { PROBLEM_DECKS } from "@/lib/problem-decks";
 import type { NttDataRecord } from "@/lib/ntt-data/types";
 import { RecordDetail } from "./record-detail";
 
-function FileCell({
-  recordId,
-  field,
-  filename,
-}: {
-  recordId: string;
-  field: string;
-  filename: string;
-}) {
-  if (!filename) return <span className="text-slate-400">—</span>;
+function TextCell({ value }: { value: string }) {
+  if (!value) return <span className="text-slate-400">—</span>;
   return (
-    <a
-      href={`/api/ntt-data/${recordId}/file/${field}`}
-      download
-      className="text-xs text-[#0070C0] underline underline-offset-2 hover:text-[#154284]"
-    >
-      {filename}
-    </a>
+    <span title={value} className="block max-w-[220px] truncate text-xs">
+      {value}
+    </span>
   );
 }
 
@@ -184,10 +172,6 @@ export const columns: ColumnDef<NttDataRecord>[] = [
     header: "Startup",
   },
   {
-    accessorKey: "business_mode",
-    header: "Business Mode",
-  },
-  {
     accessorKey: "funding_stage",
     header: "Funding Stage",
   },
@@ -198,6 +182,21 @@ export const columns: ColumnDef<NttDataRecord>[] = [
   {
     accessorKey: "city",
     header: "City",
+  },
+  {
+    accessorKey: "company_address",
+    header: "Company Address",
+    cell: ({ getValue }) => <TextCell value={String(getValue() ?? "")} />,
+  },
+  {
+    accessorKey: "problem_statement",
+    header: "Problem Statement",
+    cell: ({ getValue }) => <TextCell value={String(getValue() ?? "")} />,
+  },
+  {
+    accessorKey: "did_you_hear_about_us",
+    header: "How Did You Hear About Us",
+    cell: ({ getValue }) => <TextCell value={String(getValue() ?? "")} />,
   },
   ...PROBLEM_DECKS.map(
     (deck): ColumnDef<NttDataRecord> => ({
@@ -229,17 +228,27 @@ export const columns: ColumnDef<NttDataRecord>[] = [
     }),
   ),
   {
-    accessorKey: "company_description_pdf",
-    header: "Company PDF",
+    accessorKey: "company_description",
+    header: "Company Description",
     enableSorting: false,
+    enableColumnFilter: false,
     enableGlobalFilter: false,
-    cell: ({ row }) => (
-      <FileCell
-        recordId={row.original.id}
-        field="company_description_pdf"
-        filename={row.original.company_description_pdf}
-      />
-    ),
+    cell: ({ row }) => {
+      const pdf = row.original.company_description_pdf;
+      if (pdf) {
+        return (
+          <a
+            href={`/api/ntt-data/${row.original.id}/file/company_description_pdf`}
+            download
+            title={pdf}
+            className="text-xs whitespace-nowrap text-[#0070C0] underline underline-offset-2 hover:text-[#154284]"
+          >
+            PDF
+          </a>
+        );
+      }
+      return <TextCell value={row.original.company_description} />;
+    },
   },
   {
     accessorKey: "created",

@@ -16,7 +16,6 @@ export const COLUMN_META: ColumnMeta[] = [
   { key: "job_title", label: "Job Title", type: "text" },
   { key: "startup_name", label: "Startup Name", type: "text" },
   { key: "website", label: "Website", type: "url" },
-  { key: "business_mode", label: "Business Mode", type: "facet" },
   { key: "country", label: "Country", type: "facet" },
   { key: "city", label: "City", type: "text" },
   { key: "company_address", label: "Company Address", type: "text" },

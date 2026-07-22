@@ -58,7 +58,7 @@ const PAGE_SIZE_OPTIONS = [10, 25, 50, 100] as const;
 
 const EXPORT_KEYS: (keyof NttDataRecord)[] = [
   "full_name", "email", "phone_number", "job_title", "startup_name",
-  "website", "business_mode", "country", "city", "company_address",
+  "website", "country", "city", "company_address",
   "problem_statement", "did_you_hear_about_us", "pick_deck",
   ...PROBLEM_DECK_FIELDS,
   "funding_stage",
@@ -112,8 +112,6 @@ export function DataTable({ data }: DataTableProps) {
   const [globalFilter, setGlobalFilter] = useState("");
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     phone_number: false,
-    city: false,
-    company_description_pdf: false,
   });
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const [pagination, setPagination] = useState<PaginationState>({
