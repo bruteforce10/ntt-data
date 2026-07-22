@@ -20,7 +20,7 @@ export default function FaqPage() {
     <>
       <Navbar />
       <FloatingDock />
-      <main className="min-h-screen bg-white">
+      <main className="min-h-dvh bg-white">
         <div className="mx-auto max-w-200 px-6 pt-28">
           <nav
             aria-label="Breadcrumb"

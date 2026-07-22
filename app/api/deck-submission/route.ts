@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { transporter, buildDeckSubmissionEmail } from "@/lib/mailer";
+import { buildEmailLookupFilter } from "@/lib/ntt-data/email-filter";
 import {
   PROBLEM_DECKS,
   matchProblemDecks,
@@ -64,7 +65,9 @@ async function lookupRegistration(
   email: string,
   token: string,
 ): Promise<Lookup> {
-  const filter = encodeURIComponent(`email='${email.replace(/'/g, "\\'")}'`);
+  // Case-insensitive match: registrants may type their email in a different
+  // case than they registered with (PocketBase `=` is case-sensitive).
+  const filter = encodeURIComponent(buildEmailLookupFilter(email));
   const lookupResponse = await fetch(
     `${POCKETBASE_URL}/api/collections/ntt_data/records?filter=${filter}&perPage=1`,
     {
@@ -73,21 +76,21 @@ async function lookupRegistration(
     },
   );
 
-  const lookup = await lookupResponse.json().catch(() => null);
-
   if (!lookupResponse.ok) {
+    const failure = await lookupResponse.json().catch(() => null);
     return {
       ok: false,
       response: NextResponse.json(
         {
-          message: lookup?.message || "Unable to look up your registration.",
-          details: lookup,
+          message: failure?.message || "Unable to look up your registration.",
+          details: failure,
         },
         { status: lookupResponse.status },
       ),
     };
   }
 
+  const lookup = await lookupResponse.json().catch(() => null);
   const record = lookup?.items?.[0];
 
   if (!record?.id) {
@@ -255,17 +258,18 @@ export async function POST(request: Request) {
       },
     );
 
-    const updated = await updateResponse.json().catch(() => null);
-
     if (!updateResponse.ok) {
+      const failure = await updateResponse.json().catch(() => null);
       return NextResponse.json(
         {
-          message: updated?.message || "Unable to upload your pitch deck.",
-          details: updated,
+          message: failure?.message || "Unable to upload your pitch deck.",
+          details: failure,
         },
         { status: updateResponse.status },
       );
     }
+
+    const updated = await updateResponse.json().catch(() => null);
 
     // Send the confirmation email (non-blocking failure).
     const name =

@@ -28,9 +28,10 @@ function ProgramCard({ item }: { item: ProgramItem }) {
         src={item.image.src}
         alt={item.image.alt}
         fill
+        sizes="(max-width: 640px) 100vw, 340px"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-5">
         <h3 className="text-sm font-black uppercase tracking-wide text-white">
           {item.title}
@@ -47,8 +48,8 @@ function ProgramGrid() {
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-        {programOverview.items.map((item, i) => (
-          <div key={i} className="w-full sm:w-[320px] lg:w-[340px]">
+        {programOverview.items.map((item) => (
+          <div key={item.title} className="w-full sm:w-[320px] lg:w-[340px]">
             <ProgramCard item={item} />
           </div>
         ))}
@@ -61,7 +62,9 @@ function ProgramCarousel() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
 
-  const plugin = React.useRef(
+  // Lazy initializer runs once — useRef(Autoplay(...)) would re-create the
+  // plugin object on every render and discard it.
+  const [plugin] = React.useState(() =>
     Autoplay({ delay: 3000, stopOnInteraction: false }),
   );
 
@@ -82,14 +85,14 @@ function ProgramCarousel() {
       <div className="relative mx-auto max-w-[1200px] px-12 lg:px-14">
         <Carousel
           setApi={setApi}
-          plugins={[plugin.current]}
+          plugins={[plugin]}
           opts={{ loop: true, align: "start" }}
           className="w-full"
         >
           <CarouselContent className="-ml-4">
-            {programOverview.items.map((item, i) => (
+            {programOverview.items.map((item) => (
               <CarouselItem
-                key={i}
+                key={item.title}
                 className="pl-4 basis-[80%] sm:basis-[48%] lg:basis-[27%]"
               >
                 <ProgramCard item={item} />
@@ -106,6 +109,7 @@ function ProgramCarousel() {
         {Array.from({ length: ITEM_COUNT }).map((_, i) => (
           <button
             key={i}
+            type="button"
             onClick={() => api?.scrollTo(i)}
             className={cn(
               "h-2 rounded-full transition-all duration-300",

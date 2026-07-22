@@ -79,6 +79,7 @@ function ColumnFilter({ column }: { column: Column<NttDataRecord, unknown> }) {
     return (
       <select
         value={filterValue}
+        aria-label={`Filter ${meta.label}`}
         onChange={(e) => column.setFilterValue(e.target.value || undefined)}
         className="mt-1 h-6 w-full rounded border border-slate-200 bg-white px-1 text-xs"
       >
@@ -95,6 +96,7 @@ function ColumnFilter({ column }: { column: Column<NttDataRecord, unknown> }) {
   return (
     <input
       value={filterValue}
+      aria-label={`Filter ${meta.label}`}
       onChange={(e) => column.setFilterValue(e.target.value || undefined)}
       placeholder="Filter…"
       className="mt-1 h-6 w-full rounded border border-slate-200 px-1.5 text-xs outline-none focus:border-[#3176E4]"
@@ -196,6 +198,7 @@ export function DataTable({ data }: DataTableProps) {
             </DropdownMenuContent>
           </DropdownMenu>
           <button
+            type="button"
             onClick={handleExport}
             className="flex h-8 items-center gap-1.5 rounded-lg border border-[#3176E4] px-3 text-sm text-[#3176E4] hover:bg-[#3176E4]/5"
           >
@@ -298,8 +301,9 @@ export function DataTable({ data }: DataTableProps) {
       {/* Pagination */}
       <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
         <div className="flex items-center gap-2">
-          <span>Rows per page</span>
+          <label htmlFor="page-size-select">Rows per page</label>
           <select
+            id="page-size-select"
             value={pagination.pageSize}
             onChange={(e) =>
               setPagination((p) => ({
@@ -355,6 +359,7 @@ export function DataTable({ data }: DataTableProps) {
             ).map(({ icon: Icon, label, action, disabled }) => (
               <button
                 key={label}
+                type="button"
                 onClick={action}
                 disabled={disabled}
                 aria-label={label}

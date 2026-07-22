@@ -178,17 +178,18 @@ export async function POST(request: Request) {
       },
     );
 
-    const result = await recordResponse.json().catch(() => null);
-
     if (!recordResponse.ok) {
+      const failure = await recordResponse.json().catch(() => null);
       return NextResponse.json(
         {
-          message: result?.message || "PocketBase rejected the submission.",
-          details: result,
+          message: failure?.message || "PocketBase rejected the submission.",
+          details: failure,
         },
         { status: recordResponse.status },
       );
     }
+
+    const result = await recordResponse.json().catch(() => null);
 
     // Confirmation email (non-blocking failure).
     try {

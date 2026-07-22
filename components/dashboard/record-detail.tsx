@@ -1,6 +1,10 @@
 "use client";
 
-import { COLUMN_META, NTT_DATA_FILE_FIELDS } from "@/lib/ntt-data/columns-config";
+import {
+  COLUMN_META,
+  DASHBOARD_TIME_ZONE,
+  NTT_DATA_FILE_FIELDS,
+} from "@/lib/ntt-data/columns-config";
 import type { NttDataRecord } from "@/lib/ntt-data/types";
 import {
   Sheet,
@@ -55,6 +59,7 @@ export function RecordDetail({ record, open, onOpenChange }: RecordDetailProps) 
                     new Date(displayValue).toLocaleString("id-ID", {
                       dateStyle: "medium",
                       timeStyle: "short",
+                      timeZone: DASHBOARD_TIME_ZONE,
                     })
                   ) : (
                     displayValue ?? (

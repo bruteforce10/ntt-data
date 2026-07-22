@@ -47,7 +47,7 @@ function PhasePill({
   return (
     <div
       className={cn(
-        "flex items-center justify-center rounded-full border border-white/15 bg-gradient-to-b from-[#2e5494] to-[#12376e] px-6 py-2.5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_16px_-6px_rgba(0,0,0,0.45)]",
+        "flex items-center justify-center rounded-full border border-white/15 bg-linear-to-b from-[#2e5494] to-[#12376e] px-6 py-2.5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_16px_-6px_rgba(0,0,0,0.45)]",
         className,
       )}
     >
@@ -125,29 +125,29 @@ export default function Roadmap() {
           <div className="hidden grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-x-3 gap-y-8 lg:grid">
             {phases.map((phase, i) => (
               <PhasePill
-                key={`pill-${i}`}
+                key={`pill-${phase.label}`}
                 label={phase.label}
                 className={cn("row-start-1", PILL_COL[i])}
               />
             ))}
 
-            {phases.slice(1).map((_, i) => (
+            {phases.slice(1).map((phase, i) => (
               <ChevronCell
-                key={`ichev-${i}`}
+                key={`chev-${phase.label}`}
                 className={cn("row-start-2 self-start", CHEV_COL[i])}
               />
             ))}
 
             {phases.map((phase, i) => (
               <div
-                key={`cell-${i}`}
+                key={`cell-${phase.label}`}
                 className={cn(
                   "row-start-2 flex items-start justify-center gap-2 self-start",
                   CELL_COL[i],
                 )}
               >
                 {phase.steps.map((step, si) => (
-                  <Fragment key={si}>
+                  <Fragment key={step.caption}>
                     {si > 0 && <ChevronCell />}
                     <StepItem step={step} compact={phase.steps.length > 1} />
                   </Fragment>
@@ -159,13 +159,13 @@ export default function Roadmap() {
           {/* Mobile / tablet: vertical timeline with down chevrons */}
           <div className="flex flex-col items-center gap-5 lg:hidden">
             {phases.map((phase, pi) => (
-              <Fragment key={pi}>
+              <Fragment key={phase.label}>
                 {pi > 0 && (
                   <Chevron className="h-6 w-6 rotate-90 text-white/60" />
                 )}
                 <PhasePill label={phase.label} className="min-w-[200px]" />
                 {phase.steps.map((step, si) => (
-                  <Fragment key={si}>
+                  <Fragment key={step.caption}>
                     {si > 0 && (
                       <Chevron className="h-6 w-6 rotate-90 text-white/60" />
                     )}

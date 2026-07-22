@@ -25,7 +25,7 @@ export default function About() {
           </p>
           <Link
             href={about.cta.href}
-            className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-white to-gray-100 px-9 py-3.5 text-base font-bold text-[#0070C0] shadow-md shadow-black/15 ring-1 ring-black/5 transition duration-200 hover:to-gray-200 hover:text-[#3176E4] hover:shadow-lg sm:text-lg"
+            className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-b from-white to-gray-100 px-9 py-3.5 text-base font-bold text-[#0070C0] shadow-md shadow-black/15 ring-1 ring-black/5 transition duration-200 hover:to-gray-200 hover:text-[#3176E4] hover:shadow-lg sm:text-lg"
           >
             <span>{about.cta.label}</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 sm:h-5 sm:w-5" />

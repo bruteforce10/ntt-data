@@ -19,7 +19,7 @@ export default function DeckSubmissionPage() {
     <>
       <Navbar />
       <FloatingDock />
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-dvh bg-gray-50">
         <section className="mx-auto w-full max-w-4xl px-6 py-32">
           <h1 className="mb-8 text-center font-bold text-2xl uppercase tracking-wide text-[#154284] sm:text-3xl">
             NTT Open Innovation Program Pitch Deck Submission

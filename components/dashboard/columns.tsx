@@ -25,6 +25,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+import { DASHBOARD_TIME_ZONE } from "@/lib/ntt-data/columns-config";
 import { rowBadge } from "@/lib/ntt-data/is-new";
 import { PROBLEM_DECKS } from "@/lib/problem-decks";
 import type { NttDataRecord } from "@/lib/ntt-data/types";
@@ -65,16 +66,22 @@ function RowActions({ row }: { row: Row<NttDataRecord> }) {
             <EyeIcon className="h-3.5 w-3.5" /> View Details
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          {PROBLEM_DECKS.filter((deck) => record[deck.field]).map((deck) => (
-            <DropdownMenuItem
-              key={deck.field}
-              onClick={() =>
-                window.open(`/api/ntt-data/${record.id}/file/${deck.field}`)
-              }
-            >
-              <DownloadIcon className="h-3.5 w-3.5" /> {deck.id} Deck
-            </DropdownMenuItem>
-          ))}
+          {PROBLEM_DECKS.flatMap((deck) =>
+            record[deck.field]
+              ? [
+                  <DropdownMenuItem
+                    key={deck.field}
+                    onClick={() =>
+                      window.open(
+                        `/api/ntt-data/${record.id}/file/${deck.field}`,
+                      )
+                    }
+                  >
+                    <DownloadIcon className="h-3.5 w-3.5" /> {deck.id} Deck
+                  </DropdownMenuItem>,
+                ]
+              : [],
+          )}
           {record.pick_deck ? (
             <DropdownMenuItem
               onClick={() =>
@@ -139,12 +146,14 @@ export const columns: ColumnDef<NttDataRecord>[] = [
               variant="updated"
               title={`Updated ${new Date(badge.updatedAt).toLocaleString(
                 "id-ID",
+                { timeZone: DASHBOARD_TIME_ZONE },
               )}`}
             >
               Updated{" "}
               {new Date(badge.updatedAt).toLocaleDateString("id-ID", {
                 day: "numeric",
                 month: "short",
+                timeZone: DASHBOARD_TIME_ZONE,
               })}
             </Badge>
           )}
@@ -256,7 +265,11 @@ export const columns: ColumnDef<NttDataRecord>[] = [
     enableGlobalFilter: false,
     cell: ({ getValue }) => {
       const v = getValue() as string;
-      return v ? new Date(v).toLocaleDateString("id-ID") : "—";
+      return v
+        ? new Date(v).toLocaleDateString("id-ID", {
+            timeZone: DASHBOARD_TIME_ZONE,
+          })
+        : "—";
     },
   },
   {

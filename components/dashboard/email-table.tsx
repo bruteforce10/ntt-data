@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
+import { DASHBOARD_TIME_ZONE } from "@/lib/ntt-data/columns-config";
 import type { NttDataRecord } from "@/lib/ntt-data/types";
 
 const PAGE_SIZE = 25;
@@ -120,9 +121,13 @@ export function EmailTable({ data }: EmailTableProps) {
       const res = await fetch(`/api/ntt-data/${record.id}/send-email`, {
         method: "POST",
       });
+      if (!res.ok) {
+        const failure = await res.json().catch(() => null);
+        throw new Error(failure?.error || `HTTP ${res.status}`);
+      }
       const json = await res.json().catch(() => null);
-      if (!res.ok || !json?.success) {
-        throw new Error(json?.error || `HTTP ${res.status}`);
+      if (!json?.success) {
+        throw new Error(json?.error || "Email send failed.");
       }
       setStatuses((s) => ({ ...s, [record.id]: "sent" }));
     } catch {
@@ -184,7 +189,9 @@ export function EmailTable({ data }: EmailTableProps) {
                   </TableCell>
                   <TableCell className="px-3 py-2 text-xs">
                     {record.created
-                      ? new Date(record.created).toLocaleDateString("id-ID")
+                      ? new Date(record.created).toLocaleDateString("id-ID", {
+                          timeZone: DASHBOARD_TIME_ZONE,
+                        })
                       : "—"}
                   </TableCell>
                   <TableCell className="px-3 py-2">
@@ -215,6 +222,7 @@ export function EmailTable({ data }: EmailTableProps) {
         </span>
         <div className="flex items-center gap-1">
           <button
+            type="button"
             onClick={() => setPageIndex((p) => Math.max(0, p - 1))}
             disabled={page === 0}
             aria-label="Previous"
@@ -223,6 +231,7 @@ export function EmailTable({ data }: EmailTableProps) {
             <ChevronLeftIcon className="h-3.5 w-3.5" />
           </button>
           <button
+            type="button"
             onClick={() => setPageIndex((p) => Math.min(pageCount - 1, p + 1))}
             disabled={page >= pageCount - 1}
             aria-label="Next"
