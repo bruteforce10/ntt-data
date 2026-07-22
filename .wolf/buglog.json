@@ -1060,6 +1060,25 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-22T07:01:04.610Z"
+    },
+    {
+      "id": "bug-066",
+      "timestamp": "2026-07-22T00:00:00+07:00",
+      "error_message": "User report: VS Code 'Sync Changes' gagal di branch feat/ntt-data-dashboard",
+      "file": ".wolf/hooks/_session.json, .wolf/memory.md, .wolf/token-ledger.json",
+      "root_cause": "Branch diverged: remote punya commit 8f39d341 (push dari mesin Windows lain), lokal punya 2 commit session-log. Pull gagal auto-merge karena kedua sisi mengubah file log OpenWolf yang sama (_session.json, memory.md, token-ledger.json)",
+      "fix": "git pull --rebase, resolve konflik di 3 file log .wolf (ambil session terbaru, gabung memory.md kronologis, ambil counter max di token-ledger), lalu push",
+      "tags": [
+        "git",
+        "sync",
+        "rebase",
+        "merge-conflict",
+        "wolf-logs",
+        "multi-machine"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-22T00:00:00+07:00"
     }
   ]
 }
