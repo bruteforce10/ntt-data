@@ -1119,3 +1119,8 @@
 | 14:01 | Edited components/dashboard/columns.tsx | removed 22 lines | ~14 |
 | 14:03 | Dashboard table: +company_address/problem_statement/did_you_hear_about_us cols, combined Company Description (PDF-or-text), country/city visible, removed business_mode; export drops business_mode (keeps funding_stage + descriptions) | columns.tsx, data-table.tsx, columns-config.ts | tsc clean, eslint 0 errors | ~9k |
 | 14:03 | Session end: 7 writes across 3 files (columns-config.ts, data-table.tsx, columns.tsx) | 7 reads | ~713 tok |
+
+## Session: 2026-07-22 22:20
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
