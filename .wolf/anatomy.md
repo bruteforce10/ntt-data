@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-22T17:10:11.254Z
-> Files: 41 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-23T17:21:29.237Z
+> Files: 43 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/
 
@@ -90,7 +90,7 @@
 - `footer.tsx` — footerLinks (~878 tok)
 - `hero.tsx` — Hero (~764 tok)
 - `navbar.tsx` — NAVBAR_ACTIONS (~1492 tok)
-- `problem-overview.tsx` — ProblemOverview — renders modal (~3564 tok)
+- `problem-overview.tsx` — ProblemOverview — renders modal (~3832 tok)
 - `program-overview.tsx` — ITEM_COUNT (~1209 tok)
 - `roadmap.tsx` — ICON_W (~1737 tok)
 - `startup-registration-dock.tsx` — Registration-page replacement for the shared FloatingDock: a full-width (~1102 tok)
@@ -125,7 +125,8 @@
 
 ## lib/
 
-- `site-content.ts` — Exports SITE_CONTENT (~22182 tok)
+- `problem-decks.ts` — PocketBase file-field names on the ntt_data collection, one per (~516 tok)
+- `site-content.ts` — Exports SITE_CONTENT (~23988 tok)
 
 ## lib/auth/
 
@@ -152,6 +153,7 @@
 
 - `email-filter.test.ts` — 3 tests: case-insensitive :lower filter, lowercase passthrough, quote escaping (~150 tok)
 - `email-filter.test.ts` (~260 tok)
+- `problem-decks.test.ts` — Declares deck (~808 tok)
 - `registration-errors.test.ts` — 10 tests: PB field-error flattening, network/413/field-list/5xx/4xx cause messages (~800 tok)
 - `registration-errors.test.ts` — Declares message (~948 tok)
 

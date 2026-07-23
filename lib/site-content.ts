@@ -884,6 +884,115 @@ export const SITE_CONTENT = {
         },
         href: "#problem-statements",
       },
+      {
+        id: "PO_11",
+        logoLabel: "A global infrastructure and engineering services provider",
+        title:
+          "Automating Intelligent Security Patch Management for Resilient Compliance Operations",
+        description:
+          "As part of Managed Security services compliance, security patches management is an integral part of our ongoing Day2 operations and support for customers' infrastructure.",
+        detail: {
+          context: [],
+          description: {
+            sections: [
+              {
+                label: "About:",
+                items: [
+                  "As part of Managed Security services compliance, security patches management is an integral part of our ongoing Day2 operations and support for customers' infrastructure",
+                  "One important area is the requirement to comply to managed security requirement of keeping up to date patching cycles for various devices and infrastructure based on approved change management",
+                ],
+              },
+              {
+                label: "Challenges:",
+                items: [
+                  "Every patch issued for security compliance has to be fully researched, tested and reviewed before approved to be deployed in production environment",
+                  "Time pressure and urgency to deploy up to date patches pose security risks",
+                  "Require too much manual intervention to recover/remediate if the deployed patch introduced unknown side issues that requires rollback",
+                  "Having to re-test and review for completeness after recovery",
+                ],
+              },
+              {
+                label: "Target Outcome:",
+                items: [
+                  "An intelligent way to manage security patches management from inception, testing, review, change management till production up to date",
+                  "Able to refer to other known patch history and work-arounds or solutions to mitigate possible side effects or unsuitable to certain environments",
+                  "Human engineer can focus on the creative decision and let the machine do the hard rote work",
+                ],
+              },
+              {
+                label: "Collaboration Needs:",
+                items: [
+                  "A partner who fully understands and have experience in security patching management and methodology",
+                  "Good track record in their proposed solution",
+                  "Critical for our customers' production environment to be up to date from security compliance perspective – we're already managing this for our customers therefore critical need",
+                ],
+              },
+              {
+                label: "Assets:",
+                items: [
+                  "We've strong technical delivery track record therefore able to work with the right technical partner",
+                  "Willingness to pilot new BD/alliance models that could later scale group-wide",
+                ],
+              },
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
+      {
+        id: "PO_12",
+        logoLabel: "A global infrastructure and engineering services provider",
+        title:
+          "Orchestrating Cross-Entity Collaboration for Scalable Ecosystem Growth",
+        description:
+          "EXEO Global Pte Ltd is the Singapore-based international HQ for EXEO Group, Inc. has several other portfolio companies example: AEQON TJ, Ascent Solutions, dhost Global, GUUD, Procuri.",
+        detail: {
+          context: [],
+          description: {
+            sections: [
+              {
+                label: "About:",
+                items: [
+                  "EXEO Global Pte Ltd is the Singapore-based international HQ for EXEO Group, Inc. has several other portfolio companies example: AEQON TJ, Ascent Solutions, dhost Global, GUUD, Procuri.",
+                  "To build commercial momentum by enhancing the collaboration across the wider EXEO Global family of companies",
+                ],
+              },
+              {
+                label: "Challenges:",
+                items: [
+                  "Enhance and improve the systematic way to collaborate with the wider EXEO Global family of peer companies",
+                  "Gather relevant opportunities for cross-referral, joint bids, or combined offerings and suggest new and better ways for cross collaboration for better and new service offerings",
+                  "Currently taking place informally, partly because separate peer entities may operate within their known boundaries.",
+                  "Need a better systemic way rather than just gathering all pre-sales or pre-solutions people together",
+                ],
+              },
+              {
+                label: "Target Outcome:",
+                items: [
+                  "Systematically identify and act on collaboration opportunities across EXEO Global's family of entities: cross-selling, joint solutioning, shared customer access.",
+                  "Independently build external ecosystem relationships that generate qualified inbound opportunities, without requiring a large dedicated BD headcount increase",
+                ],
+              },
+              {
+                label: "Collaboration Needs:",
+                items: [
+                  "Startups/platforms specialising in internal alliance orchestration or opportunity-routing within multi-entity organisations.",
+                  "Ecosystem-matching or partner-network platforms that can plug a mid-size BU into deal flow typically reserved for larger, more established players.",
+                  "Tools for building fast external credibility/visibility as a specific BU: co-branded case studies, thought leadership, joint go-to-market with tech/ecosystem partners",
+                ],
+              },
+              {
+                label: "Assets:",
+                items: [
+                  "Proximity to a wide family of business entities within EXEO Global as potential collaboration partners.",
+                  "Willingness to pilot new BD/alliance models that could later scale group-wide",
+                ],
+              },
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
       // {
       //   logo: {
       //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",

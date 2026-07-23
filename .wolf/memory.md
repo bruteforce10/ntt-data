@@ -1312,3 +1312,32 @@
 | 00:10 | Session end: 80 writes across 19 files (site-content.ts, benefit.tsx, data-table.tsx, columns.tsx, deck-submission-form.tsx) | 15 reads | ~34730 tok |
 
 | 11:56 | Resolved sync merge with origin/feat/ntt-data-dashboard (remote 5 commits: react-doctor + other-machine bookkeeping). Conflicts only in generated/.wolf files: memory.md union-merged, buglog.json = theirs(121)+my export bug as bug-122, anatomy.md = theirs(41 files)+reapplied my 3 descriptions, _session/token-ledger/tsbuildinfo taken from remote/ours. Source auto-merged clean; export-xlsx work preserved | merge commit 8d3c76f | tsc clean + 48/48 tests pass | ~4000 |
+
+## Session: 2026-07-23 00:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:08 | Edited tests/ntt-data/problem-decks.test.ts | 5→6 lines | ~63 |
+| 00:08 | Edited tests/ntt-data/problem-decks.test.ts | 2→2 lines | ~29 |
+| 00:08 | Edited tests/ntt-data/problem-decks.test.ts | 2→2 lines | ~30 |
+| 00:08 | Edited tests/ntt-data/problem-decks.test.ts | 2→2 lines | ~32 |
+| 00:08 | Edited tests/ntt-data/problem-decks.test.ts | 4→4 lines | ~56 |
+| 00:09 | Edited lib/problem-decks.ts | 4→5 lines | ~44 |
+| 00:09 | Edited lib/site-content.ts | expanded (+36 lines) | ~1127 |
+| 00:10 | Appended problemOverview item PO_11 "Automating Intelligent Security Patch Management" (global infra/engineering services provider) from user image; extended PROBLEM_DECK_FIELDS + tests to 11 | lib/site-content.ts, lib/problem-decks.ts, tests/ntt-data/problem-decks.test.ts | 48/48 tests + tsc pass; PB field PO_11 still needed | ~9k |
+| 00:10 | Session end: 7 writes across 3 files (problem-decks.test.ts, problem-decks.ts, site-content.ts) | 3 reads | ~23563 tok |
+| 00:15 | Edited components/problem-overview.tsx | CSS: label, items | ~61 |
+| 00:16 | Edited components/problem-overview.tsx | 10→12 lines | ~150 |
+| 00:16 | Edited components/problem-overview.tsx | added optional chaining | ~329 |
+| 00:16 | Edited lib/site-content.ts | expanded (+19 lines) | ~818 |
+| 00:17 | User correction: PO_11 modal content rewritten VERBATIM from image via new description.sections field; develop made optional, empty context guarded | components/problem-overview.tsx, lib/site-content.ts, .wolf/cerebrum.md | tsc clean, 48/48 tests pass | ~6k |
+| 00:17 | Session end: 11 writes across 4 files (problem-decks.test.ts, problem-decks.ts, site-content.ts, problem-overview.tsx) | 4 reads | ~28485 tok |
+| 00:21 | Edited lib/problem-decks.ts | 3→3 lines | ~23 |
+| 00:21 | Edited tests/ntt-data/problem-decks.test.ts | 6→6 lines | ~66 |
+| 00:21 | Edited tests/ntt-data/problem-decks.test.ts | "PO_11" → "PO_12" | ~15 |
+| 00:21 | Edited tests/ntt-data/problem-decks.test.ts | "PO_11" → "PO_12" | ~15 |
+| 00:21 | Edited tests/ntt-data/problem-decks.test.ts | "PO_12" → "PO_13" | ~15 |
+| 00:21 | Edited tests/ntt-data/problem-decks.test.ts | 4→4 lines | ~56 |
+| 00:21 | Edited lib/site-content.ts | expanded (+54 lines) | ~1031 |
+| 00:21 | Appended PO_12 "Orchestrating Cross-Entity Collaboration" (EXEO Global) verbatim via sections; deck fields+tests extended to 12 | lib/site-content.ts, lib/problem-decks.ts, tests/ntt-data/problem-decks.test.ts | tsc clean, 48/48 pass; PB fields PO_11+PO_12 pending | ~4k |
+| 00:22 | Session end: 18 writes across 4 files (problem-decks.test.ts, problem-decks.ts, site-content.ts, problem-overview.tsx) | 4 reads | ~29706 tok |

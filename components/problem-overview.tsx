@@ -11,8 +11,14 @@ import ProblemRichDetail, {
 
 const { problemOverview } = SITE_CONTENT;
 
+interface ProblemDescriptionSection {
+  label: string;
+  items: readonly string[];
+}
+
 interface ProblemDetailDescription {
-  develop: string | readonly string[];
+  sections?: readonly ProblemDescriptionSection[];
+  develop?: string | readonly string[];
   tailoredTowards?: string;
   question?: string;
   painPoints?: readonly string[];
@@ -156,29 +162,45 @@ export default function ProblemOverview() {
                   const { description } = detail;
                   return (
                     <div className="space-y-6 text-sm leading-relaxed text-justify text-gray-700">
-                      <div>
-                        <p className="mb-2 font-bold text-gray-900">
-                          Challenge Context:
-                        </p>
-                        <div className="space-y-3">
-                          {detail.context.map((para) => (
-                            <p key={para}>{para}</p>
-                          ))}
+                      {detail.context.length > 0 && (
+                        <div>
+                          <p className="mb-2 font-bold text-gray-900">
+                            Challenge Context:
+                          </p>
+                          <div className="space-y-3">
+                            {detail.context.map((para) => (
+                              <p key={para}>{para}</p>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                       <div>
                         <p className="mb-2 font-bold text-gray-900">
                           Challenge Description:
                         </p>
-                        <p className="mb-3 italic">Develop:</p>
-                        <div className="mb-4 space-y-3">
-                          {(typeof description.develop === "string"
-                            ? [description.develop]
-                            : description.develop
-                          ).map((para) => (
-                            <p key={para}>{para}</p>
-                          ))}
-                        </div>
+                        {description.sections?.map((section) => (
+                          <div key={section.label} className="mb-4">
+                            <p className="mb-2 italic">{section.label}</p>
+                            <ul className="list-disc space-y-1 pl-5">
+                              {section.items.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                        {description.develop && (
+                          <>
+                            <p className="mb-3 italic">Develop:</p>
+                            <div className="mb-4 space-y-3">
+                              {(typeof description.develop === "string"
+                                ? [description.develop]
+                                : description.develop
+                              ).map((para) => (
+                                <p key={para}>{para}</p>
+                              ))}
+                            </div>
+                          </>
+                        )}
                         {description.painPoints && (
                           <>
                             <p className="mb-2 italic">Main pain points:</p>

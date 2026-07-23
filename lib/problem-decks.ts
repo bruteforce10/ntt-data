@@ -8,6 +8,7 @@ import { SITE_CONTENT } from "@/lib/site-content";
 export const PROBLEM_DECK_FIELDS = [
   "PO_01", "PO_02", "PO_03", "PO_04", "PO_05",
   "PO_06", "PO_07", "PO_08", "PO_09", "PO_10",
+  "PO_11", "PO_12",
 ] as const;
 
 export type ProblemDeckField = (typeof PROBLEM_DECK_FIELDS)[number];
