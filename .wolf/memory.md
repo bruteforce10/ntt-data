@@ -1310,3 +1310,5 @@
 | 00:10 | Edited components/program-overview.tsx | inline fix | ~8 |
 | 00:35 | User decision: keep all unused files + tiptap deps (logged to cerebrum); cleaned program-overview anyway (keys x2, type, sizes, lazy plugin via useState initializer) | program-overview.tsx, .wolf/* | accepted-noise findings documented | ~8k |
 | 00:10 | Session end: 80 writes across 19 files (site-content.ts, benefit.tsx, data-table.tsx, columns.tsx, deck-submission-form.tsx) | 15 reads | ~34730 tok |
+
+| 11:56 | Resolved sync merge with origin/feat/ntt-data-dashboard (remote 5 commits: react-doctor + other-machine bookkeeping). Conflicts only in generated/.wolf files: memory.md union-merged, buglog.json = theirs(121)+my export bug as bug-122, anatomy.md = theirs(41 files)+reapplied my 3 descriptions, _session/token-ledger/tsbuildinfo taken from remote/ours. Source auto-merged clean; export-xlsx work preserved | merge commit 8d3c76f | tsc clean + 48/48 tests pass | ~4000 |
