@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { AlertCircle, FileText, Info, X } from "lucide-react";
+import { AlertCircle, FileText, Info, LoaderCircle, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,10 +21,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SITE_CONTENT } from "@/lib/site-content";
+import {
+  describeRegistrationSubmitError,
+  type RegistrationErrorPayload,
+} from "@/lib/ntt-data/registration-errors";
 
 const { problemOverview } = SITE_CONTENT;
 
-const MAX_DESCRIPTION_FILE_BYTES = 8 * 1024 * 1024;
+// Shared with the page's floating dock so its SUBMIT REGISTRATION button can
+// target this form from outside via the native `form` attribute.
+export const STARTUP_REGISTRATION_FORM_ID = "startup-registration-form";
+
+// 4.5 MB minus 64 KB headroom: Vercel caps the WHOLE request body at 4.5 MB,
+// so the PDF plus the other multipart fields must stay under that cap.
+const MAX_DESCRIPTION_FILE_BYTES = 4.5 * 1024 * 1024 - 64 * 1024;
 const DESCRIPTION_FILE_ACCEPT = ".pdf,application/pdf";
 
 const FUNDING_STAGES = [
@@ -62,6 +72,35 @@ type ErrorKey =
   | "fundingStageOther"
   | "companyDescriptionFile";
 type FormErrors = Partial<Record<ErrorKey, string>>;
+
+// PocketBase/API field names → this form's error keys, so server-side
+// rejections highlight the exact field that caused them.
+const SERVER_FIELD_TO_ERROR_KEY: Readonly<Partial<Record<string, ErrorKey>>> = {
+  full_name: "firstName",
+  email: "email",
+  job_title: "jobTitle",
+  startup_name: "startupName",
+  website: "website",
+  funding_stage: "fundingStage",
+  country: "country",
+  city: "city",
+  company_address: "companyAddress",
+  company_description: "companyDescription",
+  company_description_pdf: "companyDescriptionFile",
+  problem_statement: "problemStatement",
+  did_you_hear_about_us: "hearAboutUs",
+};
+
+function mapServerFieldErrors(
+  serverErrors: Record<string, string> | undefined,
+): FormErrors {
+  const mapped: FormErrors = {};
+  for (const [field, message] of Object.entries(serverErrors ?? {})) {
+    const key = SERVER_FIELD_TO_ERROR_KEY[field];
+    if (key) mapped[key] = message;
+  }
+  return mapped;
+}
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -129,14 +168,14 @@ export default function StartupRegistrationForm() {
   const [descriptionFile, setDescriptionFile] = React.useState<File | null>(
     null,
   );
-  const [descriptionSizeError, setDescriptionSizeError] = React.useState(false);
+  // Only read inside submit validation — a ref avoids pointless rerenders.
+  const descriptionSizeErrorRef = React.useRef(false);
   const [companyDescription, setCompanyDescription] = React.useState("");
   const descriptionFileInputRef = React.useRef<HTMLInputElement>(null);
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [formError, setFormError] = React.useState("");
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [successOpen, setSuccessOpen] = React.useState(false);
-  const [registeredEmail, setRegisteredEmail] = React.useState("");
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
@@ -154,12 +193,22 @@ export default function StartupRegistrationForm() {
     setProblemStatement(
       indices.map((i) => problemOverview.items[i].title).join(", "),
     );
-    setTimeout(() => {
+    const scrollTimer = setTimeout(() => {
       document
         .getElementById("problemStatement")
         ?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 150);
+    return () => clearTimeout(scrollTimer);
   }, []);
+
+  // A failed submit can start from anywhere on the page (the dock submit
+  // button is always visible), so bring the error explanation into view.
+  React.useEffect(() => {
+    if (!formError) return;
+    document
+      .getElementById("registration-form-error")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [formError]);
 
   function toggleProblem(i: number) {
     const nextSelectedProblems = selectedProblems.includes(i)
@@ -177,14 +226,14 @@ export default function StartupRegistrationForm() {
   function handleDescriptionFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const picked = e.target.files?.[0] ?? null;
     setDescriptionFile(picked);
-    setDescriptionSizeError(
-      picked ? picked.size > MAX_DESCRIPTION_FILE_BYTES : false,
-    );
+    descriptionSizeErrorRef.current = picked
+      ? picked.size > MAX_DESCRIPTION_FILE_BYTES
+      : false;
   }
 
   function clearDescriptionFile() {
     setDescriptionFile(null);
-    setDescriptionSizeError(false);
+    descriptionSizeErrorRef.current = false;
     if (descriptionFileInputRef.current) {
       descriptionFileInputRef.current.value = "";
     }
@@ -192,6 +241,7 @@ export default function StartupRegistrationForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (isSubmitting) return;
     setFormError("");
 
     const form = e.currentTarget;
@@ -243,9 +293,9 @@ export default function StartupRegistrationForm() {
     if (fundingStage === "Other" && !fundingStageOther.trim()) {
       nextErrors.fundingStageOther = "Please specify your funding stage.";
     }
-    if (descriptionSizeError) {
+    if (descriptionSizeErrorRef.current) {
       nextErrors.companyDescriptionFile =
-        "File exceeds 8 MB. Please choose a smaller file.";
+        "File exceeds 4.5 MB. Please choose a smaller file.";
     }
 
     setErrors(nextErrors);
@@ -300,16 +350,32 @@ export default function StartupRegistrationForm() {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("/api/ntt-data", {
-        method: "POST",
-        body: submitData,
-      });
+      let response: Response;
+      try {
+        response = await fetch("/api/ntt-data", {
+          method: "POST",
+          body: submitData,
+        });
+      } catch {
+        // fetch itself threw: connection dropped, DNS failed, or the upload
+        // was interrupted — no response ever arrived.
+        setFormError(describeRegistrationSubmitError(null, null));
+        return;
+      }
 
       if (!response.ok) {
-        const result = await response.json().catch(() => null);
-        throw new Error(
-          result?.message || "Registration failed. Please try again.",
+        // Body may be empty or non-JSON (e.g. Vercel's own 413 page).
+        const payload = (await response
+          .json()
+          .catch(() => null)) as RegistrationErrorPayload;
+        const serverFieldErrors = mapServerFieldErrors(payload?.errors);
+        if (Object.keys(serverFieldErrors).length > 0) {
+          setErrors(serverFieldErrors);
+        }
+        setFormError(
+          describeRegistrationSubmitError(response.status, payload),
         );
+        return;
       }
 
       form.reset();
@@ -321,14 +387,7 @@ export default function StartupRegistrationForm() {
       setFundingStageOther("");
       setCompanyDescription("");
       clearDescriptionFile();
-      setRegisteredEmail(email);
       setSuccessOpen(true);
-    } catch (error) {
-      setFormError(
-        error instanceof Error
-          ? error.message
-          : "Registration failed. Please try again.",
-      );
     } finally {
       setIsSubmitting(false);
     }
@@ -336,6 +395,10 @@ export default function StartupRegistrationForm() {
 
   const hasDescriptionText = companyDescription.trim().length > 0;
   const hasDescriptionFile = descriptionFile !== null;
+  // Selection order lookup: O(1) membership + ordering badge per problem card.
+  const selectionOrder = new Map(
+    selectedProblems.map((problemIndex, order) => [problemIndex, order] as const),
+  );
 
   return (
     <>
@@ -349,7 +412,12 @@ export default function StartupRegistrationForm() {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} noValidate>
+      <form
+        id={STARTUP_REGISTRATION_FORM_ID}
+        onSubmit={handleSubmit}
+        noValidate
+        aria-busy={isSubmitting}
+      >
         <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="First Name *" id="firstName" error={errors.firstName}>
@@ -597,7 +665,7 @@ export default function StartupRegistrationForm() {
                 <p className="mt-2 flex items-center gap-1.5 text-xs text-amber-600">
                   <AlertCircle className="size-3.5 shrink-0" aria-hidden />
                   PDF only · Maximum file size{" "}
-                  <strong className="font-semibold">8 MB</strong>
+                  <strong className="font-semibold">4.5 MB</strong>
                 </p>
 
                 {errors.companyDescriptionFile && (
@@ -697,7 +765,7 @@ export default function StartupRegistrationForm() {
               role="status"
               className="mb-4 flex gap-3 rounded-xl border border-[#3176E4]/25 bg-[#3176E4]/10 p-4 text-sm text-[#154284]"
             >
-              <Info className="mt-0.5 size-5 flex-shrink-0" aria-hidden />
+              <Info className="mt-0.5 size-5 shrink-0" aria-hidden />
               <p className="font-medium leading-relaxed">
                 Please note that every selected problem statement must be
                 accompanied by a pitch deck. Once you submit this form, we'll
@@ -708,10 +776,10 @@ export default function StartupRegistrationForm() {
           )}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {problemOverview.items.map((item, i) => {
-              const isSelected = selectedProblems.includes(i);
+              const isSelected = selectionOrder.has(i);
               return (
                 <button
-                  key={i}
+                  key={item.title}
                   type="button"
                   onClick={() => toggleProblem(i)}
                   className={[
@@ -723,7 +791,7 @@ export default function StartupRegistrationForm() {
                 >
                   {isSelected && (
                     <span className="absolute right-4 top-4 flex h-6 w-6 items-center justify-center rounded-full bg-[#3176E4] text-xs font-bold text-white">
-                      {selectedProblems.indexOf(i) + 1}
+                      {(selectionOrder.get(i) ?? 0) + 1}
                     </span>
                   )}
                   <div className="flex flex-col items-center gap-3">
@@ -766,8 +834,16 @@ export default function StartupRegistrationForm() {
         </div>
 
         {formError && (
-          <div className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-700">
-            {formError}
+          <div
+            id="registration-form-error"
+            role="alert"
+            className="mt-6 flex gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"
+          >
+            <AlertCircle className="mt-0.5 size-5 shrink-0" aria-hidden />
+            <div>
+              <p className="font-bold">Submission failed</p>
+              <p className="mt-1 font-medium leading-relaxed">{formError}</p>
+            </div>
           </div>
         )}
 
@@ -855,6 +931,20 @@ export default function StartupRegistrationForm() {
           </Button>
         </DialogContent>
       </Dialog>
+
+      {/* Full-screen guard: blocks every interaction while the submit
+          request (with its PDF upload) is in flight. */}
+      {isSubmitting && (
+        <div
+          role="status"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-[#154284]/70 backdrop-blur-sm"
+        >
+          <LoaderCircle className="size-12 animate-spin text-white" aria-hidden />
+          <p className="text-sm font-bold uppercase tracking-widest text-white">
+            Submitting your registration…
+          </p>
+        </div>
+      )}
     </>
   );
 }

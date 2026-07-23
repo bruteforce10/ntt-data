@@ -115,7 +115,10 @@ function LabelledTable({ rows }: { rows: readonly LabelledRow[] }) {
       <table className="w-full border-collapse text-left">
         <tbody className="divide-y divide-gray-200">
           {rows.map((row, i) => (
-            <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+            <tr
+              key={row.label}
+              className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
+            >
               <th
                 scope="row"
                 className="w-32 px-4 py-3 align-top font-bold text-[#0070C0] sm:w-44"
@@ -136,11 +139,11 @@ function LabelledTable({ rows }: { rows: readonly LabelledRow[] }) {
 function Bullets({ items }: { items: readonly string[] }) {
   return (
     <ul className="space-y-2">
-      {items.map((item, i) => (
-        <li key={i} className="flex gap-3">
+      {items.map((item) => (
+        <li key={item} className="flex gap-3">
           <span
             aria-hidden="true"
-            className="mt-2.5 h-px w-3 flex-shrink-0 bg-[#3176e4]"
+            className="mt-2.5 h-px w-3 shrink-0 bg-[#3176e4]"
           />
           <span className="flex-1 text-justify">{item}</span>
         </li>
@@ -163,9 +166,9 @@ export default function ProblemRichDetail({
         <p className="text-justify">{trades.intro}</p>
 
         <div className="grid gap-3 sm:grid-cols-3">
-          {trades.cards.map((card, i) => (
+          {trades.cards.map((card) => (
             <div
-              key={i}
+              key={card.title}
               className={`rounded-xl p-4 text-center text-white ${TRADE_TONE_CLASS[card.trade]}`}
             >
               <p className="text-xs font-bold uppercase tracking-wide">
@@ -178,8 +181,8 @@ export default function ProblemRichDetail({
           ))}
         </div>
 
-        {trades.body.map((paragraph, i) => (
-          <p key={i} className="text-justify">
+        {trades.body.map((paragraph) => (
+          <p key={paragraph} className="text-justify">
             {paragraph}
           </p>
         ))}
@@ -197,10 +200,10 @@ export default function ProblemRichDetail({
         <ol className="space-y-3">
           {broken.items.map((item, i) => (
             <li
-              key={i}
+              key={item.title}
               className="flex overflow-hidden rounded-xl border border-gray-200"
             >
-              <div className="flex w-10 flex-shrink-0 items-center justify-center bg-[#154284] font-bold text-white sm:w-12">
+              <div className="flex w-10 shrink-0 items-center justify-center bg-[#154284] font-bold text-white sm:w-12">
                 {i + 1}
               </div>
               <div className="flex-1 bg-white p-4">
@@ -213,8 +216,8 @@ export default function ProblemRichDetail({
       </Section>
 
       <Section heading={solve.heading}>
-        {solve.paragraphs.map((paragraph, i) => (
-          <p key={i} className="text-justify">
+        {solve.paragraphs.map((paragraph) => (
+          <p key={paragraph} className="text-justify">
             {paragraph}
           </p>
         ))}
@@ -229,13 +232,13 @@ export default function ProblemRichDetail({
       <Section heading={dependencyChain.heading}>
         <p className="text-justify">{dependencyChain.intro}</p>
         <ol className="space-y-2">
-          {dependencyChain.steps.map((step, i) => (
+          {dependencyChain.steps.map((step) => (
             <li
-              key={i}
+              key={step.description}
               className="flex flex-col overflow-hidden rounded-xl border border-gray-200 sm:flex-row"
             >
               <div
-                className={`flex items-center px-4 py-3 text-xs font-bold uppercase tracking-wide text-white sm:w-52 sm:flex-shrink-0 ${TRADE_TONE_CLASS[step.trade]}`}
+                className={`flex items-center px-4 py-3 text-xs font-bold uppercase tracking-wide text-white sm:w-52 sm:shrink-0 ${TRADE_TONE_CLASS[step.trade]}`}
               >
                 {step.label}
               </div>
@@ -250,7 +253,7 @@ export default function ProblemRichDetail({
         <div className="space-y-4">
           {capabilities.modules.map((module, i) => (
             <article
-              key={i}
+              key={module.title}
               className="overflow-hidden rounded-xl border border-gray-200"
             >
               <header

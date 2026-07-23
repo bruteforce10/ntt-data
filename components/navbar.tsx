@@ -67,7 +67,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b-[4px] border-blue-500 transition-all duration-200",
+        "sticky top-0 z-50 w-full border-b-[4px] border-blue-500 transition duration-200",
         scrolled
           ? "bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/80"
           : "bg-white",
@@ -107,7 +107,7 @@ function NavbarActions() {
           render={
             <Button
               variant="outline"
-              className="min-h-11 rounded-2xl border-blue-ntt/20 bg-white px-3 py-3 text-sm font-semibold text-slate-800 shadow-[0_10px_28px_rgba(8,41,71,0.08)] transition-all duration-200 hover:border-blue-ntt/40 hover:bg-blue-ntt/5 hover:text-blue-ntt sm:px-4 sm:text-[0.95rem]"
+              className="min-h-11 rounded-2xl border-blue-ntt/20 bg-white px-3 py-3 text-sm font-semibold text-slate-800 shadow-[0_10px_28px_rgba(8,41,71,0.08)] transition-colors duration-200 hover:border-blue-ntt/40 hover:bg-blue-ntt/5 hover:text-blue-ntt sm:px-4 sm:text-[0.95rem]"
             >
               More
               <ChevronDown className="size-4" aria-hidden="true" />
@@ -140,7 +140,7 @@ function NavbarActions() {
       <Link
         href="/"
         aria-label="Open Innovation"
-        className="flex min-h-11 items-center rounded-2xl bg-[#154284] px-3 py-2 shadow-[0_12px_30px_rgba(21,66,132,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0f3263] motion-reduce:hover:translate-y-0 sm:px-4"
+        className="flex min-h-11 items-center rounded-2xl bg-[#154284] px-3 py-2 shadow-[0_12px_30px_rgba(21,66,132,0.28)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#0f3263] motion-reduce:hover:translate-y-0 sm:px-4"
       >
         <Image
           src="/Logo/oi-logo.png"

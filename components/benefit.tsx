@@ -27,10 +27,15 @@ export default function Benefit() {
               <h3 className="mt-6 text-lg font-black leading-tight text-[#0070C0] lg:text-xl">
                 {item.title}
               </h3>
-              <p
-                className="mt-3 max-w-xs text-sm leading-relaxed text-gray-600"
-                dangerouslySetInnerHTML={{ __html: item.descriptionHtml }}
-              />
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-gray-600">
+                {item.description.map((segment, index) =>
+                  typeof segment === "string" ? (
+                    segment
+                  ) : (
+                    <strong key={index}>{segment.bold}</strong>
+                  ),
+                )}
+              </p>
             </div>
           ))}
         </div>

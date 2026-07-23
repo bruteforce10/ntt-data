@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -17,6 +17,9 @@ export default function FastTrackForm() {
   const [files, setFiles] = useState<Record<string, File | null>>({});
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
+  // Re-entry guard for the async submit — a ref updates synchronously, so a
+  // double-click can't slip through before React re-renders.
+  const isSubmittingRef = useRef(false);
 
   // Keep canonical PO_01..PO_10 order regardless of click order.
   const selectedDecks = PROBLEM_DECKS.filter((deck) => selected.has(deck.field));
@@ -48,6 +51,7 @@ export default function FastTrackForm() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    if (isSubmittingRef.current) return;
     setError(null);
 
     const trimmedEmail = email.trim();
@@ -66,6 +70,7 @@ export default function FastTrackForm() {
       return;
     }
 
+    isSubmittingRef.current = true;
     setStatus("submitting");
     try {
       const formData = new FormData();
@@ -80,11 +85,10 @@ export default function FastTrackForm() {
         method: "POST",
         body: formData,
       });
-      const data = (await response.json().catch(() => null)) as {
-        message?: string;
-      } | null;
-
       if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as {
+          message?: string;
+        } | null;
         setError(data?.message || "Something went wrong. Please try again.");
         setStatus("idle");
         return;
@@ -93,6 +97,8 @@ export default function FastTrackForm() {
     } catch {
       setError("Network error. Please try again.");
       setStatus("idle");
+    } finally {
+      isSubmittingRef.current = false;
     }
   };
 

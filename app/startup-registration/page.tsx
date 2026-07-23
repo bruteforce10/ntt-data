@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/navbar";
-import FloatingDock from "@/components/floating-dock";
+import StartupRegistrationDock from "@/components/startup-registration-dock";
 import Footer from "@/components/footer";
 import StartupRegistrationForm from "@/components/startup-registration-form";
 
@@ -23,8 +23,7 @@ export default function StartupRegistrationPage() {
   return (
     <>
       <Navbar />
-      <FloatingDock />
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-dvh bg-gray-50">
         <div className="mx-auto max-w-4xl px-6 py-32">
           <nav
             aria-label="Breadcrumb"
@@ -45,6 +44,9 @@ export default function StartupRegistrationPage() {
         </div>
       </main>
       <Footer />
+      {/* Spacer so the fixed full-width dock doesn't cover the footer. */}
+      <div className="h-24" aria-hidden />
+      <StartupRegistrationDock />
     </>
   );
 
@@ -54,11 +56,11 @@ export default function StartupRegistrationPage() {
    * and re-enable the COMING SOON imports (Home, Button) at the top.
    *
    * return (
-   *   <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-white to-[#154284]/5 px-6 text-center">
+   *   <main className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden bg-linear-to-b from-white via-white to-[#154284]/5 px-6 text-center">
    *     <span className="mb-5 inline-flex items-center rounded-full border border-[#0070C0]/20 bg-[#0070C0]/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-[#0070C0] uppercase sm:text-sm">
    *       Startup Registration
    *     </span>
-   *     <h1 className="bg-gradient-to-br from-[#154284] via-[#0070C0] to-[#3176E4] bg-clip-text text-6xl font-extrabold tracking-tight text-transparent uppercase sm:text-7xl lg:text-8xl">
+   *     <h1 className="bg-linear-to-br from-[#154284] via-[#0070C0] to-[#3176E4] bg-clip-text text-6xl font-extrabold tracking-tight text-transparent uppercase sm:text-7xl lg:text-8xl">
    *       Coming Soon
    *     </h1>
    *     <p className="mt-6 max-w-xl text-base text-gray-600 sm:text-lg">

@@ -75,17 +75,10 @@ export default function ProblemOverview() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {problemOverview.items.map((item, i) => (
-            <article
-              key={i}
-              role="button"
-              tabIndex={0}
+            <button
+              key={item.title}
+              type="button"
               onClick={() => setSelectedIndex(i)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  setSelectedIndex(i);
-                }
-              }}
               className="group flex h-full cursor-pointer flex-col items-center justify-between rounded-2xl bg-gray-100 p-8 shadow-xl transition duration-200 ease-out hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3176e4]"
             >
               <div>
@@ -106,7 +99,7 @@ export default function ProblemOverview() {
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </span>
               </div>
-            </article>
+            </button>
           ))}
         </div>
       </div>
@@ -168,8 +161,8 @@ export default function ProblemOverview() {
                           Challenge Context:
                         </p>
                         <div className="space-y-3">
-                          {detail.context.map((para, i) => (
-                            <p key={i}>{para}</p>
+                          {detail.context.map((para) => (
+                            <p key={para}>{para}</p>
                           ))}
                         </div>
                       </div>
@@ -182,16 +175,16 @@ export default function ProblemOverview() {
                           {(typeof description.develop === "string"
                             ? [description.develop]
                             : description.develop
-                          ).map((para, i) => (
-                            <p key={i}>{para}</p>
+                          ).map((para) => (
+                            <p key={para}>{para}</p>
                           ))}
                         </div>
                         {description.painPoints && (
                           <>
                             <p className="mb-2 italic">Main pain points:</p>
                             <ol className="mb-4 list-decimal space-y-1 pl-5">
-                              {description.painPoints.map((item, i) => (
-                                <li key={i}>{item}</li>
+                              {description.painPoints.map((item) => (
+                                <li key={item}>{item}</li>
                               ))}
                             </ol>
                           </>
@@ -213,8 +206,8 @@ export default function ProblemOverview() {
                           <>
                             <p className="mb-2 italic">That helps users to:</p>
                             <ol className="mb-4 list-decimal space-y-1 pl-5">
-                              {description.helpsUsers.map((item, i) => (
-                                <li key={i}>{item}</li>
+                              {description.helpsUsers.map((item) => (
+                                <li key={item}>{item}</li>
                               ))}
                             </ol>
                           </>
@@ -223,8 +216,8 @@ export default function ProblemOverview() {
                           <>
                             <p className="mb-2 italic">Priority scope:</p>
                             <ol className="mb-4 list-decimal space-y-1 pl-5">
-                              {description.priorityScope.map((item, i) => (
-                                <li key={i}>{item}</li>
+                              {description.priorityScope.map((item) => (
+                                <li key={item}>{item}</li>
                               ))}
                             </ol>
                           </>
@@ -233,8 +226,8 @@ export default function ProblemOverview() {
                           <>
                             <p className="mb-2 italic">Target outcomes:</p>
                             <ol className="mb-4 list-decimal space-y-1 pl-5">
-                              {description.targetOutcomes.map((item, i) => (
-                                <li key={i}>{item}</li>
+                              {description.targetOutcomes.map((item) => (
+                                <li key={item}>{item}</li>
                               ))}
                             </ol>
                           </>
@@ -245,8 +238,8 @@ export default function ProblemOverview() {
                               Data expected to be available:
                             </p>
                             <ol className="mb-4 list-decimal space-y-1 pl-5">
-                              {description.dataExpected.map((item, i) => (
-                                <li key={i}>{item}</li>
+                              {description.dataExpected.map((item) => (
+                                <li key={item}>{item}</li>
                               ))}
                             </ol>
                           </>
@@ -257,8 +250,8 @@ export default function ProblemOverview() {
                               The solution must be able to:
                             </p>
                             <ol className="list-decimal space-y-1 pl-5">
-                              {description.solutionMust.map((item, i) => (
-                                <li key={i}>{item}</li>
+                              {description.solutionMust.map((item) => (
+                                <li key={item}>{item}</li>
                               ))}
                             </ol>
                           </>
@@ -269,8 +262,8 @@ export default function ProblemOverview() {
                               What we are looking for:
                             </p>
                             <ol className="list-decimal space-y-1 pl-5">
-                              {description.lookingFor.map((item, i) => (
-                                <li key={i}>{item}</li>
+                              {description.lookingFor.map((item) => (
+                                <li key={item}>{item}</li>
                               ))}
                             </ol>
                           </>
@@ -281,8 +274,8 @@ export default function ProblemOverview() {
                               Indicative proof-of-concept approach:
                             </p>
                             <ol className="list-decimal space-y-1 pl-5">
-                              {description.pocApproach.map((item, i) => (
-                                <li key={i}>{item}</li>
+                              {description.pocApproach.map((item) => (
+                                <li key={item}>{item}</li>
                               ))}
                             </ol>
                           </>

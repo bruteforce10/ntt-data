@@ -45,3 +45,7 @@ export const NTT_DATA_FILE_FIELDS: readonly NttDataFileField[] = [
   "company_description_pdf",
   ...PROBLEM_DECK_FIELDS,
 ];
+
+// Explicit timezone for date rendering so SSR (UTC server) and the
+// browser produce identical text — avoids hydration mismatches.
+export const DASHBOARD_TIME_ZONE = "Asia/Jakarta";

@@ -3,6 +3,7 @@ import { transporter, buildRegistrationEmail } from "@/lib/mailer";
 
 import { auth } from "@/auth";
 import { fetchAllRecords } from "@/lib/ntt-data/pocketbase";
+import { flattenPocketBaseFieldErrors } from "@/lib/ntt-data/registration-errors";
 
 export async function GET() {
   const session = await auth();
@@ -23,7 +24,9 @@ export async function GET() {
 const POCKETBASE_URL =
   process.env.POCKETBASE_URL || "https://pb.ntt-startupchallenge.com";
 
-const MAX_DESCRIPTION_FILE_BYTES = 8 * 1024 * 1024;
+// Mirrors the client-side limit in startup-registration-form.tsx: 4.5 MB
+// minus 64 KB headroom so the whole multipart body fits Vercel's 4.5 MB cap.
+const MAX_DESCRIPTION_FILE_BYTES = 4.5 * 1024 * 1024 - 64 * 1024;
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -47,7 +50,19 @@ function isPdfFile(file: File) {
 
 export async function POST(request: Request) {
   try {
-    const form = await request.formData();
+    let form: FormData;
+    try {
+      form = await request.formData();
+    } catch (parseErr) {
+      console.error("[ntt-data] unreadable form data:", parseErr);
+      return NextResponse.json(
+        {
+          message:
+            "We couldn't read the submitted form data — the upload may have been interrupted. Please refresh the page and try again.",
+        },
+        { status: 400 },
+      );
+    }
     const getValue = (name: string) => String(form.get(name) ?? "").trim();
 
     const fullName = getValue("full_name");
@@ -80,7 +95,7 @@ export async function POST(request: Request) {
     if (hasDescriptionPdf) {
       const pdf = descriptionPdf as File;
       if (pdf.size > MAX_DESCRIPTION_FILE_BYTES) {
-        errors.company_description_pdf = "The PDF exceeds the 8 MB limit.";
+        errors.company_description_pdf = "The PDF exceeds the 4.5 MB limit.";
       } else if (!isPdfFile(pdf)) {
         errors.company_description_pdf =
           "Company description must be a PDF file.";
@@ -139,28 +154,50 @@ export async function POST(request: Request) {
       appendIfPresent("company_description", companyDescription);
     }
 
-    const recordResponse = await fetch(
-      `${POCKETBASE_URL}/api/collections/ntt_data/records`,
-      {
-        method: "POST",
-        headers: { Authorization: token },
-        body: pbForm,
-        cache: "no-store",
-      },
-    );
-
-    const result = await recordResponse.json().catch(() => null);
-
-    if (!recordResponse.ok) {
+    let recordResponse: Response;
+    try {
+      recordResponse = await fetch(
+        `${POCKETBASE_URL}/api/collections/ntt_data/records`,
+        {
+          method: "POST",
+          headers: { Authorization: token },
+          body: pbForm,
+          cache: "no-store",
+        },
+      );
+    } catch (fetchErr) {
+      console.error("[ntt-data] PocketBase unreachable:", fetchErr);
       return NextResponse.json(
         {
           message:
-            result?.message || "PocketBase rejected the registration request.",
-          details: result,
+            "Our registration database is unreachable right now, so nothing was saved. Please try again in a few minutes.",
+        },
+        { status: 502 },
+      );
+    }
+
+    if (!recordResponse.ok) {
+      const failure = await recordResponse.json().catch(() => null);
+      // PocketBase nests per-field failures under `data`; surface them so the
+      // client can explain WHICH field was rejected and why.
+      const fieldErrors = flattenPocketBaseFieldErrors(failure?.data);
+      const hasFieldErrors = Object.keys(fieldErrors).length > 0;
+      const isAuthFailure =
+        recordResponse.status === 401 || recordResponse.status === 403;
+      return NextResponse.json(
+        {
+          message: isAuthFailure
+            ? "The server's database credentials were rejected, so the registration could not be saved. Please contact the site administrator."
+            : failure?.message ||
+              `The registration database rejected the request (status ${recordResponse.status}).`,
+          ...(hasFieldErrors && { errors: fieldErrors }),
+          details: failure,
         },
         { status: recordResponse.status },
       );
     }
+
+    const result = await recordResponse.json().catch(() => null);
 
     if (email && fullName && startupName && problemStatement) {
       const baseUrl =
@@ -196,7 +233,8 @@ export async function POST(request: Request) {
     console.error("[ntt-data] POST error:", err);
     return NextResponse.json(
       {
-        message: "Unable to submit registration. Please try again.",
+        message:
+          "Something unexpected went wrong on our server while saving your registration, so it was NOT saved. Please try again, or contact openinnovation@ntt-startupchallenge.com if it keeps failing.",
         ...(process.env.NODE_ENV === "development" && {
           debug: err instanceof Error ? err.message : String(err),
         }),

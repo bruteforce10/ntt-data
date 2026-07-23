@@ -33,7 +33,7 @@ export default function Faq({ content = SITE_CONTENT.faq }: FaqProps) {
 
         <Accordion multiple={false} className="w-full">
           {content.items.map((item, i) => (
-            <AccordionItem key={i} value={`faq-${i}`}>
+            <AccordionItem key={item.question} value={`faq-${i}`}>
               <AccordionTrigger className="py-5 text-left text-base font-bold text-[#154284] hover:text-[#0070C0] hover:no-underline sm:text-lg **:data-[slot=accordion-trigger-icon]:text-[#0070C0]">
                 {item.question}
               </AccordionTrigger>
@@ -41,8 +41,8 @@ export default function Faq({ content = SITE_CONTENT.faq }: FaqProps) {
                 <p>{item.answer}</p>
                 {item.steps ? (
                   <ol className="mt-3 list-decimal space-y-2 pl-5 marker:font-semibold marker:text-[#0070C0]">
-                    {item.steps.map((step, s) => (
-                      <li key={s} className="pl-1">
+                    {item.steps.map((step) => (
+                      <li key={step} className="pl-1">
                         {step}
                       </li>
                     ))}

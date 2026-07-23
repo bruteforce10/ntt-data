@@ -15,8 +15,11 @@ export const SITE_CONTENT = {
       {
         number: "BENEFIT 1",
         title: "Global Market Access",
-        descriptionHtml:
-          "Collaborate directly with <strong>NTT DATA and our enterprise customers</strong> to expand your reach into new markets.",
+        description: [
+          "Collaborate directly with ",
+          { bold: "NTT DATA and our enterprise customers" },
+          " to expand your reach into new markets.",
+        ],
         image: {
           src: "/Assets Picture/benefit/1.png",
           alt: "Global Market Access",
@@ -25,8 +28,11 @@ export const SITE_CONTENT = {
       {
         number: "BENEFIT 2",
         title: "Expert Mentorship",
-        descriptionHtml:
-          "Guidance from <strong>NTT DATA innovation leaders</strong>, offering strategic advice and insights to help accelerate scaling.",
+        description: [
+          "Guidance from ",
+          { bold: "NTT DATA innovation leaders" },
+          ", offering strategic advice and insights to help accelerate scaling.",
+        ],
         image: {
           src: "/Assets Picture/benefit/2.png",
           alt: "Expert Mentorship",
@@ -35,8 +41,11 @@ export const SITE_CONTENT = {
       {
         number: "BENEFIT 3",
         title: "Commercial Collaboration",
-        descriptionHtml:
-          "The opportunity to build <strong>integrated offerings</strong> and bring solutions to market together.",
+        description: [
+          "The opportunity to build ",
+          { bold: "integrated offerings" },
+          " and bring solutions to market together.",
+        ],
         image: {
           src: "/Assets Picture/benefit/3.png",
           alt: "Commercial Collaboration",
@@ -45,8 +54,9 @@ export const SITE_CONTENT = {
       {
         number: "BENEFIT 4",
         title: "POC Support",
-        descriptionHtml:
+        description: [
           "The winning teams will receive funded technical and development support to help bring their Proof of Concept (PoC) to life.",
+        ],
         image: {
           src: "/Assets Picture/benefit/4.png",
           alt: "POC Support",

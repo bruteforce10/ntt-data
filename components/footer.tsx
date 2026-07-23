@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-10">
           <a
             href={navbar.logo.href}
-            className="flex-shrink-0 lg:justify-self-start"
+            className="shrink-0 lg:justify-self-start"
           >
             <Image
               src={navbar.logo.src}
@@ -24,7 +24,10 @@ export default function Footer() {
             />
           </a>
 
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-3 lg:w-full lg:flex-nowrap  lg:gap-x-4">
+          <nav
+            aria-label="Footer"
+            className="flex flex-wrap justify-center gap-x-6 gap-y-3 lg:w-full lg:flex-nowrap  lg:gap-x-4"
+          >
             {footerLinks.map((link) => (
               <a
                 key={link.label}
@@ -51,7 +54,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4 border-t border-white/10 pt-8 sm:flex-row sm:justify-between">
-          <nav className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:justify-start">
+          <nav
+            aria-label="Legal"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:justify-start"
+          >
             {footer.legal.map((link, index) => (
               <Fragment key={link.label}>
                 {index > 0 && (

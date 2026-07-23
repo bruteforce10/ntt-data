@@ -56,13 +56,14 @@ async function fetchProblems(email: string): Promise<DeckProblem[]> {
   const res = await fetch(
     `/api/deck-submission?email=${encodeURIComponent(email)}`,
   );
-  const data = await res.json().catch(() => null);
   if (!res.ok) {
+    const failure = await res.json().catch(() => null);
     throw new LoadError(
-      data?.message ?? "Unable to load your registration.",
+      failure?.message ?? "Unable to load your registration.",
       res.status,
     );
   }
+  const data = await res.json().catch(() => null);
   return (
     (data?.problems ?? []) as {
       id?: string;
@@ -137,13 +138,18 @@ export default function DeckSubmissionForm() {
     };
   }, [emailFromQuery]);
 
+  const successDialogRef = React.useRef<HTMLDialogElement>(null);
+
+  // Native <dialog> provides Escape handling, focus trapping, and the
+  // ::backdrop; this effect keeps it in sync with `submitted` state.
   React.useEffect(() => {
-    if (!submitted) return;
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") setSubmitted(false);
+    const dialog = successDialogRef.current;
+    if (!dialog) return;
+    if (submitted && !dialog.open) {
+      dialog.showModal();
+    } else if (!submitted && dialog.open) {
+      dialog.close();
     }
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
   }, [submitted]);
 
   async function handleCheck(e: React.FormEvent<HTMLFormElement>) {
@@ -206,14 +212,16 @@ export default function DeckSubmissionForm() {
     setPendingReplace(null);
   }
 
-  const oversizedIds = problems
-    .filter((p) => (files[p.deck.id]?.size ?? 0) > MAX_SIZE_BYTES)
-    .map((p) => p.deck.id);
+  const oversizedDeckIds = new Set(
+    problems.flatMap((p) =>
+      (files[p.deck.id]?.size ?? 0) > MAX_SIZE_BYTES ? [p.deck.id] : [],
+    ),
+  );
   const pickedCount = problems.filter((p) => files[p.deck.id]).length;
   const allUploaded =
     problems.length > 0 && problems.every((p) => p.uploaded);
   const canSubmit =
-    !isSubmitting && pickedCount > 0 && oversizedIds.length === 0;
+    !isSubmitting && pickedCount > 0 && oversizedDeckIds.size === 0;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -368,17 +376,17 @@ export default function DeckSubmissionForm() {
 
   return (
     <>
-      {submitted && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setSubmitted(false)}
-        >
-          <div
-            className="relative w-full max-w-md rounded-2xl bg-white px-10 py-12 text-center shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+      <dialog
+        ref={successDialogRef}
+        aria-labelledby="deck-success-title"
+        onClose={() => setSubmitted(false)}
+        onClick={(e) => {
+          // Clicks on the ::backdrop target the <dialog> element itself.
+          if (e.target === e.currentTarget) setSubmitted(false);
+        }}
+        className="m-auto w-[calc(100%-2rem)] max-w-md bg-transparent p-0 backdrop:bg-black/60"
+      >
+          <div className="relative rounded-2xl bg-white px-10 py-12 text-center shadow-2xl">
             <button
               type="button"
               onClick={() => setSubmitted(false)}
@@ -398,7 +406,10 @@ export default function DeckSubmissionForm() {
               />
             </div>
 
-            <h2 className="mb-4 text-xl font-bold text-gray-900">
+            <h2
+              id="deck-success-title"
+              className="mb-4 text-xl font-bold text-gray-900"
+            >
               Thank You for Submitting!
             </h2>
             <p className="mb-4 text-sm leading-relaxed text-gray-700">
@@ -420,8 +431,7 @@ export default function DeckSubmissionForm() {
               Close
             </Button>
           </div>
-        </div>
-      )}
+      </dialog>
 
       <Dialog
         open={!!pendingReplace}
@@ -515,7 +525,7 @@ export default function DeckSubmissionForm() {
               const { deck, uploaded, filename } = problem;
               const inputId = `deck-file-${deck.id}`;
               const file = files[deck.id] ?? null;
-              const isOversized = oversizedIds.includes(deck.id);
+              const isOversized = oversizedDeckIds.has(deck.id);
 
               return (
                 <div

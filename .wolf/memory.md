@@ -1101,6 +1101,11 @@
 | 00:52 | Created app/fast-track/page.tsx | — | ~332 |
 | 00:52 | Session end: 3 writes across 3 files (route.ts, fast-track-form.tsx, page.tsx) | 5 reads | ~7971 tok |
 
+## Session: 2026-07-21 01:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
 ## Session: 2026-07-22 13:50
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -1125,3 +1130,183 @@
 | 11:38 | Edited tests/ntt-data/export-xlsx.test.ts | expanded (+28 lines) | ~488 |
 | 11:40 | Excel export: Company Description column now exports PDF link (file) or text (string); all file-type cols export absolute /api/ntt-data/:id/file/:field URL not bare filename | lib/ntt-data/export-xlsx.ts, components/dashboard/data-table.tsx, tests/ntt-data/export-xlsx.test.ts | 5 tests + tsc pass | ~2500 |
 | 11:40 | Session end: 4 writes across 3 files (export-xlsx.ts, data-table.tsx, export-xlsx.test.ts) | 7 reads | ~7854 tok |
+## Session: 2026-07-22 22:20
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:15 | Fixed VS Code Sync Changes: branch diverged (remote 8f39d341 dari mesin lain vs 2 commit lokal); rebase + resolve konflik 3 file log .wolf, push sukses | .wolf/_session.json, memory.md, token-ledger.json | synced acf497b0 | ~2k |
+| 22:31 | Session end: 7 writes across 3 files (columns-config.ts, data-table.tsx, columns.tsx) | 7 reads | ~713 tok |
+
+## Session: 2026-07-22 22:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:38 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d67e2a2a-d5f5-46ce-9a6a-6ce72597cbff/scratchpad/pb-diagnose.mjs | — | ~639 |
+| 22:41 | Created tests/ntt-data/email-filter.test.ts | — | ~260 |
+| 22:41 | Created lib/ntt-data/email-filter.ts | — | ~161 |
+| 22:41 | Edited app/api/deck-submission/route.ts | 1→3 lines | ~62 |
+| 22:42 | Edited app/api/deck-submission/route.ts | added 1 import(s) | ~80 |
+| 22:45 | Diagnosed "3 users can't login": PB email filter case-sensitive; fixed with email:lower + lowercased input (TDD, 36 tests pass) | lib/ntt-data/email-filter.ts, app/api/deck-submission/route.ts, tests/ntt-data/email-filter.test.ts | fixed, logged bug-068 | ~28k |
+| 22:43 | Session end: 5 writes across 4 files (pb-diagnose.mjs, email-filter.test.ts, email-filter.ts, route.ts) | 5 reads | ~1247 tok |
+| 22:48 | Session end: 5 writes across 4 files (pb-diagnose.mjs, email-filter.test.ts, email-filter.ts, route.ts) | 5 reads | ~1247 tok |
+
+## Session: 2026-07-22 22:50
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:57 | Edited components/startup-registration-form.tsx | "File exceeds 8 MB. Please" → "File exceeds 4.5 MB. Plea" | ~18 |
+| 22:57 | Edited components/startup-registration-form.tsx | 2→2 lines | ~34 |
+| 22:57 | Edited app/api/ntt-data/route.ts | "The PDF exceeds the 8 MB " → "The PDF exceeds the 4.5 M" | ~22 |
+
+## Session: 2026-07-22 22:57
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:57 | Edited components/startup-registration-form.tsx | CSS: headroom | ~62 |
+| 22:57 | Edited app/api/ntt-data/route.ts | 1→3 lines | ~62 |
+| 22:58 | Session end: 2 writes across 2 files (startup-registration-form.tsx, route.ts) | 0 reads | ~124 tok |
+| 23:01 | Edited app/api/deck-submission/route.ts | modified if() | ~109 |
+| 23:02 | Edited app/api/deck-submission/route.ts | modified if() | ~130 |
+| 23:02 | Edited app/api/fast-track/route.ts | modified if() | ~110 |
+| 23:02 | Edited app/api/ntt-data/route.ts | modified if() | ~116 |
+| 23:02 | Edited components/dashboard/email-table.tsx | added 1 condition(s) | ~88 |
+| 23:02 | Edited components/deck-submission-form.tsx | modified if() | ~69 |
+| 23:02 | Edited components/fast-track-form.tsx | modified if() | ~85 |
+| 23:02 | Edited app/startup-registration/page.tsx | inline fix | ~15 |
+| 23:02 | Edited app/startup-registration/page.tsx | inline fix | ~17 |
+| 23:03 | Edited app/dashboard/page.tsx | "min-h-screen bg-slate-50" → "min-h-dvh bg-slate-50" | ~13 |
+| 23:03 | Edited app/deck-submission/page.tsx | "min-h-screen bg-gray-50" → "min-h-dvh bg-gray-50" | ~13 |
+| 23:03 | Edited app/faq/page.tsx | "min-h-screen bg-white" → "min-h-dvh bg-white" | ~13 |
+| 23:03 | Edited app/fast-track/page.tsx | "min-h-screen bg-gray-50" → "min-h-dvh bg-gray-50" | ~13 |
+| 23:03 | Edited app/login/page.tsx | "flex min-h-screen items-c" → "flex min-h-dvh items-cent" | ~24 |
+| 23:03 | Edited app/startup-registration/page.tsx | inline fix | ~3 |
+| 23:03 | Edited components/about.tsx | inline fix | ~11 |
+| 23:03 | Edited components/footer.tsx | "flex-shrink-0 lg:justify-" → "shrink-0 lg:justify-self-" | ~16 |
+| 23:03 | Edited components/hero.tsx | inline fix | ~19 |
+| 23:03 | Edited components/program-overview.tsx | inline fix | ~16 |
+| 23:03 | Edited components/roadmap.tsx | inline fix | ~12 |
+| 23:03 | Edited components/problem/problem-rich-detail.tsx | inline fix | ~3 |
+| 23:03 | Edited components/startup-registration-form.tsx | "mt-0.5 size-5 flex-shrink" → "mt-0.5 size-5 shrink-0" | ~20 |
+| 23:05 | React Doctor pass 1: fixed all sites of top-3 rules (fetch ok-check x7, min-h-screen→min-h-dvh x6, deprecated tailwind classes x9+comments) | 3 api routes + 3 forms + 6 pages + 7 components | tsc clean, re-scan confirms 3 rules gone (score 41) | ~35k |
+| 23:06 | Session end: 24 writes across 12 files (startup-registration-form.tsx, route.ts, email-table.tsx, deck-submission-form.tsx, fast-track-form.tsx) | 19 reads | ~14386 tok |
+
+## Session: 2026-07-22 23:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:23 | Created tests/ntt-data/registration-errors.test.ts | — | ~948 |
+| 23:23 | Created lib/ntt-data/registration-errors.ts | — | ~808 |
+| 23:24 | Edited app/api/ntt-data/route.ts | added 1 import(s) | ~50 |
+| 23:24 | Edited app/api/ntt-data/route.ts | added error handling | ~134 |
+| 23:24 | Edited app/api/ntt-data/route.ts | modified catch() | ~460 |
+| 23:24 | Edited app/api/ntt-data/route.ts | 1→2 lines | ~63 |
+| 23:25 | Edited components/startup-registration-form.tsx | inline fix | ~22 |
+| 23:25 | Edited components/startup-registration-form.tsx | expanded (+8 lines) | ~124 |
+| 23:25 | Edited components/startup-registration-form.tsx | added nullish coalescing | ~283 |
+| 23:25 | Edited components/startup-registration-form.tsx | added 1 condition(s) | ~42 |
+| 23:25 | Edited components/startup-registration-form.tsx | added 1 condition(s) | ~149 |
+| 23:25 | Edited components/startup-registration-form.tsx | CSS: response, threw | ~382 |
+| 23:25 | Edited components/startup-registration-form.tsx | 1→6 lines | ~42 |
+| 23:25 | Edited components/startup-registration-form.tsx | expanded (+8 lines) | ~144 |
+| 23:25 | Edited components/startup-registration-form.tsx | CSS: guard | ~182 |
+| 23:27 | Edited app/startup-registration/page.tsx | 2→1 lines | ~5 |
+| 23:27 | Edited app/startup-registration/page.tsx | 3→6 lines | ~52 |
+| 23:27 | Created components/startup-registration-dock.tsx | — | ~1092 |
+| 23:27 | Edited app/startup-registration/page.tsx | "@/components/floating-doc" → "@/components/startup-regi" | ~22 |
+| 23:30 | Created ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d67e2a2a-d5f5-46ce-9a6a-6ce72597cbff/scratchpad/verify-dock.mjs | — | ~841 |
+| 23:31 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d67e2a2a-d5f5-46ce-9a6a-6ce72597cbff/scratchpad/verify-dock.mjs | "networkidle0" → "load" | ~5 |
+| 23:32 | Edited components/startup-registration-dock.tsx | "h-11 shrink-0 rounded-ful" → "h-10 shrink-0 rounded-ful" | ~65 |
+| 23:32 | Edited components/startup-registration-dock.tsx | "flex h-16 items-center ju" → "flex h-16 items-center ju" | ~29 |
+| 23:33 | Edited components/startup-registration-dock.tsx | "h-7 w-auto object-contain" → "h-5 w-auto object-contain" | ~16 |
+| 23:33 | Edited ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/d67e2a2a-d5f5-46ce-9a6a-6ce72597cbff/scratchpad/verify-dock.mjs | expanded (+10 lines) | ~232 |
+| 23:50 | Clear-cause submit errors (TDD, 10 new tests) + full-screen submitting overlay + full-width registration dock w/ always-visible SUBMIT btn (native form attr) | lib/ntt-data/registration-errors.ts, tests/ntt-data/registration-errors.test.ts, app/api/ntt-data/route.ts, components/startup-registration-form.tsx, components/startup-registration-dock.tsx, app/startup-registration/page.tsx | 46/46 tests, tsc clean, prod build ok, headless-verified desktop+390px+360px | ~95k |
+| 23:37 | Session end: 25 writes across 7 files (registration-errors.test.ts, registration-errors.ts, route.ts, startup-registration-form.tsx, page.tsx) | 5 reads | ~16001 tok |
+
+## Session: 2026-07-22 23:45
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:47 | Edited lib/site-content.ts | 2→5 lines | ~56 |
+| 23:47 | Edited lib/site-content.ts | 2→5 lines | ~49 |
+| 23:47 | Edited lib/site-content.ts | 2→3 lines | ~49 |
+| 23:48 | Edited lib/site-content.ts | 2→5 lines | ~54 |
+| 23:48 | Edited components/benefit.tsx | 4→9 lines | ~104 |
+| 23:49 | Edited components/dashboard/data-table.tsx | 4→5 lines | ~52 |
+| 23:49 | Edited components/dashboard/data-table.tsx | 3→4 lines | ~45 |
+| 23:49 | Edited components/dashboard/columns.tsx | expanded (+6 lines) | ~154 |
+| 23:49 | Edited components/deck-submission-form.tsx | 3→3 lines | ~35 |
+| 23:49 | Edited components/dashboard/data-table.tsx | 5→6 lines | ~75 |
+| 00:05 | Fixed top-3 React Doctor groups: XSS sink -> structured segments; filter().map() -> flatMap x2; a11y labels on selects/inputs x3 | benefit.tsx, site-content.ts, dashboard/columns.tsx, deck-submission-form.tsx, dashboard/data-table.tsx | 79->73 findings, target rules 0 remaining, tsc clean | ~35k |
+| 23:51 | Edited components/startup-registration-form.tsx | 6→7 lines | ~68 |
+| 23:51 | Edited components/ui/carousel.tsx | 3→4 lines | ~27 |
+| 23:53 | Edited components/dashboard/data-table.tsx | 2→3 lines | ~23 |
+| 23:53 | Edited components/dashboard/data-table.tsx | 3→4 lines | ~32 |
+| 23:56 | Edited components/faq.tsx | 2→2 lines | ~30 |
+| 23:56 | Edited components/roadmap.tsx | 3→3 lines | ~34 |
+| 23:56 | Edited components/roadmap.tsx | 2→2 lines | ~18 |
+| 23:56 | Edited components/roadmap.tsx | 3→3 lines | ~42 |
+| 23:56 | Edited components/roadmap.tsx | 2→2 lines | ~24 |
+| 23:56 | Edited components/roadmap.tsx | 4→4 lines | ~60 |
+| 23:56 | Edited components/deck-submission-form.tsx | 3→5 lines | ~43 |
+| 23:56 | Edited components/deck-submission-form.tsx | inline fix | ~20 |
+| 23:56 | Edited components/deck-submission-form.tsx | inline fix | ~19 |
+| 23:57 | Edited components/faq.tsx | inline fix | ~19 |
+| 23:57 | Edited components/roadmap.tsx | 2→2 lines | ~20 |
+| 23:57 | Edited components/dashboard/email-table.tsx | CSS: timeZone | ~65 |
+| 23:57 | Edited components/dashboard/email-table.tsx | 2→3 lines | ~32 |
+| 23:57 | Edited components/dashboard/email-table.tsx | 2→3 lines | ~36 |
+| 23:57 | Edited components/dashboard/record-detail.tsx | CSS: timeZone | ~66 |
+| 23:57 | Edited components/dashboard/columns.tsx | added 1 import(s) | ~34 |
+| 23:57 | Edited components/dashboard/columns.tsx | CSS: timeZone | ~48 |
+| 23:57 | Edited components/dashboard/columns.tsx | CSS: timeZone | ~57 |
+| 23:57 | Edited components/dashboard/columns.tsx | CSS: timeZone | ~40 |
+| 23:57 | Edited components/startup-registration-form.tsx | CSS: lookup | ~96 |
+| 23:57 | Edited components/startup-registration-form.tsx | includes() → has() | ~55 |
+| 23:57 | Edited components/startup-registration-form.tsx | added nullish coalescing | ~16 |
+| 23:57 | Edited lib/ntt-data/columns-config.ts | 5→9 lines | ~93 |
+| 23:57 | Edited components/dashboard/email-table.tsx | added 1 import(s) | ~37 |
+| 23:57 | Edited components/dashboard/record-detail.tsx | 1→5 lines | ~32 |
+| 23:59 | Edited components/problem-overview.tsx | 2→2 lines | ~22 |
+| 23:59 | Edited components/problem-overview.tsx | 2→2 lines | ~20 |
+| 00:00 | Edited components/problem-overview.tsx | 2→2 lines | ~15 |
+| 00:00 | Edited components/problem/problem-rich-detail.tsx | 2→2 lines | ~22 |
+| 00:00 | Edited components/problem/problem-rich-detail.tsx | 3→3 lines | ~25 |
+| 00:00 | Edited components/problem/problem-rich-detail.tsx | 2→2 lines | ~22 |
+| 00:00 | Edited components/problem/problem-rich-detail.tsx | 3→3 lines | ~26 |
+| 00:00 | Edited components/problem/problem-rich-detail.tsx | 3→3 lines | ~29 |
+| 00:00 | Edited components/problem/problem-rich-detail.tsx | 3→3 lines | ~31 |
+| 00:01 | Edited components/problem/problem-rich-detail.tsx | 2→5 lines | ~46 |
+| 00:01 | Edited components/footer.tsx | 1→4 lines | ~45 |
+| 00:01 | Edited components/navbar.tsx | "flex min-h-11 items-cente" → "flex min-h-11 items-cente" | ~66 |
+| 00:01 | Edited components/startup-registration-form.tsx | 3→2 lines | ~11 |
+| 00:02 | Edited components/hero.tsx | 3→4 lines | ~28 |
+| 00:02 | Edited components/navbar.tsx | inline fix | ~35 |
+| 00:02 | Edited components/navbar.tsx | "sticky top-0 z-50 w-full " → "sticky top-0 z-50 w-full " | ~26 |
+| 00:02 | Edited components/problem-overview.tsx | reduced (-7 lines) | ~118 |
+| 00:02 | Edited components/problem-overview.tsx | 4→4 lines | ~40 |
+| 00:03 | Edited components/fast-track-form.tsx | CSS: guard | ~61 |
+| 00:03 | Edited components/deck-submission-form.tsx | added 1 condition(s) | ~131 |
+| 00:03 | Edited components/deck-submission-form.tsx | stopPropagation() → calc() | ~145 |
+| 00:03 | Edited components/deck-submission-form.tsx | 3→6 lines | ~54 |
+| 00:03 | Edited components/deck-submission-form.tsx | 5→4 lines | ~22 |
+| 00:04 | Edited components/startup-registration-form.tsx | useState() → useRef() | ~38 |
+| 00:04 | Edited components/startup-registration-form.tsx | 3→3 lines | ~31 |
+| 00:04 | Edited components/startup-registration-form.tsx | 2→2 lines | ~22 |
+| 00:04 | Edited components/startup-registration-form.tsx | inline fix | ~12 |
+| 00:04 | Edited components/startup-registration-form.tsx | — | ~0 |
+| 00:04 | Edited components/startup-registration-form.tsx | 3→2 lines | ~17 |
+| 00:05 | Edited components/footer.tsx | 1→4 lines | ~48 |
+| 00:06 | Edited components/fast-track-form.tsx | inline fix | ~22 |
+| 00:06 | Edited components/fast-track-form.tsx | 1→4 lines | ~68 |
+| 00:06 | Edited components/fast-track-form.tsx | 3→2 lines | ~18 |
+| 00:06 | Edited components/fast-track-form.tsx | 2→3 lines | ~22 |
+| 00:06 | Edited components/fast-track-form.tsx | 5→7 lines | ~45 |
+| 00:20 | React Doctor wave 2: effect leaks x2, index keys x24 (incl. unflagged pi/si), button-type x4, locale timeZone x5, Set/Map lookups x2, footer nav labels, hero sizes, navbar transition-all x3, article->button, native <dialog>, assertive-status, ref reentry guard, dead state removed | 16 files | 79->28 findings, 44->62 score, tsc + 46 tests green | ~60k |
+| 00:09 | Edited components/program-overview.tsx | 3→3 lines | ~32 |
+| 00:09 | Edited components/program-overview.tsx | 3→4 lines | ~31 |
+| 00:09 | Edited components/program-overview.tsx | CSS: max-width | ~50 |
+| 00:09 | Edited components/program-overview.tsx | 3→5 lines | ~66 |
+| 00:10 | Edited components/program-overview.tsx | 2→2 lines | ~36 |
+| 00:10 | Edited components/program-overview.tsx | inline fix | ~8 |
+| 00:35 | User decision: keep all unused files + tiptap deps (logged to cerebrum); cleaned program-overview anyway (keys x2, type, sizes, lazy plugin via useState initializer) | program-overview.tsx, .wolf/* | accepted-noise findings documented | ~8k |
+| 00:10 | Session end: 80 writes across 19 files (site-content.ts, benefit.tsx, data-table.tsx, columns.tsx, deck-submission-form.tsx) | 15 reads | ~34730 tok |
