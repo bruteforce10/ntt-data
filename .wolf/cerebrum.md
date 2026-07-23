@@ -87,6 +87,7 @@
 
 - [2026-07-19] Don't verify client-side behavior (hydration, effects, fetch) against the USER'S running `next dev` on :3000 — it's instrumented by Console Ninja (editor extension) and React never hydrates in headless Chrome (page-wide: zero `__reactFiber` keys, page stuck on its SSR HTML, no console errors). Also `next dev` refuses a second instance for the same dir. Instead: `npm run build` + `PORT=3200 npx next start`, verify there, then kill only the :3200 pid. (see buglog bug-050)
 - [2026-06-27] Don't put a raw bcrypt hash (`$2b$10$...`) in `.env.local` — Next's `@next/env` runs dotenv-expand and treats `$2b`/`$10`/etc. as variable refs, corrupting it (loads empty/partial). **Single-quoting does NOT prevent expansion** in this version. Fix: escape every `$` as `\$` (`\$2b\$10\$...`). Symptom: Auth.js `CredentialsSignin` for the CORRECT password while the unit test (hash passed directly, not via env) passes green. (see buglog bug-090)
+- [2026-07-23] Don't use PowerShell here-string syntax `@'...'@` (or `@"..."@`) inside the **Bash** tool — this env's Bash is Git Bash, which treats the leading `@` as a literal, so `git commit -m @'...'@` produced a commit subject starting with a stray `@`. In the Bash tool use a real bash heredoc (`git commit -F - <<'EOF' ... EOF`) or repeated `-m "..."` flags. The `@'...'@` form is ONLY for the PowerShell tool. (Fixed after the fact with `git commit --amend` + `git push --force-with-lease` on the just-pushed tip.)
 
 ## Decision Log
 
