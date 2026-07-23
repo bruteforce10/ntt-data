@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-22T07:01:35.772Z
-> Files: 3 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-23T04:38:20.647Z
+> Files: 6 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/
 
@@ -72,7 +72,7 @@
 ## components/dashboard/
 
 - `columns.tsx` — TanStack column defs: TextCell (truncate+title) for company_address/problem_statement/did_you_hear_about_us; combined "Company Description" col (PDF link if company_description_pdf else text); business_mode column removed 2026-07-22 (~2268 tok)
-- `data-table.tsx` — DataTable: toolbar search/column-toggle/Excel export (EXPORT_KEYS incl PO_01..PO_10, funding_stage, company_description+pdf; business_mode removed), sort+filter, pagination; only phone_number hidden by default (~3799 tok)
+- `data-table.tsx` — DataTable: toolbar search/column-toggle/Excel export (EXPORT_KEYS incl PO_01..PO_10, funding_stage; company_description is ONE combined column — company_description_pdf dropped from keys), passes window.location.origin to recordsToAoa so file links are absolute; sort+filter, pagination; only phone_number hidden by default (~3819 tok)
 
 ## components/problem/
 
@@ -102,7 +102,7 @@
 
 - `columns-config.ts` — Exports ColumnType, ColumnMeta, COLUMN_META (drives detail sheet + export headers; business_mode removed 2026-07-22), COLUMN_META_BY_KEY, NTT_DATA_FILE_FIELDS (~547 tok)
 - `export-selection.ts` — resolveExportRows(selected, filtered): selected rows if any, else the filtered set (~90 tok)
-- `export-xlsx.ts` — recordsToAoa(records, keys) → header row (COLUMN_META labels) + values; downloadXlsx dynamic-imports "xlsx" and writes the sheet (~300 tok)
+- `export-xlsx.ts` — recordsToAoa(records, keys, origin?) → header row (COLUMN_META labels) + values; file-type columns export absolute download link (origin+/api/ntt-data/:id/file/:field) not the bare filename; company_description = PDF link if company_description_pdf else the plain text. downloadXlsx dynamic-imports "xlsx" (~490 tok)
 
 ## public/
 
@@ -115,6 +115,7 @@
 
 ## tests/ntt-data/
 
+- `export-xlsx.test.ts` — Declares record (~553 tok)
 
 ## utils/
 

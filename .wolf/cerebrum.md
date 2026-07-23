@@ -19,6 +19,8 @@
 
 ## Key Learnings
 
+- **Excel export links (2026-07-23):** `recordsToAoa(records, keys, origin?)` in `lib/ntt-data/export-xlsx.ts` — PocketBase FILE fields store only the uploaded filename, so exporting `r[k]` raw gives the bare filename (useless in Excel). Fix: any COLUMN_META `type === "file"` column exports the ABSOLUTE download URL `${origin}/api/ntt-data/${id}/file/${field}`; `data-table.tsx` passes `window.location.origin`. `company_description` is ONE combined export column (mirrors the table cell): PDF link when `company_description_pdf` is set, else the plain `company_description` text — so `company_description_pdf` was dropped from `EXPORT_KEYS`. The download route requires an authenticated dashboard session, so links only resolve while logged in (acceptable for an admin export).
+
 - **Project:** ntt-data
 - Frontend direction: prioritize Next.js latest App Router, TypeScript, Tailwind CSS, and shadcn/ui components.
 - Brand colors: button blue `#3176E4`, primary `#0070C0`, dark blue `#154284`.

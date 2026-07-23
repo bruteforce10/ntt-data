@@ -1114,3 +1114,14 @@
 | 14:01 | Edited components/dashboard/columns.tsx | removed 22 lines | ~14 |
 | 14:03 | Dashboard table: +company_address/problem_statement/did_you_hear_about_us cols, combined Company Description (PDF-or-text), country/city visible, removed business_mode; export drops business_mode (keeps funding_stage + descriptions) | columns.tsx, data-table.tsx, columns-config.ts | tsc clean, eslint 0 errors | ~9k |
 | 14:03 | Session end: 7 writes across 3 files (columns-config.ts, data-table.tsx, columns.tsx) | 7 reads | ~713 tok |
+
+## Session: 2026-07-23 11:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:37 | Edited lib/ntt-data/export-xlsx.ts | added 3 condition(s) | ~360 |
+| 11:37 | Edited components/dashboard/data-table.tsx | 3→3 lines | ~20 |
+| 11:37 | Edited components/dashboard/data-table.tsx | CSS: origin | ~72 |
+| 11:38 | Edited tests/ntt-data/export-xlsx.test.ts | expanded (+28 lines) | ~488 |
+| 11:40 | Excel export: Company Description column now exports PDF link (file) or text (string); all file-type cols export absolute /api/ntt-data/:id/file/:field URL not bare filename | lib/ntt-data/export-xlsx.ts, components/dashboard/data-table.tsx, tests/ntt-data/export-xlsx.test.ts | 5 tests + tsc pass | ~2500 |
+| 11:40 | Session end: 4 writes across 3 files (export-xlsx.ts, data-table.tsx, export-xlsx.test.ts) | 7 reads | ~7854 tok |

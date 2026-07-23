@@ -18,13 +18,41 @@ describe("recordsToAoa", () => {
     expect(aoa[1]).toEqual(["Jane", "j@x.io"]);
   });
 
-  it("renders file fields as the stored filename", () => {
-    const aoa = recordsToAoa([record], ["pick_deck"]);
-    expect(aoa[1]).toEqual(["deck.pdf"]);
+  it("renders file fields as a download link, not the bare filename", () => {
+    const aoa = recordsToAoa([record], ["pick_deck"], "https://app.test");
+    expect(aoa[1]).toEqual(["https://app.test/api/ntt-data/r1/file/pick_deck"]);
   });
 
   it("renders missing values as an empty string", () => {
     const aoa = recordsToAoa([record], ["city"]);
     expect(aoa[1]).toEqual([""]);
+  });
+
+  describe("company_description column", () => {
+    it("exports the PDF download link when a description file was uploaded", () => {
+      const withPdf = {
+        ...record,
+        company_description_pdf: "profile.pdf",
+        company_description: "",
+      } as NttDataRecord;
+      const aoa = recordsToAoa(
+        [withPdf],
+        ["company_description"],
+        "https://app.test",
+      );
+      expect(aoa[1]).toEqual([
+        "https://app.test/api/ntt-data/r1/file/company_description_pdf",
+      ]);
+    });
+
+    it("exports the plain text when there is no PDF", () => {
+      const withText = {
+        ...record,
+        company_description_pdf: "",
+        company_description: "We build robots.",
+      } as NttDataRecord;
+      const aoa = recordsToAoa([withText], ["company_description"]);
+      expect(aoa[1]).toEqual(["We build robots."]);
+    });
   });
 });

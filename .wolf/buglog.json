@@ -1060,6 +1060,88 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-22T07:01:04.610Z"
+    },
+    {
+      "id": "bug-066",
+      "timestamp": "2026-07-23T04:37:42.517Z",
+      "error_message": "Significant refactor of ",
+      "file": "lib/ntt-data/export-xlsx.ts",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 16→41 lines (5 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-23T04:37:42.517Z"
+    },
+    {
+      "id": "bug-067",
+      "timestamp": "2026-07-23T04:37:47.099Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/dashboard/data-table.tsx",
+      "root_cause": "Had \"company_description_pdf\"",
+      "fix": "Changed to \"created\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-23T04:37:47.099Z"
+    },
+    {
+      "id": "bug-068",
+      "timestamp": "2026-07-23T04:37:52.567Z",
+      "error_message": "Type error",
+      "file": "components/dashboard/data-table.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-23T04:37:52.567Z"
+    },
+    {
+      "id": "bug-069",
+      "timestamp": "2026-07-23T04:38:20.668Z",
+      "error_message": "Significant refactor of ",
+      "file": "tests/ntt-data/export-xlsx.test.ts",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 25→53 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-23T04:38:20.668Z"
+    },
+    {
+      "id": "bug-070",
+      "timestamp": "2026-07-23T04:40:00.000Z",
+      "error_message": "User: Excel export 'Company Description' column shows the PDF filename instead of the file link when the value is a file; wants the link when file, the text when string.",
+      "file": "lib/ntt-data/export-xlsx.ts",
+      "root_cause": "recordsToAoa emitted the raw record value r[k]. PocketBase file fields store only the filename, so file-type columns (company_description_pdf, pick_deck, PO_xx) exported the bare filename, not a usable download link. The dashboard table already combined company_description_pdf/company_description into one link-or-text column, but that logic never reached the export.",
+      "fix": "recordsToAoa now takes an origin arg. File-type columns (COLUMN_META type==='file') export origin+/api/ntt-data/:id/file/:field. company_description is one combined column: PDF link when company_description_pdf present, else the plain company_description text. Dropped company_description_pdf from EXPORT_KEYS; data-table.tsx passes window.location.origin. Updated export-xlsx.test.ts.",
+      "tags": [
+        "export",
+        "xlsx",
+        "dashboard",
+        "file-link",
+        "company_description"
+      ],
+      "related_bugs": ["bug-065", "bug-066", "bug-067"],
+      "occurrences": 1,
+      "last_seen": "2026-07-23T04:40:00.000Z"
     }
   ]
 }

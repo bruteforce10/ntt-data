@@ -62,7 +62,7 @@ const EXPORT_KEYS: (keyof NttDataRecord)[] = [
   "problem_statement", "did_you_hear_about_us", "pick_deck",
   ...PROBLEM_DECK_FIELDS,
   "funding_stage",
-  "company_description", "company_description_pdf", "created", "updated",
+  "company_description", "created", "updated",
 ];
 
 function ColumnFilter({ column }: { column: Column<NttDataRecord, unknown> }) {
@@ -149,7 +149,9 @@ export function DataTable({ data }: DataTableProps) {
     const selected = table.getSelectedRowModel().rows.map((r) => r.original);
     const filtered = table.getFilteredRowModel().rows.map((r) => r.original);
     const rows = resolveExportRows(selected, filtered);
-    const aoa = recordsToAoa(rows, EXPORT_KEYS);
+    const origin =
+      typeof window !== "undefined" ? window.location.origin : "";
+    const aoa = recordsToAoa(rows, EXPORT_KEYS, origin);
     downloadXlsx(aoa, `ntt-data-${Date.now()}.xlsx`);
   }
 
