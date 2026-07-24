@@ -240,7 +240,7 @@ export default function DeckSubmissionForm() {
         const file = files[problem.deck.id];
         if (!file) continue;
         const blob = await upload(file.name, file, {
-          access: "public",
+          access: "private",
           handleUploadUrl: "/api/deck-blob",
           multipart: true,
           clientPayload: JSON.stringify({

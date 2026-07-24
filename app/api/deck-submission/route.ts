@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { del } from "@vercel/blob";
+import { del, get } from "@vercel/blob";
 import { transporter, buildDeckSubmissionEmail } from "@/lib/mailer";
 import { buildEmailLookupFilter } from "@/lib/ntt-data/email-filter";
 import {
@@ -26,7 +26,7 @@ function isValidBlobUrl(value: string): boolean {
     const url = new URL(value);
     return (
       url.protocol === "https:" &&
-      url.hostname.endsWith(".public.blob.vercel-storage.com")
+      url.hostname.endsWith(".blob.vercel-storage.com")
     );
   } catch {
     return false;
@@ -262,10 +262,12 @@ export async function POST(request: Request) {
     // and add or replace the rest later via the same link.
 
     // Pull each staged file out of Blob and build the PocketBase PATCH body.
+    // Blobs are PRIVATE, so read them with the Blob SDK (auth via
+    // BLOB_READ_WRITE_TOKEN) — a plain fetch of the URL would 401.
     const updateForm = new FormData();
     for (const { deck, url, name } of uploads) {
-      const fileResponse = await fetch(url, { cache: "no-store" });
-      if (!fileResponse.ok) {
+      const result = await get(url, { access: "private" });
+      if (!result || result.statusCode !== 200) {
         return NextResponse.json(
           {
             message: `"${deck.title}": we couldn't retrieve the uploaded file. Please try again.`,
@@ -273,7 +275,7 @@ export async function POST(request: Request) {
           { status: 502 },
         );
       }
-      const blob = await fileResponse.blob();
+      const blob = await new Response(result.stream).blob();
       if (blob.size === 0) {
         return NextResponse.json(
           { message: `"${deck.title}": the uploaded file was empty.` },
@@ -286,7 +288,9 @@ export async function POST(request: Request) {
           { status: 400 },
         );
       }
-      const file = new File([blob], name, { type: blob.type });
+      const file = new File([blob], name, {
+        type: result.blob.contentType || blob.type,
+      });
       if (!isAcceptedFile(file)) {
         return NextResponse.json(
           {

@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T02:57:11.819Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T03:32:02.023Z
 > Files: 3 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/
@@ -38,11 +38,11 @@
 
 ## app/api/deck-blob/
 
-- `route.ts` — POST: Vercel Blob client-upload token handshake (handleUpload/onBeforeGenerateToken); validates email+registration+deck field, caps size 8 MB. Lets the browser upload decks straight to Blob, bypassing Vercel's 4.5 MB body cap. (~920 tok)
+- `route.ts` — Confirms the email belongs to a real registration before we hand out a Blob (~1039 tok)
 
 ## app/api/deck-submission/
 
-- `route.ts` — GET ?email= → selected problems; POST takes JSON {email, uploads:[{field,url,name}]}, fetches each staged Blob (SSRF host-check), PATCHes files into PocketBase, then del()s the blobs. maxDuration=60. (~3241 tok)
+- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3300 tok)
 
 ## app/api/fast-track/
 
@@ -76,7 +76,7 @@
 
 ## components/
 
-- `deck-submission-form.tsx` — Error carrying the HTTP status so callers can special-case not-found. (~6380 tok)
+- `deck-submission-form.tsx` — Error carrying the HTTP status so callers can special-case not-found. (~6381 tok)
 
 ## components/dashboard/
 

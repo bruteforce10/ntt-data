@@ -2134,6 +2134,22 @@
       ],
       "occurrences": 1,
       "last_seen": "2026-07-24T03:05:00.000Z"
+    },
+    {
+      "id": "bug-131",
+      "timestamp": "2026-07-24T03:31:51.081Z",
+      "error_message": "CSS fix: access",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "access: \"public\", → \"private\",",
+      "fix": "Changed access: \"public\", → \"private\",",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T03:31:51.081Z"
     }
   ]
 }

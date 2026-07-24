@@ -11,6 +11,16 @@
       "count": 1,
       "tokens": 0,
       "first_read": "2026-07-24T02:51:25.466Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/node_modules/@vercel/blob/dist/client.d.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-24T03:28:47.064Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/node_modules/@vercel/blob/dist/index.d.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-24T03:30:15.354Z"
     }
   },
   "files_written": [
@@ -49,16 +59,46 @@
       "action": "edit",
       "tokens": 370,
       "at": "2026-07-24T02:57:11.828Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-blob/route.ts",
+      "action": "edit",
+      "tokens": 174,
+      "at": "2026-07-24T03:31:49.248Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 44,
+      "at": "2026-07-24T03:31:51.074Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-07-24T03:31:52.538Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+      "action": "edit",
+      "tokens": 32,
+      "at": "2026-07-24T03:31:54.539Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+      "action": "edit",
+      "tokens": 340,
+      "at": "2026-07-24T03:32:02.030Z"
     }
   ],
   "edit_counts": {
-    "app/api/deck-blob/route.ts": 1,
-    "app/api/deck-submission/route.ts": 3,
-    "components/deck-submission-form.tsx": 2
+    "app/api/deck-blob/route.ts": 2,
+    "app/api/deck-submission/route.ts": 6,
+    "components/deck-submission-form.tsx": 3
   },
   "anatomy_hits": 0,
-  "anatomy_misses": 2,
+  "anatomy_misses": 4,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 4
+  "stop_count": 5
 }

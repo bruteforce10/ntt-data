@@ -52,6 +52,18 @@ export async function POST(request: Request): Promise<Response> {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
+  // Surface the most common misconfig clearly instead of a vague
+  // "Failed to retrieve the client token" on the browser.
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    return NextResponse.json(
+      {
+        error:
+          "Blob storage is not configured: BLOB_READ_WRITE_TOKEN is missing. Connect the Vercel Blob store to this project (Production) and redeploy.",
+      },
+      { status: 500 },
+    );
+  }
+
   try {
     const jsonResponse = await handleUpload({
       body,
