@@ -1,103 +1,164 @@
 {
-  "session_id": "session-2026-07-24-1323",
-  "started": "2026-07-24T06:23:55.825Z",
+  "session_id": "session-2026-07-24-1633",
+  "started": "2026-07-24T09:33:05.631Z",
   "files_read": {
-    "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts": {
-      "count": 2,
-      "tokens": 0,
-      "first_read": "2026-07-24T06:43:16.414Z"
+    "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx": {
+      "count": 5,
+      "tokens": 2437,
+      "first_read": "2026-07-24T09:38:02.209Z"
     },
-    "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts": {
-      "count": 1,
-      "tokens": 3300,
-      "first_read": "2026-07-24T06:43:16.788Z"
+    "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx": {
+      "count": 3,
+      "tokens": 6380,
+      "first_read": "2026-07-24T09:38:02.876Z"
     },
     "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts": {
-      "count": 1,
+      "count": 2,
       "tokens": 3052,
-      "first_read": "2026-07-24T06:47:20.979Z"
+      "first_read": "2026-07-24T09:40:04.152Z"
     },
-    "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts": {
+    "C:/Users/jayac/Documents/ntt-data/app/api/fast-track-blob/route.ts": {
+      "count": 2,
+      "tokens": 761,
+      "first_read": "2026-07-24T09:40:06.156Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts": {
+      "count": 3,
+      "tokens": 3300,
+      "first_read": "2026-07-24T09:40:08.157Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/app/api/deck-blob/route.ts": {
+      "count": 2,
+      "tokens": 1039,
+      "first_read": "2026-07-24T09:40:11.152Z"
+    },
+    "C:/Users/jayac/Documents/ntt-data/components/startup-registration-form.tsx": {
       "count": 1,
       "tokens": 0,
-      "first_read": "2026-07-24T06:58:32.124Z"
+      "first_read": "2026-07-24T09:49:43.911Z"
     }
   },
   "files_written": [
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
       "action": "edit",
-      "tokens": 78,
-      "at": "2026-07-24T06:46:17.566Z"
+      "tokens": 18,
+      "at": "2026-07-24T09:41:09.681Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+      "action": "edit",
+      "tokens": 39,
+      "at": "2026-07-24T09:41:14.626Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+      "action": "edit",
+      "tokens": 45,
+      "at": "2026-07-24T09:41:16.617Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 0,
+      "at": "2026-07-24T09:41:18.132Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 38,
+      "at": "2026-07-24T09:41:20.131Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 46,
+      "at": "2026-07-24T09:41:21.327Z"
     },
     {
       "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
       "action": "edit",
-      "tokens": 295,
-      "at": "2026-07-24T06:46:28.694Z"
+      "tokens": 11,
+      "at": "2026-07-24T09:41:30.918Z"
     },
     {
       "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
-      "action": "edit",
-      "tokens": 137,
-      "at": "2026-07-24T06:46:35.294Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
-      "action": "edit",
-      "tokens": 438,
-      "at": "2026-07-24T06:46:45.599Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
-      "action": "edit",
-      "tokens": 102,
-      "at": "2026-07-24T06:46:51.703Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
-      "action": "edit",
-      "tokens": 30,
-      "at": "2026-07-24T06:46:55.791Z"
-    },
-    {
-      "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
       "action": "edit",
       "tokens": 55,
-      "at": "2026-07-24T07:00:23.130Z"
+      "at": "2026-07-24T09:41:33.057Z"
     },
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track-blob/route.ts",
       "action": "edit",
-      "tokens": 109,
-      "at": "2026-07-24T07:00:28.246Z"
+      "tokens": 0,
+      "at": "2026-07-24T09:41:34.570Z"
     },
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track-blob/route.ts",
       "action": "edit",
-      "tokens": 50,
-      "at": "2026-07-24T07:00:32.511Z"
+      "tokens": 26,
+      "at": "2026-07-24T09:41:36.069Z"
     },
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
       "action": "edit",
-      "tokens": 67,
-      "at": "2026-07-24T07:00:37.074Z"
+      "tokens": 0,
+      "at": "2026-07-24T09:41:38.094Z"
     },
     {
-      "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
       "action": "edit",
-      "tokens": 49,
-      "at": "2026-07-24T07:00:41.291Z"
+      "tokens": 39,
+      "at": "2026-07-24T09:41:49.684Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-blob/route.ts",
+      "action": "edit",
+      "tokens": 0,
+      "at": "2026-07-24T09:41:51.214Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-blob/route.ts",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-07-24T09:41:52.643Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+      "action": "edit",
+      "tokens": 40,
+      "at": "2026-07-24T09:50:55.668Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+      "action": "edit",
+      "tokens": 258,
+      "at": "2026-07-24T09:51:03.364Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 27,
+      "at": "2026-07-24T09:51:09.431Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+      "action": "edit",
+      "tokens": 182,
+      "at": "2026-07-24T09:51:12.470Z"
     }
   ],
   "edit_counts": {
-    "app/api/fast-track/route.ts": 6,
-    "lib/site-content.ts": 5
+    "components/fast-track-form.tsx": 5,
+    "components/deck-submission-form.tsx": 5,
+    "app/api/fast-track/route.ts": 2,
+    "app/api/fast-track-blob/route.ts": 2,
+    "app/api/deck-submission/route.ts": 2,
+    "app/api/deck-blob/route.ts": 2
   },
-  "anatomy_hits": 2,
-  "anatomy_misses": 2,
-  "repeated_reads_warned": 1,
+  "anatomy_hits": 6,
+  "anatomy_misses": 1,
+  "repeated_reads_warned": 11,
   "cerebrum_warnings": 0,
-  "stop_count": 3
+  "stop_count": 2
 }

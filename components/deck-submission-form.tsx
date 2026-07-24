@@ -16,12 +16,17 @@ import {
 } from "@/components/ui/dialog";
 import { PROBLEM_DECKS, type ProblemDeck } from "@/lib/problem-decks";
 import { upload } from "@vercel/blob/client";
-import { AlertCircle, CheckCircle2, Loader2, X } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle2,
+  Loader2,
+  LoaderCircle,
+  X,
+} from "lucide-react";
 
 const MAX_SIZE_BYTES = 8 * 1024 * 1024;
 const ACCEPTED = "image/*,.pdf,.ppt,.pptx";
 const SUPPORT_EMAIL = "openinnovation@ntt-startupchallenge.com";
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NOT_FOUND_MESSAGE =
   "We couldn't find a registration for that email. Please make sure you're using the same email you registered with.";
 
@@ -156,8 +161,8 @@ export default function DeckSubmissionForm() {
   async function handleCheck(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const email = emailInput.trim();
-    if (!EMAIL_RE.test(email)) {
-      setGateError("Please enter a valid email address.");
+    if (!email) {
+      setGateError("Please enter your email address.");
       return;
     }
 
@@ -300,6 +305,7 @@ export default function DeckSubmissionForm() {
       <div className="mx-auto w-full rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
         <form
           onSubmit={handleCheck}
+          noValidate
           className="grid gap-4"
           aria-label="Check registration email"
         >
@@ -488,8 +494,21 @@ export default function DeckSubmissionForm() {
         className="mx-auto w-full"
         aria-label="Deck submission form"
       >
+        {/* Full-screen guard: blocks every interaction while the deck
+            upload (browser -> Blob -> server) is in flight. */}
         {isSubmitting && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-white/70" />
+          <div
+            role="status"
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-[#154284]/70 backdrop-blur-sm"
+          >
+            <LoaderCircle
+              className="size-12 animate-spin text-white"
+              aria-hidden
+            />
+            <p className="text-sm font-bold uppercase tracking-widest text-white">
+              Uploading your pitch deck…
+            </p>
+          </div>
         )}
 
         <div className="relative rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">

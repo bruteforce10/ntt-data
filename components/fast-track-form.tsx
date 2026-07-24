@@ -3,12 +3,12 @@
 import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 
 import { upload } from "@vercel/blob/client";
+import { LoaderCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { PROBLEM_DECKS } from "@/lib/problem-decks";
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const FILE_ACCEPT = "image/*,.pdf,.ppt,.pptx,application/pdf";
 
 type Status = "idle" | "submitting" | "success";
@@ -57,8 +57,8 @@ export default function FastTrackForm() {
     setError(null);
 
     const trimmedEmail = email.trim();
-    if (!EMAIL_RE.test(trimmedEmail)) {
-      setError("Please enter a valid email address.");
+    if (!trimmedEmail) {
+      setError("Please enter your email address.");
       return;
     }
 
@@ -137,6 +137,7 @@ export default function FastTrackForm() {
   return (
     <form
       onSubmit={handleSubmit}
+      noValidate
       className="space-y-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8"
     >
       <div className="space-y-2">
@@ -243,6 +244,23 @@ export default function FastTrackForm() {
           ? "Submitting…"
           : "Submit registration & deck"}
       </Button>
+
+      {/* Full-screen guard: blocks every interaction while the submit
+          (with its Blob uploads) is in flight. */}
+      {status === "submitting" && (
+        <div
+          role="status"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-[#154284]/70 backdrop-blur-sm"
+        >
+          <LoaderCircle
+            className="size-12 animate-spin text-white"
+            aria-hidden
+          />
+          <p className="text-sm font-bold uppercase tracking-widest text-white">
+            Submitting your registration…
+          </p>
+        </div>
+      )}
     </form>
   );
 }

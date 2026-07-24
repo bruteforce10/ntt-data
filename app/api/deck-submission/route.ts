@@ -45,10 +45,6 @@ const SUPPORT_EMAIL = "openinnovation@ntt-startupchallenge.com";
 
 type PbRecord = { id: string } & Record<string, unknown>;
 
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
 function isAcceptedFile(file: File) {
   const type = file.type.toLowerCase();
   const name = file.name.toLowerCase();
@@ -149,9 +145,9 @@ export async function GET(request: Request) {
       new URL(request.url).searchParams.get("email") ?? ""
     ).trim();
 
-    if (!email || !isValidEmail(email)) {
+    if (!email) {
       return NextResponse.json(
-        { message: "A valid email is required." },
+        { message: "An email is required." },
         { status: 400 },
       );
     }
@@ -191,9 +187,9 @@ export async function POST(request: Request) {
 
     const email = String(payload?.email ?? "").trim();
 
-    if (!email || !isValidEmail(email)) {
+    if (!email) {
       return NextResponse.json(
-        { message: "A valid email is required." },
+        { message: "An email is required." },
         { status: 400 },
       );
     }

@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T07:00:41.278Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T09:51:12.453Z
 > Files: 7 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/
@@ -38,19 +38,19 @@
 
 ## app/api/deck-blob/
 
-- `route.ts` — Confirms the email belongs to a real registration before we hand out a Blob (~1039 tok)
+- `route.ts` — Confirms the email belongs to a real registration before we hand out a Blob (~1009 tok)
 
 ## app/api/deck-submission/
 
-- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3300 tok)
+- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3256 tok)
 
 ## app/api/fast-track-blob/
 
-- `route.ts` — POST /api/fast-track-blob (~761 tok)
+- `route.ts` — POST /api/fast-track-blob (~731 tok)
 
 ## app/api/fast-track/
 
-- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3052 tok)
+- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3017 tok)
 
 ## app/api/ntt-data/
 
@@ -81,8 +81,8 @@
 
 ## components/
 
-- `deck-submission-form.tsx` — Error carrying the HTTP status so callers can special-case not-found. (~6380 tok)
-- `fast-track-form.tsx` — EMAIL_RE — renders form (~2451 tok)
+- `deck-submission-form.tsx` — Error carrying the HTTP status so callers can special-case not-found. (~6520 tok)
+- `fast-track-form.tsx` — FILE_ACCEPT — renders form (~2630 tok)
 
 ## components/dashboard/
 

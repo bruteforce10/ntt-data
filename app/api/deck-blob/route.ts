@@ -10,10 +10,6 @@ const POCKETBASE_URL =
 // token time, so a tampered client cannot upload anything larger.
 const MAX_SIZE_BYTES = 8 * 1024 * 1024;
 
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
 function getToken(): string | null {
   return (
     process.env.POCKETBASE_SUPERUSER_TOKEN ||
@@ -79,8 +75,8 @@ export async function POST(request: Request): Promise<Response> {
           throw new Error("Invalid upload payload.");
         }
 
-        if (!isValidEmail(email)) {
-          throw new Error("A valid email is required.");
+        if (!email.trim()) {
+          throw new Error("An email is required.");
         }
         if (!isProblemDeckField(field)) {
           throw new Error("Invalid deck field.");

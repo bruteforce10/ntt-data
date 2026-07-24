@@ -1383,3 +1383,30 @@
 | 14:00 | Edited lib/site-content.ts | "Proximity to a wide famil" → "Proximity to a wide famil" | ~49 |
 | 14:00 | PO_12 revisi deskripsi: anonymized every EXEO name (EXEO Global Pte Ltd / EXEO Group, Inc. / AEQON TJ, Ascent Solutions, dhost Global, GUUD, Procuri) → "a global infrastructure and engineering services provider" (matches logoLabel), across top-level description + About/Challenges/Target Outcome/Assets sections. Footer EXEO partner logo left as-is (out of scope). | lib/site-content.ts | done, 0 EXEO left in content | ~1k |
 | 14:02 | Session end: 11 writes across 2 files (route.ts, site-content.ts) | 4 reads | ~7762 tok |
+
+## Session: 2026-07-24 16:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 16:41 | Edited components/fast-track-form.tsx | 2→1 lines | ~18 |
+| 16:41 | Edited components/fast-track-form.tsx | modified if() | ~39 |
+| 16:41 | Edited components/fast-track-form.tsx | 4→5 lines | ~45 |
+| 16:41 | Edited components/deck-submission-form.tsx | — | ~0 |
+| 16:41 | Edited components/deck-submission-form.tsx | modified if() | ~38 |
+| 16:41 | Edited components/deck-submission-form.tsx | 5→6 lines | ~46 |
+| 16:41 | Edited app/api/fast-track/route.ts | modified isAcceptedFile() | ~11 |
+| 16:41 | Edited app/api/fast-track/route.ts | modified if() | ~55 |
+| 16:41 | Edited app/api/fast-track-blob/route.ts | — | ~0 |
+| 16:41 | Edited app/api/fast-track-blob/route.ts | isValidEmail() → trim() | ~26 |
+| 16:41 | Edited app/api/deck-submission/route.ts | — | ~0 |
+| 16:41 | Edited app/api/deck-submission/route.ts | modified if() | ~39 |
+| 16:41 | Edited app/api/deck-blob/route.ts | — | ~0 |
+| 16:41 | Edited app/api/deck-blob/route.ts | isValidEmail() → trim() | ~26 |
+| 16:45 | Loosened email validation on fast-track + deck-submission (removed ASCII regex in all 3 layers: native type=email via noValidate, client EMAIL_RE, server isValidEmail; kept non-empty check). Fixes "invalid email" for intl/mobile clients (full-width IME chars etc). startup-registration untouched | components/{fast-track-form,deck-submission-form}.tsx, app/api/{fast-track,fast-track-blob,deck-submission,deck-blob}/route.ts | tsc --noEmit clean; cerebrum + buglog bug-142 updated | ~1500 |
+| 16:44 | Session end: 14 writes across 3 files (fast-track-form.tsx, deck-submission-form.tsx, route.ts) | 6 reads | ~17326 tok |
+| 16:50 | Edited components/fast-track-form.tsx | added 1 import(s) | ~40 |
+| 16:51 | Edited components/fast-track-form.tsx | CSS: guard | ~258 |
+| 16:51 | Edited components/deck-submission-form.tsx | expanded (+6 lines) | ~27 |
+| 16:51 | Edited components/deck-submission-form.tsx | CSS: guard | ~182 |
+| 16:52 | Added full-screen loading overlay (fixed inset-0 z-[100] + LoaderCircle icon + text, bg-[#154284]/70 backdrop-blur-sm) to fast-track (status==="submitting") and deck-submission (isSubmitting, replacing the old weak absolute/no-icon overlay) — same pattern as startup-registration. Not just the button spinner | components/{fast-track-form,deck-submission-form}.tsx | tsc --noEmit clean; no transform/backdrop ancestors so fixed covers viewport | ~600 |
+| 16:52 | Session end: 18 writes across 3 files (fast-track-form.tsx, deck-submission-form.tsx, route.ts) | 7 reads | ~17819 tok |

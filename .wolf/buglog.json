@@ -2273,6 +2273,93 @@
       "related_bugs": [],
       "occurrences": 5,
       "last_seen": "2026-07-24T07:00:41.296Z"
+    },
+    {
+      "id": "bug-139",
+      "timestamp": "2026-07-24T09:41:14.630Z",
+      "error_message": "Wrong condition in logic",
+      "file": "components/fast-track-form.tsx",
+      "root_cause": "Condition was: if (!EMAIL_RE.test(trimmedEmail)",
+      "fix": "Changed to: if (!trimmedEmail)",
+      "tags": [
+        "auto-detected",
+        "logic-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T09:41:14.630Z"
+    },
+    {
+      "id": "bug-140",
+      "timestamp": "2026-07-24T09:41:20.135Z",
+      "error_message": "Wrong condition in logic",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "Condition was: if (!EMAIL_RE.test(email)",
+      "fix": "Changed to: if (!email)",
+      "tags": [
+        "auto-detected",
+        "logic-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T09:41:20.135Z"
+    },
+    {
+      "id": "bug-141",
+      "timestamp": "2026-07-24T09:41:36.073Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/api/fast-track-blob/route.ts",
+      "root_cause": "Had \"A valid email is required.\"",
+      "fix": "Changed to \"An email is required.\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-24T09:41:52.647Z"
+    },
+    {
+      "id": "bug-142",
+      "timestamp": "2026-07-24T09:45:00.000Z",
+      "error_message": "User report: 'beberapa client error invalid email' on the fast-track and deck-submission pages",
+      "file": "components/{fast-track-form,deck-submission-form}.tsx, app/api/{fast-track,fast-track-blob,deck-submission,deck-blob}/route.ts",
+      "root_cause": "Email had THREE validation layers all using /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/: (1) native browser type=email (no noValidate on the <form>), (2) client EMAIL_RE, (3) server isValidEmail. That ASCII-only regex rejects legit inputs common to international/mobile clients: full-width IME chars U+FF20 '＠' / U+FF0E '．', copy-paste zero-width/invisible chars, name-wrapped 'Name <a@b.com>', embedded spaces, and dot-less intranet domains. Same class of problem as the phone-number over-validation (bug-031).",
+      "fix": "Removed all email FORMAT validation on the fast-track + deck-submission flows, keeping only a non-empty check (email is the lookup/identity key). Client: deleted EMAIL_RE, replaced regex test with !trimmedEmail, added noValidate to both forms so the native type=email popup can't block either. Server: deleted isValidEmail in all 4 routes, replaced !isValidEmail(email) with an emptiness check, message 'A valid email is required.' -> 'An email is required.'. startup-registration flow (app/api/ntt-data/route.ts + startup-registration-form.tsx) intentionally left with its regex - out of scope.",
+      "tags": [
+        "email-validation",
+        "fast-track",
+        "deck-submission",
+        "user-correction",
+        "loose-validation",
+        "international-users",
+        "ime-fullwidth"
+      ],
+      "related_bugs": [
+        "bug-031",
+        "bug-068"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T09:45:00.000Z"
+    },
+    {
+      "id": "bug-143",
+      "timestamp": "2026-07-24T09:51:12.476Z",
+      "error_message": "Type error",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T09:51:12.476Z"
     }
   ]
 }
