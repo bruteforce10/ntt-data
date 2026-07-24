@@ -945,7 +945,7 @@ export const SITE_CONTENT = {
         title:
           "Orchestrating Cross-Entity Collaboration for Scalable Ecosystem Growth",
         description:
-          "EXEO Global Pte Ltd is the Singapore-based international HQ for EXEO Group, Inc. has several other portfolio companies example: AEQON TJ, Ascent Solutions, dhost Global, GUUD, Procuri.",
+          "A global infrastructure and engineering services provider is the Singapore-based international HQ for the group, which has several other portfolio companies.",
         detail: {
           context: [],
           description: {
@@ -953,14 +953,14 @@ export const SITE_CONTENT = {
               {
                 label: "About:",
                 items: [
-                  "EXEO Global Pte Ltd is the Singapore-based international HQ for EXEO Group, Inc. has several other portfolio companies example: AEQON TJ, Ascent Solutions, dhost Global, GUUD, Procuri.",
-                  "To build commercial momentum by enhancing the collaboration across the wider EXEO Global family of companies",
+                  "A global infrastructure and engineering services provider is the Singapore-based international HQ for the group, which has several other portfolio companies.",
+                  "To build commercial momentum by enhancing the collaboration across the wider a global infrastructure and engineering services provider family of companies",
                 ],
               },
               {
                 label: "Challenges:",
                 items: [
-                  "Enhance and improve the systematic way to collaborate with the wider EXEO Global family of peer companies",
+                  "Enhance and improve the systematic way to collaborate with the wider a global infrastructure and engineering services provider family of peer companies",
                   "Gather relevant opportunities for cross-referral, joint bids, or combined offerings and suggest new and better ways for cross collaboration for better and new service offerings",
                   "Currently taking place informally, partly because separate peer entities may operate within their known boundaries.",
                   "Need a better systemic way rather than just gathering all pre-sales or pre-solutions people together",
@@ -969,7 +969,7 @@ export const SITE_CONTENT = {
               {
                 label: "Target Outcome:",
                 items: [
-                  "Systematically identify and act on collaboration opportunities across EXEO Global's family of entities: cross-selling, joint solutioning, shared customer access.",
+                  "Systematically identify and act on collaboration opportunities across a global infrastructure and engineering services provider's family of entities: cross-selling, joint solutioning, and shared customer access.",
                   "Independently build external ecosystem relationships that generate qualified inbound opportunities, without requiring a large dedicated BD headcount increase",
                 ],
               },
@@ -984,7 +984,7 @@ export const SITE_CONTENT = {
               {
                 label: "Assets:",
                 items: [
-                  "Proximity to a wide family of business entities within EXEO Global as potential collaboration partners.",
+                  "Proximity to a wide family of business entities within a global infrastructure and engineering services provider as potential collaboration partners.",
                   "Willingness to pilot new BD/alliance models that could later scale group-wide",
                 ],
               },

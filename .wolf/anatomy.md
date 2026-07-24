@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T03:50:13.891Z
-> Files: 6 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T07:00:41.278Z
+> Files: 7 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/
 
@@ -50,7 +50,7 @@
 
 ## app/api/fast-track/
 
-- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~2646 tok)
+- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3052 tok)
 
 ## app/api/ntt-data/
 
@@ -107,6 +107,7 @@
 
 ## lib/
 
+- `site-content.ts` — Exports SITE_CONTENT (~24369 tok)
 
 ## lib/auth/
 

@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1664177,
-    "total_reads": 832,
-    "total_writes": 1501,
-    "total_sessions": 85,
-    "anatomy_hits": 336,
-    "anatomy_misses": 462,
-    "repeated_reads_blocked": 217,
-    "estimated_savings_vs_bare_cli": 1263322
+    "total_tokens_estimated": 1700637,
+    "total_reads": 847,
+    "total_writes": 1532,
+    "total_sessions": 87,
+    "anatomy_hits": 342,
+    "anatomy_misses": 471,
+    "repeated_reads_blocked": 218,
+    "estimated_savings_vs_bare_cli": 1264522
   },
   "sessions": [
     {
@@ -15650,6 +15650,319 @@
         "writes_count": 7,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-07-24-1044",
+      "started": "2026-07-24T03:44:26.459Z",
+      "ended": "2026-07-24T04:06:09.337Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 6381,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/node_modules/@vercel/blob/dist/client.cjs",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 8,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 331,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 58,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 438,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track-blob/route.ts",
+          "tokens_estimated": 761,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 2646,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6381,
+        "output_tokens_estimated": 4252,
+        "reads_count": 4,
+        "writes_count": 7,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-07-24-1044",
+      "started": "2026-07-24T03:44:26.459Z",
+      "ended": "2026-07-24T04:15:27.158Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 6381,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/node_modules/@vercel/blob/dist/client.cjs",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 8,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 331,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 58,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 438,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track-blob/route.ts",
+          "tokens_estimated": 761,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 2646,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6381,
+        "output_tokens_estimated": 4252,
+        "reads_count": 4,
+        "writes_count": 7,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-07-24-1323",
+      "started": "2026-07-24T06:23:55.825Z",
+      "ended": "2026-07-24T06:50:32.113Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3300,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3052,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 295,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 137,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 438,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 102,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 30,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6352,
+        "output_tokens_estimated": 1080,
+        "reads_count": 3,
+        "writes_count": 6,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-07-24-1323",
+      "started": "2026-07-24T06:23:55.825Z",
+      "ended": "2026-07-24T07:02:10.933Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3300,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3052,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 295,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 137,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 438,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 102,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 55,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 109,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 67,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 49,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6352,
+        "output_tokens_estimated": 1410,
+        "reads_count": 4,
+        "writes_count": 11,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 2
       }
     }
   ],

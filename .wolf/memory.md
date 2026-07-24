@@ -1355,3 +1355,31 @@
 | 04:10 | Reverted deck Blob flow private->public (new store ntt-deck-uploads-v1 is Public); server reads staged files via fetch(url), dropped get import; added BLOB_READ_WRITE_TOKEN presence check | components/deck-submission-form.tsx, app/api/deck-submission/route.ts, app/api/deck-blob/route.ts | tsc clean + build OK | ~2000 |
 | 04:12 | Migrated fast-track to same Blob-staging pattern: new /api/fast-track-blob token route (no registration check), fast-track-form uploads to Blob then POSTs {email,problems,uploads} JSON, /api/fast-track fetches blobs + creates PB record + del() cleanup | components/fast-track-form.tsx, app/api/fast-track/route.ts, app/api/fast-track-blob/route.ts | build OK, both routes registered | ~3000 |
 | 10:53 | Session end: 7 writes across 3 files (deck-submission-form.tsx, route.ts, fast-track-form.tsx) | 3 reads | ~10633 tok |
+| 11:06 | Session end: 7 writes across 3 files (deck-submission-form.tsx, route.ts, fast-track-form.tsx) | 4 reads | ~10633 tok |
+| 11:15 | Session end: 7 writes across 3 files (deck-submission-form.tsx, route.ts, fast-track-form.tsx) | 4 reads | ~10633 tok |
+
+## Session: 2026-07-24 11:27
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-07-24 13:23
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:46 | Edited app/api/fast-track/route.ts | 3→8 lines | ~78 |
+| 13:46 | Edited app/api/fast-track/route.ts | modified lookupRecord() | ~295 |
+| 13:46 | Edited app/api/fast-track/route.ts | 7→8 lines | ~137 |
+| 13:46 | Edited app/api/fast-track/route.ts | modified if() | ~438 |
+| 13:46 | Edited app/api/fast-track/route.ts | 9→11 lines | ~102 |
+| 13:46 | Edited app/api/fast-track/route.ts | 1→4 lines | ~30 |
+
+| 13:47 | Fast-track now UPSERTs: already-registered email PATCHes its record instead of 409; problem_statement MERGED (union) not overwritten; email lookup switched to case-insensitive buildEmailLookupFilter to stop duplicate records | app/api/fast-track/route.ts | tsc --noEmit clean; upsert+merge logic reviewed | ~4500 |
+| 13:50 | Session end: 6 writes across 1 files (route.ts) | 3 reads | ~7432 tok |
+| 14:00 | Edited lib/site-content.ts | 2→2 lines | ~55 |
+| 14:00 | Edited lib/site-content.ts | 3→3 lines | ~109 |
+| 14:00 | Edited lib/site-content.ts | "Enhance and improve the s" → "Enhance and improve the s" | ~50 |
+| 14:00 | Edited lib/site-content.ts | "Systematically identify a" → "Systematically identify a" | ~67 |
+| 14:00 | Edited lib/site-content.ts | "Proximity to a wide famil" → "Proximity to a wide famil" | ~49 |
+| 14:00 | PO_12 revisi deskripsi: anonymized every EXEO name (EXEO Global Pte Ltd / EXEO Group, Inc. / AEQON TJ, Ascent Solutions, dhost Global, GUUD, Procuri) → "a global infrastructure and engineering services provider" (matches logoLabel), across top-level description + About/Challenges/Target Outcome/Assets sections. Footer EXEO partner logo left as-is (out of scope). | lib/site-content.ts | done, 0 EXEO left in content | ~1k |
+| 14:02 | Session end: 11 writes across 2 files (route.ts, site-content.ts) | 4 reads | ~7762 tok |

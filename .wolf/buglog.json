@@ -2199,9 +2199,80 @@
         "deck-submission",
         "env-var"
       ],
-      "related_bugs": ["bug-130"],
+      "related_bugs": [
+        "bug-130"
+      ],
       "occurrences": 1,
       "last_seen": "2026-07-24T04:10:00.000Z"
+    },
+    {
+      "id": "bug-135",
+      "timestamp": "2026-07-24T06:46:28.698Z",
+      "error_message": "Significant refactor of ",
+      "file": "app/api/fast-track/route.ts",
+      "root_cause": "7 lines replaced/restructured",
+      "fix": "Rewrote 17→28 lines (7 removed) | Also: const exists = await emailExists(email, token);; if (exists === null) { | Also: `${POCKETBASE_URL}/api/collections/ntt_data/record; method: \"POST\",",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-07-24T06:46:51.708Z"
+    },
+    {
+      "id": "bug-136",
+      "timestamp": "2026-07-24T06:46:55.795Z",
+      "error_message": "Wrong return value",
+      "file": "app/api/fast-track/route.ts",
+      "root_cause": "Was returning: NextResponse.json({ record: result }, { status: 20",
+      "fix": "Now returns: NextResponse.json(",
+      "tags": [
+        "auto-detected",
+        "return-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T06:46:55.795Z"
+    },
+    {
+      "id": "bug-137",
+      "timestamp": "2026-07-24T06:47:00.000Z",
+      "error_message": "Fast-track could create a DUPLICATE ntt_data record (or wrongly 409-reject) for an already-registered email, especially when the email case differed",
+      "file": "app/api/fast-track/route.ts",
+      "root_cause": "Fast-track used a hand-rolled case-SENSITIVE filter email='...' via emailExists() and rejected any match with 409. A different-case email matched nothing -> POST created a duplicate; a same-case match was turned away instead of updated.",
+      "fix": "Replaced emailExists() with lookupRecord() using the shared buildEmailLookupFilter (case-insensitive, same as deck-submission). Behavior is now UPSERT: existing record -> PATCH (merge problem_statement via matchProblemDecks union, attach/replace decks, keep stored email), new email -> POST. Status 200 on update / 201 on create.",
+      "tags": [
+        "fast-track",
+        "pocketbase",
+        "case-insensitive",
+        "duplicate-record",
+        "upsert"
+      ],
+      "related_bugs": [
+        "bug-135",
+        "bug-136"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T06:47:00.000Z"
+    },
+    {
+      "id": "bug-138",
+      "timestamp": "2026-07-24T07:00:23.135Z",
+      "error_message": "Incorrect value in code",
+      "file": "lib/site-content.ts",
+      "root_cause": "Had \"EXEO Global Pte Ltd is the Singapore-based intern",
+      "fix": "Changed to \"A global infrastructure and engineering services ",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 5,
+      "last_seen": "2026-07-24T07:00:41.296Z"
     }
   ]
 }

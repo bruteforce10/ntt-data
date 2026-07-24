@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server";
 import { del } from "@vercel/blob";
 import { transporter, buildDeckSubmissionEmail } from "@/lib/mailer";
-import { PROBLEM_DECKS, type ProblemDeck } from "@/lib/problem-decks";
+import { buildEmailLookupFilter } from "@/lib/ntt-data/email-filter";
+import {
+  PROBLEM_DECKS,
+  matchProblemDecks,
+  type ProblemDeck,
+} from "@/lib/problem-decks";
 
 // Files are staged in Vercel Blob and streamed into PocketBase here, so allow
 // headroom over the default 10s for multi-deck submissions.
@@ -58,31 +63,43 @@ function getToken(): string | null {
   );
 }
 
+type PbRecord = { id: string } & Record<string, unknown>;
+
+type RecordLookup =
+  | { kind: "found"; record: PbRecord }
+  | { kind: "absent" }
+  | { kind: "error" };
+
 /**
- * Returns true when an ntt_data record already uses this email, false when
- * none does, and null when the lookup itself failed (caller should abort).
+ * Looks up an existing ntt_data record by email (case-insensitive, so a
+ * different-case email never spawns a duplicate). Fast-track upserts:
+ *   - "found":  an existing record  -> UPDATE (PATCH)
+ *   - "absent": no record yet       -> CREATE (POST)
+ *   - "error":  the lookup failed   -> caller aborts
  */
-async function emailExists(
+async function lookupRecord(
   email: string,
   token: string,
-): Promise<boolean | null> {
-  const filter = encodeURIComponent(`email='${email.replace(/'/g, "\\'")}'`);
+): Promise<RecordLookup> {
+  const filter = encodeURIComponent(buildEmailLookupFilter(email));
   const response = await fetch(
     `${POCKETBASE_URL}/api/collections/ntt_data/records?filter=${filter}&perPage=1`,
     { headers: { Authorization: token }, cache: "no-store" },
   );
-  if (!response.ok) return null;
+  if (!response.ok) return { kind: "error" };
   const data = await response.json().catch(() => null);
-  return Boolean(data?.items?.[0]?.id);
+  const record = data?.items?.[0];
+  return record?.id ? { kind: "found", record } : { kind: "absent" };
 }
 
 /**
  * POST /api/fast-track
- * Registration-lite: creates a NEW ntt_data record from just an email plus the
- * selected problem statements and their pitch-deck files. The files are staged
- * in Vercel Blob by the client (browser -> Blob bypasses Vercel's 4.5 MB
- * request-body cap); we receive only their URLs here. Emails that are already
- * registered are rejected so we never create duplicate records.
+ * Registration-lite UPSERT: from just an email plus the selected problem
+ * statements and their pitch-deck files, create a NEW ntt_data record — or, if
+ * the email is already registered, UPDATE that record (merging problem
+ * statements, attaching/replacing the uploaded decks) instead of rejecting it.
+ * Files are staged in Vercel Blob by the client (browser -> Blob bypasses
+ * Vercel's 4.5 MB request-body cap); we receive only their URLs here.
  */
 export async function POST(request: Request) {
   try {
@@ -162,29 +179,40 @@ export async function POST(request: Request) {
       );
     }
 
-    const exists = await emailExists(email, token);
-    if (exists === null) {
+    // Upsert: an already-registered email updates its record instead of being
+    // rejected. Only a failed lookup aborts.
+    const lookup = await lookupRecord(email, token);
+    if (lookup.kind === "error") {
       return NextResponse.json(
         { message: "Unable to verify your email. Please try again." },
         { status: 502 },
       );
     }
-    if (exists) {
-      return NextResponse.json(
-        {
-          message:
-            "This email is already registered. Please use the pitch deck submission link from your confirmation email instead.",
-        },
-        { status: 409 },
-      );
-    }
+    const existing = lookup.kind === "found" ? lookup.record : null;
 
-    // problem_statement stores the selected titles joined with ", " so that
-    // matchProblemDecks() can recover the selection later.
-    const problemStatement = selected.map((deck) => deck.title).join(", ");
+    // problem_statement holds the selected titles joined with ", " so
+    // matchProblemDecks() can recover the selection later. When updating an
+    // existing record we MERGE (union) the previously-recorded problems with
+    // the newly selected ones: a returning participant never loses prior
+    // selections, and every uploaded deck's problem stays represented.
+    const existingStatement =
+      existing && typeof existing.problem_statement === "string"
+        ? existing.problem_statement
+        : "";
+    const mergedFields = new Set<string>([
+      ...matchProblemDecks(existingStatement).map((deck) => deck.field),
+      ...selected.map((deck) => deck.field),
+    ]);
+    const problemStatement = PROBLEM_DECKS.filter((deck) =>
+      mergedFields.has(deck.field),
+    )
+      .map((deck) => deck.title)
+      .join(", ");
 
     const pbForm = new FormData();
-    pbForm.append("email", email);
+    // Email is set only on create; updating keeps the record's stored email
+    // (and its original casing) untouched.
+    if (!existing) pbForm.append("email", email);
     pbForm.append("problem_statement", problemStatement);
 
     // Pull each staged file out of Blob (public URL) and attach it. The
@@ -227,9 +255,11 @@ export async function POST(request: Request) {
     }
 
     const recordResponse = await fetch(
-      `${POCKETBASE_URL}/api/collections/ntt_data/records`,
+      existing
+        ? `${POCKETBASE_URL}/api/collections/ntt_data/records/${existing.id}`
+        : `${POCKETBASE_URL}/api/collections/ntt_data/records`,
       {
-        method: "POST",
+        method: existing ? "PATCH" : "POST",
         headers: { Authorization: token },
         body: pbForm,
         cache: "no-store",
@@ -273,7 +303,10 @@ export async function POST(request: Request) {
       console.error("Fast-track email failed:", mailError);
     }
 
-    return NextResponse.json({ record: result }, { status: 201 });
+    return NextResponse.json(
+      { record: result },
+      { status: existing ? 200 : 201 },
+    );
   } catch {
     return NextResponse.json(
       { message: "Unable to submit. Please try again." },
