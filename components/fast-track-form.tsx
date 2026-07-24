@@ -2,6 +2,8 @@
 
 import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 
+import { upload } from "@vercel/blob/client";
+
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { PROBLEM_DECKS } from "@/lib/problem-decks";
@@ -73,17 +75,30 @@ export default function FastTrackForm() {
     isSubmittingRef.current = true;
     setStatus("submitting");
     try {
-      const formData = new FormData();
-      formData.append("email", trimmedEmail);
+      // Upload each deck straight to Vercel Blob first (browser -> Blob),
+      // bypassing Vercel's 4.5 MB serverless request cap, then send only the
+      // resulting URLs to our API.
+      const uploads: { field: string; url: string; name: string }[] = [];
       for (const field of chosen) {
-        formData.append("problems", field);
         const file = files[field];
-        if (file) formData.append(field, file, file.name);
+        if (!file) continue;
+        const blob = await upload(file.name, file, {
+          access: "public",
+          handleUploadUrl: "/api/fast-track-blob",
+          multipart: true,
+          clientPayload: JSON.stringify({ email: trimmedEmail, field }),
+        });
+        uploads.push({ field, url: blob.url, name: file.name });
       }
 
       const response = await fetch("/api/fast-track", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: trimmedEmail,
+          problems: chosen,
+          uploads,
+        }),
       });
       if (!response.ok) {
         const data = (await response.json().catch(() => null)) as {
@@ -94,8 +109,10 @@ export default function FastTrackForm() {
         return;
       }
       setStatus("success");
-    } catch {
-      setError("Network error. Please try again.");
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Network error. Please try again.",
+      );
       setStatus("idle");
     } finally {
       isSubmittingRef.current = false;

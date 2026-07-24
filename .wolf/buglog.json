@@ -2150,6 +2150,58 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-24T03:31:51.081Z"
+    },
+    {
+      "id": "bug-132",
+      "timestamp": "2026-07-24T03:48:51.598Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "Had \"private\"",
+      "fix": "Changed to \"public\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T03:48:51.598Z"
+    },
+    {
+      "id": "bug-133",
+      "timestamp": "2026-07-24T03:49:25.988Z",
+      "error_message": "Missing guard clause",
+      "file": "components/fast-track-form.tsx",
+      "root_cause": "No early return/throw for edge case: !file",
+      "fix": "Added guard clause: if (!file)",
+      "tags": [
+        "auto-detected",
+        "guard-clause",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T03:49:25.988Z"
+    },
+    {
+      "id": "bug-134",
+      "timestamp": "2026-07-24T04:10:00.000Z",
+      "error_message": "Vercel Blob: Failed to retrieve the client token (deck-submission in production)",
+      "file": "app/api/deck-blob/route.ts, components/deck-submission-form.tsx, app/api/deck-submission/route.ts, app/api/fast-track-blob/route.ts, components/fast-track-form.tsx, app/api/fast-track/route.ts",
+      "root_cause": "The client-upload handshake failed at the token step. Two contributing issues: (1) BLOB_READ_WRITE_TOKEN was absent in the deployed function until the Blob store was connected to the Vercel project + redeployed; (2) the client upload() used access:'private' while the connected store was Public, so even with a token the visibility mismatched. The client `access` MUST equal the store's visibility.",
+      "fix": "User created a PUBLIC store (ntt-deck-uploads-v1) and connected it. Reverted deck flow to access:'public' end-to-end: client upload access:'public', server reads staged files with plain fetch(url) instead of get(url,{access:'private'}) (dropped the get import). Added an explicit BLOB_READ_WRITE_TOKEN presence check that returns a clear 500 instead of the vague 'Failed to retrieve the client token'. Also migrated the fast-track (registration-lite) flow to the same Blob-staging pattern: new /api/fast-track-blob token route (no registration check, since fast-track creates a NEW record), fast-track-form now uploads to Blob then POSTs {email,problems,uploads} JSON, and /api/fast-track fetches each blob, creates the PB record, then del()s. Relaxed the SSRF host guard to .blob.vercel-storage.com.",
+      "tags": [
+        "vercel-blob",
+        "413",
+        "client-token",
+        "public-vs-private",
+        "fast-track",
+        "deck-submission",
+        "env-var"
+      ],
+      "related_bugs": ["bug-130"],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T04:10:00.000Z"
     }
   ]
 }

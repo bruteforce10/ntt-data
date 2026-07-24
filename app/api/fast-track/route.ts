@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
+import { del } from "@vercel/blob";
 import { transporter, buildDeckSubmissionEmail } from "@/lib/mailer";
 import { PROBLEM_DECKS, type ProblemDeck } from "@/lib/problem-decks";
+
+// Files are staged in Vercel Blob and streamed into PocketBase here, so allow
+// headroom over the default 10s for multi-deck submissions.
+export const maxDuration = 60;
 
 const POCKETBASE_URL =
   process.env.POCKETBASE_URL || "https://pb.ntt-startupchallenge.com";
@@ -14,6 +19,22 @@ const ACCEPTED_MIME_EXACT = [
   "application/vnd.openxmlformats-officedocument.presentationml.presentation",
 ];
 const ACCEPTED_EXTENSIONS = [".pdf", ".ppt", ".pptx"];
+
+/**
+ * Only fetch files we staged ourselves. Guards against SSRF: a caller could
+ * otherwise hand us an arbitrary URL for the server to fetch.
+ */
+function isValidBlobUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return (
+      url.protocol === "https:" &&
+      url.hostname.endsWith(".blob.vercel-storage.com")
+    );
+  } catch {
+    return false;
+  }
+}
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -58,14 +79,20 @@ async function emailExists(
 /**
  * POST /api/fast-track
  * Registration-lite: creates a NEW ntt_data record from just an email plus the
- * selected problem statements and their pitch-deck files. Emails that are
- * already registered are rejected so we never create duplicate records.
+ * selected problem statements and their pitch-deck files. The files are staged
+ * in Vercel Blob by the client (browser -> Blob bypasses Vercel's 4.5 MB
+ * request-body cap); we receive only their URLs here. Emails that are already
+ * registered are rejected so we never create duplicate records.
  */
 export async function POST(request: Request) {
   try {
-    const form = await request.formData();
-    const email = String(form.get("email") ?? "").trim();
+    const payload = (await request.json().catch(() => null)) as {
+      email?: unknown;
+      problems?: unknown;
+      uploads?: unknown;
+    } | null;
 
+    const email = String(payload?.email ?? "").trim();
     if (!email || !isValidEmail(email)) {
       return NextResponse.json(
         { message: "A valid email is required." },
@@ -73,8 +100,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // Selected problem deck fields arrive as repeated "problems" entries (PO_xx).
-    const selectedFields = form.getAll("problems").map(String);
+    // Selected problem deck fields (PO_xx).
+    const selectedFields = Array.isArray(payload?.problems)
+      ? payload.problems.map(String)
+      : [];
     const selected = PROBLEM_DECKS.filter((deck) =>
       selectedFields.includes(deck.field),
     );
@@ -86,23 +115,33 @@ export async function POST(request: Request) {
       );
     }
 
-    // Collect one optional file per SELECTED deck field; a file for a problem
-    // the user did not select is a client bug, so reject it.
+    // Each entry points at a file already staged in Vercel Blob by the client.
+    // A file for a problem the user did not select is a client bug, so reject it.
     const selectedSet = new Set(selected.map((deck) => deck.field));
-    const uploads: { deck: ProblemDeck; file: File }[] = [];
-    for (const deck of PROBLEM_DECKS) {
-      const value = form.get(deck.field);
-      if (value instanceof File && value.size > 0) {
-        if (!selectedSet.has(deck.field)) {
-          return NextResponse.json(
-            {
-              message: `"${deck.title}": upload a deck only for a problem statement you selected.`,
-            },
-            { status: 400 },
-          );
-        }
-        uploads.push({ deck, file: value });
+    const rawUploads = Array.isArray(payload?.uploads) ? payload.uploads : [];
+    const uploads: { deck: ProblemDeck; url: string; name: string }[] = [];
+    for (const raw of rawUploads) {
+      const field = String((raw as { field?: unknown })?.field ?? "");
+      const url = String((raw as { url?: unknown })?.url ?? "");
+      const name =
+        String((raw as { name?: unknown })?.name ?? "").trim() || "pitch-deck";
+      const deck = PROBLEM_DECKS.find((d) => d.field === field);
+      if (!deck) continue;
+      if (!selectedSet.has(deck.field)) {
+        return NextResponse.json(
+          {
+            message: `"${deck.title}": upload a deck only for a problem statement you selected.`,
+          },
+          { status: 400 },
+        );
       }
+      if (!isValidBlobUrl(url)) {
+        return NextResponse.json(
+          { message: "Invalid upload reference. Please re-select your file." },
+          { status: 400 },
+        );
+      }
+      uploads.push({ deck, url, name });
     }
 
     if (uploads.length === 0) {
@@ -110,23 +149,6 @@ export async function POST(request: Request) {
         { message: "Please attach at least one pitch deck file." },
         { status: 400 },
       );
-    }
-
-    for (const { deck, file } of uploads) {
-      if (file.size > MAX_SIZE_BYTES) {
-        return NextResponse.json(
-          { message: `"${deck.title}": file exceeds the 8 MB limit.` },
-          { status: 400 },
-        );
-      }
-      if (!isAcceptedFile(file)) {
-        return NextResponse.json(
-          {
-            message: `"${deck.title}": unsupported file format. Use an image, PDF, or PPT/PPTX.`,
-          },
-          { status: 400 },
-        );
-      }
     }
 
     const token = getToken();
@@ -164,8 +186,44 @@ export async function POST(request: Request) {
     const pbForm = new FormData();
     pbForm.append("email", email);
     pbForm.append("problem_statement", problemStatement);
-    for (const { deck, file } of uploads) {
-      pbForm.append(deck.field, file, file.name);
+
+    // Pull each staged file out of Blob (public URL) and attach it. The
+    // response body is NOT subject to Vercel's 4.5 MB request cap.
+    for (const { deck, url, name } of uploads) {
+      const fileResponse = await fetch(url, { cache: "no-store" });
+      if (!fileResponse.ok) {
+        return NextResponse.json(
+          {
+            message: `"${deck.title}": we couldn't retrieve the uploaded file. Please try again.`,
+          },
+          { status: 502 },
+        );
+      }
+      const blob = await fileResponse.blob();
+      if (blob.size === 0) {
+        return NextResponse.json(
+          { message: `"${deck.title}": the uploaded file was empty.` },
+          { status: 400 },
+        );
+      }
+      if (blob.size > MAX_SIZE_BYTES) {
+        return NextResponse.json(
+          { message: `"${deck.title}": file exceeds the 8 MB limit.` },
+          { status: 400 },
+        );
+      }
+      const file = new File([blob], name, {
+        type: fileResponse.headers.get("content-type") || blob.type,
+      });
+      if (!isAcceptedFile(file)) {
+        return NextResponse.json(
+          {
+            message: `"${deck.title}": unsupported file format. Use an image, PDF, or PPT/PPTX.`,
+          },
+          { status: 400 },
+        );
+      }
+      pbForm.append(deck.field, file, name);
     }
 
     const recordResponse = await fetch(
@@ -190,6 +248,9 @@ export async function POST(request: Request) {
     }
 
     const result = await recordResponse.json().catch(() => null);
+
+    // Staging blobs are one-shot; drop them once PocketBase has the files.
+    await del(uploads.map((u) => u.url)).catch(() => {});
 
     // Confirmation email (non-blocking failure).
     try {

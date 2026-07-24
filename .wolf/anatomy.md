@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T03:32:02.023Z
-> Files: 3 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T03:50:13.891Z
+> Files: 6 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/
 
@@ -44,8 +44,13 @@
 
 - `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3300 tok)
 
+## app/api/fast-track-blob/
+
+- `route.ts` — POST /api/fast-track-blob (~761 tok)
+
 ## app/api/fast-track/
 
+- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~2646 tok)
 
 ## app/api/ntt-data/
 
@@ -76,7 +81,8 @@
 
 ## components/
 
-- `deck-submission-form.tsx` — Error carrying the HTTP status so callers can special-case not-found. (~6381 tok)
+- `deck-submission-form.tsx` — Error carrying the HTTP status so callers can special-case not-found. (~6380 tok)
+- `fast-track-form.tsx` — EMAIL_RE — renders form (~2451 tok)
 
 ## components/dashboard/
 

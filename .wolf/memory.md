@@ -1340,3 +1340,18 @@
 | 10:31 | Edited app/api/deck-submission/route.ts | 4→4 lines | ~32 |
 | 10:32 | Edited app/api/deck-submission/route.ts | modified for() | ~340 |
 | 10:33 | Session end: 11 writes across 2 files (route.ts, deck-submission-form.tsx) | 4 reads | ~3431 tok |
+
+## Session: 2026-07-24 10:44
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:48 | Edited components/deck-submission-form.tsx | "private" → "public" | ~8 |
+| 10:48 | Edited app/api/deck-submission/route.ts | inline fix | ~10 |
+| 10:49 | Edited app/api/deck-submission/route.ts | modified for() | ~331 |
+| 10:49 | Edited components/fast-track-form.tsx | added 1 import(s) | ~58 |
+| 10:49 | Edited components/fast-track-form.tsx | modified for() | ~438 |
+| 10:49 | Created app/api/fast-track-blob/route.ts | — | ~761 |
+| 10:50 | Created app/api/fast-track/route.ts | — | ~2646 |
+| 04:10 | Reverted deck Blob flow private->public (new store ntt-deck-uploads-v1 is Public); server reads staged files via fetch(url), dropped get import; added BLOB_READ_WRITE_TOKEN presence check | components/deck-submission-form.tsx, app/api/deck-submission/route.ts, app/api/deck-blob/route.ts | tsc clean + build OK | ~2000 |
+| 04:12 | Migrated fast-track to same Blob-staging pattern: new /api/fast-track-blob token route (no registration check), fast-track-form uploads to Blob then POSTs {email,problems,uploads} JSON, /api/fast-track fetches blobs + creates PB record + del() cleanup | components/fast-track-form.tsx, app/api/fast-track/route.ts, app/api/fast-track-blob/route.ts | build OK, both routes registered | ~3000 |
+| 10:53 | Session end: 7 writes across 3 files (deck-submission-form.tsx, route.ts, fast-track-form.tsx) | 3 reads | ~10633 tok |
