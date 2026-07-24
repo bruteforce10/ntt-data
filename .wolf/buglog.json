@@ -2059,6 +2059,81 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-23T17:21:29.663Z"
+    },
+    {
+      "id": "bug-127",
+      "timestamp": "2026-07-24T02:55:46.046Z",
+      "error_message": "Missing error handling in isValidBlobUrl",
+      "file": "app/api/deck-submission/route.ts",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block | Also: const payload = (await request.json().catch(() => null)) as ; email?: unknown;",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-24T02:56:46.727Z"
+    },
+    {
+      "id": "bug-128",
+      "timestamp": "2026-07-24T02:57:01.378Z",
+      "error_message": "Incorrect value in code",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "Had \"lucide-react\"",
+      "fix": "Changed to \"@vercel/blob/client\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T02:57:01.378Z"
+    },
+    {
+      "id": "bug-129",
+      "timestamp": "2026-07-24T02:57:11.836Z",
+      "error_message": "Missing guard clause",
+      "file": "components/deck-submission-form.tsx",
+      "root_cause": "No early return/throw for edge case: !file",
+      "fix": "Added guard clause: if (!file)",
+      "tags": [
+        "auto-detected",
+        "guard-clause",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T02:57:11.836Z"
+    },
+    {
+      "id": "bug-130",
+      "timestamp": "2026-07-24T03:05:00.000Z",
+      "error_message": "Production: GET/POST /api/deck-submission returns 413 FUNCTION_PAYLOAD_TOO_LARGE on oip.ntt-startupchallenge.com when uploading pitch decks; user reported files were 'already under 8 MB' and was submitting 2 decks at once. Client showed 'Submission failed. Please try again.'",
+      "file": "app/api/deck-submission/route.ts, components/deck-submission-form.tsx, app/api/deck-blob/route.ts",
+      "root_cause": "Vercel serverless Functions cap the WHOLE incoming request body at 4.5 MB (platform limit, not configurable per-route). The deck form bundled ALL selected files into ONE multipart POST, and both client+server validated only 8 MB PER FILE. So 2 decks of ~4 MB each (=8 MB combined) or a single 4.5-8 MB deck exceeded 4.5 MB and Vercel rejected the request with a non-JSON 413 BEFORE the handler ran — the server's own 8 MB check never executed. Same platform limit as bug-107 (registration PDF), but deck limit was intentionally left at 8 MB (cerebrum), so it surfaced later in production.",
+      "fix": "Bypassed the serverless body limit with Vercel Blob CLIENT uploads (browser->Blob direct, not through the Function). (1) New app/api/deck-blob/route.ts mints a scoped, size-capped (maximumSizeInBytes=8MB) upload token via handleUpload/onBeforeGenerateToken after verifying the email has a registration. (2) deck-submission-form.tsx now upload()s each file to Blob (multipart:true) then POSTs {email, uploads:[{field,url,name}]} as small JSON. (3) app/api/deck-submission/route.ts POST switched from formData() to JSON: validates each url host ends '.public.blob.vercel-storage.com' (SSRF guard), fetch()es each blob (a response body, not subject to the 4.5MB request cap), streams into the existing PocketBase PATCH, then del()s the staged blobs; added export const maxDuration=60. Storage stays in PocketBase (dashboard/download unchanged), superuser token stays server-side. REQUIRES a Vercel Blob store linked to the project (env BLOB_READ_WRITE_TOKEN) + redeploy. Verified: tsc clean, 48 tests pass, next build registers /api/deck-blob + /api/deck-submission.",
+      "tags": [
+        "413",
+        "FUNCTION_PAYLOAD_TOO_LARGE",
+        "vercel",
+        "body-size-limit",
+        "vercel-blob",
+        "client-upload",
+        "deck-submission",
+        "pocketbase",
+        "ssrf-guard"
+      ],
+      "related_bugs": [
+        "bug-107",
+        "bug-127",
+        "bug-128",
+        "bug-129"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-07-24T03:05:00.000Z"
     }
   ]
 }

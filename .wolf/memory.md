@@ -1323,3 +1323,14 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 09:55 | Created app/api/deck-blob/route.ts | — | ~920 |
+| 09:55 | Edited app/api/deck-submission/route.ts | added error handling | ~291 |
+| 09:56 | Edited app/api/deck-submission/route.ts | added error handling | ~1119 |
+| 09:56 | Edited app/api/deck-submission/route.ts | 3→6 lines | ~75 |
+| 09:57 | Edited components/deck-submission-form.tsx | added 1 import(s) | ~54 |
+| 09:57 | Edited components/deck-submission-form.tsx | modified for() | ~370 |
+| 10:05 | FIX deck-submission 413 FUNCTION_PAYLOAD_TOO_LARGE: bypass Vercel's 4.5MB body cap via Vercel Blob client uploads (browser→Blob→server→PocketBase). New /api/deck-blob token route; form uploads to Blob then POSTs JSON URLs; deck-submission POST fetches blobs (SSRF host-check) + PATCHes PB + del()s. Kept 8MB, storage stays in PocketBase, superuser token stays server-side. | app/api/deck-blob/route.ts, app/api/deck-submission/route.ts, components/deck-submission-form.tsx, package.json | tsc clean, 48 tests pass, next build OK. NEEDS: user links a Vercel Blob store (BLOB_READ_WRITE_TOKEN) + redeploy | ~2600 |
+| 10:06 | Logged bug-130 (real root cause + fix), updated cerebrum (deck-limit note + Blob-staging Key Learning + Decision Log), anatomy (deck-blob + deck-submission) | .wolf/buglog.json, .wolf/cerebrum.md, .wolf/anatomy.md | done | ~900 |
+| 10:02 | Session end: 6 writes across 2 files (route.ts, deck-submission-form.tsx) | 2 reads | ~2829 tok |
+| 10:05 | Session end: 6 writes across 2 files (route.ts, deck-submission-form.tsx) | 2 reads | ~2829 tok |
+| 10:12 | Session end: 6 writes across 2 files (route.ts, deck-submission-form.tsx) | 2 reads | ~2829 tok |

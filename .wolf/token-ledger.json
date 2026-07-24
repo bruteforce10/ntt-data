@@ -2,12 +2,12 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1641626,
-    "total_reads": 819,
-    "total_writes": 1465,
+    "total_tokens_estimated": 1650113,
+    "total_reads": 825,
+    "total_writes": 1483,
     "total_sessions": 84,
     "anatomy_hits": 335,
-    "anatomy_misses": 450,
+    "anatomy_misses": 456,
     "repeated_reads_blocked": 217,
     "estimated_savings_vs_bare_cli": 1263122
   },
@@ -15307,6 +15307,183 @@
         "writes_count": 80,
         "repeated_reads_blocked": 2,
         "anatomy_lookups": 10
+      }
+    },
+    {
+      "id": "session-2026-07-24-0940",
+      "started": "2026-07-24T02:40:13.648Z",
+      "ended": "2026-07-24T03:02:27.622Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-blob/route.ts",
+          "tokens_estimated": 920,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 291,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 1119,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 75,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 370,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 2829,
+        "reads_count": 2,
+        "writes_count": 6,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-24-0940",
+      "started": "2026-07-24T02:40:13.648Z",
+      "ended": "2026-07-24T03:05:46.118Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-blob/route.ts",
+          "tokens_estimated": 920,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 291,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 1119,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 75,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 370,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 2829,
+        "reads_count": 2,
+        "writes_count": 6,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-24-0940",
+      "started": "2026-07-24T02:40:13.648Z",
+      "ended": "2026-07-24T03:12:24.812Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-blob/route.ts",
+          "tokens_estimated": 920,
+          "action": "create"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 291,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 1119,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 75,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 370,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 2829,
+        "reads_count": 2,
+        "writes_count": 6,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
       }
     }
   ],

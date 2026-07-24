@@ -1,0 +1,94 @@
+import { NextResponse } from "next/server";
+import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
+import { buildEmailLookupFilter } from "@/lib/ntt-data/email-filter";
+import { isProblemDeckField } from "@/lib/problem-decks";
+
+const POCKETBASE_URL =
+  process.env.POCKETBASE_URL || "https://pb.ntt-startupchallenge.com";
+
+// Must match the deck-submission client/server cap. Enforced by Vercel Blob at
+// token time, so a tampered client cannot upload anything larger.
+const MAX_SIZE_BYTES = 8 * 1024 * 1024;
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function getToken(): string | null {
+  return (
+    process.env.POCKETBASE_SUPERUSER_TOKEN ||
+    process.env.POCKETBASE_TOKEN ||
+    null
+  );
+}
+
+/**
+ * Confirms the email belongs to a real registration before we hand out a Blob
+ * upload token, so the store can't be used as anonymous free storage.
+ */
+async function registrationExists(email: string): Promise<boolean> {
+  const token = getToken();
+  if (!token) return false;
+  const filter = encodeURIComponent(buildEmailLookupFilter(email));
+  const res = await fetch(
+    `${POCKETBASE_URL}/api/collections/ntt_data/records?filter=${filter}&perPage=1`,
+    { headers: { Authorization: token }, cache: "no-store" },
+  );
+  if (!res.ok) return false;
+  const data = await res.json().catch(() => null);
+  return Boolean(data?.items?.[0]?.id);
+}
+
+/**
+ * POST /api/deck-blob
+ * Client-upload handshake for pitch decks. The browser uploads the file
+ * straight to Vercel Blob (bypassing the 4.5 MB serverless body cap); this
+ * route only mints a short-lived, size-capped token after verifying the
+ * registration. The file is later moved into PocketBase by /api/deck-submission.
+ */
+export async function POST(request: Request): Promise<Response> {
+  const body = (await request.json().catch(() => null)) as HandleUploadBody | null;
+  if (!body) {
+    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
+  }
+
+  try {
+    const jsonResponse = await handleUpload({
+      body,
+      request,
+      onBeforeGenerateToken: async (_pathname, clientPayload) => {
+        let email = "";
+        let field = "";
+        try {
+          const parsed = JSON.parse(clientPayload ?? "{}");
+          email = String(parsed?.email ?? "").trim();
+          field = String(parsed?.field ?? "");
+        } catch {
+          throw new Error("Invalid upload payload.");
+        }
+
+        if (!isValidEmail(email)) {
+          throw new Error("A valid email is required.");
+        }
+        if (!isProblemDeckField(field)) {
+          throw new Error("Invalid deck field.");
+        }
+        if (!(await registrationExists(email))) {
+          throw new Error("No registration was found for this email.");
+        }
+
+        return {
+          addRandomSuffix: true,
+          maximumSizeInBytes: MAX_SIZE_BYTES,
+          tokenPayload: JSON.stringify({ email, field }),
+        };
+      },
+    });
+
+    return NextResponse.json(jsonResponse);
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Upload authorization failed.";
+    return NextResponse.json({ error: message }, { status: 400 });
+  }
+}

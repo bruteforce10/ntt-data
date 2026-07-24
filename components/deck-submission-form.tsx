@@ -15,6 +15,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { PROBLEM_DECKS, type ProblemDeck } from "@/lib/problem-decks";
+import { upload } from "@vercel/blob/client";
 import { AlertCircle, CheckCircle2, Loader2, X } from "lucide-react";
 
 const MAX_SIZE_BYTES = 8 * 1024 * 1024;
@@ -231,16 +232,33 @@ export default function DeckSubmissionForm() {
     setSubmitError(null);
 
     try {
-      const fd = new FormData();
-      fd.append("email", activeEmail);
+      // Upload each file straight to Vercel Blob first. Client uploads go
+      // browser -> Blob directly, bypassing Vercel's 4.5 MB serverless body
+      // cap, so large decks (up to 8 MB) no longer trigger a 413.
+      const uploads: { field: string; url: string; name: string }[] = [];
       for (const problem of problems) {
         const file = files[problem.deck.id];
-        if (file) fd.append(problem.deck.field, file);
+        if (!file) continue;
+        const blob = await upload(file.name, file, {
+          access: "public",
+          handleUploadUrl: "/api/deck-blob",
+          multipart: true,
+          clientPayload: JSON.stringify({
+            email: activeEmail,
+            field: problem.deck.field,
+          }),
+        });
+        uploads.push({
+          field: problem.deck.field,
+          url: blob.url,
+          name: file.name,
+        });
       }
 
       const res = await fetch("/api/deck-submission", {
         method: "POST",
-        body: fd,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: activeEmail, uploads }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => null);
