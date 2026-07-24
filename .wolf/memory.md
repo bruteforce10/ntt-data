@@ -1312,3 +1312,14 @@
 | 00:10 | Session end: 80 writes across 19 files (site-content.ts, benefit.tsx, data-table.tsx, columns.tsx, deck-submission-form.tsx) | 15 reads | ~34730 tok |
 
 | 11:56 | Resolved sync merge with origin/feat/ntt-data-dashboard (remote 5 commits: react-doctor + other-machine bookkeeping). Conflicts only in generated/.wolf files: memory.md union-merged, buglog.json = theirs(121)+my export bug as bug-122, anatomy.md = theirs(41 files)+reapplied my 3 descriptions, _session/token-ledger/tsbuildinfo taken from remote/ours. Source auto-merged clean; export-xlsx work preserved | merge commit 8d3c76f | tsc clean + 48/48 tests pass | ~4000 |
+| 11:58 | Session end: 80 writes across 19 files (site-content.ts, benefit.tsx, data-table.tsx, columns.tsx, deck-submission-form.tsx) | 15 reads | ~34730 tok |
+
+## Session: 2026-07-24 09:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-07-24 09:40
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|

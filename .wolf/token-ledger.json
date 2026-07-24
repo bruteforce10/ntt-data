@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1606896,
-    "total_reads": 804,
-    "total_writes": 1385,
-    "total_sessions": 82,
-    "anatomy_hits": 325,
-    "anatomy_misses": 445,
-    "repeated_reads_blocked": 215,
-    "estimated_savings_vs_bare_cli": 1245480
+    "total_tokens_estimated": 1641626,
+    "total_reads": 819,
+    "total_writes": 1465,
+    "total_sessions": 84,
+    "anatomy_hits": 335,
+    "anatomy_misses": 450,
+    "repeated_reads_blocked": 217,
+    "estimated_savings_vs_bare_cli": 1263122
   },
   "sessions": [
     {
@@ -14299,6 +14299,513 @@
       "id": "session-2026-07-22-2345",
       "started": "2026-07-22T16:45:25.702Z",
       "ended": "2026-07-22T17:10:48.755Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/benefit.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 2268,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 3799,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 5883,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 9759,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/ui/carousel.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/faq.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/roadmap.tsx",
+          "tokens_estimated": 1719,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/email-table.tsx",
+          "tokens_estimated": 2586,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/record-detail.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem/problem-rich-detail.tsx",
+          "tokens_estimated": 2498,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/hero.tsx",
+          "tokens_estimated": 758,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 847,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 1148,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 56,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 49,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 49,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/benefit.tsx",
+          "tokens_estimated": 104,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 52,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 154,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 35,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 75,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 68,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/ui/carousel.tsx",
+          "tokens_estimated": 27,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 23,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 32,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/faq.tsx",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/roadmap.tsx",
+          "tokens_estimated": 34,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/roadmap.tsx",
+          "tokens_estimated": 18,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/roadmap.tsx",
+          "tokens_estimated": 42,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/roadmap.tsx",
+          "tokens_estimated": 24,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/roadmap.tsx",
+          "tokens_estimated": 60,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 20,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/faq.tsx",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/roadmap.tsx",
+          "tokens_estimated": 20,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/email-table.tsx",
+          "tokens_estimated": 65,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/email-table.tsx",
+          "tokens_estimated": 32,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/email-table.tsx",
+          "tokens_estimated": 36,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/record-detail.tsx",
+          "tokens_estimated": 66,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 34,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 57,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 40,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 96,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 55,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 16,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/columns-config.ts",
+          "tokens_estimated": 93,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/email-table.tsx",
+          "tokens_estimated": 37,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/record-detail.tsx",
+          "tokens_estimated": 32,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 20,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 15,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem/problem-rich-detail.tsx",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem/problem-rich-detail.tsx",
+          "tokens_estimated": 25,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem/problem-rich-detail.tsx",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem/problem-rich-detail.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem/problem-rich-detail.tsx",
+          "tokens_estimated": 29,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem/problem-rich-detail.tsx",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem/problem-rich-detail.tsx",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 66,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 11,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/hero.tsx",
+          "tokens_estimated": 28,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 35,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/navbar.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 118,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 40,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 61,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 131,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 38,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 0,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/startup-registration-form.tsx",
+          "tokens_estimated": 17,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/footer.tsx",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 68,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 18,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 32,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 31,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 66,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 36,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/program-overview.tsx",
+          "tokens_estimated": 8,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 31265,
+        "output_tokens_estimated": 3465,
+        "reads_count": 15,
+        "writes_count": 80,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 10
+      }
+    },
+    {
+      "id": "session-2026-07-22-2345",
+      "started": "2026-07-22T16:45:25.702Z",
+      "ended": "2026-07-23T04:58:11.102Z",
       "reads": [
         {
           "file": "/Users/mm/Documents/ntt-data/components/benefit.tsx",
