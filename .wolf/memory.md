@@ -1410,3 +1410,94 @@
 | 16:51 | Edited components/deck-submission-form.tsx | CSS: guard | ~182 |
 | 16:52 | Added full-screen loading overlay (fixed inset-0 z-[100] + LoaderCircle icon + text, bg-[#154284]/70 backdrop-blur-sm) to fast-track (status==="submitting") and deck-submission (isSubmitting, replacing the old weak absolute/no-icon overlay) — same pattern as startup-registration. Not just the button spinner | components/{fast-track-form,deck-submission-form}.tsx | tsc --noEmit clean; no transform/backdrop ancestors so fixed covers viewport | ~600 |
 | 16:52 | Session end: 18 writes across 3 files (fast-track-form.tsx, deck-submission-form.tsx, route.ts) | 7 reads | ~17819 tok |
+
+## Session: 2026-07-26 22:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:58 | Edited lib/problem-decks.ts | expanded (+11 lines) | ~225 |
+| 22:58 | Edited lib/problem-decks.ts | 6→7 lines | ~58 |
+| 23:00 | Created lib/ntt-data/deck-links.ts | — | ~814 |
+| 23:01 | Created tests/ntt-data/deck-links.test.ts | — | ~1081 |
+| 23:03 | Edited components/dashboard/data-table.tsx | 3→4 lines | ~35 |
+| 23:03 | Edited lib/ntt-data/types.ts | 8→13 lines | ~88 |
+| 23:03 | Edited lib/ntt-data/columns-config.ts | modified map() | ~101 |
+| 23:03 | Edited components/dashboard/data-table.tsx | 1→4 lines | ~26 |
+| 23:04 | Edited components/dashboard/columns.tsx | added 1 condition(s) | ~390 |
+| 23:04 | Edited components/dashboard/columns.tsx | 5→6 lines | ~27 |
+| 23:07 | Edited components/deck-submission-form.tsx | added 1 import(s) | ~81 |
+| 23:07 | Edited components/deck-submission-form.tsx | 3→7 lines | ~134 |
+| 23:07 | Edited components/deck-submission-form.tsx | CSS: id, value | ~91 |
+| 23:07 | Edited components/deck-submission-form.tsx | CSS: id | ~212 |
+| 23:07 | Edited components/deck-submission-form.tsx | CSS: links | ~666 |
+| 23:07 | Edited components/deck-submission-form.tsx | expanded (+6 lines) | ~128 |
+| 23:07 | Edited components/deck-submission-form.tsx | added nullish coalescing | ~471 |
+| 23:08 | Edited components/fast-track-form.tsx | 3→7 lines | ~135 |
+| 23:09 | Edited components/fast-track-form.tsx | modified if() | ~96 |
+| 23:09 | Edited components/fast-track-form.tsx | CSS: field, value | ~72 |
+| 23:09 | Edited components/fast-track-form.tsx | added nullish coalescing | ~716 |
+| 23:09 | Edited components/fast-track-form.tsx | added nullish coalescing | ~426 |
+| 23:09 | Edited components/fast-track-form.tsx | expanded (+6 lines) | ~128 |
+| 23:09 | Edited components/fast-track-form.tsx | added 1 import(s) | ~90 |
+| 23:11 | Edited app/api/deck-submission/route.ts | 4→5 lines | ~43 |
+| 23:11 | Edited app/api/deck-submission/route.ts | added optional chaining | ~176 |
+| 23:11 | Edited app/api/deck-submission/route.ts | added 1 condition(s) | ~156 |
+| 23:11 | Edited app/api/deck-submission/route.ts | modified for() | ~76 |
+| 23:11 | Edited app/api/fast-track/route.ts | 5→6 lines | ~51 |
+| 23:11 | Edited app/api/fast-track/route.ts | added optional chaining | ~175 |
+| 23:11 | Edited app/api/fast-track/route.ts | modified for() | ~74 |
+| 23:11 | Edited app/api/deck-submission/route.ts | added 1 import(s) | ~46 |
+| 23:11 | Edited app/api/fast-track/route.ts | added 1 import(s) | ~46 |
+| 23:15 | Session end: 33 writes across 10 files (problem-decks.ts, deck-links.ts, deck-links.test.ts, data-table.tsx, types.ts) | 11 reads | ~22557 tok |
+| 23:32 | Edited components/deck-submission-form.tsx | inline fix | ~34 |
+| 23:33 | Edited components/fast-track-form.tsx | inline fix | ~33 |
+| 23:33 | Session end: 35 writes across 10 files (problem-decks.ts, deck-links.ts, deck-links.test.ts, data-table.tsx, types.ts) | 11 reads | ~22624 tok |
+| 23:52 | Edited app/api/deck-submission/route.ts | 10→14 lines | ~189 |
+| 23:52 | Edited components/deck-submission-form.tsx | CSS: link | ~51 |
+| 23:52 | Edited components/deck-submission-form.tsx | CSS: link, link | ~122 |
+
+## Session: 2026-07-26 00:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-07-26 00:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:16 | Edited components/deck-submission-form.tsx | CSS: fails | ~265 |
+| 00:16 | Session end: 1 writes across 1 files (deck-submission-form.tsx) | 1 reads | ~7571 tok |
+
+## Session: 2026-07-26 00:19
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 00:27 | Edited lib/ntt-data/deck-links.ts | added 1 condition(s) | ~261 |
+| 00:32 | Finished deck-link fallback: added tested `prefillLinks` helper, extracted shared `LinkTip` to components/deck-link-tip.tsx (used in both forms), wired deck-submission prefill (seeds links from prior submission + auto-opens fallback so it's visible), reverted TEMP `linkFallbackOpen`→false in both forms | lib/ntt-data/deck-links.ts, components/deck-link-tip.tsx (new), components/deck-submission-form.tsx, components/fast-track-form.tsx, tests/ntt-data/deck-links.test.ts | tsc OK, 66/66 tests pass (4 new), eslint clean | ~15k |
+| 00:28 | Created components/deck-link-tip.tsx | — | ~249 |
+| 00:28 | Edited components/deck-submission-form.tsx | added 1 import(s) | ~71 |
+| 00:29 | Edited components/deck-submission-form.tsx | removed 19 lines | ~14 |
+| 00:29 | Edited components/deck-submission-form.tsx | inline fix | ~21 |
+| 00:29 | Edited components/deck-submission-form.tsx | added 1 condition(s) | ~133 |
+| 00:29 | Edited components/deck-submission-form.tsx | added 1 condition(s) | ~145 |
+| 00:30 | Edited components/deck-submission-form.tsx | 6→8 lines | ~59 |
+| 00:30 | Edited components/fast-track-form.tsx | added 1 import(s) | ~48 |
+| 00:30 | Edited components/fast-track-form.tsx | inline fix | ~19 |
+| 00:30 | Edited components/fast-track-form.tsx | 4→5 lines | ~62 |
+| 00:31 | Edited tests/ntt-data/deck-links.test.ts | 1→5 lines | ~29 |
+| 00:31 | Edited tests/ntt-data/deck-links.test.ts | expanded (+33 lines) | ~332 |
+| 00:35 | Session end: 13 writes across 5 files (deck-links.ts, deck-link-tip.tsx, deck-submission-form.tsx, fast-track-form.tsx, deck-links.test.ts) | 9 reads | ~21884 tok |
+| 00:45 | Edited components/deck-submission-form.tsx | CSS: files | ~142 |
+| 00:46 | Session end: 14 writes across 5 files (deck-links.ts, deck-link-tip.tsx, deck-submission-form.tsx, fast-track-form.tsx, deck-links.test.ts) | 9 reads | ~22026 tok |
+| 00:59 | Edited components/deck-link-tip.tsx | 2→2 lines | ~58 |
+| 00:59 | Session end: 15 writes across 5 files (deck-links.ts, deck-link-tip.tsx, deck-submission-form.tsx, fast-track-form.tsx, deck-links.test.ts) | 9 reads | ~22084 tok |
+| 01:09 | Session end: 15 writes across 5 files (deck-links.ts, deck-link-tip.tsx, deck-submission-form.tsx, fast-track-form.tsx, deck-links.test.ts) | 13 reads | ~29066 tok |
+| 01:12 | Edited components/dashboard/columns.tsx | 15→15 lines | ~160 |
+| 01:12 | Edited lib/ntt-data/export-xlsx.ts | 2→6 lines | ~55 |
+| 01:12 | Edited lib/ntt-data/export-xlsx.ts | added 3 condition(s) | ~181 |
+| 01:13 | Edited components/dashboard/data-table.tsx | 4→1 lines | ~17 |
+| 01:13 | Edited components/dashboard/data-table.tsx | 4→3 lines | ~30 |
+| 01:14 | Edited tests/ntt-data/export-xlsx.test.ts | added 1 import(s) | ~49 |
+| 01:14 | Edited tests/ntt-data/export-xlsx.test.ts | expanded (+47 lines) | ~489 |
+| 01:15 | Dashboard PO cell + Excel now ONE combined column per PO: file→"Download", link→"Akses Link", both→"Download - Akses Link" (dash sep). Export folds file download URL + pasted link into one cell (`isProblemDeckField` special-case in export-xlsx cellValue); dropped standalone PROBLEM_DECK_LINK_FIELDS from EXPORT_KEYS. Also earlier: on deck-submission submit error, setFiles({}) clears picked files; LinkTip callout recolored orange | components/dashboard/columns.tsx, lib/ntt-data/export-xlsx.ts, components/dashboard/data-table.tsx, tests/ntt-data/export-xlsx.test.ts, components/deck-submission-form.tsx, components/deck-link-tip.tsx | tsc OK, 66/66 tests (4 new combine), eslint clean | ~40k |
+| 01:16 | Session end: 22 writes across 9 files (deck-links.ts, deck-link-tip.tsx, deck-submission-form.tsx, fast-track-form.tsx, deck-links.test.ts) | 14 reads | ~30047 tok |

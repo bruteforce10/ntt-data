@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1735782,
-    "total_reads": 860,
-    "total_writes": 1564,
-    "total_sessions": 88,
-    "anatomy_hits": 354,
-    "anatomy_misses": 472,
-    "repeated_reads_blocked": 238,
-    "estimated_savings_vs_bare_cli": 1329996
+    "total_tokens_estimated": 1936370,
+    "total_reads": 943,
+    "total_writes": 1712,
+    "total_sessions": 92,
+    "anatomy_hits": 414,
+    "anatomy_misses": 495,
+    "repeated_reads_blocked": 241,
+    "estimated_savings_vs_bare_cli": 1363914
   },
   "sessions": [
     {
@@ -16235,6 +16235,1412 @@
         "writes_count": 18,
         "repeated_reads_blocked": 11,
         "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-07-26-2228",
+      "started": "2026-07-26T15:28:59.684Z",
+      "ended": "2026-07-26T15:43:09.512Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 6520,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 2630,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3256,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3017,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 15423,
+        "output_tokens_estimated": 0,
+        "reads_count": 5,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-26-2228",
+      "started": "2026-07-26T15:28:59.684Z",
+      "ended": "2026-07-26T16:15:20.155Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 6520,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 2630,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3256,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3017,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/columns-config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/record-detail.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 225,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 58,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 814,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 1081,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 35,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 88,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/columns-config.ts",
+          "tokens_estimated": 101,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 390,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 27,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 81,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 134,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 91,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 212,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 666,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 471,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 135,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 96,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 72,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 716,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 426,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 176,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 156,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 76,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 175,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 46,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 15423,
+        "output_tokens_estimated": 7134,
+        "reads_count": 11,
+        "writes_count": 33,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-26-2228",
+      "started": "2026-07-26T15:28:59.684Z",
+      "ended": "2026-07-26T16:33:25.042Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 6520,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 2630,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3256,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3017,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/columns-config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/record-detail.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 225,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 58,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 814,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 1081,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 35,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 88,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/columns-config.ts",
+          "tokens_estimated": 101,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 26,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 390,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 27,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 81,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 134,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 91,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 212,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 666,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 471,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 135,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 96,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 72,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 716,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 426,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 176,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 156,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 76,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 175,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 34,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 33,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 15423,
+        "output_tokens_estimated": 7201,
+        "reads_count": 11,
+        "writes_count": 35,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-07-26-0009",
+      "started": "2026-07-26T17:09:18.864Z",
+      "ended": "2026-07-26T17:10:18.198Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 7306,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 7306,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-07-26-0009",
+      "started": "2026-07-26T17:09:18.864Z",
+      "ended": "2026-07-26T17:16:22.397Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 7306,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 265,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 7306,
+        "output_tokens_estimated": 265,
+        "reads_count": 1,
+        "writes_count": 1,
+        "repeated_reads_blocked": 3,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-07-26-0019",
+      "started": "2026-07-26T17:19:39.871Z",
+      "ended": "2026-07-26T17:35:08.425Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 814,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 1081,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 7514,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 3415,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 670,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 256,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3477,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3214,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 261,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
+          "tokens_estimated": 249,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 71,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 14,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 21,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 133,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 59,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 62,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 29,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 332,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 20441,
+        "output_tokens_estimated": 1443,
+        "reads_count": 9,
+        "writes_count": 13,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 8
+      }
+    },
+    {
+      "id": "session-2026-07-26-0019",
+      "started": "2026-07-26T17:19:39.871Z",
+      "ended": "2026-07-26T17:46:03.282Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 814,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 1081,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 7514,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 3415,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 670,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 256,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3477,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3214,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 261,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
+          "tokens_estimated": 249,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 71,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 14,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 21,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 133,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 59,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 62,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 29,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 332,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 142,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 20441,
+        "output_tokens_estimated": 1585,
+        "reads_count": 9,
+        "writes_count": 14,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 8
+      }
+    },
+    {
+      "id": "session-2026-07-26-0019",
+      "started": "2026-07-26T17:19:39.871Z",
+      "ended": "2026-07-26T17:59:46.664Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 814,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 1081,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 7514,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 3415,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 670,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 256,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3477,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3214,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 261,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
+          "tokens_estimated": 249,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 71,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 14,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 21,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 133,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 59,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 62,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 29,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 332,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 142,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
+          "tokens_estimated": 58,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 20441,
+        "output_tokens_estimated": 1643,
+        "reads_count": 9,
+        "writes_count": 15,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 8
+      }
+    },
+    {
+      "id": "session-2026-07-26-0019",
+      "started": "2026-07-26T17:19:39.871Z",
+      "ended": "2026-07-26T18:09:53.781Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 814,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 1081,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 7514,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 3415,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 670,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 256,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3477,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3214,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 2565,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/columns-config.ts",
+          "tokens_estimated": 628,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 3789,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 261,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
+          "tokens_estimated": 249,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 71,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 14,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 21,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 133,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 59,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 62,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 29,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 332,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 142,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
+          "tokens_estimated": 58,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 27423,
+        "output_tokens_estimated": 1643,
+        "reads_count": 13,
+        "writes_count": 15,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 11
+      }
+    },
+    {
+      "id": "session-2026-07-26-0019",
+      "started": "2026-07-26T17:19:39.871Z",
+      "ended": "2026-07-26T18:16:13.197Z",
+      "reads": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 814,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 1081,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 7514,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 3415,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 670,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts",
+          "tokens_estimated": 256,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts",
+          "tokens_estimated": 3477,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts",
+          "tokens_estimated": 3214,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 2565,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/columns-config.ts",
+          "tokens_estimated": 628,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 3789,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/export-xlsx.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+          "tokens_estimated": 261,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
+          "tokens_estimated": 249,
+          "action": "create"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 71,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 14,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 21,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 133,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 145,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 59,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
+          "tokens_estimated": 62,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 29,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
+          "tokens_estimated": 332,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
+          "tokens_estimated": 142,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
+          "tokens_estimated": 58,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
+          "tokens_estimated": 160,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts",
+          "tokens_estimated": 55,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts",
+          "tokens_estimated": 181,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 17,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/export-xlsx.test.ts",
+          "tokens_estimated": 49,
+          "action": "edit"
+        },
+        {
+          "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/export-xlsx.test.ts",
+          "tokens_estimated": 489,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 27423,
+        "output_tokens_estimated": 2624,
+        "reads_count": 14,
+        "writes_count": 22,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 11
       }
     }
   ],

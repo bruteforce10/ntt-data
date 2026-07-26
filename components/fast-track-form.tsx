@@ -3,11 +3,13 @@
 import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 
 import { upload } from "@vercel/blob/client";
-import { LoaderCircle } from "lucide-react";
+import { Link2, LoaderCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { PROBLEM_DECKS } from "@/lib/problem-decks";
+import { normalizeLinkUrl } from "@/lib/ntt-data/deck-links";
+import { LinkTip } from "@/components/deck-link-tip";
 
 const FILE_ACCEPT = "image/*,.pdf,.ppt,.pptx,application/pdf";
 
@@ -17,6 +19,10 @@ export default function FastTrackForm() {
   const [email, setEmail] = useState("");
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [files, setFiles] = useState<Record<string, File | null>>({});
+  // Fallback links (keyed by deck.field), revealed after a submit error so a
+  // failed upload can still be delivered as a Drive/OneDrive/Dropbox link.
+  const [links, setLinks] = useState<Record<string, string>>({});
+  const [linkFallbackOpen, setLinkFallbackOpen] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
   // Re-entry guard for the async submit — a ref updates synchronously, so a
@@ -33,9 +39,14 @@ export default function FastTrackForm() {
       else next.delete(field);
       return next;
     });
-    // Drop any staged file when its problem is deselected.
+    // Drop any staged file/link when its problem is deselected.
     if (!checked) {
       setFiles((prev) => {
+        const next = { ...prev };
+        delete next[field];
+        return next;
+      });
+      setLinks((prev) => {
         const next = { ...prev };
         delete next[field];
         return next;
@@ -49,6 +60,11 @@ export default function FastTrackForm() {
   ) => {
     const file = event.target.files?.[0] ?? null;
     setFiles((prev) => ({ ...prev, [field]: file }));
+  };
+
+  const handleLinkChange = (field: string, value: string) => {
+    setError(null);
+    setLinks((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (event: FormEvent) => {
@@ -67,8 +83,15 @@ export default function FastTrackForm() {
       setError("Please select at least one problem statement.");
       return;
     }
-    if (!chosen.some((field) => files[field])) {
-      setError("Please attach at least one pitch deck file.");
+    const hasLink = (field: string) => (links[field] ?? "").trim().length > 0;
+    const hasAnyFile = chosen.some((field) => files[field]);
+    const hasAnyLink = chosen.some((field) => hasLink(field));
+    if (!hasAnyFile && !hasAnyLink) {
+      setError(
+        linkFallbackOpen
+          ? "Please attach at least one pitch deck file or paste a link."
+          : "Please attach at least one pitch deck file.",
+      );
       return;
     }
 
@@ -77,9 +100,11 @@ export default function FastTrackForm() {
     try {
       // Upload each deck straight to Vercel Blob first (browser -> Blob),
       // bypassing Vercel's 4.5 MB serverless request cap, then send only the
-      // resulting URLs to our API.
+      // resulting URLs to our API. A deck with a fallback link skips the
+      // upload — the link wins.
       const uploads: { field: string; url: string; name: string }[] = [];
       for (const field of chosen) {
+        if (hasLink(field)) continue;
         const file = files[field];
         if (!file) continue;
         const blob = await upload(file.name, file, {
@@ -91,6 +116,12 @@ export default function FastTrackForm() {
         uploads.push({ field, url: blob.url, name: file.name });
       }
 
+      // Fallback links stand in for a failed upload, one per problem.
+      const linkPayload = chosen.flatMap((field) => {
+        const url = normalizeLinkUrl(links[field] ?? "");
+        return url ? [{ field, url }] : [];
+      });
+
       const response = await fetch("/api/fast-track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -98,18 +129,22 @@ export default function FastTrackForm() {
           email: trimmedEmail,
           problems: chosen,
           uploads,
+          links: linkPayload,
         }),
       });
       if (!response.ok) {
         const data = (await response.json().catch(() => null)) as {
           message?: string;
         } | null;
+        // Reveal the link fallback so a failed upload can be sent as a link.
+        setLinkFallbackOpen(true);
         setError(data?.message || "Something went wrong. Please try again.");
         setStatus("idle");
         return;
       }
       setStatus("success");
     } catch (err) {
+      setLinkFallbackOpen(true);
       setError(
         err instanceof Error ? err.message : "Network error. Please try again.",
       );
@@ -199,6 +234,7 @@ export default function FastTrackForm() {
             Attach a deck for each problem statement you selected (at least one
             required). Accepted: image, PDF, or PPT/PPTX, up to 8&nbsp;MB.
           </p>
+          {linkFallbackOpen && <LinkTip />}
           <div className="space-y-4">
             {selectedDecks.map((deck) => (
               <div key={deck.field} className="space-y-1.5">
@@ -220,6 +256,31 @@ export default function FastTrackForm() {
                     Selected: {files[deck.field]?.name}
                   </p>
                 )}
+
+                {linkFallbackOpen && (
+                  <div className="mt-2 border-t border-dashed border-gray-200 pt-2">
+                    <label
+                      htmlFor={`ft-link-${deck.field}`}
+                      className="flex items-start gap-1.5 text-xs font-medium text-gray-600"
+                    >
+                      <Link2 className="mt-0.5 size-3.5 shrink-0 text-[#0070C0]" />
+                      Trouble uploading? Paste a link instead (Google Drive,
+                      OneDrive, Dropbox…).
+                    </label>
+                    <input
+                      id={`ft-link-${deck.field}`}
+                      type="url"
+                      inputMode="url"
+                      autoComplete="off"
+                      placeholder="https://drive.google.com/…"
+                      value={links[deck.field] ?? ""}
+                      onChange={(event) =>
+                        handleLinkChange(deck.field, event.target.value)
+                      }
+                      className="mt-1.5 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none transition focus:border-[#3176E4] focus:ring-2 focus:ring-[#3176E4]/20"
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -227,12 +288,18 @@ export default function FastTrackForm() {
       )}
 
       {error && (
-        <p
+        <div
           role="alert"
-          className="rounded-lg border border-red-200 bg-red-50 px-4 py-2.5 text-sm text-red-700"
+          className="space-y-1.5 rounded-lg border border-red-200 bg-red-50 px-4 py-2.5 text-sm text-red-700"
         >
-          {error}
-        </p>
+          <p>{error}</p>
+          {linkFallbackOpen && (
+            <p className="text-red-600">
+              Can&apos;t get the upload to work? Paste a link to your deck under
+              any problem above instead.
+            </p>
+          )}
+        </div>
       )}
 
       <Button

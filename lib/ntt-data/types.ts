@@ -1,11 +1,16 @@
-import type { ProblemDeckField } from "@/lib/problem-decks";
+import type {
+  ProblemDeckField,
+  ProblemDeckLinkField,
+} from "@/lib/problem-decks";
 
 export type NttDataFileField =
   | "pick_deck"
   | "company_description_pdf"
   | ProblemDeckField;
 
-export interface NttDataRecord extends Record<ProblemDeckField, string> {
+export interface NttDataRecord
+  extends Record<ProblemDeckField, string>,
+    Record<ProblemDeckLinkField, string> {
   collectionId: string;
   collectionName: string;
   id: string;

@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-24T09:51:12.453Z
-> Files: 7 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-26T18:14:45.002Z
+> Files: 17 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../private/tmp/claude-501/-Users-mm-Documents-ntt-data/76656933-c5c6-4dc9-af53-306958f53131/scratchpad/
 
@@ -42,7 +42,7 @@
 
 ## app/api/deck-submission/
 
-- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3256 tok)
+- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3477 tok)
 
 ## app/api/fast-track-blob/
 
@@ -50,7 +50,7 @@
 
 ## app/api/fast-track/
 
-- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3017 tok)
+- `route.ts` — Only fetch files we staged ourselves. Guards against SSRF: a caller could (~3214 tok)
 
 ## app/api/ntt-data/
 
@@ -81,11 +81,14 @@
 
 ## components/
 
-- `deck-submission-form.tsx` — Error carrying the HTTP status so callers can special-case not-found. (~6520 tok)
-- `fast-track-form.tsx` — FILE_ACCEPT — renders form (~2630 tok)
+- `deck-link-tip.tsx` — Reassurance shown alongside the deck link inputs on both submit forms (~250 tok)
+- `deck-submission-form.tsx` — Previously submitted fallback link (PO_xx_link), for prefilling. (~7542 tok)
+- `fast-track-form.tsx` — FILE_ACCEPT — renders form (~3430 tok)
 
 ## components/dashboard/
 
+- `columns.tsx` — TextCell (~2567 tok)
+- `data-table.tsx` — PAGE_SIZE_OPTIONS — renders table (~3771 tok)
 
 ## components/problem/
 
@@ -107,6 +110,7 @@
 
 ## lib/
 
+- `problem-decks.ts` — PocketBase file-field names on the ntt_data collection, one per (~670 tok)
 - `site-content.ts` — Exports SITE_CONTENT (~24369 tok)
 
 ## lib/auth/
@@ -114,6 +118,10 @@
 
 ## lib/ntt-data/
 
+- `columns-config.ts` — Exports ColumnType, ColumnMeta, COLUMN_META, COLUMN_META_BY_KEY + 2 more (~628 tok)
+- `deck-links.ts` — Normalize a user-pasted deck link into a safe, storable URL. (~1045 tok)
+- `export-xlsx.ts` — Exports recordsToAoa, downloadXlsx (~660 tok)
+- `types.ts` — Exports NttDataFileField, NttDataRecord, ApiResponse (~256 tok)
 
 ## public/
 
@@ -126,6 +134,8 @@
 
 ## tests/ntt-data/
 
+- `deck-links.test.ts` — Declares f1 (~1360 tok)
+- `export-xlsx.test.ts` — Declares record (~1000 tok)
 
 ## utils/
 

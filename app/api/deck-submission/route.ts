@@ -7,6 +7,7 @@ import {
   matchProblemDecks,
   type ProblemDeck,
 } from "@/lib/problem-decks";
+import { collectDeckLinks } from "@/lib/ntt-data/deck-links";
 
 // Files are staged in Vercel Blob and streamed into PocketBase here, so allow
 // headroom over the default 10s for multi-deck submissions.
@@ -160,12 +161,16 @@ export async function GET(request: Request) {
 
     const problems = selectedDecksOf(lookup.record).map((deck) => {
       const value = lookup.record[deck.field];
+      const linkValue = lookup.record[deck.linkField];
       return {
         id: deck.id,
         uploaded: Boolean(value),
         // PocketBase stores the persisted file name (may carry a random
         // suffix); "" when nothing has been uploaded for this deck yet.
         filename: typeof value === "string" ? value : "",
+        // Previously submitted fallback link (PO_xx_link), so the form can
+        // prefill it for editing; "" when none was submitted.
+        link: typeof linkValue === "string" ? linkValue : "",
       };
     });
 
@@ -183,6 +188,7 @@ export async function POST(request: Request) {
     const payload = (await request.json().catch(() => null)) as {
       email?: unknown;
       uploads?: unknown;
+      links?: unknown;
     } | null;
 
     const email = String(payload?.email ?? "").trim();
@@ -214,9 +220,16 @@ export async function POST(request: Request) {
       uploads.push({ deck, url, name });
     }
 
-    if (uploads.length === 0) {
+    // Fallback links (Drive/OneDrive/etc.) stand in for a file when the upload
+    // failed on the client; validated against the selection after lookup below.
+    const rawLinks = Array.isArray(payload?.links) ? payload.links : [];
+    const rawLinkCount = rawLinks.filter(
+      (l) => String((l as { url?: unknown })?.url ?? "").trim().length > 0,
+    ).length;
+
+    if (uploads.length === 0 && rawLinkCount === 0) {
       return NextResponse.json(
-        { message: "Please attach your pitch deck file." },
+        { message: "Please attach your pitch deck file or paste a link." },
         { status: 400 },
       );
     }
@@ -253,6 +266,12 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
+
+    const linkResult = collectDeckLinks(rawLinks, selectedFields);
+    if (!linkResult.ok) {
+      return NextResponse.json({ message: linkResult.message }, { status: 400 });
+    }
+    const links = linkResult.links;
 
     // Decks are optional per problem: registrants may submit any subset now
     // and add or replace the rest later via the same link.
@@ -296,6 +315,11 @@ export async function POST(request: Request) {
         );
       }
       updateForm.append(deck.field, file, name);
+    }
+
+    // Persist each fallback link as a PocketBase text field (PO_xx_link).
+    for (const { deck, url } of links) {
+      updateForm.append(deck.linkField, url);
     }
 
     const updateResponse = await fetch(

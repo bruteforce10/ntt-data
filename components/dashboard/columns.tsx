@@ -6,6 +6,7 @@ import {
   MoreHorizontalIcon,
   DownloadIcon,
   EyeIcon,
+  Link2Icon,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -221,19 +222,44 @@ export const columns: ColumnDef<NttDataRecord>[] = [
       enableSorting: false,
       enableColumnFilter: false,
       enableGlobalFilter: false,
-      cell: ({ row }) =>
-        row.original[deck.field] ? (
-          <a
-            href={`/api/ntt-data/${row.original.id}/file/${deck.field}`}
-            download
-            title={row.original[deck.field]}
-            className="text-xs whitespace-nowrap text-[#0070C0] underline underline-offset-2 hover:text-[#154284]"
-          >
-            Download
-          </a>
-        ) : (
-          <span className="text-slate-400">—</span>
-        ),
+      cell: ({ row }) => {
+        const rec = row.original;
+        const fileName = rec[deck.field];
+        const link = rec[deck.linkField];
+        const hasLink = typeof link === "string" && /^https?:\/\//i.test(link);
+        if (!fileName && !hasLink) {
+          return <span className="text-slate-400">—</span>;
+        }
+        return (
+          <div className="flex items-center gap-1.5 whitespace-nowrap text-xs">
+            {fileName ? (
+              <a
+                href={`/api/ntt-data/${rec.id}/file/${deck.field}`}
+                download
+                title={fileName}
+                className="text-[#0070C0] underline underline-offset-2 hover:text-[#154284]"
+              >
+                Download
+              </a>
+            ) : null}
+            {fileName && hasLink ? (
+              <span className="text-slate-400">-</span>
+            ) : null}
+            {hasLink ? (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={link}
+                className="inline-flex items-center gap-0.5 text-[#0070C0] underline underline-offset-2 hover:text-[#154284]"
+              >
+                <Link2Icon className="size-3" aria-hidden />
+                Akses Link
+              </a>
+            ) : null}
+          </div>
+        );
+      },
     }),
   ),
   {

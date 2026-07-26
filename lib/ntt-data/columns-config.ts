@@ -29,6 +29,13 @@ export const COLUMN_META: ColumnMeta[] = [
       type: "file",
     }),
   ),
+  ...PROBLEM_DECKS.map(
+    (deck): ColumnMeta => ({
+      key: deck.linkField,
+      label: `${deck.id} Link`,
+      type: "url",
+    }),
+  ),
   { key: "funding_stage", label: "Funding Stage", type: "facet" },
   { key: "company_description_pdf", label: "Company Description PDF", type: "file" },
   { key: "company_description", label: "Company Description", type: "text" },
