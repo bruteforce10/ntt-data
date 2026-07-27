@@ -13,11 +13,22 @@ export const PROBLEM_DECK_FIELDS = [
 
 export type ProblemDeckField = (typeof PROBLEM_DECK_FIELDS)[number];
 
+/**
+ * Companion text fields storing a pasted deck link (Google Drive, OneDrive,
+ * etc.), one per problem. Used as a fallback when the file upload fails.
+ */
+export type ProblemDeckLinkField = `${ProblemDeckField}_link`;
+
+export const PROBLEM_DECK_LINK_FIELDS: readonly ProblemDeckLinkField[] =
+  PROBLEM_DECK_FIELDS.map((field) => `${field}_link` as ProblemDeckLinkField);
+
 export interface ProblemDeck {
   /** site-content id, e.g. "PO_01" (same value as the PocketBase field) */
   id: string;
   /** PocketBase file field, e.g. "PO_01" */
   field: ProblemDeckField;
+  /** PocketBase text field for the fallback link, e.g. "PO_01_link" */
+  linkField: ProblemDeckLinkField;
   title: string;
   logoLabel: string;
 }
@@ -39,6 +50,7 @@ export const PROBLEM_DECKS: readonly ProblemDeck[] =
     return {
       id: item.id,
       field,
+      linkField: `${field}_link` as ProblemDeckLinkField,
       title: item.title,
       logoLabel: (item as { logoLabel?: string }).logoLabel ?? "",
     };

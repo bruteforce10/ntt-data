@@ -7,6 +7,7 @@ import {
   matchProblemDecks,
   type ProblemDeck,
 } from "@/lib/problem-decks";
+import { collectDeckLinks } from "@/lib/ntt-data/deck-links";
 
 // Files are staged in Vercel Blob and streamed into PocketBase here, so allow
 // headroom over the default 10s for multi-deck submissions.
@@ -103,6 +104,7 @@ export async function POST(request: Request) {
       email?: unknown;
       problems?: unknown;
       uploads?: unknown;
+      links?: unknown;
     } | null;
 
     const email = String(payload?.email ?? "").trim();
@@ -157,9 +159,20 @@ export async function POST(request: Request) {
       uploads.push({ deck, url, name });
     }
 
-    if (uploads.length === 0) {
+    // Fallback links (Drive/OneDrive/etc.) stand in for a file when the upload
+    // failed on the client, validated against the selected problems.
+    const linkResult = collectDeckLinks(payload?.links, selectedSet);
+    if (!linkResult.ok) {
+      return NextResponse.json({ message: linkResult.message }, { status: 400 });
+    }
+    const links = linkResult.links;
+
+    if (uploads.length === 0 && links.length === 0) {
       return NextResponse.json(
-        { message: "Please attach at least one pitch deck file." },
+        {
+          message:
+            "Please attach at least one pitch deck file or paste a link.",
+        },
         { status: 400 },
       );
     }
@@ -248,6 +261,11 @@ export async function POST(request: Request) {
         );
       }
       pbForm.append(deck.field, file, name);
+    }
+
+    // Persist each fallback link as a PocketBase text field (PO_xx_link).
+    for (const { deck, url } of links) {
+      pbForm.append(deck.linkField, url);
     }
 
     const recordResponse = await fetch(

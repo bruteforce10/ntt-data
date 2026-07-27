@@ -15,10 +15,13 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { PROBLEM_DECKS, type ProblemDeck } from "@/lib/problem-decks";
+import { normalizeLinkUrl, prefillLinks } from "@/lib/ntt-data/deck-links";
+import { LinkTip } from "@/components/deck-link-tip";
 import { upload } from "@vercel/blob/client";
 import {
   AlertCircle,
   CheckCircle2,
+  Link2,
   Loader2,
   LoaderCircle,
   X,
@@ -36,6 +39,8 @@ interface DeckProblem {
   deck: ProblemDeck;
   uploaded: boolean;
   filename: string;
+  /** Previously submitted fallback link (PO_xx_link), for prefilling. */
+  link: string;
 }
 
 interface PendingReplace {
@@ -75,12 +80,14 @@ async function fetchProblems(email: string): Promise<DeckProblem[]> {
       id?: string;
       uploaded?: boolean;
       filename?: string;
+      link?: string;
     }[]
   )
     .map((p) => ({
       deck: PROBLEM_DECKS.find((d) => d.id === p.id),
       uploaded: Boolean(p.uploaded),
       filename: typeof p.filename === "string" ? p.filename : "",
+      link: typeof p.link === "string" ? p.link : "",
     }))
     .filter((p): p is DeckProblem => Boolean(p.deck));
 }
@@ -111,6 +118,10 @@ export default function DeckSubmissionForm() {
   const [loadError, setLoadError] = React.useState<string | null>(null);
   const [problems, setProblems] = React.useState<DeckProblem[]>([]);
   const [files, setFiles] = React.useState<Record<string, File | null>>({});
+  // Fallback links (keyed by deck.id), revealed after a submit error so a
+  // failed upload can still be delivered as a Drive/OneDrive/Dropbox link.
+  const [links, setLinks] = React.useState<Record<string, string>>({});
+  const [linkFallbackOpen, setLinkFallbackOpen] = React.useState(false);
   const [pendingReplace, setPendingReplace] =
     React.useState<PendingReplace | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -126,7 +137,12 @@ export default function DeckSubmissionForm() {
       try {
         const items = await fetchProblems(emailFromQuery);
         if (cancelled) return;
+        const prefilled = prefillLinks(items);
         setProblems(items);
+        setLinks(prefilled);
+        // Reveal any link already on file so it's visible/editable rather than
+        // silently enabling submit while its input stays hidden.
+        if (Object.keys(prefilled).length > 0) setLinkFallbackOpen(true);
         setStatus("ready");
       } catch (err) {
         if (cancelled) return;
@@ -170,8 +186,13 @@ export default function DeckSubmissionForm() {
     setStatus("checking");
     try {
       const items = await fetchProblems(email);
+      const prefilled = prefillLinks(items);
       setActiveEmail(email);
       setProblems(items);
+      setLinks(prefilled);
+      // Reveal any link already on file so it's visible/editable rather than
+      // silently enabling submit while its input stays hidden.
+      if (Object.keys(prefilled).length > 0) setLinkFallbackOpen(true);
       setStatus("ready");
     } catch (err) {
       // Back to the gate so the user can correct the email and retry.
@@ -218,16 +239,29 @@ export default function DeckSubmissionForm() {
     setPendingReplace(null);
   }
 
+  function handleLinkChange(id: string, value: string) {
+    setSubmitError(null);
+    setLinks((prev) => ({ ...prev, [id]: value }));
+  }
+
+  const hasLink = (id: string) => (links[id] ?? "").trim().length > 0;
   const oversizedDeckIds = new Set(
     problems.flatMap((p) =>
-      (files[p.deck.id]?.size ?? 0) > MAX_SIZE_BYTES ? [p.deck.id] : [],
+      // A fallback link overrides the file for its problem, so an oversized
+      // file being replaced by a link no longer blocks submit.
+      !hasLink(p.deck.id) && (files[p.deck.id]?.size ?? 0) > MAX_SIZE_BYTES
+        ? [p.deck.id]
+        : [],
     ),
   );
   const pickedCount = problems.filter((p) => files[p.deck.id]).length;
+  const linkCount = problems.filter((p) => hasLink(p.deck.id)).length;
   const allUploaded =
     problems.length > 0 && problems.every((p) => p.uploaded);
   const canSubmit =
-    !isSubmitting && pickedCount > 0 && oversizedDeckIds.size === 0;
+    !isSubmitting &&
+    (pickedCount > 0 || linkCount > 0) &&
+    oversizedDeckIds.size === 0;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -239,9 +273,11 @@ export default function DeckSubmissionForm() {
     try {
       // Upload each file straight to Vercel Blob first. Client uploads go
       // browser -> Blob directly, bypassing Vercel's 4.5 MB serverless body
-      // cap, so large decks (up to 8 MB) no longer trigger a 413.
+      // cap, so large decks (up to 8 MB) no longer trigger a 413. A problem
+      // with a fallback link skips the upload — the link wins.
       const uploads: { field: string; url: string; name: string }[] = [];
       for (const problem of problems) {
+        if (hasLink(problem.deck.id)) continue;
         const file = files[problem.deck.id];
         if (!file) continue;
         const blob = await upload(file.name, file, {
@@ -260,10 +296,20 @@ export default function DeckSubmissionForm() {
         });
       }
 
+      // Fallback links stand in for a failed/oversized upload, one per problem.
+      const linkPayload = problems.flatMap((problem) => {
+        const url = normalizeLinkUrl(links[problem.deck.id] ?? "");
+        return url ? [{ field: problem.deck.field, url }] : [];
+      });
+
       const res = await fetch("/api/deck-submission", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: activeEmail, uploads }),
+        body: JSON.stringify({
+          email: activeEmail,
+          uploads,
+          links: linkPayload,
+        }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => null);
@@ -273,14 +319,24 @@ export default function DeckSubmissionForm() {
       }
       setProblems((prev) =>
         prev.map((p) =>
-          files[p.deck.id]
-            ? { ...p, uploaded: true, filename: files[p.deck.id]!.name }
+          files[p.deck.id] || hasLink(p.deck.id)
+            ? {
+                ...p,
+                uploaded: true,
+                filename: files[p.deck.id]?.name ?? p.filename,
+              }
             : p,
         ),
       );
       setFiles({});
+      setLinks({});
       setSubmitted(true);
     } catch (err) {
+      // On failure nothing was persisted, so clear the picked files: the user
+      // starts clean — re-pick a fresh file or deliver the deck via the link
+      // fallback we reveal here instead of retrying the same failed upload.
+      setFiles({});
+      setLinkFallbackOpen(true);
       setSubmitError(
         err instanceof Error
           ? err.message
@@ -550,6 +606,8 @@ export default function DeckSubmissionForm() {
               </div>
             </div>
 
+            {linkFallbackOpen && <LinkTip />}
+
             {allUploaded && (
               <p className="flex items-start gap-1.5 rounded-lg bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-700">
                 <CheckCircle2 className="mt-0.5 size-3.5 shrink-0" />
@@ -627,6 +685,36 @@ export default function DeckSubmissionForm() {
                       File exceeds 8 MB. Please choose a smaller file.
                     </p>
                   )}
+
+                  {linkFallbackOpen && (
+                    <div className="mt-3 border-t border-dashed border-gray-200 pt-3">
+                      <Label
+                        htmlFor={`deck-link-${deck.id}`}
+                        className="flex items-start gap-1.5 text-xs font-medium text-gray-600"
+                      >
+                        <Link2 className="mt-0.5 size-3.5 shrink-0 text-[#0070C0]" />
+                        Trouble uploading? Paste a link to your deck instead
+                        (Google Drive, OneDrive, Dropbox…).
+                      </Label>
+                      <Input
+                        id={`deck-link-${deck.id}`}
+                        type="url"
+                        inputMode="url"
+                        autoComplete="off"
+                        placeholder="https://drive.google.com/…"
+                        value={links[deck.id] ?? ""}
+                        onChange={(e) =>
+                          handleLinkChange(deck.id, e.target.value)
+                        }
+                        className="mt-1.5"
+                      />
+                      <p className="mt-1 text-[11px] text-gray-400">
+                        Make sure the link is set to “Anyone with the link can
+                        view.”
+                      </p>
+                    </div>
+                  )}
+
                 </div>
               );
             })}
@@ -634,9 +722,15 @@ export default function DeckSubmissionForm() {
         </div>
 
         {submitError && (
-          <p className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
-            {submitError}
-          </p>
+          <div className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
+            <p>{submitError}</p>
+            {linkFallbackOpen && (
+              <p className="mt-1.5 text-red-600">
+                Can&apos;t get the upload to work? Paste a link to your deck
+                under any problem above instead — we&apos;ll take it from there.
+              </p>
+            )}
+          </div>
         )}
 
         <div className="mt-8 flex justify-end pb-4">

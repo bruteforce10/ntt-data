@@ -1,5 +1,9 @@
 import type { NttDataRecord } from "./types";
 import { COLUMN_META_BY_KEY } from "./columns-config";
+import {
+  isProblemDeckField,
+  type ProblemDeckLinkField,
+} from "@/lib/problem-decks";
 
 type RecordKey = keyof NttDataRecord;
 
@@ -19,6 +23,19 @@ function cellValue(
       return fileUrl(origin, record.id, "company_description_pdf");
     }
     return record.company_description ?? "";
+  }
+
+  // Per-problem deck columns combine the file's download link and the pasted
+  // fallback link into ONE cell, mirroring the dashboard: "<download> - <link>"
+  // when both exist, otherwise whichever is present ("" when neither).
+  if (isProblemDeckField(key)) {
+    const link = record[`${key}_link` as ProblemDeckLinkField];
+    const parts: string[] = [];
+    if (record[key]) parts.push(fileUrl(origin, record.id, key));
+    if (typeof link === "string" && /^https?:\/\//i.test(link)) {
+      parts.push(link);
+    }
+    return parts.join(" - ");
   }
 
   const v = record[key];
