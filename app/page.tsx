@@ -47,7 +47,7 @@ export default function Home() {
       <Benefit />
       <ProblemOverview />
       <Roadmap />
-      <Countdown />
+      {/* <Countdown /> */}
       <Faq />
       <Footer />
     </main>
