@@ -1501,3 +1501,15 @@
 | 01:14 | Edited tests/ntt-data/export-xlsx.test.ts | expanded (+47 lines) | ~489 |
 | 01:15 | Dashboard PO cell + Excel now ONE combined column per PO: file→"Download", link→"Akses Link", both→"Download - Akses Link" (dash sep). Export folds file download URL + pasted link into one cell (`isProblemDeckField` special-case in export-xlsx cellValue); dropped standalone PROBLEM_DECK_LINK_FIELDS from EXPORT_KEYS. Also earlier: on deck-submission submit error, setFiles({}) clears picked files; LinkTip callout recolored orange | components/dashboard/columns.tsx, lib/ntt-data/export-xlsx.ts, components/dashboard/data-table.tsx, tests/ntt-data/export-xlsx.test.ts, components/deck-submission-form.tsx, components/deck-link-tip.tsx | tsc OK, 66/66 tests (4 new combine), eslint clean | ~40k |
 | 01:16 | Session end: 22 writes across 9 files (deck-links.ts, deck-link-tip.tsx, deck-submission-form.tsx, fast-track-form.tsx, deck-links.test.ts) | 14 reads | ~30047 tok |
+
+## Session: 2026-08-03 17:30
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 17:35 | Edited lib/site-content.ts | expanded (+36 lines) | ~1285 |
+| 17:35 | Edited lib/problem-decks.ts | 5→5 lines | ~49 |
+| 17:35 | Edited tests/ntt-data/problem-decks.test.ts | 14→14 lines | ~170 |
+| 17:35 | Edited tests/ntt-data/problem-decks.test.ts | 3→3 lines | ~45 |
+| 17:36 | Edited tests/ntt-data/problem-decks.test.ts | 4→4 lines | ~56 |
+| 17:36 | add PO_13 'Next-Frontier Embodied AI and Robotics for Construction' (The GEAR by Kajima) to problemOverview + extend PROBLEM_DECK_FIELDS + update tests | lib/site-content.ts, lib/problem-decks.ts, tests/ntt-data/problem-decks.test.ts | tsc clean, 10/10 tests pass | ~4k |
+| 17:37 | Session end: 5 writes across 3 files (site-content.ts, problem-decks.ts, problem-decks.test.ts) | 4 reads | ~1605 tok |

@@ -2664,6 +2664,38 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-26T18:14:45.087Z"
+    },
+    {
+      "id": "bug-163",
+      "timestamp": "2026-08-03T10:35:12.528Z",
+      "error_message": "Type error",
+      "file": "lib/site-content.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-03T10:35:12.528Z"
+    },
+    {
+      "id": "bug-164",
+      "timestamp": "2026-08-03T10:35:58.116Z",
+      "error_message": "Incorrect value in code",
+      "file": "tests/ntt-data/problem-decks.test.ts",
+      "root_cause": "Had \"PO_13\"",
+      "fix": "Changed to \"PO_14\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-03T10:35:58.116Z"
     }
   ]
 }

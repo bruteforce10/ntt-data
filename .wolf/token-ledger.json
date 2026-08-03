@@ -2,13 +2,13 @@
   "version": 1,
   "created_at": "2026-05-27T02:41:02.265Z",
   "lifetime": {
-    "total_tokens_estimated": 1936370,
-    "total_reads": 943,
-    "total_writes": 1712,
-    "total_sessions": 92,
+    "total_tokens_estimated": 1937975,
+    "total_reads": 947,
+    "total_writes": 1717,
+    "total_sessions": 93,
     "anatomy_hits": 414,
-    "anatomy_misses": 495,
-    "repeated_reads_blocked": 241,
+    "anatomy_misses": 499,
+    "repeated_reads_blocked": 242,
     "estimated_savings_vs_bare_cli": 1363914
   },
   "sessions": [
@@ -17641,6 +17641,72 @@
         "writes_count": 22,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 11
+      }
+    },
+    {
+      "id": "session-2026-08-03-1730",
+      "started": "2026-08-03T10:30:02.611Z",
+      "ended": "2026-08-03T10:37:05.485Z",
+      "reads": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
+          "tokens_estimated": 1285,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts",
+          "tokens_estimated": 49,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
+          "tokens_estimated": 170,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/jayac/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
+          "tokens_estimated": 56,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 1605,
+        "reads_count": 4,
+        "writes_count": 5,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 0
       }
     }
   ],

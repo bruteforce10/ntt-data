@@ -225,6 +225,41 @@ export const SITE_CONTENT = {
     },
     items: [
       {
+        id: "PO_13",
+        logoLabel: "The GEAR by Kajima",
+        title: "Next-Frontier Embodied AI and Robotics for Construction",
+        description:
+          "Embodied AI and robotics for construction are commercialised mainly for simple, repetitive tasks such as painting, while complex, labour-intensive, high-skill, and high-risk work still relies on manual labour. The GEAR seeks startups pushing embodied AI into more complex construction processes to lift productivity, safety, and quality.",
+        detail: {
+          context: [
+            "Embodied AI and robotics solutions for construction are becoming more commercialised, but current market-ready applications are largely limited to simple, repetitive tasks such as painting. More complex construction tasks, particularly those that are labour-intensive, highly skilled, or high-risk, remain reliant on manual human labour.",
+            "The construction industry continues to face labour shortages, safety risks, and quality/rework issues that robotics and embodied AI are well placed to address. With the most of the market in this space targeting simple, low-complexity tasks, the next opportunity for meaningful impact lies in pushing embodied AI into more complex construction processes, where the potential gains in productivity, safety, and quality are greatest.",
+            "We are seeking to identify and partner with startups working on the next frontier of embodied AI for construction, beyond the already-commercialised solutions the market is familiar with (e.g. painting, rebar tying, concrete finishing, welding). The GEAR is well positioned to trial and validate more advanced robotics solutions in world-class testbeds in Singapore including The GEAR robotics lab and a real construction site R&D environment.",
+            "Without exploring the next frontier of embodied AI, the industry will remain reliant on manual labour for complex, high-risk, and skill-intensive tasks. This means workers continue to be exposed to hazardous conditions, quality and rework issues persist, and increasing labour demand means that project timelines will be extended.",
+          ],
+          description: {
+            develop: [
+              "Many complex construction tasks still rely heavily on manual labour, resulting in excessive time and effort spent on tasks that could be automated, ongoing safety and OHS risks for workers carrying out hazardous or physically demanding activities, and inconsistent quality that leads to defects and rework. We are looking to identify and validate embodied AI / robotics solutions capable of performing more complex construction tasks than those already commercialised in the market, directly addressing time spent on manual work, safety and OHS exposure, and quality/rework outcomes.",
+              "Tailored towards construction site workers and supervisors, construction project managers, quality control teams, and health & safety teams.",
+            ],
+            helpsUsers: [
+              "Complete complex, labour-intensive construction tasks more quickly than can be done by humans alone / existing processes",
+              "Reduce worker exposer to high-risk situations or tasks that have OHS risk",
+              "Execute tasks at consistently high quality with minimal errors or rework",
+            ],
+            solutionMust: [
+              "Perform construction tasks beyond those already commercialised (i.e. excluding painting, rebar tying, welding and concrete finishing), targeting more complex processes",
+              "Demonstrate the ability to complete tasks faster than a human counterpart, improving overall productivity",
+              "Remove human workers from high-risk situations, improving on-site safety",
+              "Deliver more consistent, higher-quality output with fewer errors and less rework than manual methods",
+              "Operate reliably within real-world, dynamic, and unstructured construction site environments",
+              "Be easy to deploy and operate by existing construction workers (ie. Does not require specialised robotics engineer)",
+            ],
+          },
+        },
+        href: "#problem-statements",
+      },
+      {
         // logo: {
         //   src: "/problem-overview/logo-alliance.png",
         //   alt: "Alliance Bank",
@@ -993,6 +1028,7 @@ export const SITE_CONTENT = {
         },
         href: "#problem-statements",
       },
+
       // {
       //   logo: {
       //     src: "/Logo/GlobalLogo_NTTDATA_White_RGB.png",

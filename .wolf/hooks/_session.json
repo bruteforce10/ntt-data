@@ -1,226 +1,68 @@
 {
-  "session_id": "session-2026-07-26-0019",
-  "started": "2026-07-26T17:19:39.871Z",
+  "session_id": "session-2026-08-03-1730",
+  "started": "2026-08-03T10:30:02.611Z",
   "files_read": {
-    "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts": {
-      "count": 1,
-      "tokens": 814,
-      "first_read": "2026-07-26T17:21:10.106Z"
+    "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts": {
+      "count": 2,
+      "tokens": 0,
+      "first_read": "2026-08-03T10:33:35.276Z"
     },
-    "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts": {
-      "count": 1,
-      "tokens": 1081,
-      "first_read": "2026-07-26T17:21:10.992Z"
-    },
-    "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx": {
-      "count": 1,
-      "tokens": 7514,
-      "first_read": "2026-07-26T17:22:10.716Z"
-    },
-    "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx": {
-      "count": 1,
-      "tokens": 3415,
-      "first_read": "2026-07-26T17:22:11.118Z"
-    },
-    "/Users/mm/Documents/ntt-data/lib/problem-decks.ts": {
-      "count": 1,
-      "tokens": 670,
-      "first_read": "2026-07-26T17:22:11.742Z"
-    },
-    "/Users/mm/Documents/ntt-data/lib/ntt-data/types.ts": {
-      "count": 1,
-      "tokens": 256,
-      "first_read": "2026-07-26T17:22:12.360Z"
-    },
-    "/Users/mm/Documents/ntt-data/app/api/deck-submission/route.ts": {
-      "count": 1,
-      "tokens": 3477,
-      "first_read": "2026-07-26T17:23:01.890Z"
-    },
-    "/Users/mm/Documents/ntt-data/app/api/fast-track/route.ts": {
-      "count": 1,
-      "tokens": 3214,
-      "first_read": "2026-07-26T17:23:02.009Z"
-    },
-    "/Users/mm/Documents/ntt-data/package.json": {
+    "C:/Users/jayac/Documents/ntt-data/components/problem-overview.tsx": {
       "count": 1,
       "tokens": 0,
-      "first_read": "2026-07-26T17:26:31.057Z"
+      "first_read": "2026-08-03T10:34:04.843Z"
     },
-    "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx": {
-      "count": 1,
-      "tokens": 2565,
-      "first_read": "2026-07-26T18:08:05.868Z"
-    },
-    "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts": {
+    "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts": {
       "count": 1,
       "tokens": 0,
-      "first_read": "2026-07-26T18:08:06.632Z"
+      "first_read": "2026-08-03T10:35:24.528Z"
     },
-    "/Users/mm/Documents/ntt-data/lib/ntt-data/columns-config.ts": {
-      "count": 1,
-      "tokens": 628,
-      "first_read": "2026-07-26T18:08:06.789Z"
-    },
-    "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx": {
-      "count": 1,
-      "tokens": 3789,
-      "first_read": "2026-07-26T18:09:09.275Z"
-    },
-    "/Users/mm/Documents/ntt-data/tests/ntt-data/export-xlsx.test.ts": {
+    "C:/Users/jayac/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts": {
       "count": 1,
       "tokens": 0,
-      "first_read": "2026-07-26T18:14:02.896Z"
+      "first_read": "2026-08-03T10:35:37.015Z"
     }
   },
   "files_written": [
     {
-      "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/deck-links.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/lib/site-content.ts",
       "action": "edit",
-      "tokens": 261,
-      "at": "2026-07-26T17:27:55.457Z"
+      "tokens": 1285,
+      "at": "2026-08-03T10:35:12.521Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
-      "action": "create",
-      "tokens": 249,
-      "at": "2026-07-26T17:28:24.957Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
-      "action": "edit",
-      "tokens": 71,
-      "at": "2026-07-26T17:28:53.112Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
-      "action": "edit",
-      "tokens": 14,
-      "at": "2026-07-26T17:29:11.855Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
-      "action": "edit",
-      "tokens": 21,
-      "at": "2026-07-26T17:29:19.794Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
-      "action": "edit",
-      "tokens": 133,
-      "at": "2026-07-26T17:29:34.714Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
-      "action": "edit",
-      "tokens": 145,
-      "at": "2026-07-26T17:29:46.282Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
-      "action": "edit",
-      "tokens": 59,
-      "at": "2026-07-26T17:30:03.002Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
-      "action": "edit",
-      "tokens": 48,
-      "at": "2026-07-26T17:30:38.345Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
-      "action": "edit",
-      "tokens": 19,
-      "at": "2026-07-26T17:30:44.157Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/fast-track-form.tsx",
-      "action": "edit",
-      "tokens": 62,
-      "at": "2026-07-26T17:30:51.991Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
-      "action": "edit",
-      "tokens": 29,
-      "at": "2026-07-26T17:31:17.235Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/deck-links.test.ts",
-      "action": "edit",
-      "tokens": 332,
-      "at": "2026-07-26T17:31:28.360Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-submission-form.tsx",
-      "action": "edit",
-      "tokens": 142,
-      "at": "2026-07-26T17:45:30.475Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/deck-link-tip.tsx",
-      "action": "edit",
-      "tokens": 58,
-      "at": "2026-07-26T17:59:37.643Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/dashboard/columns.tsx",
-      "action": "edit",
-      "tokens": 160,
-      "at": "2026-07-26T18:12:25.591Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts",
-      "action": "edit",
-      "tokens": 55,
-      "at": "2026-07-26T18:12:44.161Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/lib/ntt-data/export-xlsx.ts",
-      "action": "edit",
-      "tokens": 181,
-      "at": "2026-07-26T18:12:58.853Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
-      "action": "edit",
-      "tokens": 17,
-      "at": "2026-07-26T18:13:16.069Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/components/dashboard/data-table.tsx",
-      "action": "edit",
-      "tokens": 30,
-      "at": "2026-07-26T18:13:30.712Z"
-    },
-    {
-      "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/export-xlsx.test.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/lib/problem-decks.ts",
       "action": "edit",
       "tokens": 49,
-      "at": "2026-07-26T18:14:34.413Z"
+      "at": "2026-08-03T10:35:33.573Z"
     },
     {
-      "file": "/Users/mm/Documents/ntt-data/tests/ntt-data/export-xlsx.test.ts",
+      "file": "C:/Users/jayac/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
       "action": "edit",
-      "tokens": 489,
-      "at": "2026-07-26T18:14:45.083Z"
+      "tokens": 170,
+      "at": "2026-08-03T10:35:53.480Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
+      "action": "edit",
+      "tokens": 45,
+      "at": "2026-08-03T10:35:58.112Z"
+    },
+    {
+      "file": "C:/Users/jayac/Documents/ntt-data/tests/ntt-data/problem-decks.test.ts",
+      "action": "edit",
+      "tokens": 56,
+      "at": "2026-08-03T10:36:02.656Z"
     }
   ],
   "edit_counts": {
-    "lib/ntt-data/deck-links.ts": 1,
-    "components/deck-link-tip.tsx": 2,
-    "components/deck-submission-form.tsx": 7,
-    "components/fast-track-form.tsx": 3,
-    "tests/ntt-data/deck-links.test.ts": 2,
-    "components/dashboard/columns.tsx": 1,
-    "lib/ntt-data/export-xlsx.ts": 2,
-    "components/dashboard/data-table.tsx": 2,
-    "tests/ntt-data/export-xlsx.test.ts": 2
+    "lib/site-content.ts": 1,
+    "lib/problem-decks.ts": 1,
+    "tests/ntt-data/problem-decks.test.ts": 3
   },
-  "anatomy_hits": 11,
-  "anatomy_misses": 3,
-  "repeated_reads_warned": 0,
+  "anatomy_hits": 0,
+  "anatomy_misses": 4,
+  "repeated_reads_warned": 1,
   "cerebrum_warnings": 0,
-  "stop_count": 5
+  "stop_count": 1
 }

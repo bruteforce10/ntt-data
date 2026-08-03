@@ -9,18 +9,18 @@ import {
 
 describe("PROBLEM_DECKS", () => {
   it("derives one entry per problemOverview item with PO_xx ids", () => {
-    expect(PROBLEM_DECKS.length).toBe(12);
+    expect(PROBLEM_DECKS.length).toBe(13);
     expect(PROBLEM_DECKS.map((d) => d.id)).toEqual([
       "PO_01", "PO_02", "PO_03", "PO_04", "PO_05",
       "PO_06", "PO_07", "PO_08", "PO_09", "PO_10",
-      "PO_11", "PO_12",
+      "PO_11", "PO_12", "PO_13",
     ]);
   });
 
   it("maps every site-content id to its PocketBase field name (id === field)", () => {
     expect(PROBLEM_DECKS.map((d) => d.field)).toEqual([...PROBLEM_DECK_FIELDS]);
     expect(PROBLEM_DECKS[0].field).toBe("PO_01");
-    expect(PROBLEM_DECKS[11].field).toBe("PO_12");
+    expect(PROBLEM_DECKS[12].field).toBe("PO_13");
   });
 
   it("carries a non-empty title for every entry", () => {
@@ -49,7 +49,7 @@ describe("isProblemDeckField", () => {
     expect(isProblemDeckField("PO-01")).toBe(false); // old hyphen format is not a field
 
     expect(isProblemDeckField("pick_deck")).toBe(false);
-    expect(isProblemDeckField("PO_13")).toBe(false);
+    expect(isProblemDeckField("PO_14")).toBe(false);
     expect(isProblemDeckField("")).toBe(false);
   });
 });
@@ -71,9 +71,9 @@ describe("matchProblemDecks", () => {
     ]);
   });
 
-  it("matches all twelve when every title is present", () => {
+  it("matches all thirteen when every title is present", () => {
     const statement = PROBLEM_DECKS.map((d) => d.title).join(", ");
-    expect(matchProblemDecks(statement).length).toBe(12);
+    expect(matchProblemDecks(statement).length).toBe(13);
   });
 
   it("returns an empty list for empty or unrelated text", () => {
