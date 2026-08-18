@@ -2,7 +2,8 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site-config";
 
 // Public, indexable routes only — /login and /dashboard are intentionally
-// excluded (admin area, noindex).
+// excluded (admin area, noindex), and /startup-registration is temporarily
+// redirected to / while registration is closed.
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -10,12 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
-    },
-    {
-      url: `${SITE_URL}/startup-registration`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
     },
     {
       url: `${SITE_URL}/faq`,
