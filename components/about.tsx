@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import NotifyCta from "@/components/notify/notify-cta";
 import { ArrowRight } from "lucide-react";
 import { SITE_CONTENT } from "@/lib/site-content";
 
@@ -23,13 +23,12 @@ export default function About() {
           <p className="text-sm leading-relaxed max-w-[800px] text-left text-gray-800 sm:text-base lg:text-lg">
             {about.description}
           </p>
-          <Link
-            href={about.cta.href}
+          <NotifyCta
+            label={about.cta.label}
             className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-b from-white to-gray-100 px-9 py-3.5 text-base font-bold text-[#0070C0] shadow-md shadow-black/15 ring-1 ring-black/5 transition duration-200 hover:to-gray-200 hover:text-[#3176E4] hover:shadow-lg sm:text-lg"
           >
-            <span>{about.cta.label}</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 sm:h-5 sm:w-5" />
-          </Link>
+          </NotifyCta>
         </div>
       </div>
     </section>

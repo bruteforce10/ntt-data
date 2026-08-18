@@ -7,7 +7,7 @@ export const SITE_CONTENT = {
     title: "About the NTT DATA Open Innovation Program",
     description:
       "Are you a startup or a nextgen company ready to scale your solution with real enterprise impact? The NTT DATA Open Innovation Program offers you the chance to collaborate directly with NTT DATA and its clients during a 2-day, hands-on innovation sprint in Singapore, from August 31 to September 2, 2026.  You’ll work side by side with these client teams and NTT DATA experts to tackle real-world challenges, shape a Proof of Concept, and present your solution in the final pitch battle. The winning teams will receive funded technical and development support to help bring their Proof of Concept (PoC) to life.",
-    cta: { label: "Register", href: "/startup-registration" },
+    cta: { label: "Get Notified for Next Program" },
   },
   benefit: {
     title: "Why Participate?",
@@ -169,8 +169,10 @@ export const SITE_CONTENT = {
     ],
     actions: [
       {
-        label: "REGISTER",
-        href: "/startup-registration",
+        // Shortened for the narrow dock pill; NotifyCta carries the full
+        // wording as its aria-label.
+        label: "GET NOTIFIED",
+        ariaLabel: "Get Notified for Next Program",
         variant: "primary",
         comingSoon: false,
       },
@@ -207,7 +209,7 @@ export const SITE_CONTENT = {
     title: ["NTT DATA OPEN", "INNOVATION PROGRAM"],
     description:
       "An initiative brought by NTT DATA. We are looking at innovative startup solutions that address business challenges and solve societal issues.",
-    action: { label: "REGISTER", href: "/startup-registration" },
+    action: { label: "GET NOTIFIED FOR NEXT PROGRAM" },
   },
   countdown: {
     title: "Registration Deadline: July 27, 2026",

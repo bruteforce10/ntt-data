@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import NotifyCta from "@/components/notify/notify-cta";
 import { buttonVariants } from "@/components/ui/button";
 import { SITE_CONTENT } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
@@ -56,15 +56,13 @@ export default function Hero() {
           <p className="mb-8 max-w-[520px] text-sm leading-relaxed text-white/88 sm:mb-10 sm:text-base md:text-lg">
             {hero.description}
           </p>
-          <Link
-            href={hero.action.href}
+          <NotifyCta
+            label={hero.action.label}
             className={cn(
               buttonVariants({ variant: "default" }),
-              "h-12 w-48 rounded-full border-0 bg-[#3176e4] text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#2560c8] sm:h-14 sm:w-56 sm:text-sm",
+              "h-12 w-56 rounded-full border-0 bg-[#3176e4] px-6 text-center text-[0.65rem] font-bold uppercase leading-tight tracking-widest text-white transition-colors hover:bg-[#2560c8] sm:h-14 sm:w-72 sm:text-xs",
             )}
-          >
-            {hero.action.label}
-          </Link>
+          />
         </div>
       </div>
     </section>

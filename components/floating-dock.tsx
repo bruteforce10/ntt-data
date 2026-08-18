@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
+import NotifyCta from "@/components/notify/notify-cta";
 import { SITE_CONTENT } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
@@ -47,9 +48,11 @@ function ActionButton({
   }
 
   return (
-    <a href={action.href} className={className}>
-      {action.label}
-    </a>
+    <NotifyCta
+      label={action.label}
+      ariaLabel={action.ariaLabel}
+      className={className}
+    />
   );
 }
 
@@ -102,7 +105,7 @@ export default function FloatingDock() {
 
           <div className="flex items-center gap-3">
             {navbar.actions.map((action) => (
-              <ActionButton key={action.href} action={action} />
+              <ActionButton key={action.label} action={action} />
             ))}
           </div>
         </div>
@@ -131,7 +134,7 @@ export default function FloatingDock() {
             </nav>
             <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-4">
               {navbar.actions.map((action) => (
-                <ActionButton key={action.href} action={action} fullWidth />
+                <ActionButton key={action.label} action={action} fullWidth />
               ))}
             </div>
           </div>
