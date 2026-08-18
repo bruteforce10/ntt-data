@@ -133,14 +133,17 @@ Request body: `{ email: string, website?: string }` (`website` adalah honeypot).
 
 ```
 POST /api/notify-subscription
-  ├─ honeypot `website` terisi?       → 200 { success: true }, tanpa kirim email
-  ├─ isValidEmail(email)?             → tidak: 400 { success: false, error }
-  ├─ rate limit per IP (5 / 10 menit) → lewat: 429 { success: false, error }
-  └─ transporter.sendMail             → gagal: 500 { success: false, error }
-                                      → 200 { success: true }
+  ├─ honeypot `website` terisi?       → 200 { ok: true }, tanpa kirim email
+  ├─ isValidEmail(email)?             → tidak: 400 { message }
+  ├─ rate limit per IP (5 / 10 menit) → lewat: 429 { message }
+  └─ transporter.sendMail             → gagal: 500 { message }
+                                      → 200 { ok: true }
 ```
 
-Respons mengikuti envelope `ApiResponse` yang dipakai proyek: `{ success, data?, error? }`.
+Respons mengikuti konvensi route yang sudah ada di proyek — error berupa
+`{ message }` (lihat `app/api/deck-submission/route.ts:272`), bukan envelope
+`{ success, data, error }`. Klien membaca `data?.message`, sama seperti
+`components/deck-submission-form.tsx:317`.
 
 ### Email yang dikirim
 
@@ -199,7 +202,7 @@ kode form dan API tetap utuh.
 | `site-content.ts` `about.cta` | `{ label: "Register", href: "/startup-registration" }` | `{ label: "Get Notified for Next Program" }` |
 | `site-content.ts` `hero.action` | `{ label: "REGISTER", href: "/startup-registration" }` | `{ label: "GET NOTIFIED FOR NEXT PROGRAM" }` |
 | `site-content.ts` `navbar.actions[0]` | `{ label: "REGISTER", href: "/startup-registration" }` | `{ label: "GET NOTIFIED" }` |
-| `problem-overview.tsx` tombol detail | `router.push("/startup-registration?problem=N")` | buka `NotifyDialog` |
+| `problem-overview.tsx` tombol detail | label "Select the Problem Statement" + `router.push("/startup-registration?problem=N")` | label "Get Notified for Next Program", menutup dialog detail lalu membuka `NotifyDialog` |
 
 `href` dihapus dari ketiga entri karena tidak lagi menjadi tautan navigasi. Properti
 `variant` dan `comingSoon` pada `navbar.actions[0]` dipertahankan sehingga helper
