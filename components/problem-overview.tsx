@@ -1,10 +1,10 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { SITE_CONTENT } from "@/lib/site-content";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import NotifyDialog from "@/components/notify/notify-dialog";
 import ProblemRichDetail, {
   type ProblemRichDetail as ProblemRichDetailData,
 } from "@/components/problem/problem-rich-detail";
@@ -48,16 +48,19 @@ interface ProblemOverviewItem {
 }
 
 export default function ProblemOverview() {
-  const router = useRouter();
   const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
+  const [notifyOpen, setNotifyOpen] = React.useState(false);
   const selected = (
     selectedIndex !== null ? problemOverview.items[selectedIndex] : null
   ) as ProblemOverviewItem | null;
 
-  function handleSelectProblem() {
-    if (selectedIndex === null) return;
-    router.push(`/startup-registration?problem=${selectedIndex}`);
+  /**
+   * Registration is closed, so the detail dialog hands off to the notify
+   * dialog. Close the detail first — Base UI does not stack two modals.
+   */
+  function handleNotifyMe() {
     setSelectedIndex(null);
+    setNotifyOpen(true);
   }
 
   return (
@@ -142,12 +145,12 @@ export default function ProblemOverview() {
               <div className="mt-10">
                 <button
                   type="button"
-                  onClick={handleSelectProblem}
+                  onClick={handleNotifyMe}
                   className="w-full rounded-xl bg-[#154284] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#0d2d6b]"
                 >
-                  Select the
+                  Get Notified for
                   <br />
-                  Problem Statement
+                  Next Program
                 </button>
               </div>
             </div>
@@ -317,6 +320,8 @@ export default function ProblemOverview() {
           </div>
         </DialogContent>
       </Dialog>
+
+      <NotifyDialog open={notifyOpen} onOpenChange={setNotifyOpen} />
     </section>
   );
 }
