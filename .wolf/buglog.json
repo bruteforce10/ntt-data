@@ -2906,6 +2906,106 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-18T22:58:00Z"
+    },
+    {
+      "id": "bug-178",
+      "timestamp": "2026-08-18T16:14:37.161Z",
+      "error_message": "Significant refactor of ",
+      "file": "components/notify/notify-dialog.tsx",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 14\u219220 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-18T16:14:37.161Z"
+    },
+    {
+      "id": "bug-179",
+      "timestamp": "2026-08-18T16:15:22.768Z",
+      "error_message": "Type error",
+      "file": "components/notify/notify-form.tsx",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-18T16:15:22.768Z"
+    },
+    {
+      "id": "bug-180",
+      "timestamp": "2026-08-18T16:15:24.739Z",
+      "error_message": "CSS fix: name",
+      "file": "tests/notify/notify-form.test.tsx",
+      "root_cause": "name: /close/i \u2192 /done/i",
+      "fix": "Changed name: /close/i \u2192 /done/i",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-18T16:15:24.739Z"
+    },
+    {
+      "id": "bug-181",
+      "timestamp": "2026-08-18T16:15:26.227Z",
+      "error_message": "Wrong reference: close$ should be done$",
+      "file": "tests/notify/notify-dialog.test.tsx",
+      "root_cause": "Used \"close$\" instead of \"done$\"",
+      "fix": "Changed close$ \u2192 done$",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-18T16:15:26.227Z"
+    },
+    {
+      "id": "bug-182",
+      "timestamp": "2026-08-18T23:20:00Z",
+      "error_message": "User report: 'ada bug pada pop upnya di icon x nya tak bisa berfungsi closenya' \u2014 the X button in the Get Notified dialog did not close it",
+      "file": "components/notify/notify-dialog.tsx",
+      "root_cause": "DialogContent carried key={open ? 'open' : 'closed'}, added only to reset the form between opens. Base UI keeps the popup mounted through its exit animation (data-closed:animate-out); when open flipped to false the key flipped too, so React tore the whole Portal/Popup subtree down mid-transition and animationend never fired, stranding the popup on screen. jsdom hid this entirely because it runs no CSS animations - a diagnostic test of the same click passed there.",
+      "fix": "Moved the key off DialogContent onto <NotifyForm>. The form still remounts per open, but Base UI's popup subtree is left stable. Added tests/notify/notify-dialog.test.tsx covering X-close, Escape-close, and blank-form-on-reopen.",
+      "tags": [
+        "base-ui",
+        "dialog",
+        "react-key",
+        "remount",
+        "animation",
+        "jsdom-blind-spot"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-18T23:20:00Z"
+    },
+    {
+      "id": "bug-183",
+      "timestamp": "2026-08-18T23:20:00Z",
+      "error_message": "TestingLibraryElementError: Found multiple elements with the role \"button\" and name `/^close$/i`",
+      "file": "components/notify/notify-form.tsx",
+      "root_cause": "The success panel's dismiss button was labelled 'Close', duplicating the accessible name of the dialog's built-in X (which carries a sr-only 'Close'). Two identically-named controls in one dialog are ambiguous for screen reader users.",
+      "fix": "Renamed the success panel button to 'Done' and updated the two tests that targeted it by name.",
+      "tags": [
+        "accessibility",
+        "aria",
+        "duplicate-accessible-name",
+        "testing-library"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-18T23:20:00Z"
     }
   ]
 }

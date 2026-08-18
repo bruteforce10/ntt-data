@@ -20,9 +20,7 @@ export default function NotifyDialog({
 }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      {/* Remounting on each open resets NotifyForm's state, so a closed
-          success panel does not greet the next visitor. */}
-      <DialogContent key={open ? "open" : "closed"} className="p-6 sm:max-w-md">
+      <DialogContent className="p-6 sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-lg text-[#154284]">
             Get Notified for Next Program
@@ -32,7 +30,15 @@ export default function NotifyDialog({
             we&apos;ll let you know as soon as the next one opens.
           </DialogDescription>
         </DialogHeader>
-        <NotifyForm onDone={() => onOpenChange(false)} />
+        {/* Keyed so each open remounts the form and a closed success panel does
+            not greet the next visitor. The key belongs HERE, not on
+            DialogContent: keying the popup tore Base UI's subtree down mid
+            exit-animation, stranding it on screen so X/Esc/backdrop all
+            appeared dead. */}
+        <NotifyForm
+          key={open ? "open" : "closed"}
+          onDone={() => onOpenChange(false)}
+        />
       </DialogContent>
     </Dialog>
   );

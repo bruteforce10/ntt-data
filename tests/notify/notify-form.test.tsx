@@ -94,7 +94,7 @@ describe("NotifyForm", () => {
     await user.type(screen.getByLabelText(/^email$/i), "founder@startup.io");
     await user.click(screen.getByRole("button", { name: /notify me/i }));
     await screen.findByText(/you're on the list/i);
-    await user.click(screen.getByRole("button", { name: /close/i }));
+    await user.click(screen.getByRole("button", { name: /done/i }));
 
     expect(onDone).toHaveBeenCalledTimes(1);
   });

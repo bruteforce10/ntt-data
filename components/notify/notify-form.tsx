@@ -74,8 +74,11 @@ export default function NotifyForm({ onDone }: { onDone?: () => void }) {
         <p className="text-sm text-muted-foreground">
           We&apos;ll email you as soon as the next program opens.
         </p>
+        {/* Not "Close": the dialog's own X already exposes that accessible
+            name, and two identically-named controls in one dialog are
+            ambiguous for screen reader users. */}
         <Button type="button" variant="outline" onClick={onDone}>
-          Close
+          Done
         </Button>
       </div>
     );
