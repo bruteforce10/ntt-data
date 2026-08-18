@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SITE_CONTENT } from "@/lib/site-content";
+import { isValidEmail } from "@/lib/email-validation";
 import {
   describeRegistrationSubmitError,
   type RegistrationErrorPayload,
@@ -100,10 +101,6 @@ function mapServerFieldErrors(
     if (key) mapped[key] = message;
   }
   return mapped;
-}
-
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 function isValidUrl(value: string) {
