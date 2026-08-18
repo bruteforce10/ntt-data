@@ -86,6 +86,18 @@
 
 - (2026-08-03, Key Learning) **THIRTEEN items now: PO_13 "Next-Frontier Embodied AI and Robotics for Construction"** (logoLabel "The GEAR by Kajima", a 3rd Kajima item alongside PO_05/PO_06) appended after PO_12. Uses the STANDARD `detail` shape (not `sections`) because the source doc's own headers map 1:1 to the component labels: 4 Challenge-Context paragraphs → `detail.context`; the "Develop:" block → `develop` ARRAY `[problem-to-solve text, "Tailored towards …"]` (same two-paragraph pattern as PO_05/PO_06); "That helps users to:" pain-point bullets → `helpsUsers`; "The solution must be able to:" outcome bullets → `solutionMust`. Content kept VERBATIM incl. the source typo "exposer" (per DNR 2026-07-24). **Coupling that MUST move together:** `lib/problem-decks.ts` `PROBLEM_DECKS` maps over EVERY `problemOverview.items` and THROWS if an id lacks a matching field — so adding a site-content item REQUIRES extending `PROBLEM_DECK_FIELDS` (now …PO_13) or the whole deck/registration/dashboard flow crashes at module load. `tests/ntt-data/problem-decks.test.ts` hardcodes the count (→13), the id list, `PROBLEM_DECKS[12].field==="PO_13"`, and had used "PO_13" as its example NON-deck field (changed to "PO_14"). **PocketBase `ntt_data` still needs PO_13 file field AND PO_13_link text field created MANUALLY** before deck uploads/links for this problem work (local token 401s on schema ops — same caveat as PO_11/PO_12). Verified: `tsc --noEmit` clean + problem-decks 10/10.
 
+- **API error responses use `{ message }`, not `{ success, data, error }`.** Route handlers
+  return `NextResponse.json({ message }, { status })` on failure (see
+  `app/api/deck-submission/route.ts:272`) and clients read `data?.message`
+  (`components/deck-submission-form.tsx:317`). The global ECC rules describe an
+  `ApiResponse` envelope — this project does not use it. Follow the codebase.
+- **`@testing-library/react` needs `@testing-library/dom` installed explicitly.** Every
+  pre-existing test was a pure unit test, so the missing peer dep only surfaced on the
+  first component render test. See buglog `bug-177`.
+- **Registration is closed as of 2026-08-18.** `/startup-registration` 307-redirects to `/`
+  via `next.config.ts`. The page, form, and `/api/ntt-data` are intact — deleting the
+  redirect block re-enables everything.
+
 ## Do-Not-Repeat
 
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
@@ -124,3 +136,14 @@
 
 - [2026-07-24] Deck uploads hitting Vercel's `413 FUNCTION_PAYLOAD_TOO_LARGE`: chose **B) Vercel Blob client-upload staging** over **A) capping decks to 4.5 MB + one-request-per-file**. User explicitly wanted to keep the 8 MB limit and bypass Vercel ("tetap 8 MB+ bypass limit dari vercel... setup keamanan nanti aja soalnya butuh cepat"). Rejected A because it would shrink the allowed deck size. Rejected "direct browser→PocketBase" because PocketBase has no per-record scoped upload token and the collection is superuser-locked — opening the update rule would let anyone overwrite others' submissions. The Blob-staging design keeps the superuser token server-side and files in PocketBase (no schema/dashboard change), so despite the user deferring "security setup," no security was actually traded away. Cost: a new `@vercel/blob` dep + the user must link a Blob store to the Vercel project (adds `BLOB_READ_WRITE_TOKEN`) before it works in prod.
 - [2026-07-24] Fast-track (`/api/fast-track`) changed from **409-reject-if-registered** to **UPSERT** (user: "kalau sudah daftar tak apa, di-update aja datanya, gak harus user baru"). Existing email -> PATCH its ntt_data record; new email -> POST. Supporting choices: (1) `problem_statement` is **MERGED** (union of `matchProblemDecks(existing)` ∪ newly selected, canonical PO order), never overwritten — overwrite would drop prior selections AND orphan their deck files (bytes present but title gone from problem_statement). (2) Email lookup moved from the hand-rolled case-SENSITIVE `email='...'` to the shared `buildEmailLookupFilter` (case-insensitive, same as deck-submission) so a different-case email can't spawn a duplicate. Deck files: uploaded fields replace, un-uploaded fields untouched (PATCH is partial); email not rewritten on update (keeps original casing); HTTP 200 update / 201 create. See bug-137.
+
+### 2026-08-18 — Get Notified subscription replaces Register CTAs
+- **Email only, no PocketBase.** User chose notification-email-only over storing subscribers.
+  Trade-off accepted knowingly: no exportable mailing list; recap means searching the inbox.
+- **307 not 308 for the registration redirect.** The shutdown is temporary; a permanent
+  redirect would be cached by browsers indefinitely and be painful to undo.
+- **Honeypot + in-memory rate limit (5/10min) on the public send endpoint.** Per-instance
+  and reset by cold starts — a speed bump, not a guarantee. Chosen over adding Redis.
+- **`NotifyCta` (self-contained) + `NotifyDialog` (controlled) instead of a context provider.**
+  `problem-overview.tsx` already owns a `<Dialog>`, so it closes that first and opens the
+  controlled one — Base UI does not stack modals.
